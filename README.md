@@ -1,10 +1,13 @@
-# Tidory Framework
+# hELLO
 
-[Tidory Framework](http://www.tidory.com) is a framework for [Tistory Skin](https://www.tistory.com/). \
-This template is for **tidory 7.2.x**.
+<p align="center">
+  <img src="https://github.com/pronist/hELLO/blob/master/hELLO.png" width="400">
+</p>
+
+**hELLO** is a simple **Tistory Skin**. Powered by [Tidory Framework](http://www.tidory.com).
 
 ## License
 
-[MIT](https://github.com/tidory/tidory/blob/7.2/LICENSE)
+[MIT](https://github.com/pronist/hELLO/blob/master/LICENSE)
 
-Copyright 2018-2020. [SangWoo Jeong](https://github.com/pronist). All rights reserved.
+Copyright 2020. [SangWoo Jeong](https://github.com/pronist). All rights reserved.

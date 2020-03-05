@@ -8,7 +8,7 @@
     "store": "tidory store",
     "lint": "eslint --ext .js assets tidory.config.js",
     "deploy:developer": "npm run lint && npm run build:compress && push-dir --dir=dist --branch=tistory-skin --cleanup && tidory deploy",
-    "deploy:user": "npm run lint && npm run build && push-dir --dir=dist --branch=dist --cleanup && tidory deploy"
+    "deploy:user": "npm run lint && npm run build && push-dir --dir=dist --branch=dist --cleanup"
   },
   "license": "MIT",
   "repository": {
