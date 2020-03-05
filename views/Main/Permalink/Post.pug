@@ -7,8 +7,24 @@ article#post
 
 style
   :stylus
+    @media screen and (min-width: 600px)
+      #post
+        blockquote[data-ke-style=style1]
+          background url(./images/blockquote_style1.png) no-repeat 50% 0
+          padding 25px 0 0 0
+    @media screen and (max-width: 600px)
+      #post
+        blockquote[data-ke-style=style1]
+          background url(./images/blockquote_mw_style1.png) no-repeat 50% 0
+          background-size 12px 9px
+          padding 19px 0 0 0
     #post
       text-align center
+      .container_postbtn
+        padding-top 30px
+        padding-bottom 5px
+        .postbtn_like
+          border-radius initial
       .category
         font-weight 500
         font-size .95em
@@ -70,8 +86,6 @@ style
           margin-top 20px
           &[data-ke-style=style1]
             text-align: center
-            background url(./images/blockquote_style1.png) no-repeat 50% 0
-            padding 25px 0 0 0
             font-size 1.1em
             p
               color black

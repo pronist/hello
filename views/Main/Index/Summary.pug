@@ -33,7 +33,17 @@ style
       .thumbnail
         width 100%
       .summary
+        display -webkit-box
+        display -ms-flexbox
+        display box
+        -webkit-box-orient vertical
+        -webkit-line-clamp 3
         line-height 1.8em
+        overflow hidden
+        max-height 80px
+        margin-top 1px
+        vertical-align top
+        word-break break-all
       .date
         font-size .87em
         color rgba(0, 0, 0, .3)
