@@ -1,0 +1,38 @@
+{
+  "scripts": {
+    "start": "tidory start",
+    "preview": "tidory preview",
+    "build": "tidory build",
+    "build:compress": "tidory build --compress",
+    "deploy": "tidory deploy",
+    "store": "tidory store",
+    "lint": "eslint --ext .js assets tidory.config.js",
+    "deploy:developer": "npm run lint && npm run build:compress && push-dir --dir=dist --branch=tistory-skin --cleanup && tidory deploy",
+    "deploy:user": "npm run lint && npm run build && push-dir --dir=dist --branch=dist --cleanup && tidory deploy"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pronist/Note"
+  },
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jstransformer-stylus": "^1.5.0",
+    "push-dir": "^0.4.1"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
+    "axios": "^0.19.2",
+    "highlight.js": "^9.18.1",
+    "jquery": "^3.4.1",
+    "lodash": "^4.17.15",
+    "tidory": "^7.2",
+    "uikit": "^3.3.3"
+  }
+}

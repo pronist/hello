@@ -1,0 +1,29 @@
+nav#nav(role="navigation")
+  div(class="uk-float-left")
+    a(href="[##_blog_link_##]")
+      img.profile(src="[##_image_##]" width="48" height="48")
+  div(class="uk-float-right") [##_blog_menu_##]
+
+style
+  :stylus
+    @media screen and (min-width: 600px)
+      #nav
+        margin-bottom 80px
+        margin-top 25px
+        padding 0 30px
+    @media screen and (max-width: 600px)
+      #nav
+        margin-bottom 40px
+        margin-top 15px
+        padding 0 15px
+    #nav
+      width 100%
+      box-sizing border-box
+      overflow hidden
+      ul li
+        float left
+        margin-left 12px
+        font-size .95em
+      img
+        border-radius 50%
+

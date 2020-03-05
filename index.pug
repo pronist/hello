@@ -1,0 +1,23 @@
+extends app
+
+block TIDORY
+  style
+    :stylus
+      #app
+        font-family 'Noto Sans KR', sans-serif
+        margin-bottom 30px
+        *
+          word-break break-all
+        a
+          pointer-events: initial !important
+          color rgba(0, 0, 0, .5)
+          text-decoration none
+          &:hover
+            transition-duration .5s
+            color rgba(0, 0, 0, 1)
+        ul
+          list-style none
+  #app
+    include views/Navigation
+    include views/Main
+    include views/Footer

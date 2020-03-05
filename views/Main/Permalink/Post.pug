@@ -1,0 +1,83 @@
+article#post
+  a.category(href="[##_article_rep_category_link_##]") [##_article_rep_category_##]
+  h1.title [##_article_rep_title_##]
+  include Post/Meta
+  .content [##_article_rep_desc_##]
+
+style
+  :stylus
+    #post
+      text-align center
+      .category
+        font-weight 500
+        font-size .95em
+        color #ed5207
+        &:hover
+          color #ed5207
+      .title
+        font-weight 600
+        margin-top 15px
+        font-size 2em
+      .content
+        text-align left
+        margin-top 50px
+        h2
+          font-size 1.7em
+        h3
+          font-size 1.3em
+        h4
+          font-size 1.1em
+        h2, h3, h4
+          font-weight 600
+        p, span
+          line-height 1.8em
+          letter-spacing .8px
+          > code
+            position relative
+            top -1px
+            color #ed5207
+            white-space nowrap
+            padding 2px 8px
+            background #f8f8f8
+            border-radius 5px
+        b, strong
+          color #ed5207
+          font-size 1em
+          font-weight 400
+        pre
+          border none
+          padding 0
+          code
+            background-color #f8f8f8
+            border-radius 5px
+            padding 15px
+        img
+          border-radius 5px
+        a
+          color #ed5207
+          text-decoration underline
+        table, td, th
+          border none
+        table
+          margin-bottom 0
+          td
+            font-size .9em
+        blockquote
+          font-style initial
+          margin-top 20px
+          &[data-ke-style=style1]
+            text-align: center
+            background url(./images/blockquote_style1.png) no-repeat 50% 0
+            padding 25px 0 0 0
+            font-size 1.1em
+          &[data-ke-style=style2]
+            border solid #acacac
+            border-width 0 0 0 2px
+            padding 1px 0 0 12px
+            color #666
+            line-height 1.8em
+            text-align left
+            font-size .9em
+          &[data-ke-style=style3]
+            font-size 1em
+            background-color white

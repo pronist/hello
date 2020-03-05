@@ -1,0 +1,16 @@
+footer#footer(role="footer")
+  div(class="uk-float-left")
+    small 스킨에 대한 저작권은 #[a(href="https://pronist.tistory.com" target="_blank") 정상우]에게 있습니다.
+  case process.env.APP_MODE
+    when 'build'
+      div(class="uk-float-right")
+        include Footer/SNS
+
+style
+  :stylus
+    #footer
+      overflow hidden
+      padding 0 25px
+      box-sizing border-box
+      margin-top 35px
+      text-align center

@@ -1,0 +1,27 @@
+-
+  const icons = [
+    { class: 'fab fa-github', href: 'https://github.com/pronist' },
+    { class: 'fas fa-blog', href: 'https://pronist.tistory.com' },
+    { class: 'fas fa-book', href: 'https://brunch.co.kr/@pronist#info' },
+    { class: 'fas fa-at', href: 'mailto:pronist@naver.com' }
+  ]
+ul#sns
+  each icon in icons
+    li: a(href=icon.href target="_blank"): i(class=icon.class)
+
+style
+  :stylus
+    @media screen and (min-width: 1178px)
+      #sns
+        position fixed
+        right 25px
+        bottom 25px
+    @media screen and (max-width: 1178px)
+      #sns
+        display none
+    #sns
+      display inline-block
+      margin 0
+      li
+        float left
+        margin-left 12px

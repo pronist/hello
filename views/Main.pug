@@ -1,0 +1,18 @@
+main#main(role="main")
+  s_article_rep
+    include Main/Index
+    include Main/Permalink
+
+style
+  :stylus
+    @media screen and (min-width: 600px)
+      #main
+        width 600px
+    @media screen and (max-width: 600px)
+      #main
+        width 100%
+    #main
+      clear both
+      padding 0 25px
+      box-sizing border-box
+      margin 0 auto
