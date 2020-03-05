@@ -3,6 +3,7 @@ article#post
   h1.title [##_article_rep_title_##]
   include Post/Meta
   .content [##_article_rep_desc_##]
+  include Post/Tag
 
 style
   :stylus
@@ -22,7 +23,7 @@ style
         text-align left
         margin-top 50px
         h2
-          font-size 1.7em
+          font-size 1.5em
         h3
           font-size 1.3em
         h4
@@ -60,6 +61,8 @@ style
           border none
         table
           margin-bottom 0
+          th
+            text-transform initial
           td
             font-size .9em
         blockquote
@@ -70,6 +73,8 @@ style
             background url(./images/blockquote_style1.png) no-repeat 50% 0
             padding 25px 0 0 0
             font-size 1.1em
+            p
+              color black
           &[data-ke-style=style2]
             border solid #acacac
             border-width 0 0 0 2px

@@ -1,0 +1,17 @@
+s_tag_label
+  #tags
+    span.tag [##_tag_label_rep_##]
+
+style
+  :stylus
+    #tags
+      color rgba(0, 0, 0, 0.5)
+      text-align left
+      margin 15px 0
+      &::before
+        content '#'
+        color #ed5207
+        margin-right 5px
+      .tag
+        display inline-block
+        font-size .9em

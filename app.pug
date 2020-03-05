@@ -16,3 +16,7 @@ html(lang="ko")
     s_t3
       div#__tidory
         block TIDORY
+
+  case process.env.NODE_ENV
+    when 'build'
+      script(src="https://kit.fontawesome.com/65f7e05682.js" crossorigin="anonymous")

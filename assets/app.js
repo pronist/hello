@@ -12,9 +12,6 @@
   * after import assets it will be contained in app.js
   */
 
-import '@fortawesome/fontawesome-free/js/all.min'
-import '@fortawesome/fontawesome-free/css/all.min.css'
-
 import $ from 'jquery'
 import hljs from 'highlight.js'
 
