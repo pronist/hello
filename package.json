@@ -2,8 +2,8 @@
   "scripts": {
     "start": "tidory start",
     "preview": "tidory preview",
-    "build": "tidory build",
-    "build:compress": "tidory build --compress",
+    "build": "cross-env NODE_ENV=production tidory build",
+    "build:compress": "cross-env NODE_ENV=build tidory build --compress",
     "deploy": "tidory deploy",
     "store": "tidory store",
     "lint": "eslint --ext .js assets tidory.config.js",
@@ -13,10 +13,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pronist/Note"
+    "url": "https://github.com/pronist/hELLO"
   },
   "devDependencies": {
     "cheerio": "^1.0.0-rc.2",
+    "cross-env": "^7.0.1",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.20.0",

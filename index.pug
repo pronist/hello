@@ -4,9 +4,9 @@ block TIDORY
   style
     :stylus
       #app
-        font-family 'Noto Sans KR', sans-serif
         margin-bottom 30px
-        *
+        *:not(i)
+          font-family 'Noto Sans KR', sans-serif !important
           word-break break-all
         a
           pointer-events: initial !important

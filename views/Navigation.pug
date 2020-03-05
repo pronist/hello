@@ -1,8 +1,8 @@
 nav#nav(role="navigation")
-  div(class="uk-float-left")
+  .profile
     a(href="[##_blog_link_##]")
       img.profile(src="[##_image_##]" width="48" height="48")
-  div(class="uk-float-right") [##_blog_menu_##]
+  .nav [##_blog_menu_##]
 
 style
   :stylus
@@ -20,10 +20,15 @@ style
       width 100%
       box-sizing border-box
       overflow hidden
-      ul li
+      .profile
         float left
-        margin-left 12px
-        font-size .95em
+      .nav
+        float right
+        transform translateY(50%)
+        li
+          float left
+          margin-left 12px
+          font-size .95em
       img
         border-radius 50%
 

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <skin>
    <information>
-      <name>Note</name>
+      <name>hELLO</name>
       <version>1.0</version>
       <description>
-         <![CDATA[Note 티스토리 스킨은 자유롭게 개작하여 사용할 수 있고, 원 저작자의 저작권을 표시하는 것을 조건으로 재배포할 수 있습니다.]]>
+         <![CDATA[hELLO 티스토리 스킨은 자유롭게 개작하여 사용할 수 있고, 원 저작자의 저작권을 표시하는 것을 조건으로 재배포할 수 있습니다.]]>
       </description>
       <license>
          <![CDATA[MIT]]>
@@ -12,7 +12,7 @@
    </information>
    <author>
       <name>SangWoo Jeong</name>
-      <homepage>http://www.tidory.com</homepage>
+      <homepage>http://pronist.tistory.com</homepage>
       <email>pronist@naver.com</email>
    </author>
    <default>

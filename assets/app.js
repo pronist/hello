@@ -12,27 +12,20 @@
   * after import assets it will be contained in app.js
   */
 
-import $ from 'jquery'
-import _ from 'lodash'
-import hljs from 'highlight.js'
-
-import readmore from './lib/readmore'
-import table from './lib/table'
-import scrollSpy from './lib/scrollSpy'
-
 import '@fortawesome/fontawesome-free/js/all.min'
 import '@fortawesome/fontawesome-free/css/all.min.css'
+
+import $ from 'jquery'
+import hljs from 'highlight.js'
+
+import InfiniteScroll from './lib/infiniteScroll'
+import table from './lib/table'
+import scrollSpy from './lib/scrollSpy'
 
 $(document).ready(() => {
   switch ($('body').attr('id')) {
     case 'tt-body-index':
-      return $(document).on('scroll', _.throttle(() => {
-        let page = 1
-        const pixelsFromWindowBottomToBottom = 0 + $(document).height() - $(window).scrollTop() - $(window).height()
-        if (pixelsFromWindowBottomToBottom < 200) {
-          readmore(++page)
-        }
-      }, 500))
+      return InfiniteScroll()
     case 'tt-body-page':
       hljs.initHighlightingOnLoad()
       table()
