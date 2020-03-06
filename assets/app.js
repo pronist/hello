@@ -12,20 +12,15 @@
   * after import assets it will be contained in app.js
   */
 
-import $ from 'jquery'
-import hljs from 'highlight.js'
+import Vue from 'vue'
+import InfiniteScroll from 'vue-infinite-scroll'
 
-import InfiniteScroll from './lib/infiniteScroll'
-import table from './lib/table'
-import scrollSpy from './lib/scrollSpy'
+import ScrollSpy from './components/ScrollSpy.vue'
+import Readmore from './components/Readmore.vue'
 
-$(document).ready(() => {
-  switch ($('body').attr('id')) {
-    case 'tt-body-index':
-      return InfiniteScroll()
-    case 'tt-body-page':
-      hljs.initHighlightingOnLoad()
-      table()
-      return scrollSpy('#spy')
-  }
-})
+Vue.use(InfiniteScroll)
+
+Vue.component('Scrollspy', ScrollSpy)
+Vue.component('Readmore', Readmore)
+
+new Vue({ el: '#app' })

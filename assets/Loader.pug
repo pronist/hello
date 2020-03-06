@@ -1,0 +1,23 @@
+#loader
+  div(class="la-line-scale la-2x uk-position-center")
+    each _ in Array(5)
+      div
+
+script.
+    document.body.setAttribute('class', 'loaded')
+    setTimeout(() => document.getElementById('loader').remove(), 500)
+
+style
+  :stylus
+    .loaded #loader
+      opacity 0
+      transition-duration .5s
+    #loader
+      z-index 9999
+      position fixed
+      top 0
+      width 100%
+      height 100%
+      background-color white
+      .la-line-scale
+        color #fd9372

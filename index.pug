@@ -4,16 +4,15 @@ block TIDORY
   style
     :stylus
       @media screen and (min-width: 1280px)
-        #app
+        #container
           margin-bottom 100px
       @media screen and (max-width: 1280px)
-        #app
+        #container
           margin-bottom 50px
-      #app
+      #container
         *:not(i)
           font-family 'Noto Sans KR', sans-serif !important
           word-break break-all
-          color rgba(0, 0, 0, .7)
         a
           pointer-events: initial !important
           color rgba(0, 0, 0, .5)
@@ -21,9 +20,7 @@ block TIDORY
           &:hover
             transition-duration .5s
             color rgba(0, 0, 0, 1)
-        ul
-          list-style none
-  #app
+  #container
     include views/Navigation
     include views/Main
     include views/Footer

@@ -5,7 +5,11 @@ module.exports = {
     es6: true
   },
   extends: [
-    'standard'
+    'standard',
+    'plugin:vue/recommended'
+  ],
+  plugins: [
+    'vue'
   ],
   globals: {
     Atomics: 'readonly',

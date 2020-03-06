@@ -1,24 +1,29 @@
-.post
-  s_article_rep_thumbnail
-    img.thumbnail(src="[##_article_rep_thumbnail_url_##]")
-  .category: a(href="[##_article_rep_category_link_##]") [##_article_rep_category_##]
-  h1.title: a(href="[##_article_rep_link_##]") [##_article_rep_title_##]
-  p.summary [##_article_rep_summary_##]
-  time.date
-    | →
-    span [##_article_rep_date_##]
+s_cover(name="list")
+  #posts
+    s_cover_item
+      s_cover_item_article_info
+        .post
+          s_cover_item_thumbnail
+            img.thumbnail(src="[##_cover_item_thumbnail_##]")
+          .category: a(href="[##_cover_item_category_url_##]") [##_cover_item_category_##]
+          h1.title: a(href="[##_cover_item_url_##]") [##_cover_item_title_##]
+          p.summary [##_cover_item_summary_##]
+          time.date
+            | →
+            span [##_cover_item_date_##]
+  #app: Readmore
 
 style
   :stylus
     @media screen and (min-width: 600px)
-      .post
+      #posts .post
         .title
             font-size 1.5em
     @media screen and (max-width: 600px)
-      .post
+      #posts .post
         .title
           font-size 1.3em
-    .post
+    #posts .post
       padding 50px 0
       border-top 1px solid rgba(0, 0, 0, .1)
       &:first-of-type

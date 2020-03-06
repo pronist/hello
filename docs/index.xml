@@ -15,6 +15,13 @@
       <homepage>http://pronist.tistory.com</homepage>
       <email>pronist@naver.com</email>
    </author>
+   <cover>
+    <item>
+      <name>list</name>
+      <label><![CDATA[리스트]]></label>
+      <description><![CDATA[글 리스트를 표시합니다.]]></description>
+    </item>
+  </cover>
    <default>
       <recentEntries>5</recentEntries>
       <recentComments>5</recentComments>

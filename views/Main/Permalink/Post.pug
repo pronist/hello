@@ -5,6 +5,12 @@ article#post
   .content [##_article_rep_desc_##]
   include Post/Tag
 
+script.
+  hljs.initHighlightingOnLoad()
+  Array.from(document.getElementsByTagName('table')).forEach(table => {
+    table.setAttribute('class', 'uk-table uk-table-divider')
+  })
+
 style
   :stylus
     @media screen and (min-width: 600px)
@@ -40,6 +46,7 @@ style
           padding 19px 0 0 0
     #post
       text-align center
+      color rgba(0, 0, 0, .8)
       .container_postbtn
         padding-bottom 5px
         .postbtn_like
@@ -84,7 +91,7 @@ style
         &:hover
           color #ed5207
       .title
-        margin-top 15px
+        margin 10px 0
         line-height 1.5em
         font-weight 600
       .content
