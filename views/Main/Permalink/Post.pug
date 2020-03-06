@@ -25,9 +25,6 @@ style
           font-size 1.1em
         .container_postbtn
           padding-top 50px
-        blockquote[data-ke-style=style1]
-          background url(./images/blockquote_style1.png) no-repeat 50% 0
-          padding 25px 0 0 0
     @media screen and (max-width: 600px)
       #post
         .title
@@ -41,9 +38,8 @@ style
         .container_postbtn
           padding-top 30px
         blockquote[data-ke-style=style1]
-          background url(./images/blockquote_mw_style1.png) no-repeat 50% 0
-          background-size 12px 9px
-          padding 19px 0 0 0
+          &::before
+            font-size .85em
     #post
       text-align center
       color rgba(0, 0, 0, .8)
@@ -103,6 +99,12 @@ style
           &[data-ke-style=style1]
             text-align: center
             font-size 1.1em
+            &::before
+              font-family 'Font Awesome 5 Pro'
+              content ''
+              font-weight 600
+              display block
+              margin-bottom 3px
             p
               color black
           &[data-ke-style=style2]
