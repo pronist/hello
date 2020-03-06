@@ -1,7 +1,16 @@
 main#main(role="main")
-  include Main/Covers
   s_article_rep
+    include Main/Index
     include Main/Permalink
+  #app
+    Scrollspy(v-if=`
+      '[##_body_id_##]' === 'tt-body-page'
+    `)
+    Readmore(v-if=`
+      '[##_body_id_##]' === 'tt-body-index' ||
+      '[##_body_id_##]' === 'tt-body-category' ||
+      '[##_body_id_##]' === 'tt-body-archive'
+    `)
 
 style
   :stylus

@@ -11,13 +11,12 @@ import UIkit from 'uikit'
 export default {
   computed: {
     spies () {
-      const spies = []
-      _.each(document.getElementsByTagName('h2'), heading => {
+      return _.reduce(document.getElementsByTagName('h2'), (spies, heading) => {
         const anchor = encodeURIComponent(heading.textContent)
         heading.setAttribute('id', anchor)
         spies.push({ href: '#' + anchor, label: heading.textContent })
-      })
-      return spies
+        return spies
+      }, [])
     }
   },
   mounted () {
