@@ -8,7 +8,8 @@ html(lang="ko")
     meta(name="viewport", content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width")
 
     link(rel="alternate", type="application/rss+xml", title="[##_title_##]", href="[##_rss_url_##]")
-    link(rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notosanskr.css")
+    link(rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700")
+
     link(rel="stylesheet" href="//cdn.jsdelivr.net/npm/uikit@3.3.3/dist/css/uikit.min.css")
     link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/xcode.min.css")
 
@@ -17,6 +18,4 @@ html(lang="ko")
       div#__tidory
         block TIDORY
 
-  case process.env.NODE_ENV
-    when 'build'
-      script(src="https://kit.fontawesome.com/65f7e05682.js" crossorigin="anonymous")
+    script(src="https://kit.fontawesome.com/65f7e05682.js" crossorigin="anonymous")

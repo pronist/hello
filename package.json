@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "start": "tidory start",
-    "preview": "tidory preview",
+    "start": "cross-env NODE_ENV=build tidory start",
+    "preview": "cross-env NODE_ENV=build tidory preview",
     "build": "cross-env NODE_ENV=production tidory build",
     "build:compress": "cross-env NODE_ENV=build tidory build --compress",
     "deploy": "tidory deploy",

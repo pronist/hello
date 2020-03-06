@@ -10,6 +10,14 @@
 
 style
   :stylus
+    @media screen and (min-width: 600px)
+      .post
+        .title
+            font-size 1.5em
+    @media screen and (max-width: 600px)
+      .post
+        .title
+          font-size 1.3em
     .post
       padding 50px 0
       border-top 1px solid rgba(0, 0, 0, .1)
@@ -21,7 +29,7 @@ style
         padding-bottom 0px
       .title
         margin-top 10px
-        font-size 1.5em
+        line-height 1.5em
         a
           color rgba(0, 0, 0, .9) !important
       .category

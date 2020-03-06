@@ -9,11 +9,31 @@ style
   :stylus
     @media screen and (min-width: 600px)
       #post
+        .title
+            font-size 2em
+        h2
+          font-size 1.5em
+        h3
+          font-size 1.3em
+        h4
+          font-size 1.1em
+        .container_postbtn
+          padding-top 50px
         blockquote[data-ke-style=style1]
           background url(./images/blockquote_style1.png) no-repeat 50% 0
           padding 25px 0 0 0
     @media screen and (max-width: 600px)
       #post
+        .title
+          font-size 1.8em
+        h2
+          font-size 1.3em
+        h3
+          font-size 1.2em
+        h4
+          font-size 1em
+        .container_postbtn
+          padding-top 30px
         blockquote[data-ke-style=style1]
           background url(./images/blockquote_mw_style1.png) no-repeat 50% 0
           background-size 12px 9px
@@ -21,10 +41,42 @@ style
     #post
       text-align center
       .container_postbtn
-        padding-top 30px
         padding-bottom 5px
         .postbtn_like
           border-radius initial
+      div[data-ke-type=moreLess]
+        position relative
+        .moreless-content
+          margin-top 25px
+        a
+          display inline-block
+          border-radius 16px
+          background-color #ed5207
+          padding 0 14px
+          line-height 32px !important
+          height 32px
+          color white !important
+          font-size .85em !important
+          font-weight 600
+          &::before
+            font-family 'Font Awesome 5 Pro'
+            content ''
+            color white
+            margin-right 5px
+        &.open
+          a::before
+            content ''
+        &:hover
+          transition-duration .5s
+        &::before
+          z-index -1
+          content: ""
+          position absolute
+          top 15px
+          left 0
+          height 0
+          width 100%
+          border-bottom 1px dashed rgba(0, 0, 0, .1)
       .category
         font-weight 500
         font-size .95em
@@ -32,20 +84,44 @@ style
         &:hover
           color #ed5207
       .title
-        font-weight 600
         margin-top 15px
-        font-size 2em
+        line-height 1.5em
+        font-weight 600
       .content
         text-align left
         margin-top 50px
-        h2
-          font-size 1.5em
-        h3
-          font-size 1.3em
-        h4
-          font-size 1.1em
+        blockquote
+          font-style initial
+          margin-top 20px
+          &[data-ke-style=style1]
+            text-align: center
+            font-size 1.1em
+            p
+              color black
+          &[data-ke-style=style2]
+            border solid #acacac
+            border-width 0 0 0 2px
+            padding 1px 0 0 12px
+            color #666
+            line-height 1.8em
+            text-align left
+            font-size .9em
+          &[data-ke-style=style3]
+            font-size 1em
+            background-color white
+        table, td, th
+          border none
+        table
+          margin-bottom 0
+          th
+            text-transform initial
+          td
+            font-size .9em
         h2, h3, h4
           font-weight 600
+          line-height 1.8em
+          margin-top 20px
+          margin-bottom 10px
         p, span
           line-height 1.8em
           letter-spacing .8px
@@ -73,30 +149,3 @@ style
         a
           color #ed5207
           text-decoration underline
-        table, td, th
-          border none
-        table
-          margin-bottom 0
-          th
-            text-transform initial
-          td
-            font-size .9em
-        blockquote
-          font-style initial
-          margin-top 20px
-          &[data-ke-style=style1]
-            text-align: center
-            font-size 1.1em
-            p
-              color black
-          &[data-ke-style=style2]
-            border solid #acacac
-            border-width 0 0 0 2px
-            padding 1px 0 0 12px
-            color #666
-            line-height 1.8em
-            text-align left
-            font-size .9em
-          &[data-ke-style=style3]
-            font-size 1em
-            background-color white
