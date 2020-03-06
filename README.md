@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/pronist/hELLO/blob/master/hELLO.png" width="400">
+  <img src="https://github.com/pronist/hELLO/blob/master/images/logo.png" width="400">
 </p>
 
 # hELLO
