@@ -1,0 +1,50 @@
+s_rp_container
+  ol#comments
+    s_rp_rep
+      li(id="[##_rp_rep_id_##]")
+        include List/Comment
+        ul#re-comments
+          s_rp2_rep
+            li(id='[##_rp_rep_id_##]')
+              include List/Reply
+
+style
+  :stylus
+    #comments
+      list-style none
+      padding 0
+      margin 0
+      margin-top 20px
+      overflow hidden
+      .comment, .re-comment
+        margin 20px 0
+      li
+        overflow hidden
+        div
+          overflow hidden
+          .profile
+            img
+              border-radius 50%
+              width 40px
+              height 40px
+          .description
+            p
+              display inline-block
+              border-radius 26px
+              padding 12px 20px
+              margin-bottom 0
+              font-weight 400
+              font-size .92em
+              letter-spacing .8px
+            .control
+              overflow hidden
+              margin-top 8px
+              font-size .8em
+              .meta
+                margin-bottom 5px
+              .meta, .action
+                > *
+                  margin 0 5px
+              .date
+                color rgba(0, 0, 0, .5)
+

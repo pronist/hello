@@ -1,0 +1,40 @@
+.re-comment(class="[##_rp_rep_class_##]")
+  .profile: img(src="[##_rp_rep_logo_##]")
+  .description
+    .body: p [##_rp_rep_desc_##]
+    .control
+      .meta
+        span.name [##_rp_rep_name_##]
+        span.date [##_rp_rep_date_##]
+      .action
+        a.address(href="[##_rp_rep_link_##]")
+          i(class="fas fa-map-marker-alt")
+        a.modify(href="#" onclick="[##_rp_rep_onclick_delete_##]")
+          i(class="fas fa-trash-alt")
+
+style
+  :stylus
+    #re-comments
+      list-style none
+      padding 0
+      margin 0
+      .re-comment
+        float right
+        position relative
+        .profile
+          position absolute
+          top 0
+          right 0
+          margin-left 12px
+        .description
+          padding-right 50px
+          .body
+            text-align right
+            p
+              background #ed5207
+              color white
+          .control
+            float right
+            .action
+              text-align right
+

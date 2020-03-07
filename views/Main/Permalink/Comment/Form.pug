@@ -1,0 +1,61 @@
+s_rp_input_form
+  s_rp_member
+    #comment-form
+      textarea(name="[##_rp_input_comment_##]")
+      #comment-form-control
+        input#secret(type="checkbox" name="[##_rp_input_is_secret_##]")
+        label(for="secret")
+        a(href="#" onclick="[##_rp_onclick_submit_##]")
+
+style
+  :stylus
+    @media screen and (min-width: 600px)
+      #comment-form
+        height 200px
+        padding 25px
+        textarea
+          width 500px
+          max-width 500px
+          height 120px
+    @media screen and (max-width: 600px)
+      #comment-form
+        height 125px
+        padding 15px
+        textarea
+          width 100%
+          max-width 100%
+          height 60px
+    #comment-form
+      overflow hidden
+      background #f8f8f8
+      margin-top 25px
+      border-radius 16px
+      box-sizing border-box
+      textarea
+        border none
+        outline none
+        background none
+        resize none !important
+    #comment-form-control
+      float right
+      > *
+        margin-left 12px
+      a
+        background none
+        border none
+        &::before
+          font-family 'Font Awesome 5 Pro'
+          content ''
+          font-weight 600
+      input[type=checkbox]
+        display none
+        &:checked + label
+          &::before
+            transition-duration .5s
+            content ''
+            color black
+      label
+        &::before
+          font-family 'Font Awesome 5 Pro'
+          content ''
+          font-weight 600
