@@ -1,4 +1,4 @@
-.comment(class="[##_rp_rep_class_##]")
+.rp.comment(class="[##_rp_rep_class_##] uk-accordion-title")
   .profile: img(src="[##_rp_rep_logo_##]")
   .description
     .body: p [##_rp_rep_desc_##]
@@ -17,17 +17,35 @@
 style
   :stylus
     #comments
+      .uk-open > .comment
+        &::before
+          content ''
       .comment
+        cursor pointer
         position relative
         .profile
           position absolute
           top 0
           left 0
           margin-right 12px
+        &::before
+          font-family 'Font Awesome 5 Pro'
+          font-weight 600
+          font-size 1.05rem
+          content ''
+          background none
+          color black
         .description
           padding-left 50px
           p
             background #f8f8f8
             color rgba(0, 0, 0, .8)
           .control
+            position relative
             float left
+            .meta > *
+              margin-right 5px
+            .action
+              > *
+                margin-right 8px
+
