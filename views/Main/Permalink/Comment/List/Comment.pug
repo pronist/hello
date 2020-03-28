@@ -1,51 +1,35 @@
-.rp.comment(class="[##_rp_rep_class_##] uk-accordion-title")
+.rp.comment(class="[##_rp_rep_class_##]")
   .profile: img(src="[##_rp_rep_logo_##]")
   .description
-    .body: p [##_rp_rep_desc_##]
-    .control
-      .meta
-        span.name [##_rp_rep_name_##]
-        span.date [##_rp_rep_date_##]
-      .action
-        a.address(href="[##_rp_rep_link_##]")
-          i(class="fas fa-map-marker-alt")
-        a.modify(href="#" onclick="[##_rp_rep_onclick_delete_##]")
-          i(class="fas fa-trash-alt")
-        a.write(href="#" onclick="[##_rp_rep_onclick_reply_##]")
-          i(class="fas fa-comment")
+    .action
+      a.address(href="[##_rp_rep_link_##]")
+        i(class="far fa-bookmark")
+      a.modify(href="#" onclick="[##_rp_rep_onclick_delete_##]")
+        i(class="far fa-trash-alt")
+      a.write(href="#" onclick="[##_rp_rep_onclick_reply_##]")
+        i(class="far fa-comment")
+    p.body [##_rp_rep_desc_##]
+    .metainfo
+      span.name [##_rp_rep_name_##]
+      span.date [##_rp_rep_date_##]
 
 style
   :stylus
     #comments
-      .uk-open > .comment
-        &::before
-          content ''
       .comment
-        cursor pointer
-        position relative
         .profile
-          position absolute
-          top 0
           left 0
           margin-right 12px
-        &::before
-          font-family 'Font Awesome 5 Pro'
-          font-weight 600
-          font-size 1.05rem
-          content ''
-          background none
-          color black
+        .action
+          left 50px
+          > *
+            display inline-block
+            margin-right 15px
+            font-size 1.05rem
         .description
           padding-left 50px
-          p
+          .body
             background #f8f8f8
-            color rgba(0, 0, 0, .8)
-          .control
-            position relative
-            float left
-            .meta > *
-              margin-right 5px
-            .action
-              > *
-                margin-right 8px
-
+            color rgba(0, 0, 0, .7)
+          .metainfo > *
+            margin-right 5px

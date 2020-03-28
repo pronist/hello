@@ -10,20 +10,6 @@
 
 style
   :stylus
-    @media screen and (min-width: 600px)
-      .post
-        padding 40px 0
-        &:first-of-type
-          padding-bottom 40px
-        .title
-            font-size 1.5rem
-    @media screen and (max-width: 600px)
-      .post
-        padding 25px 0
-        &:first-of-type
-          padding-bottom 25px
-        .title
-          font-size 1.3rem
     .post
       border-top 1px solid rgba(0, 0, 0, .1)
       &:first-of-type
@@ -64,3 +50,17 @@ style
       .thumbnail
         border-radius 5px
         margin-bottom 25px
+    @media screen and (min-width: 600px)
+      .post
+        padding 40px 0
+        &:first-of-type
+          padding-bottom 40px
+        .title
+            font-size 1.5rem
+    @media screen and (max-width: 600px)
+      .post
+        padding 25px 0
+        &:first-of-type
+          padding-bottom 25px
+        .title
+          font-size 1.3rem

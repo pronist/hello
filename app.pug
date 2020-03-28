@@ -15,9 +15,24 @@ html(lang="ko")
     link(rel="alternate", type="application/rss+xml", title="[##_title_##]", href="[##_rss_url_##]")
     link(rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700")
 
-    link(rel="stylesheet" href="//cdn.jsdelivr.net/npm/uikit@3.3.3/dist/css/uikit.min.css")
+    link(rel="stylesheet" href="//cdn.jsdelivr.net/npm/uikit@3.3.7/dist/css/uikit.min.css")
     link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/xcode.min.css")
     link(rel="stylesheet" href="//cdn.jsdelivr.net/npm/load-awesome@1.1.0/css/line-scale.min.css")
+
+    style
+      :stylus
+        *:not(i)
+          font-family 'Noto Sans KR', sans-serif !important
+          word-break break-all
+          outline none
+          a
+            pointer-events: initial !important
+            text-decoration none
+            color rgba(0, 0, 0, .5)
+            &:hover
+              transition-duration .5s
+              color rgba(0, 0, 0, 1)
+              text-decoration none
 
   body(id="[##_body_id_##]")
     include views/Loader
@@ -26,4 +41,6 @@ html(lang="ko")
         block TIDORY
 
     script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js")
+    script(src="//cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit.min.js")
+    script(src="//cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit-icons.min.js")
     script(src="//kit.fontawesome.com/65f7e05682.js" crossorigin="anonymous")

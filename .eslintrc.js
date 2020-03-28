@@ -12,13 +12,13 @@ module.exports = {
     'vue'
   ],
   globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly'
+    UIkit: 'readonly'
   },
   parserOptions: {
     ecmaVersion: 2018
   },
   rules: {
     'no-new' : 0
-  }
+  },
+  ignorePatterns: 'dist/'
 }

@@ -1,35 +1,36 @@
 nav#nav(role="navigation")
+  .blog
+    a(href="#" uk-toggle="target: #blog;")
+      i(class="fas fa-bars")
+    include Navigation/Sidebar/Blog
   .profile
-    a(href="[##_blog_link_##]")
+    a(href="#" uk-toggle="target: #profile")
       img.profile(src="[##_image_##]" width="48" height="48")
-  .nav [##_blog_menu_##]
+    include Navigation/Sidebar/Profile
 
 style
   :stylus
+    #nav
+      margin-top 25px
+      width 100%
+      box-sizing border-box
+      padding 0 30px
+      .blog
+        float left
+        i
+          font-size 1.05rem
+      .profile
+        float right
+        a
+          &:active > *
+            transform scale(.96) translateY(-11px)
+          img
+            transform translateY(-11px)
+            border-radius 50%
+            transition-duration .2s
     @media screen and (min-width: 600px)
       #nav
-        margin-bottom 80px
-        margin-top 25px
         padding 0 30px
     @media screen and (max-width: 600px)
       #nav
-        margin-bottom 40px
-        margin-top 15px
         padding 0 15px
-    #nav
-      width 100%
-      box-sizing border-box
-      overflow hidden
-      .profile
-        float left
-      .nav
-        float right
-        ul
-          list-style none
-          li
-            float left
-            margin-left 12px
-            font-size .9rem
-      img
-        border-radius 50%
-

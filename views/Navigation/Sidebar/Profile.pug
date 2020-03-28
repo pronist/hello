@@ -1,0 +1,111 @@
+extends ../Sidebar
+
+block SIDEBAR
+  aside#profile(role="sidebar" uk-modal)
+    .sidebar(class="uk-modal-dialog")
+
+  script.
+    window.addEventListener('load', () => {
+      Array.from(document.querySelectorAll('.menu_toolbar')).forEach($menu => {
+        document.querySelector('aside#profile > .sidebar').appendChild($menu)
+      })
+    })
+
+  style
+    :stylus
+      .menu_toolbar
+        z-index -1 !important
+      #profile
+        .sidebar
+          .menu_toolbar
+            z-index 1 !important
+            margin 0 !important
+            display block !important
+            > div
+              margin-bottom 20px !important
+            .btn_tool:not(.btn_tool_type1)
+              margin-right 0 !important
+              position initial
+              .btn_subscription
+                box-sizing border-box
+                background-color white
+                display block
+                padding 15px
+                border-radius 0
+                box-shadow none
+                height initial
+                width 250px
+                text-align left
+                .txt_state
+                  font-size .9rem
+                  color rgba(0, 0, 0, .7)
+                  &::before
+                    font-family 'Font Awesome 5 Pro'
+                    font-weight 600
+                    margin-right 10px
+                    content ''
+                .txt_tool_id
+                  display none
+            #menubar_wrapper
+              position initial
+              .btn_menu_type2
+                display none !important
+              .header_layer
+                display block !important
+                width 250px
+                height initial !important
+                position relative
+                top 0
+                left 0
+                > .info_profile
+                  background-color rgba(0, 0, 0, .8)
+                  > *
+                    color white
+                &::after
+                  background none
+                .inner_header_layer
+                  .list_toolbar
+                    padding 0 !important
+                    li:nth-child(1)
+                      a::before
+                        content: ''
+                    li
+                      a
+                        height initial !important
+                        padding 15px 25px !important
+
+                      &:last-child
+                        a
+                          height initial !important
+                          font-size .9rem !important
+                          color rgba(0, 0, 0, .7) !important
+                      a::before
+                        font-family 'Font Awesome 5 Pro'
+                        font-weight 600
+                        margin-right 10px
+                  > .list_toolbar
+                      li:nth-child(2)
+                        a::before
+                          content: ''
+                      li:nth-child(3)
+                        a::before
+                          content: ''
+                      li:nth-child(4)
+                        a::before
+                          content: ''
+                .wrap_toolbar
+                  .list_toolbar
+                    li:nth-child(2)
+                      a::before
+                        content: ''
+                    li:nth-child(3)
+                      a::before
+                        content: ''
+      @media screen and (min-width: 600px)
+        #profile
+          .sidebar
+            right 15px
+      @media screen and (max-width: 600px)
+        #profile
+          .sidebar
+            right 0

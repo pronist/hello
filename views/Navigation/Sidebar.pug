@@ -1,0 +1,36 @@
+block SIDEBAR
+
+style
+  :stylus
+    aside
+      z-index 9997
+      padding 0 !important
+      overflow-y scroll !important
+      .sidebar
+        transition none
+        position absolute
+        background none
+        width 250px
+        top 90px
+        z-index 9998
+        margin-bottom 20px
+        > div
+          margin-bottom 20px
+          width 250px
+        ul, li
+          list-style none
+          margin 0
+          padding 0
+        ul li
+          a
+            border-bottom 1px solid rgba(0, 0, 0, .1)
+            box-sizing border-box
+            color rgba(0, 0, 0, .7) !important
+            background-color white
+            display block
+            padding 15px
+            font-size .9rem
+            span, img
+              display none
+            i
+              margin-right 10px

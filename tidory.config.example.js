@@ -1,16 +1,9 @@
-const $ = require('cheerio').load(
-  require('fs').readFileSync('docs/index.xml'), {
-    normalizeWhitespace: true,
-    xmlMode: true
-  }
-)
+/**
+ * Tidory Configuration
+ * https://tidory.com/docs/configuration/
+ */
 
 module.exports = {
-  /**
-   * Tistory skin name
-   */
-  name: $('skin > information > name').text(),
-
   /**
    * Tistory session cookie value
    */
@@ -37,15 +30,5 @@ module.exports = {
      * guestbook
      */
     mode: 'index'
-  },
-
-  /**
-   * Build
-   */
-  build: {
-    /**
-     * Assets public path
-     */
-    public_path: null
   }
 }

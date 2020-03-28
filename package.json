@@ -1,13 +1,13 @@
 {
   "scripts": {
-    "start": "cross-env NODE_ENV=build tidory start",
-    "preview": "cross-env NODE_ENV=build tidory preview",
+    "start": "cross-env NODE_ENV=development tidory start",
+    "preview": "cross-env NODE_ENV=development tidory preview",
     "build": "cross-env NODE_ENV=production tidory build",
     "build:compress": "cross-env NODE_ENV=build tidory build --compress",
     "deploy": "tidory deploy",
     "store": "tidory store",
     "lint": "eslint --ext .js,.vue assets tidory.config.js",
-    "deploy:developer": "npm run lint && npm run build:compress && push-dir --dir=dist --branch=tistory-skin --cleanup && tidory deploy",
+    "deploy:developer": "npm run lint && npm run build:compress && push-dir --dir=dist --branch=tistory-skin --cleanup",
     "deploy:user": "npm run lint && npm run build && push-dir --dir=dist --branch=dist --cleanup"
   },
   "license": "MIT",
@@ -35,8 +35,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "lodash": "^4.17.15",
-    "tidory": "^7.2",
-    "uikit": "^3.3.3",
+    "tidory": "^7.2.1",
     "vue": "^2.6.11",
     "vue-infinite-scroll": "^2.0.2"
   }

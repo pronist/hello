@@ -6,12 +6,11 @@
 
 <script>
 import _ from 'lodash'
-import UIkit from 'uikit'
 
 export default {
   computed: {
     spies () {
-      return _.reduce(document.getElementsByTagName('h2'), (spies, heading) => {
+      return _.reduce(document.querySelectorAll('#post h2'), (spies, heading) => {
         const anchor = encodeURIComponent(heading.textContent)
         heading.setAttribute('id', anchor)
         spies.push({ href: '#' + anchor, label: heading.textContent })

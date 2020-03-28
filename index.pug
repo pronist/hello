@@ -1,6 +1,11 @@
 extends app
 
 block TIDORY
+  #container
+    include views/Navigation
+    include views/Main
+    include views/Footer
+
   style
     :stylus
       @media screen and (min-width: 1280px)
@@ -9,18 +14,3 @@ block TIDORY
       @media screen and (max-width: 1280px)
         #container
           margin-bottom 50px
-      #container
-        *:not(i)
-          font-family 'Noto Sans KR', sans-serif !important
-          word-break break-all
-        a
-          pointer-events: initial !important
-          color rgba(0, 0, 0, .5)
-          text-decoration none
-          &:hover
-            transition-duration .5s
-            color rgba(0, 0, 0, 1)
-  #container
-    include views/Navigation
-    include views/Main
-    include views/Footer

@@ -1,5 +1,5 @@
-s_rp_input_form
-  #comment-form
+#comment-form
+  s_rp_input_form
     textarea(name="[##_rp_input_comment_##]")
     #comment-form-control
       input#secret(type="checkbox" name="[##_rp_input_is_secret_##]")
@@ -8,22 +8,6 @@ s_rp_input_form
 
 style
   :stylus
-    @media screen and (min-width: 600px)
-      #comment-form
-        height 200px
-        padding 25px
-        textarea
-          width 500px
-          max-width 500px
-          height 120px
-    @media screen and (max-width: 600px)
-      #comment-form
-        height 125px
-        padding 15px
-        textarea
-          width 100%
-          max-width 100%
-          height 60px
     #comment-form
       overflow hidden
       background #f8f8f8
@@ -58,3 +42,19 @@ style
           font-family 'Font Awesome 5 Pro'
           content ''
           font-weight 600
+    @media screen and (min-width: 600px)
+      #comment-form
+        height 200px
+        padding 25px
+        textarea
+          width 500px
+          max-width 500px
+          height 120px
+    @media screen and (max-width: 600px)
+      #comment-form
+        height 125px
+        padding 15px
+        textarea
+          width 100%
+          max-width 100%
+          height 60px

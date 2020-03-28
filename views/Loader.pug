@@ -4,8 +4,10 @@
       div
 
 script.
-  document.body.setAttribute('class', 'loaded')
-  setTimeout(() => document.getElementById('loader').remove(), 500)
+  window.addEventListener('load', () => {
+    document.body.setAttribute('class', 'loaded')
+    setTimeout(() => document.getElementById('loader').remove(), 500)
+  })
 
 style
   :stylus
