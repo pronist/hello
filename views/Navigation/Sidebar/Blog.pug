@@ -1,34 +1,32 @@
-extends ../Sidebar
+aside#blog(role="sidebar" uk-modal)
+  .sidebar(class="uk-modal-dialog")
+    a(href="#" class="uk-modal-close" uk-close)
+    s_sidebar
+      s_sidebar_element
+        <!-- Search -->
+        include Blog/Search
+      s_sidebar_element
+        <!-- Category -->
+        include Blog/Category
+      s_sidebar_element
+        <!-- Menu -->
+        include Blog/Menu
+      //- s_sidebar_element
+        include Blog/Notice
+      s_sidebar_element
+        <!-- Latest -->
+        include Blog/Latest
+      s_sidebar_element
+        <!-- Comments -->
+        include Blog/Comment
 
-block SIDEBAR
-  aside#blog(role="sidebar" uk-modal)
-    .sidebar(class="uk-modal-dialog")
-      s_sidebar
-        s_sidebar_element
-          <!-- Search -->
-          include Blog/Search
-        s_sidebar_element
-          <!-- Category -->
-          include Blog/Category
-        s_sidebar_element
-          <!-- Menu -->
-          include Blog/Menu
-        //- s_sidebar_element
-          include Blog/Notice
-        s_sidebar_element
-          <!-- Latest -->
-          include Blog/Latest
-        s_sidebar_element
-          <!-- Comments -->
-          include Blog/Comment
-
-  style
-    :stylus
-      @media screen and (min-width: 600px)
-        #blog
-          .sidebar
-            left 30px
-      @media screen and (max-width: 600px)
-        #blog
-          .sidebar
-            left 15px
+style
+  :stylus
+    @media screen and (min-width: 600px)
+      #blog
+        .sidebar
+          left 20px
+    @media screen and (max-width: 600px)
+      #blog
+        .sidebar
+          left 15px

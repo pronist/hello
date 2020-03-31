@@ -1,36 +1,108 @@
-nav#nav(role="navigation")
-  .blog
-    a(href="#" uk-toggle="target: #blog;")
-      i(class="fas fa-bars")
-    include Navigation/Sidebar/Blog
-  .profile
-    a(href="#" uk-toggle="target: #profile")
-      img.profile(src="[##_image_##]" width="48" height="48")
-    include Navigation/Sidebar/Profile
+nav#nav(role="navigation"
+  class="uk-navbar-container uk-navbar-transparent"
+  uk-sticky="animation: uk-animation-slide-top; cls-active: sticky; cls-inactive: uk-navbar-transparent; top: 200"
+  uk-navbar
+)
+  .blog(class="uk-navbar-left")
+    a(href="#" uk-toggle="target: #blog")
+      each _ in Array(3)
+        div
+  .metainfo(class="uk-navbar-center")
+  .tistoryToolbar(class="uk-navbar-right")
+    a(href="#" uk-toggle="target: #tistoryToolbar")
+      img.profile(src="[##_image_##]")
+  include Navigation/Sidebar
+
+script.
+  const $post = document.getElementById('post')
+  if ($post) {
+    const $metainfo = document.querySelector('#nav > .metainfo')
+    Array.from($post.querySelectorAll('header > *')).reverse().forEach($h => $metainfo.appendChild($h.cloneNode(true)))
+  }
+  ['blog', 'tistoryToolbar'].forEach(menubar => {
+    const $menubar = document.querySelector(`#nav > .${menubar} > a`)
+    UIkit.modal(menubar)
+    UIkit.util.on(`#${menubar}`, 'beforeshow', () => {
+      $menubar.classList.add('uk-animation-fade', 'uk-animation-fast', 'uk-animation-reverse')
+    })
+    UIkit.util.on(`#${menubar}`, 'hidden', () => {
+      $menubar.classList.remove(...$menubar.classList)
+    })
+  })
+
 
 style
   :stylus
     #nav
-      margin-top 25px
+      margin-top 8px
       width 100%
       box-sizing border-box
-      padding 0 30px
       .blog
-        float left
-        i
-          font-size 1.05rem
-      .profile
-        float right
+        a > div
+          border-top 2px solid rgba(0, 0, 0, .6)
+      &.sticky
+        background-color rgba(255, 255, 255, .8)
+        backdrop-filter blur(2px)
+        padding-top 8px
+        padding-bottom 8px
+        .metainfo
+          display block
+          padding 0 10px
+          transform translate(-55%, -50%)
+          > *
+            overflow hidden
+            white-space nowrap
+            text-overflow ellipsis
+            max-width calc(80vw - 152px)
+          .title
+            margin 0
+            font-weight 500
+          .category
+            font-weight 500
+      .metainfo
+        text-align center
+        display none
+      .tistoryToolbar
         a
           &:active > *
-            transform scale(.96) translateY(-11px)
+            transform scale(.96)
           img
-            transform translateY(-11px)
             border-radius 50%
             transition-duration .2s
     @media screen and (min-width: 600px)
       #nav
-        padding 0 30px
+        padding 0px 20px
+        .blog
+          a > div
+            height 1px
+            width 16px
+            &:nth-child(2)
+              margin 3px 0
+              width 12px
+        .metainfo
+          .title
+            font-size .96rem
+          .category
+            font-size .8rem
+        .tistoryToolbar img
+          width 40px
+          height 40px
     @media screen and (max-width: 600px)
       #nav
-        padding 0 15px
+        padding 0px 15px
+        .blog
+          a > div
+            height 1px
+            width 12px
+            &:nth-child(2)
+              margin 3px 0
+              width 8px
+        .metainfo
+          line-height .9rem
+          .title
+            font-size .86rem
+          .category
+            font-size .7rem
+        .tistoryToolbar img
+          width 29px
+          height 29px

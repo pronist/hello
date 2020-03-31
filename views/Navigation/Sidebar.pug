@@ -1,4 +1,5 @@
-block SIDEBAR
+include Sidebar/Blog
+include Sidebar/TistoryToolbar
 
 style
   :stylus
@@ -11,9 +12,12 @@ style
         position absolute
         background none
         width 250px
-        top 90px
         z-index 9998
         margin-bottom 20px
+        > a
+          color white !important
+          margin-bottom 25px
+          transition none
         > div
           margin-bottom 20px
           width 250px
@@ -34,3 +38,9 @@ style
               display none
             i
               margin-right 10px
+    @media screen and (min-width: 600px)
+      aside > .sidebar
+        top 13px
+    @media screen and (max-width: 600px)
+      aside > .sidebar
+        top 8px

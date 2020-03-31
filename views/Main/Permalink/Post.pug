@@ -1,8 +1,9 @@
-article#post
-  a.category(href="[##_article_rep_category_link_##]") [##_article_rep_category_##]
-  h1.title [##_article_rep_title_##]
+#post
+  header(role="header")
+    a.category(href="[##_article_rep_category_link_##]") [##_article_rep_category_##]
+    h1.title [##_article_rep_title_##]
   include Post/Meta
-  .content [##_article_rep_desc_##]
+  article.content [##_article_rep_desc_##]
   include Post/Tag
 
 script.

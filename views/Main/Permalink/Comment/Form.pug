@@ -19,29 +19,29 @@ style
         outline none
         background none
         resize none !important
-    #comment-form-control
-      float right
-      > *
-        margin-left 12px
-      a
-        background none
-        border none
-        &::before
-          font-family 'Font Awesome 5 Pro'
-          font-weight 600
-          content ''
-      input[type=checkbox]
-        display none
-        &:checked + label
+      #comment-form-control
+        float right
+        > *
+          margin-left 12px
+        a
+          background none
+          border none
           &::before
-            transition-duration .5s
-            content ''
-            color black
-      label
-        &::before
-          font-family 'Font Awesome 5 Pro'
-          content ''
-          font-weight 600
+            font-family 'Font Awesome 5 Pro'
+            font-weight 600
+            content ''
+        input[type=checkbox]
+          display none
+          &:checked + label
+            &::before
+              transition-duration .5s
+              content ''
+              color black
+        label
+          &::before
+            font-family 'Font Awesome 5 Pro'
+            content ''
+            font-weight 600
     @media screen and (min-width: 600px)
       #comment-form
         height 200px
