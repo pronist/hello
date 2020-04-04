@@ -1,0 +1,127 @@
+mixin comment()
+  .rp(class!=attributes.class)
+    .profile: img(src="[##_rp_rep_logo_##]")
+    .description
+      .action
+        a.address(href="[##_rp_rep_link_##]")
+          i(class="far fa-bookmark")
+        a.modify(href="#" onclick="[##_rp_rep_onclick_delete_##]")
+          i(class="far fa-trash-alt")
+        if attributes.class === 'comment'
+          a.write(href="#" onclick="[##_rp_rep_onclick_reply_##]")
+            i(class="far fa-comment")
+      p.body [##_rp_rep_desc_##]
+      .metainfo
+        span.name [##_rp_rep_name_##]
+        span.date [##_rp_rep_date_##]
+
+s_rp_container
+  #comment-overlay(class="uk-position-cover uk-position-fixed")
+  ul#comment-list
+    s_rp_rep
+      li(id="[##_rp_rep_id_##]" class='[##_rp_rep_class_##]')
+        +comment()(class='comment')
+        ul.re-comments
+          s_rp2_rep
+            li(id="[##_rp_rep_id_##]" class='[##_rp_rep_class_##]')
+              +comment()(class='re-comment')
+
+script.
+  const $l = $('#comment')
+  $l.on('click', '.rp .body', e => {
+    const $t = $(e.target)
+    $t.prev().fadeIn(200)
+    $t.parents('.rp').css('zIndex', 9999)
+    $l.find('#comment-overlay').fadeIn(200)
+  })
+  Array('#comment-overlay', '.rp .action').forEach(t => $l.on('click', t, e => {
+    const $rp = $('.rp')
+    Array($l.find('#comment-overlay'), $rp.find('.action')).forEach($h => $h.fadeOut(200))
+    setTimeout(() => $rp.css('zIndex', 1), 200)
+  }))
+
+style
+  :stylus
+    #comment
+      #comment-overlay
+        z-index 9998
+        display none
+        background-color alpha(white, .95)
+        backdrop-filter blur(2px)
+      #comment-list
+        padding-top 35px
+        min-width 270px
+        overflow hidden
+        clear both
+        li
+          clear both
+          .rp
+            margin-bottom 35px
+            position relative
+            z-index 1
+            transition none
+            @media screen and (min-width: 600px)
+               max-width 80%
+            .profile
+              position absolute
+              bottom 0
+              img
+                border-radius 50%
+                width 40px
+                height 40px
+            .description
+              .action
+                display none
+                position absolute
+                top -35px
+                margin-bottom 10px
+                > *
+                  font-size 1.1rem
+                  color black
+              .body
+                margin-top 0
+                margin-bottom 0
+                cursor pointer
+                display inline-block
+                border-radius 26px
+                font-weight 500
+                letter-spacing .8px
+                padding 12px 20px
+                font-size .9rem
+                line-height 1.8em
+              .metainfo
+                font-size .77rem
+                margin-top 8px
+                .name
+                  display inline-block
+                .date
+                  color alpha(black, .5)
+
+style
+  :stylus
+    comment($align, $margin, $background, $color)
+      .profile
+        {$align} 0
+        margin-{$margin} 12px
+      .description
+        padding-{$align} 50px
+        .action
+          {$align} 50px
+          > *
+            display inline-block
+            margin-{$margin} 15px
+        .body
+          background $background
+          color $color
+        .metainfo > *
+          margin-{$margin} 5px
+
+    #comment
+      .comment
+        comment('left', 'right', #f8f8f8, alpha(black, .7))
+      .re-comment
+        text-align right
+        float right
+        comment('right', 'left', alpha(black, 9), white)
+        .description > .body
+          text-align left

@@ -1,0 +1,45 @@
+div.thumbnail
+  a(href="[##_blog_link_##]")
+  .blogger
+    img.profile(src="[##_image_##]")
+    .description
+      .nickname [##_blogger_##]
+      .title [##_title_##]
+
+style
+  :stylus
+    $color = white
+    $background-color = alpha(black, .7)
+    $image = 80px
+    $align = center
+
+    #sidebar2 .thumbnail
+      display flex
+      align-items $align
+      justify-content $align
+      text-align $align
+      background-color $background-color
+      color $color
+      box-sizing border-box
+      padding 25px
+      border-radius 5px
+      position relative
+      > *
+        display block
+      > a
+        display block
+        position absolute
+        top 0
+        right 0
+        width 100%
+        height 100%
+      .profile
+        border-radius 50%
+        width $image
+        height $image
+        margin-bottom 10px
+      .description
+        font-size .9rem
+        .nickname
+          margin-bottom 5px
+          font-size .9rem

@@ -1,0 +1,48 @@
+s_paging
+  ul#paging(class="uk-pagination uk-flex-center"  uk-margin)
+    li: a([##_prev_page_##] class="[##_no_more_prev_##]"): span(uk-pagination-previous)
+    s_paging_rep
+      li: a([##_paging_rep_link_##]) [##_paging_rep_link_num_##]
+    li: a([##_next_page_##] class="[##_no_more_next_##]"): span(uk-pagination-next)
+
+style
+  :stylus
+    $color = black
+    $color-no-more = alpha(black, .5)
+    $selected-background-color = black
+    $selected-color = white
+    $size = 32px
+
+    #paging
+      margin 0 auto
+      margin-top 75px
+      li
+        font-size .9rem
+        padding-left 0
+        a
+          color $color
+          &.no-more-prev,
+          &.no-more-next
+            color $color-no-more
+          span
+            padding 0 4px
+            min-width $size
+            height $size
+            line-height $size
+            text-align center
+            display inline-block
+          .selected
+            background-color $selected-background-color
+            color $selected-color
+            border-radius: 16px
+            padding-left 8px
+            padding-right 8px
+            box-sizing border-box
+      @media screen and (max-width: 600px)
+        margin-top 35px
+        span
+          &:not(.selected)
+            display none
+          &.uk-pagination-previous,
+          &.uk-pagination-next
+            display inline-block

@@ -1,5 +1,5 @@
 #post
-  header(role="header")
+  header#header(role="header")
     a.category(href="[##_article_rep_category_link_##]") [##_article_rep_category_##]
     h1.title [##_article_rep_title_##]
   include Post/Meta
@@ -11,34 +11,46 @@ script.
 
 style
   :stylus
+    $base-color = #ed5207
+    $base-color-grey = #f8f8f8
+
+    $color = alpha(black, .8)
+    $postbtn-color = alpha(black, .5)
+    $postbtn-btn-subscription-color-hover = white
+    $postbtn-btn-subscription-width = 90px
+    $moreLess-color = white
+
+    font-awesome($icon)
+      font-family 'Font Awesome 5 Pro'
+      content $icon
+
     #post
       text-align center
-      color rgba(0, 0, 0, .8)
+      color $color
       .container_postbtn
+        padding-top 50px
         padding-bottom 5px
         > *:not(.postbtn_ccl)
           border none
-          background #f8f8f8
+          background-color $base-color-grey
         .postbtn_like
-          color rgba(0, 0, 0, .5)
+          color $postbtn-color
           display inline-block
           font-size .80rem
-          display inline-block
           border-radius 26px
       .btn_subscription
         transition-duration .2s
-        width 90px
+        width $postbtn-btn-subscription-width
         .txt_state
-          color rgba(0, 0, 0, .5)
+          color $postbtn-color
           font-weight 500
           &::before
-            font-family 'Font Awesome 5 Pro'
-            content ''
+            font-awesome('')
             margin-right 5px
         &:hover
-          background #ed5207
+          background $base-color
           .txt_state
-            color white
+            color $postbtn-btn-subscription-color-hover
       div[data-ke-type=moreLess]
         position relative
         .moreless-content
@@ -46,18 +58,15 @@ style
         a
           display inline-block
           border-radius 16px
-          background-color #ed5207
-          padding 0 14px
-          line-height 32px !important
-          height 32px
-          color white !important
+          background-color $base-color
+          padding 2px 14px
+          color $moreLess-color !important
           font-size .85rem !important
           font-weight 600
           &::before
-            font-family 'Font Awesome 5 Pro'
-            content ''
-            color white
+            font-awesome('')
             margin-right 5px
+            color $moreLess-color
         &.open
           a::before
             content ''
@@ -71,17 +80,16 @@ style
           left 0
           height 0
           width 100%
-          border-bottom 1px dashed rgba(0, 0, 0, .1)
+          border-bottom 1px dashed alpha(black, .1)
       .category
         font-weight 500
         font-size .95rem
-        color #ed5207
-        &:hover
-          color #ed5207
+        color $base-color !important
       .title
         margin-top 8px
         margin-bottom 10px
         font-weight 600
+        font-size 2rem
       .content
         text-align left
         margin-top 50px
@@ -92,8 +100,7 @@ style
             text-align: center
             font-size 1.1rem
             &::before
-              font-family 'Font Awesome 5 Pro'
-              content ''
+              font-awesome('')
               font-weight 600
               display block
               margin-bottom 3px
@@ -109,7 +116,7 @@ style
             font-size .9rem
           &[data-ke-style=style3]
             font-size 1rem
-            background-color white
+            background none
         table, td, th
           border none
         table
@@ -123,57 +130,49 @@ style
           line-height 1.8em
           margin-top 20px
           margin-bottom 10px
-        p, span
-          line-height 1.8em
-          letter-spacing .8px
-          > code
-            position relative
-            top -1px
-            color #ed5207
-            padding 2px 8px
-            background #f8f8f8
-            border-radius 5px
-            white-space normal
-        b, strong
-          color #ed5207
-          font-size 1rem
-          font-weight 500
-        pre
-          border none
-          padding 0
-          code
-            background-color #f8f8f8
-            border-radius 5px
-            padding 15px
-        img
-          border-radius 5px
-        a
-          color #ed5207
-          text-decoration underline
-    @media screen and (min-width: 600px)
-      #post
-        .title
-            font-size 2rem
         h2
           font-size 1.5rem
         h3
           font-size 1.3rem
         h4
           font-size 1.1rem
-        .container_postbtn
-          padding-top 50px
-    @media screen and (max-width: 600px)
-      #post
-        .title
-          font-size 1.8rem
-        h2
-          font-size 1.3rem
-        h3
-          font-size 1.2rem
-        h4
+        p, span
+          line-height 1.8em
+          letter-spacing .8px
+          > code
+            position relative
+            top -1px
+            color $base-color
+            padding 2px 8px
+            background $base-color-grey
+            border-radius 5px
+            white-space normal
+        b, strong
+          color $base-color
           font-size 1rem
-        .container_postbtn
-          padding-top 30px
-        blockquote[data-ke-style=style1]
-          &::before
+          font-weight 500
+        pre
+          border none
+          padding 0
+          code
+            background-color $base-color-grey
+            border-radius 5px
+            padding 15px
+        img
+          border-radius 5px
+        a
+          color $base-color
+          text-decoration underline
+        @media screen and (max-width: 600px)
+          .title
+            font-size 1.8rem
+          h2
+            font-size 1.3rem
+          h3
+            font-size 1.2rem
+          h4
+            font-size 1rem
+          .container_postbtn
+            padding-top 30px
+          blockquote[data-ke-style=style1]::before
             font-size .85rem

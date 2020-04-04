@@ -1,0 +1,33 @@
+s_cover(name="Masonry")
+  .masonry-layout
+    s_cover_item
+      .masonry-layout__panel
+          +post()(class="masonry")
+
+style
+  :stylus
+    .masonry-layout
+      column-gap 1.5rem
+      margin 40px 0
+      column-count 2
+      @media screen and (max-width: 600px)
+        margin 25px 0
+        column-count 1
+      .masonry-layout__panel
+        break-inside avoid
+        .masonry-post
+          box-sizing border-box
+          border-top none !important
+          padding 0 !important
+          &:first-of-type
+            padding-bottom 0
+          .title
+            margin-bottom 10px
+            margin-top 5px !important
+            font-size 1.1rem !important
+          .summary
+            font-size .92rem
+            margin-bottom 15px
+          .thumbnail
+            margin-bottom 15px !important
+

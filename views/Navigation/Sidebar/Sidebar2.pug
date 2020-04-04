@@ -1,0 +1,22 @@
+#sidebar2(uk-modal)
+  aside(class="uk-modal-dialog" role="sidebar")
+    a(href="#" class="uk-modal-close" uk-close)
+    s_sidebar
+      s_sidebar_element
+        <!-- 블로그 썸네일 -->
+        include Sidebar2/Thumbnail
+    include Sidebar2/TistoryToolbar
+
+script.
+  $(document).ready(() => $('.menu_toolbar').each((_, $menu) => $('#sidebar2 > aside').append($menu)))
+
+style
+  :stylus
+    #sidebar2 > aside
+      right 33.5px !important
+      top 21px !important
+      @media screen and (max-width: 600px)
+        right 23.5px !important
+        top 17px !important
+      > a
+        float right

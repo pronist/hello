@@ -3,15 +3,12 @@ extends app
 block TIDORY
   #container
     include views/Navigation
-    //- include views/Sidebar
     include views/Main
     include views/Footer
 
   style
     :stylus
-      @media screen and (min-width: 1280px)
-        #container
-          margin-bottom 100px
-      @media screen and (max-width: 1280px)
-        #container
-          margin-bottom 50px
+      #container
+        margin-bottom 100px
+        @media screen and (max-width: 1280px)
+          margin-bottom 0

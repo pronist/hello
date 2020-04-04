@@ -10,11 +10,13 @@
 
 style
   :stylus
+    $color = alpha(black, .5)
+
     #meta
       font-size .9rem
       span
         display inline-block
-        color rgba(0, 0, 0, .5)
+        color $color
         padding 0 3px
         &:first-of-type
           border none

@@ -3,106 +3,89 @@ nav#nav(role="navigation"
   uk-sticky="animation: uk-animation-slide-top; cls-active: sticky; cls-inactive: uk-navbar-transparent; top: 200"
   uk-navbar
 )
-  .blog(class="uk-navbar-left")
-    a(href="#" uk-toggle="target: #blog")
+  #s1(class="uk-navbar-left")
+    a(href="#" uk-toggle="target: #sidebar1")
       each _ in Array(3)
         div
-  .metainfo(class="uk-navbar-center")
-  .tistoryToolbar(class="uk-navbar-right")
-    a(href="#" uk-toggle="target: #tistoryToolbar")
+  #metainfo(class="uk-navbar-center")
+  #s2(class="uk-navbar-right")
+    a(href="#" uk-toggle="target: #sidebar2")
       img.profile(src="[##_image_##]")
   include Navigation/Sidebar
 
 script.
-  const $post = document.getElementById('post')
-  if ($post) {
-    const $metainfo = document.querySelector('#nav > .metainfo')
-    Array.from($post.querySelectorAll('header > *')).reverse().forEach($h => $metainfo.appendChild($h.cloneNode(true)))
-  }
-  ['blog', 'tistoryToolbar'].forEach(menubar => {
-    const $menubar = document.querySelector(`#nav > .${menubar} > a`)
-    UIkit.modal(menubar)
-    UIkit.util.on(`#${menubar}`, 'beforeshow', () => {
-      $menubar.classList.add('uk-animation-fade', 'uk-animation-fast', 'uk-animation-reverse')
-    })
-    UIkit.util.on(`#${menubar}`, 'hidden', () => {
-      $menubar.classList.remove(...$menubar.classList)
-    })
+  const $metainfo = $('#nav > #metainfo')
+  $('#post > header > *').each((_, $h) => $metainfo.append($($h).clone()))
+script.
+  Array('#sidebar1', '#sidebar2').forEach((menubar, i) => {
+    const $menubar = $(`#nav > #s${++i} > a`)
+    UIkit.util.on(menubar, 'beforeshow', () => $menubar.addClass('uk-animation-fade uk-animation-fast uk-animation-reverse'))
+    UIkit.util.on(menubar, 'hidden', () => $menubar.removeClass())
   })
-
 
 style
   :stylus
+    $padding = 8px
+    $sticky-background = alpha(white, .8)
+
     #nav
-      margin-top 8px
+      margin-top $padding
       width 100%
       box-sizing border-box
-      .blog
-        a > div
-          border-top 2px solid rgba(0, 0, 0, .6)
+      padding 0px 20px
+      #s1 > a > div
+        height 1px
+        width 16px
+        border-top 2px solid alpha(black, .6)
+        &:nth-child(2)
+          margin 3px 0
+          width 12px
       &.sticky
-        background-color rgba(255, 255, 255, .8)
+        background-color $sticky-background
         backdrop-filter blur(2px)
-        padding-top 8px
-        padding-bottom 8px
-        .metainfo
+        padding-top $padding
+        padding-bottom $padding
+        #metainfo
           display block
-          padding 0 10px
-          transform translate(-55%, -50%)
+          line-height 1rem
           > *
             overflow hidden
             white-space nowrap
             text-overflow ellipsis
             max-width calc(80vw - 152px)
+          .title, .category
+            font-weight 500
           .title
             margin 0
-            font-weight 500
           .category
-            font-weight 500
-      .metainfo
+            display inline-block
+      #metainfo
         text-align center
         display none
-      .tistoryToolbar
-        a
-          &:active > *
-            transform scale(.96)
-          img
-            border-radius 50%
-            transition-duration .2s
-    @media screen and (min-width: 600px)
-      #nav
-        padding 0px 20px
-        .blog
-          a > div
-            height 1px
-            width 16px
-            &:nth-child(2)
-              margin 3px 0
-              width 12px
-        .metainfo
-          .title
-            font-size .96rem
-          .category
-            font-size .8rem
-        .tistoryToolbar img
+        .title
+          font-size .96rem
+        .category
+          font-size .8rem
+      #s2 > a
+        &:active > *
+          transform scale(.96)
+        img
+          border-radius 50%
+          transition-duration .2s
           width 40px
           height 40px
-    @media screen and (max-width: 600px)
-      #nav
+      @media screen and (max-width: 600px)
         padding 0px 15px
-        .blog
-          a > div
-            height 1px
-            width 12px
-            &:nth-child(2)
-              margin 3px 0
-              width 8px
-        .metainfo
+        #s1 > a > div
+          width 12px
+          &:nth-child(2)
+            width 8px
+        #metainfo
           line-height .9rem
           .title
             font-size .86rem
           .category
             font-size .7rem
-        .tistoryToolbar img
-          width 29px
-          height 29px
+        #s2 > a img
+          width 30px
+          height 30px

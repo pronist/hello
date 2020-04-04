@@ -1,29 +1,74 @@
 main#main(role="main")
-  s_article_rep
-    include Main/Index
-    include Main/Permalink
-  #app
-    Scrollspy(v-if=`
-      '[##_body_id_##]' === 'tt-body-page'
-    `)
-    Readmore(v-if=`
-      '[##_body_id_##]' === 'tt-body-index' ||
-      '[##_body_id_##]' === 'tt-body-category' ||
-      '[##_body_id_##]' === 'tt-body-archive'
-    `)
+  include Main/Cover
+  include Main/Content
 
 style
   :stylus
+    $width = 600px
+
     #main
       clear both
       padding 0 25px
       box-sizing border-box
       margin 0 auto
-    @media screen and (min-width: 600px)
-      #main
-        width 600px
-        padding-top 100px
-    @media screen and (max-width: 600px)
-      #main
+      width $width
+      padding-top 100px
+      @media screen and (max-width: 600px)
         width 100%
         padding-top 25px
+
+style
+  :stylus
+    #main
+      $title-color = alpha(black, .9) !important
+      $category-color = #ed5207 !important
+      $date-color = alpha(black, .3)
+
+      .post
+        border-top 1px solid alpha(black, .1)
+        padding 40px 0
+        &:first-of-type
+          padding-top 0
+          padding-bottom 40px
+          border none
+        &:last-of-type
+          padding-bottom 0px
+        .title
+          margin-top 10px
+          line-height 1.5em
+          font-size 1.5rem
+          a
+            color $title-color
+        .category
+          margin-bottom 8px
+          a
+            font-size .92rem
+            font-weight 500
+            color $category-color
+        .thumbnail
+          width 100%
+        .summary
+          display -webkit-box
+          display -ms-flexbox
+          display box
+          -webkit-box-orient vertical
+          -webkit-line-clamp 3
+          line-height 1.8em
+          overflow hidden
+          max-height 80px
+          margin-top 1px
+          vertical-align top
+          word-break break-all
+        .date
+          font-size .87rem
+          color $date-color
+          > span
+            margin-left 7px
+        .thumbnail
+          margin-bottom 25px
+        @media screen and (max-width: 600px)
+          padding 25px 0
+          &:first-of-type
+            padding-bottom 25px
+          .title
+            font-size 1.3rem

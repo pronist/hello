@@ -4,23 +4,15 @@ footer#footer(role="footer")
 
 style
   :stylus
-    @media screen and (min-width: 1280px)
-      #footer
-        width 100%
-        position fixed
-        bottom 25px
-        .copyright
-          float left
-        .sns
-          float right
-    @media screen and (max-width: 1280px)
-      #footer
-        margin 0 auto
-        margin-top 35px
-        .copyright
-          float initial
     #footer
+      width 100%
       overflow hidden
       padding 0 25px
       box-sizing border-box
-      text-align center
+      position fixed
+      bottom 25px
+      @media screen and (max-width: 1280px)
+        position initial
+        margin-top 35px
+        margin-bottom 50px
+        text-align center

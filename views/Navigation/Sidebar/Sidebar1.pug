@@ -1,0 +1,28 @@
+#sidebar1(uk-modal)
+  aside(class="uk-modal-dialog" role="sidebar")
+    a(href="#" class="uk-modal-close" uk-close)
+    s_sidebar
+      s_sidebar_element
+        <!-- 검색 -->
+        include Sidebar1/Search
+      s_sidebar_element
+        <!-- 카테고리 -->
+        include Sidebar1/Category
+      s_sidebar_element
+        <!-- 블로그 메뉴 -->
+        include Sidebar1/Menu
+      //- s_sidebar_element
+        include Sidebar1/Notice
+      s_sidebar_element
+        <!-- 최신 글 -->
+        include Sidebar1/Latest
+      s_sidebar_element
+        <!-- 최신 덧글 -->
+        include Sidebar1/Comment
+
+style
+  :stylus
+    #sidebar1 > aside
+      left 20px
+      @media screen and (max-width: 600px)
+        left 15px
