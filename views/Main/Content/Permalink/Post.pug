@@ -91,14 +91,22 @@ style
           &[data-ke-style=style3]
             font-size 1rem
             background none
+        ul, ol
+          padding-left 20px
+          margin 20px 0
+          li
+            margin 6px 0
+        ul li
+          list-style circle
         table, td, th
           border none
+          border-bottom 1px solid alpha(black, .1)
         table
-          margin-bottom 0
-          th
-            text-transform initial
-          td
+          margin 20px 0
+          td, th
             font-size .9rem
+            padding 10px 12px
+            box-sizing border-box
         h2, h3, h4
           font-weight 600
           line-height 1.8em
