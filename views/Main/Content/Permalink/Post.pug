@@ -19,11 +19,17 @@ style
 
     $color = alpha(black, .8)
     $moreLess-color = white
-    $margin = 20px
 
     #post
       text-align center
       color $color
+      figure[data-ke-type="opengraph"],
+      div[data-ke-type=moreLess],
+      blockquote, ul, ol, table,
+      h2, h3, h4
+        margin 20px 0 !important
+      figure[data-ke-type="opengraph"]
+        margin-top 10px !important
       .category
         font-weight 500
         color $base-color !important
@@ -36,11 +42,8 @@ style
       .content
         text-align left
         margin-top 50px
-        div[data-ke-type="opengraph"]
-          margin $margin 0
         div[data-ke-type=moreLess]
           position relative
-          margin $margin 0
           .moreless-content
             margin-top 25px
           a
@@ -72,7 +75,6 @@ style
             border-bottom 1px dashed alpha(black, .1)
         blockquote
           font-style initial
-          margin-top 20px
           &[data-ke-style=style1]
             text-align: center
             font-size 1.1rem
@@ -97,7 +99,6 @@ style
             background none
         ul, ol
           padding-left 20px
-          margin $margin 0
           li
             margin 6px 0
         ul li
@@ -106,7 +107,6 @@ style
           border none
           border-bottom 1px solid alpha(black, .1)
         table
-          margin $margin 0
           td, th
             font-size .9rem
             padding 10px 12px
@@ -114,15 +114,12 @@ style
         h2, h3, h4
           font-weight 600
           line-height 1.8em
-          margin $margin 0
         h2
           font-size 1.5rem
         h3
           font-size 1.3rem
         h4
           font-size 1.1rem
-        p
-          margin $margin 0
         p, span
           line-height 1.8em
           letter-spacing .8px
