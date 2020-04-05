@@ -1,6 +1,6 @@
 nav#nav(role="navigation"
   class="uk-navbar-container uk-navbar-transparent"
-  uk-sticky="animation: uk-animation-slide-top; cls-active: sticky; cls-inactive: uk-navbar-transparent; top: 200"
+  uk-sticky="animation: uk-animation-slide-top; cls-active: sticky; cls-inactive: uk-navbar-transparent; top: 300"
   uk-navbar
 )
   #s1(class="uk-navbar-left")
@@ -14,24 +14,31 @@ nav#nav(role="navigation"
   include Navigation/Sidebar
 
 script.
-  const $metainfo = $('#nav > #metainfo')
-  $('#post > header > *').each((_, $h) => $metainfo.append($($h).clone()))
-script.
+  const $footer = $('#footer')
   Array('#sidebar1', '#sidebar2').forEach((menubar, i) => {
     const $menubar = $(`#nav > #s${++i} > a`)
-    UIkit.util.on(menubar, 'beforeshow', () => $menubar.addClass('uk-animation-fade uk-animation-fast uk-animation-reverse'))
-    UIkit.util.on(menubar, 'hidden', () => $menubar.removeClass())
+    UIkit.util.on(menubar, 'beforeshow', () => {
+      $footer.css('display', 'none')
+      $menubar.addClass('uk-animation-fade uk-animation-fast uk-animation-reverse')
+    })
+    UIkit.util.on(menubar, 'hidden', () => {
+      $footer.css('display', 'block')
+      $menubar.removeClass()
+    })
   })
+script.
+  const $metainfo = $('#nav > #metainfo')
+  $('#post > header > *').each((_, $h) => $metainfo.append($($h).clone()))
 
 style
   :stylus
-    $padding = 8px
     $sticky-background = alpha(white, .8)
+    $padding = 8px
 
     #nav
-      margin-top $padding
       width 100%
       box-sizing border-box
+      margin-top 8px
       padding 0px 20px
       #s1 > a > div
         height 1px

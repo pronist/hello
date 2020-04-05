@@ -1,0 +1,43 @@
+style
+  :stylus
+    $base-color = #ed5207
+    $base-color-grey = #f8f8f8
+
+    $postbtn-color = alpha(black, .5)
+    $postbtn-btn-subscription-color-hover = white
+    $height = 32px
+
+    #post
+      .container_postbtn
+        padding 0
+        margin-top 50px
+        margin-bottom 5px
+        > *:not(.postbtn_ccl)
+          border none
+          background-color $base-color-grey
+          margin 0
+          margin-right 10px
+        .postbtn_like
+          color $postbtn-color
+          display inline-block
+          font-size .80rem
+          border-radius 26px
+          padding 1px 9px
+      .btn_subscription
+        transition-duration .2s
+        width initial !important
+        padding 0 14px
+        height $height
+        line-height $height - 2
+        box-sizing border-box
+        .txt_state
+          color $postbtn-color
+          font-weight 500
+          &::before
+            font-family 'Font Awesome 5 Pro'
+            content ''
+            margin-right 5px
+        &:hover
+          background $base-color
+          .txt_state
+            color $postbtn-btn-subscription-color-hover

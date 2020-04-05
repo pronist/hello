@@ -7,15 +7,15 @@ style
     $btn-subscription-color = alpha(black, .7)
     $width = 250px
     $font-awesome = @block {
-      margin-right 10px
       font-family 'Font Awesome 5 Pro'
       font-weight 600
+      margin-right 10px
     }
 
     icons($icons)
-      if length($icons) > 1
+      if length($icons, $offset = 0) > 1
         for $icon, $idx in $icons
-          li:nth-child({$idx+2}) a::before
+          li:nth-child({$idx + $offset}) a::before
             content $icon
       else
         content $icons
@@ -72,7 +72,7 @@ style
                   a
                     font-size .9rem !important
             > .list_toolbar
-              icons('' '' '')
+              icons('' '' '', 2)
           .wrap_toolbar
             > .list_toolbar
-              icons('' '')
+              icons('' '', 2)

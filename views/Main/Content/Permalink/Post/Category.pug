@@ -1,0 +1,52 @@
+script.
+  $('#post .another_category table th').contents().filter(function () { return this.nodeType === 3 }).remove()
+
+style
+  :stylus
+    $background = #f8f8f8
+    $color = alpha(black, .8)
+
+    #post
+      .another_category
+        border none
+        border-radius 5px
+        background-color $background
+        padding 20px
+        margin-top 15px !important
+        margin-bottom 0 !important
+        box-sizing border-box
+        *
+          position relative
+          color $color !important
+          &::after
+            font-family 'Font Awesome 5 Pro'
+            font-weight 600
+            transform scale(.8)
+            position absolute
+            right 0
+        h4
+          font-size 1rem !important
+          border-bottom 1px solid $color !important
+          &::after
+            content ''
+        table th a, h4
+          overflow hidden
+          white-space nowrap
+          text-overflow ellipsis
+          padding-right 20px !important
+          display block
+        table
+          th
+            font-size .86rem !important
+            padding 5px 0 !important
+            a::after
+              content ''
+            .current
+              text-decoration none !important
+              border none !important
+              &::after
+                content ''
+            span
+              display none
+          td
+            display none

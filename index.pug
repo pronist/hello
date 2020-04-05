@@ -1,14 +1,17 @@
 extends app
 
 block TIDORY
-  #container
-    include views/Navigation
-    include views/Main
-    include views/Footer
+  include views/Loader
+  s_t3
+    div#__tidory
+      include views/Navigation
+      include views/Main
+      include views/Footer
 
   style
     :stylus
-      #container
+      #__tidory
+        min-width 320px
         margin-bottom 100px
         @media screen and (max-width: 1280px)
           margin-bottom 0

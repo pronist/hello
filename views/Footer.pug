@@ -1,18 +1,52 @@
 footer#footer(role="footer")
   .copyright
-    small 스킨에 대한 저작권은 #[a(href="https://pronist.tistory.com" target="_blank") 정상우]에게 있습니다.
+    small
+      | ⓒ 2020. #[a(href="https://pronist.tistory.com" target="_blank") @정상우].
+      br
+      | Designed By #[a(href="https://github.com/pronist" target="_blank") SangWoo Jeong].
+  a.top(href="#hELLO" uk-scroll)
+    i(class="fas fa-angle-up")
 
 style
   :stylus
+    $top-size = 24px
+    $top-font-size = 1rem
+    $top-color = white
+
     #footer
       width 100%
       overflow hidden
-      padding 0 25px
+      padding 0 20px
       box-sizing border-box
       position fixed
       bottom 25px
+      *
+        color alpha(black, .8) !important
+      .copyright
+        float left
+        font-size .96em
+        text-align left
+        line-height 1.3em
+      .top
+        float right
+        transform translateY(8px)
+        i
+          width $top-size
+          height $top-size
+          line-height $top-size
+          text-align center
+          background-color black
+          color $top-color !important
+          border-radius 50%
+          font-size $top-font-size
+          transition-duration .2s
+          display block
+        &:active > i
+          transform scale(.9)
       @media screen and (max-width: 1280px)
         position initial
         margin-top 35px
-        margin-bottom 50px
+        margin-bottom 25px
         text-align center
+      @media screen and (max-width: 600px)
+        padding 0 15px

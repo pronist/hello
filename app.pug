@@ -1,16 +1,11 @@
 doctype html
 
-html(lang="ko")
+html#hELLO(lang="ko")
   head
     title [##_page_title_##]
 
     meta(charset="utf-8")
     meta(name="viewport", content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width")
-
-    case process.env.NODE_ENV
-      when 'build'
-        meta(name="naver-site-verification" content="1412f18c229e542a283cddee3e0d2353abedac3e")
-        meta(name="google-site-verification" content="z1AxZo5GI1_crLqUKwjgZC2t0scSjaawIbA_G-8RgKk")
 
     link(rel="alternate", type="application/rss+xml", title="[##_title_##]", href="[##_rss_url_##]")
     link(rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700")
@@ -20,10 +15,7 @@ html(lang="ko")
     link(rel="stylesheet" href="//cdn.jsdelivr.net/npm/load-awesome@1.1.0/css/line-scale.min.css")
 
   body(id="[##_body_id_##]")
-    include views/Loader
-    s_t3
-      div#__tidory
-        block TIDORY
+    block TIDORY
 
     script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js")
     script(src="//cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit.min.js")

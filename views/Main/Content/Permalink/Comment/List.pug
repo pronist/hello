@@ -42,6 +42,9 @@ script.
 
 style
   :stylus
+    $profile-size = 40px
+    $gap = 35px
+
     #comment
       #comment-overlay
         z-index 9998
@@ -49,14 +52,14 @@ style
         background-color alpha(white, .95)
         backdrop-filter blur(2px)
       #comment-list
-        padding-top 35px
+        padding-top $gap
         min-width 270px
         overflow hidden
         clear both
         li
           clear both
           .rp
-            margin-bottom 35px
+            margin-bottom $gap
             position relative
             z-index 1
             transition none
@@ -67,13 +70,13 @@ style
               bottom 0
               img
                 border-radius 50%
-                width 40px
-                height 40px
+                width $profile-size
+                height $profile-size
             .description
               .action
                 display none
                 position absolute
-                top -35px
+                top -$gap
                 margin-bottom 10px
                 > *
                   font-size 1.1rem

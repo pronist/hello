@@ -4,6 +4,8 @@
     h1.title [##_article_rep_title_##]
   include Post/Meta
   article.content [##_article_rep_desc_##]
+  include Post/PostBtn
+  include Post/Category
   include Post/Tag
 
 script.
@@ -11,46 +13,16 @@ script.
 
 style
   :stylus
+    $font-awesome = 'Font Awesome 5 Pro'
     $base-color = #ed5207
     $base-color-grey = #f8f8f8
 
     $color = alpha(black, .8)
-    $postbtn-color = alpha(black, .5)
-    $postbtn-btn-subscription-color-hover = white
-    $postbtn-btn-subscription-width = 90px
     $moreLess-color = white
-
-    font-awesome($icon)
-      font-family 'Font Awesome 5 Pro'
-      content $icon
 
     #post
       text-align center
       color $color
-      .container_postbtn
-        padding-top 50px
-        padding-bottom 5px
-        > *:not(.postbtn_ccl)
-          border none
-          background-color $base-color-grey
-        .postbtn_like
-          color $postbtn-color
-          display inline-block
-          font-size .80rem
-          border-radius 26px
-      .btn_subscription
-        transition-duration .2s
-        width $postbtn-btn-subscription-width
-        .txt_state
-          color $postbtn-color
-          font-weight 500
-          &::before
-            font-awesome('')
-            margin-right 5px
-        &:hover
-          background $base-color
-          .txt_state
-            color $postbtn-btn-subscription-color-hover
       div[data-ke-type=moreLess]
         position relative
         .moreless-content
@@ -64,7 +36,8 @@ style
           font-size .85rem !important
           font-weight 600
           &::before
-            font-awesome('')
+            font-family $font-awesome
+            content ''
             margin-right 5px
             color $moreLess-color
         &.open
@@ -86,10 +59,11 @@ style
         font-size .95rem
         color $base-color !important
       .title
-        margin-top 8px
-        margin-bottom 10px
+        margin-top 0
+        margin-bottom 5px
         font-weight 600
         font-size 2rem
+        line-height 1.5em
       .content
         text-align left
         margin-top 50px
@@ -100,7 +74,7 @@ style
             text-align: center
             font-size 1.1rem
             &::before
-              font-awesome('')
+              content ''
               font-weight 600
               display block
               margin-bottom 3px
@@ -163,16 +137,15 @@ style
         a
           color $base-color
           text-decoration underline
-        @media screen and (max-width: 600px)
-          .title
-            font-size 1.8rem
+      @media screen and (max-width: 600px)
+        .title
+          font-size 1.7rem
+        .content
           h2
             font-size 1.3rem
           h3
             font-size 1.2rem
           h4
             font-size 1rem
-          .container_postbtn
-            padding-top 30px
           blockquote[data-ke-style=style1]::before
             font-size .85rem
