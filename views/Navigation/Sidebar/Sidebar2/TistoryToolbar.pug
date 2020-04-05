@@ -12,8 +12,8 @@ style
       margin-right 10px
     }
 
-    icons($icons)
-      if length($icons, $offset = 0) > 1
+    icons($icons, $offset = 0)
+      if length($icons) > 1
         for $icon, $idx in $icons
           li:nth-child({$idx + $offset}) a::before
             content $icon

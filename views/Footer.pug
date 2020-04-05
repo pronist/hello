@@ -9,6 +9,7 @@ footer#footer(role="footer")
 
 style
   :stylus
+    $copyright-color = alpha(black, .8)
     $top-size = 24px
     $top-font-size = 1rem
     $top-color = white
@@ -21,12 +22,17 @@ style
       position fixed
       bottom 25px
       *
-        color alpha(black, .8) !important
+        color $copyright-color
       .copyright
         float left
         font-size .96em
         text-align left
         line-height 1.3em
+        transition-duration .1s
+        a
+          color $copyright-color
+          &:hover
+            color #ed5207
       .top
         float right
         transform translateY(8px)
