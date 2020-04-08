@@ -5,15 +5,14 @@
 </template>
 
 <script>
-import _ from 'lodash'
-
 export default {
   computed: {
     spies () {
-      return _.reduce(document.querySelectorAll('#post h2'), (spies, heading) => {
-        const anchor = encodeURIComponent(heading.textContent)
-        heading.setAttribute('id', anchor)
-        spies.push({ href: '#' + anchor, label: heading.textContent })
+      return $('#post h2').get().reduce((spies, heading) => {
+        const $heading = $(heading)
+        const anchor = encodeURIComponent($heading.text())
+        $heading.attr('id', anchor)
+        spies.push({ href: '#' + anchor, label: $heading.text() })
         return spies
       }, [])
     }
@@ -25,20 +24,21 @@ export default {
 </script>
 
 <style lang="stylus">
-  @media screen and (min-width: 1178px)
-    #spy
-      position relative
-      right -670px
-  @media screen and (max-width: 1178px)
-    #spy
-      display none
+  $width = 200px
+  $top = 160px
+  $right = -670px
+
   #spy
+    position relative
+    right $right
+    @media screen and (max-width: 1178px)
+      display none
     ul
       list-style none
       text-align left
       position fixed
-      top 160px
-      width 200px
+      top $top
+      width $width
       font-weight 500
       .uk-active
         a

@@ -1,11 +1,11 @@
-footer#footer(role="footer")
-  .copyright
+footer#footer(role='footer' class='uk-navbar-container uk-navbar-transparent' uk-navbar)
+  .uk-navbar-left
     small
-      | ⓒ 2020. #[a(href="https://pronist.tistory.com" target="_blank") @정상우].
-      br
-      | Designed By #[a(href="https://github.com/pronist" target="_blank") SangWoo Jeong].
-  a.top(href="#hELLO" uk-scroll)
-    i(class="fas fa-angle-up")
+      s_if_var_copyright
+        | [##_var_copyright_##]
+  .uk-navbar-right
+    small.designed-by Designed By #[a(href='https://github.com/pronist' target='_blank') 정상우].
+    a.top(href='#hELLO' uk-scroll): i(class='fas fa-angle-up')
 
 style
   :stylus
@@ -20,22 +20,24 @@ style
       padding 0 20px
       box-sizing border-box
       position fixed
-      bottom 25px
+      bottom 15px
       *
         color $copyright-color
-      .copyright
-        float left
+      .uk-navbar-left,
+      .uk-navbar-right
         font-size .96em
+      .uk-navbar-left
         text-align left
         line-height 1.3em
         transition-duration .1s
-        a
-          color $copyright-color
-          &:hover
-            color #ed5207
-      .top
-        float right
-        transform translateY(8px)
+        small
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          width calc(40vw)
+      .uk-navbar-right
+        .designed-by
+          margin-right 8px
         i
           width $top-size
           height $top-size

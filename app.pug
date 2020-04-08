@@ -1,48 +1,58 @@
+-
+  const webmaster = {
+    google: 'google-site-verification',
+    bing: 'msvalidate.01',
+    naver: 'naver-site-verification'
+  }
+
 doctype html
 
-html#hELLO(lang="ko")
+html#hELLO(lang='ko')
   head
+    meta(charset='utf-8')
+    meta(name='viewport' content='user-scalable=no, width=device-width')
+
     title [##_page_title_##]
 
-    meta(charset="utf-8")
-    meta(name="viewport", content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width")
+    link(rel='alternate' type='application/rss+xml' title='[##_title_##]' href='[##_rss_url_##]')
+    link(rel='stylesheet' href='//fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700')
 
-    link(rel="alternate", type="application/rss+xml", title="[##_title_##]", href="[##_rss_url_##]")
-    link(rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700")
+    link(rel='stylesheet' href='//cdn.jsdelivr.net/npm/uikit@3.3.7/dist/css/uikit.min.css')
+    link(rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/xcode.min.css')
+    link(rel='stylesheet' href='//cdn.jsdelivr.net/npm/load-awesome@1.1.0/css/line-scale.min.css')
 
-    link(rel="stylesheet" href="//cdn.jsdelivr.net/npm/uikit@3.3.7/dist/css/uikit.min.css")
-    link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/xcode.min.css")
-    link(rel="stylesheet" href="//cdn.jsdelivr.net/npm/load-awesome@1.1.0/css/line-scale.min.css")
+    each name, vendor in webmaster
+      meta(name=name content=`[##_var_${vendor}_##]`)
 
-  body(id="[##_body_id_##]")
+    style
+      :stylus
+        $font-family = 'Noto Sans KR', sans-serif !important
+        $a-color = alpha(black, .5)
+        $a-hover-color = black
+
+        *:not(i)
+          font-family $font-family
+          outline none
+          word-break break-all
+          a
+            color $a-color
+            text-decoration none !important
+            pointer-events: initial !important
+            &:hover
+              color $a-hover-color
+              transition-duration .5s
+          ul, ol
+            list-style none
+            margin 0
+            padding 0
+          img
+            border-radius 5px
+
+  body(id='[##_body_id_##]')
     block TIDORY
 
-    script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js")
-    script(src="//cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit.min.js")
-    script(src="//cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit-icons.min.js")
-    script(src="//kit.fontawesome.com/65f7e05682.js")
-    script(src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-3.2.1.min.js")
-
-style
-  :stylus
-    $font-family = 'Noto Sans KR', sans-serif !important
-    $a-color = alpha(black, .5)
-    $a-hover-color = black
-
-    *:not(i)
-      font-family $font-family
-      outline none
-      word-break break-all
-      a
-        color $a-color
-        text-decoration none !important
-        pointer-events: initial !important
-        &:hover
-          color $a-hover-color
-          transition-duration .5s
-      ul, ol
-        list-style none
-        margin 0
-        padding 0
-      img
-        border-radius 5px
+    script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js')
+    script(src='//cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit.min.js')
+    script(src='//cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit-icons.min.js')
+    script(src='//kit.fontawesome.com/65f7e05682.js')
+    script(src='//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-3.2.1.min.js')

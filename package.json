@@ -1,12 +1,13 @@
 {
   "scripts": {
-    "start": "cross-env NODE_ENV=development tidory start",
-    "preview": "cross-env NODE_ENV=development tidory preview",
-    "build": "cross-env NODE_ENV=production tidory build",
-    "build:compress": "cross-env NODE_ENV=build tidory build --compress",
+    "start": "tidory start",
+    "preview": "tidory preview",
+    "build": "tidory build",
+    "production": "tidory production",
     "deploy": "tidory deploy",
     "store": "tidory store",
-    "lint": "eslint --ext .js,.vue assets tidory.config.js",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore . && pug-lint .",
+    "precommit": "npm run lint",
     "deploy:developer": "npm run lint && push-dir --dir=dist --branch=tistory-skin --cleanup && tidory deploy",
     "deploy:user": "npm run lint && push-dir --dir=dist --branch=dist --cleanup"
   },
@@ -17,9 +18,9 @@
   },
   "devDependencies": {
     "cheerio": "^1.0.0-rc.2",
-    "cross-env": "^7.0.1",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
+    "eslint-loader": "^4.0.0",
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
@@ -27,16 +28,14 @@
     "eslint-plugin-vue": "^6.2.1",
     "jstransformer-stylus": "^1.5.0",
     "pug": "^2.0.4",
+    "pug-lint": "^2.6.0",
     "pug-plain-loader": "^1.0.0",
     "push-dir": "^0.4.1",
     "stylus": "^0.54.7",
-    "stylus-loader": "^3.0.2"
+    "stylus-loader": "^3.0.2",
+    "vue": "^2.6.11"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "lodash": "^4.17.15",
-    "tidory": "^7.2.1",
-    "vue": "^2.6.11",
-    "vue-infinite-scroll": "^2.0.2"
+    "tidory": "^7.3.0"
   }
 }

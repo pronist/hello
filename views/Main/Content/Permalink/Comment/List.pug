@@ -1,29 +1,29 @@
 mixin comment()
   .rp(class!=attributes.class)
-    .profile: img(src="[##_rp_rep_logo_##]")
+    .profile: img(src='[##_rp_rep_logo_##]')
     .description
       .action
-        a.address(href="[##_rp_rep_link_##]")
-          i(class="far fa-bookmark")
-        a.modify(href="#" onclick="[##_rp_rep_onclick_delete_##]")
-          i(class="far fa-trash-alt")
+        a.address(href='[##_rp_rep_link_##]')
+          i(class='far fa-bookmark')
+        a.modify(href='#' onclick='[##_rp_rep_onclick_delete_##]')
+          i(class='far fa-trash-alt')
         if attributes.class === 'comment'
-          a.write(href="#" onclick="[##_rp_rep_onclick_reply_##]")
-            i(class="far fa-comment")
+          a.write(href='#' onclick='[##_rp_rep_onclick_reply_##]')
+            i(class='far fa-comment')
       p.body [##_rp_rep_desc_##]
       .metainfo
         span.name [##_rp_rep_name_##]
         span.date [##_rp_rep_date_##]
 
 s_rp_container
-  #comment-overlay(class="uk-position-cover uk-position-fixed")
+  #comment-overlay(class='uk-position-cover uk-position-fixed')
   ul#comment-list
     s_rp_rep
-      li(id="[##_rp_rep_id_##]" class='[##_rp_rep_class_##]')
+      li(id='[##_rp_rep_id_##]' class='[##_rp_rep_class_##]')
         +comment()(class='comment')
         ul.re-comments
           s_rp2_rep
-            li(id="[##_rp_rep_id_##]" class='[##_rp_rep_class_##]')
+            li(id='[##_rp_rep_id_##]' class='[##_rp_rep_class_##]')
               +comment()(class='re-comment')
 
 script.
@@ -53,6 +53,17 @@ style
         min-width 270px
         overflow hidden
         clear both
+        display flex
+        flex-direction column-reverse
+        .tt_more_preview_comments_wrap
+          font-weight 500
+          color black !important
+          margin-top 15px
+          &::after
+            font-family 'Font Awesome 5 Pro'
+            font-weight 600
+            content '\f0ab'
+            margin-left 8px
         li
           clear both
           .rp

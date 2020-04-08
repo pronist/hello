@@ -37,10 +37,10 @@
       <recentComments>5</recentComments>
       <expandComment>1</expandComment>
       <lengthOfRecentNotice>25</lengthOfRecentNotice>
-      <lengthOfRecentEntry>27</lengthOfRecentEntry>
-      <lengthOfRecentComment>30</lengthOfRecentComment>
-      <lengthOfRecentTrackback>30</lengthOfRecentTrackback>
-      <lengthOfLink>30</lengthOfLink>
+      <lengthOfRecentEntry>25</lengthOfRecentEntry>
+      <lengthOfRecentComment>25</lengthOfRecentComment>
+      <lengthOfRecentTrackback>25</lengthOfRecentTrackback>
+      <lengthOfLink>25</lengthOfLink>
       <entriesOnPage>5</entriesOnPage>
       <entriesOnList>5</entriesOnList>
       <showListOnCategory>1</showListOnCategory>
@@ -50,4 +50,38 @@
       </tree>
       <contentWidth>550</contentWidth>
    </default>
+   <variables>
+    <variablegroup name="Meta Tag (웹마스터 도구)">
+      <variable>
+        <name>google</name>
+        <label>구글</label>
+        <description><![CDATA[ 구글 웹마스터 도구 인증코드 ]]></description>
+        <type>STRING</type>
+        <default></default>
+      </variable>
+      <variable>
+        <name>bing</name>
+        <label>빙</label>
+        <description><![CDATA[ 빙 웹마스터 도구 인증코드 ]]></description>
+        <type>STRING</type>
+        <default></default>
+      </variable>
+      <variable>
+        <name>naver</name>
+        <label>네이버</label>
+        <description><![CDATA[ 네이버 웹마스터 도구 인증코드 ]]></description>
+        <type>STRING</type>
+        <default></default>
+      </variable>
+    </variablegroup>
+    <variablegroup>
+      <variable>
+        <name>copyright</name>
+        <label>저작권 문구</label>
+        <description><![CDATA[ 블로그 저작권 문구 ]]></description>
+        <type>STRING</type>
+        <default>ⓒ 2020. @정상우.</default>
+      </variable>
+    </variablegroup>
+  </variables>
 </skin>

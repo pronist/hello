@@ -1,13 +1,13 @@
-s_cover(name="ImageSlider")
-  .image-slider(class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="autoplay: true;")
-    ul(class="uk-slideshow-items")
+s_cover(name='ImageSlider')
+  .image-slider(class='uk-position-relative uk-visible-toggle uk-light' tabindex='-1' uk-slideshow='autoplay: true;')
+    ul(class='uk-slideshow-items')
       s_cover_item
         s_cover_item_thumbnail
           li.image-slider-post
-            a(href="[##_cover_item_url_##]")
-              img(src="[##_cover_item_thumbnail_##]" uk-cover)
-    a(class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous")
-    a(class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next")
+            a(href='[##_cover_item_url_##]')
+              img(src='[##_cover_item_thumbnail_##]' uk-cover)
+    a(class='uk-position-center-left uk-position-small uk-hidden-hover' href='#' uk-slidenav-previous uk-slideshow-item='previous')
+    a(class='uk-position-center-right uk-position-small uk-hidden-hover' href='#' uk-slidenav-next uk-slideshow-item='next')
 
 style
   :stylus

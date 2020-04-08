@@ -13,14 +13,8 @@
   */
 
 import Vue from 'vue'
-import InfiniteScroll from 'vue-infinite-scroll'
-
 import ScrollSpy from './components/ScrollSpy.vue'
-import Readmore from './components/Readmore.vue'
 
-Vue.use(InfiniteScroll)
-
-Vue.component('Scrollspy', ScrollSpy)
-Vue.component('Readmore', Readmore)
+Vue.component('scrollspy', ScrollSpy)
 
 new Vue({ el: '#app' })

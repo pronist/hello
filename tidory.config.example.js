@@ -30,5 +30,22 @@ module.exports = {
      * guestbook
      */
     mode: 'index'
+  },
+
+  /**
+   * Webpack Configuration
+   *
+   * @param {object} webpackConfig
+   */
+  extends (webpackConfig) {
+    webpackConfig.module.rules = [
+      {
+        enforce: 'pre',
+        test: /\.(js|vue)$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      },
+      ...webpackConfig.module.rules
+    ]
   }
 }

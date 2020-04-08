@@ -12,7 +12,8 @@ module.exports = {
     'vue'
   ],
   globals: {
-    UIkit: 'readonly'
+    UIkit: 'readonly',
+    $: 'readonly'
   },
   parserOptions: {
     ecmaVersion: 2018

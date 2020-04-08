@@ -1,6 +1,6 @@
 #post
-  header#header(role="header")
-    a.category(href="[##_article_rep_category_link_##]") [##_article_rep_category_##]
+  header#header(role='header')
+    a.category(href='[##_article_rep_category_link_##]') [##_article_rep_category_##]
     h1.title [##_article_rep_title_##]
   include Post/Meta
   article.content [##_article_rep_desc_##]
@@ -23,12 +23,12 @@ style
     #post
       text-align center
       color $color
-      figure[data-ke-type="opengraph"],
+      figure[data-ke-type='opengraph'],
       div[data-ke-type=moreLess],
       blockquote, ul, ol, table,
       h2, h3, h4
         margin 20px 0 !important
-      figure[data-ke-type="opengraph"]
+      figure[data-ke-type='opengraph']
         margin-top 10px !important
       .category
         font-weight 500
@@ -66,7 +66,7 @@ style
             transition-duration .5s
           &::before
             z-index -1
-            content: ""
+            content: ''
             position absolute
             top 15px
             left 0
