@@ -21,13 +21,6 @@ style
       .permalink
         text-align center
         color $color
-        figure[data-ke-type='opengraph'],
-        div[data-ke-type=moreLess],
-        blockquote, ul, ol, table,
-        h2, h3, h4
-          margin 20px 0
-        figure[data-ke-type='opengraph']
-          margin-top 10px !important
         #header
           .category
             font-weight 500
@@ -47,6 +40,15 @@ style
         .content
           text-align left
           margin-top 50px
+          figure[data-ke-type='opengraph'],
+          div[data-ke-type=moreLess],
+          blockquote, ul, ol, table,
+          h2, h3, h4
+            margin 20px 0
+          p
+            margin 0 !important
+          figure[data-ke-type='opengraph']
+            margin-top 10px !important
           div[data-ke-type=moreLess]
             position relative
             .moreless-content
@@ -54,7 +56,7 @@ style
             a
               display inline-block
               border-radius 16px
-              background-color $base-color
+              background-color black
               padding 2px 14px
               color $moreLess-color !important
               font-size .85rem !important
@@ -108,6 +110,7 @@ style
               margin 6px 0
           ul li
             list-style circle
+            line-height 1.8em
           table, td, th
             border none
             border-bottom 1px solid alpha(black, .1)
