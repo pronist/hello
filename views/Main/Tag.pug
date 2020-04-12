@@ -1,4 +1,10 @@
 s_tag
+  style(scoped)
+    :stylus
+      #main
+        width 1200px
+        @media screen and (max-width: 1200px)
+          width 100%
   #tags
     header#header(role='header')
       h1.name 태그 클라우드
@@ -22,7 +28,7 @@ style
           font-size 1.9rem
           margin-bottom 50px
       ul
-        column-count 4
+        column-count 6
         column-gap 20px
         li
           break-inside avoid
@@ -42,13 +48,13 @@ style
             &:hover
               background-color $background-hover
               color $color-hover
-        @media screen and (min-width: 420px) and (max-width: 520px)
-          column-count 2
-        @media screen and (min-width: 320px) and (max-width: 420px)
+        @media screen and (max-width: 640px)
           column-count 1
-      @media screen and (min-width: 520px) and (max-width: 600px)
+        @media screen and (min-width: 640px) and (max-width: 960px)
+          column-count 2
+      @media screen and (min-width: 960px) and (max-width: 1200px)
         #header
           .name
             font-size 1.7rem
         ul
-          column-count 3
+          column-count 4
