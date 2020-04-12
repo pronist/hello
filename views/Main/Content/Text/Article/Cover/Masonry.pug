@@ -6,8 +6,10 @@ s_cover(name='Masonry')
 
 style
   :stylus
+    $gap = 15px
+
     .masonry-layout
-      column-gap 1.5rem
+      column-gap $gap
       margin 40px 0
       column-count 2
       @media screen and (max-width: 600px)
@@ -19,6 +21,7 @@ style
           box-sizing border-box
           border-top none !important
           padding 0 !important
+          margin-bottom $gap
           &:first-of-type
             padding-bottom 0
           .title
@@ -27,6 +30,5 @@ style
             font-size 1.1rem !important
           .summary
             font-size .92rem
-            margin-bottom 15px
           .thumbnail
             margin-bottom 15px !important

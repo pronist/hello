@@ -2,7 +2,7 @@
   include Text/Guestbook
   include Text/Article
 
-<!-- Guestbook, Article/Post/Permalink -->
+//- Guestbook, Article/Post/Permalink
 script.
   const $l = $('#comment, #guestbook')
   $l.on('click', '.rp .body', e => {
@@ -17,7 +17,7 @@ script.
     setTimeout(() => $rp.css('zIndex', 1), 200)
   }))
 
-<!-- Guestbook, Article/Post/Permalink -->
+//- Guestbook, Article/Post/Permalink
 style
   :stylus
     $background = #f8f8f8
@@ -62,7 +62,7 @@ style
               font-family 'Font Awesome 5 Pro'
               font-weight 600
               content $i
-<!-- Guestbook, Article/Post/Permalink -->
+//- Guestbook, Article/Post/Permalink
 style
   :stylus
     #text
