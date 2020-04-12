@@ -1,6 +1,6 @@
-mixin post()
+mixin index()
   s_cover_item_article_info
-    .post(class=`${attributes.class}-post`)
+    .cover.index(class=`${attributes.class}-item`)
       s_cover_item_thumbnail
         img.thumbnail(src='[##_cover_item_thumbnail_##]')
       .category: a(href='[##_cover_item_category_url_##]') [##_cover_item_category_##]

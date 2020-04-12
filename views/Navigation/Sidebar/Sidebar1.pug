@@ -11,7 +11,8 @@
       s_sidebar_element
         <!-- 블로그 메뉴 -->
         include Sidebar1/Menu
-      //- s_sidebar_element
+      s_sidebar_element
+        <!-- 공지사항 -->
         include Sidebar1/Notice
       s_sidebar_element
         <!-- 최신 글 -->
@@ -19,7 +20,9 @@
       s_sidebar_element
         <!-- 최신 덧글 -->
         include Sidebar1/Comment
-
+      s_sidebar_element
+        <!-- 랜덤 태그 -->
+        include Sidebar1/Tags
 style
   :stylus
     #sidebar1 > aside

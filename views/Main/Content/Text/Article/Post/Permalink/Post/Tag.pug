@@ -1,0 +1,33 @@
+s_tag_label
+  #tags [##_tag_label_rep_##]
+
+script.
+  $('#tags').contents().filter(function () { return this.nodeType === 3 }).remove()
+
+style
+  :stylus
+    $background = #f8f8f8
+    $background-hover = #ed5207
+    $color = alpha(black, .5)
+    $color-hover = white
+    $height = 32px
+
+    #post
+      #tags
+        text-align left
+        margin-top 5px
+        a
+          margin-top 10px
+          margin-right 10px
+          background $background
+          color $color
+          display inline-block
+          font-size .8rem
+          border-radius 26px
+          height $height
+          line-height $height - 2
+          padding 0 14px
+          transition-duration .2s
+          &:hover
+            background-color $background-hover
+            color $color-hover

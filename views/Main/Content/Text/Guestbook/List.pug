@@ -1,0 +1,26 @@
+mixin gb-comment()
+  .rp(class!=attributes.class)
+    .profile: img(src='[##_guest_rep_logo_##]')
+    .description
+      .action
+        a.modify(href='#' onclick='[##_guest_rep_onclick_delete_##]')
+          i(class='far fa-trash-alt')
+        if attributes.class === 'comment'
+          a.write(href='#' onclick='[##_guest_rep_onclick_reply_##]')
+            i(class='far fa-comment')
+      p.body [##_guest_rep_desc_##]
+      .metainfo
+        span.name [##_guest_rep_name_##]
+        span.date [##_guest_rep_date_##]
+
+s_guest_container
+  .comment-overlay(class='uk-position-cover uk-position-fixed')
+  ul.comment-list
+    s_guest_rep
+      li(id='[##_guest_rep_id_##]' class='[##_guest_rep_class_##]')
+        +gb-comment()(class='comment')
+        s_guest_reply_container
+          ul.re-comments
+            s_guest_reply_rep
+              li(id='[##_guest_rep_id_##]' class='[##_guest_rep_class_##]')
+                +gb-comment()(class='re-comment')

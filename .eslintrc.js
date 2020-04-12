@@ -13,13 +13,15 @@ module.exports = {
   ],
   globals: {
     UIkit: 'readonly',
-    $: 'readonly'
+    $: 'readonly',
+    hljs: 'readonly'
   },
   parserOptions: {
     ecmaVersion: 2018
   },
   rules: {
-    'no-new' : 0
+    'no-new' : 0,
+    'no-array-constructor': 0
   },
   ignorePatterns: 'dist/'
 }

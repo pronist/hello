@@ -34,23 +34,24 @@ style
           overflow: hidden;
           white-space: nowrap;
           text-overflow: ellipsis;
-          width calc(40vw)
+          max-width calc(40vw)
       .uk-navbar-right
         .designed-by
           margin-right 8px
-        i
-          width $top-size
-          height $top-size
-          line-height $top-size
-          text-align center
-          background-color black
-          color $top-color !important
-          border-radius 50%
-          font-size $top-font-size
-          transition-duration .2s
-          display block
-        &:active > i
-          transform scale(.9)
+        .top
+          i
+            width $top-size
+            height $top-size
+            line-height $top-size
+            text-align center
+            background-color black
+            color $top-color !important
+            border-radius 50%
+            font-size $top-font-size
+            transition-duration .2s
+            display block
+          &:active > i
+            transform scale(.9)
       @media screen and (max-width: 1280px)
         position initial
         margin-top 35px

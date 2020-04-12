@@ -1,14 +1,21 @@
 <template lang="pug">
   #spy
-    ul(class="uk-nav uk-nav-default" ref="nav")
-      li(v-for="spy in spies"): a(:href="spy.href") {{ spy.label }}
+    ul(class="uk-nav uk-nav-default")
+      li(v-for="spy in spies")
+        a(:href="spy.href") {{ spy.label }}
 </template>
 
 <script>
 export default {
+  props: {
+    context: {
+      type: String,
+      required: true
+    }
+  },
   computed: {
     spies () {
-      return $('#post h2').get().reduce((spies, heading) => {
+      return $(this.context).find('h2').get().reduce((spies, heading) => {
         const $heading = $(heading)
         const anchor = encodeURIComponent($heading.text())
         $heading.attr('id', anchor)

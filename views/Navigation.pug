@@ -7,7 +7,7 @@ nav#nav(role='navigation'
     a(href='#' uk-toggle='target: #sidebar1')
       each _ in Array(3)
         div
-  #metainfo(class='uk-navbar-center')
+  .metainfo(class='uk-navbar-center')
   #s2(class='uk-navbar-right')
     a(href='#' uk-toggle='target: #sidebar2')
       img.profile(src='[##_image_##]')
@@ -27,8 +27,8 @@ script.
     })
   })
 script.
-  const $metainfo = $('#nav > #metainfo')
-  $('#post > header > *').each((_, $h) => $metainfo.append($($h).clone()))
+  const $metainfo = $('#nav > .metainfo')
+  $('#post > header > *:not(.metainfo)').each((_, $h) => $metainfo.append($($h).clone()))
 
 style
   :stylus
@@ -52,7 +52,7 @@ style
         backdrop-filter blur(2px)
         padding-top $padding
         padding-bottom $padding
-        #metainfo
+        .metainfo
           display block
           line-height 1rem
           > *
@@ -66,7 +66,7 @@ style
             margin 0
           .category
             display inline-block
-      #metainfo
+      .metainfo
         text-align center
         display none
         .title

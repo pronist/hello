@@ -1,0 +1,223 @@
+#article
+  include Article/Cover
+  include Article/Post
+  include Article/Notice
+
+<!-- Post/Permalink, Notice/Permalink -->
+script.
+  hljs.initHighlightingOnLoad()
+
+<!-- Post/Permalink, Notice/Permalink -->
+style
+  :stylus
+    $font-awesome = 'Font Awesome 5 Pro'
+    $base-color = #ed5207
+    $base-color-grey = #f8f8f8
+
+    $color = alpha(black, .8)
+    $moreLess-color = white
+
+    #article
+      .permalink
+        text-align center
+        color $color
+        figure[data-ke-type='opengraph'],
+        div[data-ke-type=moreLess],
+        blockquote, ul, ol, table,
+        h2, h3, h4
+          margin 20px 0
+        figure[data-ke-type='opengraph']
+          margin-top 10px !important
+        #header
+          .category
+            font-weight 500
+            color $base-color !important
+          .title
+            margin-top 0
+            margin-bottom 5px
+            font-weight 600
+            font-size 1.9rem
+            line-height 1.5em
+          .metainfo
+            font-size .9rem
+            span
+              display inline-block
+              color alpha(black, .5)
+              padding 0 3px
+        .content
+          text-align left
+          margin-top 50px
+          div[data-ke-type=moreLess]
+            position relative
+            .moreless-content
+              margin-top 25px
+            a
+              display inline-block
+              border-radius 16px
+              background-color $base-color
+              padding 2px 14px
+              color $moreLess-color !important
+              font-size .85rem !important
+              font-weight 600
+              &::before
+                font-family $font-awesome
+                content '\f0a9'
+                margin-right 5px
+                color $moreLess-color
+            &.open
+              a::before
+                content '\f0ab'
+            &:hover
+              transition-duration .5s
+            &::before
+              z-index -1
+              content ''
+              position absolute
+              top 15px
+              left 0
+              height 0
+              width 100%
+              border-bottom 1px dashed alpha(black, .1)
+          blockquote
+            font-style initial
+            &[data-ke-style=style1]
+              text-align: center
+              font-size 1.1rem
+              &::before
+                font-family $font-awesome
+                content '\f10e'
+                font-weight 600
+                display block
+                margin-bottom 3px
+              p
+                color black
+            &[data-ke-style=style2]
+              border solid #acacac
+              border-width 0 0 0 2px
+              padding 1px 0 0 12px
+              color #666
+              line-height 1.8em
+              text-align left
+              font-size .9rem
+            &[data-ke-style=style3]
+              font-size 1rem
+              background none
+          ul, ol
+            padding-left 20px
+            li
+              margin 6px 0
+          ul li
+            list-style circle
+          table, td, th
+            border none
+            border-bottom 1px solid alpha(black, .1)
+          table
+            td, th
+              font-size .9rem
+              padding 10px 12px
+              box-sizing border-box
+          h2, h3, h4
+            font-weight 600
+            line-height 1.8em
+          h2
+            font-size 1.5rem
+          h3
+            font-size 1.3rem
+          h4
+            font-size 1.1rem
+          p, span
+            line-height 1.8em
+            letter-spacing .8px
+            > code
+              position relative
+              top -1px
+              color $base-color
+              padding 2px 8px
+              background $base-color-grey
+              border-radius 5px
+              white-space normal
+          b, strong
+            color $base-color
+            font-size 1rem
+            font-weight 500
+          pre
+            border none
+            padding 0
+            code
+              background-color $base-color-grey
+              border-radius 5px
+              padding 15px
+          img
+            border-radius 5px
+          a
+            color $base-color
+            text-decoration underline
+        @media screen and (max-width: 600px)
+          #header
+            .title
+              font-size 1.7rem
+          .content
+            h2
+              font-size 1.3rem
+            h3
+              font-size 1.2rem
+            h4
+              font-size 1rem
+            blockquote[data-ke-style=style1]::before
+              font-size .85rem
+<!-- Cover, Post/Index, Notice/Index -->
+style
+  :stylus
+    $title-color = alpha(black, .9)
+    $category-color = #ed5207
+    $date-color = alpha(black, .3)
+
+    #article
+      .index
+        border-top 1px solid alpha(black, .1)
+        padding 40px 0
+        &:first-of-type
+          padding-top 0
+          padding-bottom 40px
+          border none
+        &:last-of-type
+          padding-bottom 0px
+        .title
+          margin-top 10px
+          line-height 1.5em
+          font-size 1.5rem
+          a
+            color $title-color !important
+        .category
+          margin-bottom 8px
+          a
+            font-size .92rem
+            font-weight 500
+            color $category-color !important
+        .thumbnail
+          width 100%
+        .summary
+          display -webkit-box
+          display -ms-flexbox
+          display box
+          -webkit-box-orient vertical
+          -webkit-line-clamp 3
+          line-height 1.8em
+          overflow hidden
+          max-height 80px
+          margin-top 1px
+          vertical-align top
+          word-break break-all
+        .date
+          font-size .87rem
+          color $date-color
+          > span
+            margin-left 7px
+        .thumbnail
+          margin-bottom 25px
+        @media screen and (max-width: 600px)
+          padding 25px 0
+          &:first-of-type
+            padding-bottom 25px
+          .title
+            font-size 1.3rem

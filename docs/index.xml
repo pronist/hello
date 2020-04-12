@@ -35,12 +35,14 @@
    <default>
       <recentEntries>5</recentEntries>
       <recentComments>5</recentComments>
+      <itemsOnGuestbook>15</itemsOnGuestbook>
       <expandComment>1</expandComment>
-      <lengthOfRecentNotice>25</lengthOfRecentNotice>
-      <lengthOfRecentEntry>25</lengthOfRecentEntry>
-      <lengthOfRecentComment>25</lengthOfRecentComment>
-      <lengthOfRecentTrackback>25</lengthOfRecentTrackback>
-      <lengthOfLink>25</lengthOfLink>
+      <tagsInCloud>5</tagsInCloud>
+      <sortInCloud>1</sortInCloud>
+      <lengthOfRecentNotice>27</lengthOfRecentNotice>
+      <lengthOfRecentEntry>27</lengthOfRecentEntry>
+      <lengthOfRecentComment>27</lengthOfRecentComment>
+      <lengthOfLink>27</lengthOfLink>
       <entriesOnPage>5</entriesOnPage>
       <entriesOnList>5</entriesOnList>
       <showListOnCategory>1</showListOnCategory>

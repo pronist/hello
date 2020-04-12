@@ -13,12 +13,9 @@ style
     }
 
     icons($icons, $offset = 0)
-      if length($icons) > 1
-        for $icon, $idx in $icons
-          li:nth-child({$idx + $offset}) a::before
-            content $icon
-      else
-        content $icons
+      for $icon, $idx in $icons
+        li:nth-child({$idx + $offset}) a::before
+          content $icon
 
     #sidebar2 .menu_toolbar
       all initial !important
@@ -41,7 +38,7 @@ style
             color $btn-subscription-color
             &::before
               {$font-awesome}
-              icons('')
+              content '\f005'
           .txt_tool_id
             display none
       #menubar_wrapper
@@ -67,12 +64,12 @@ style
                   &::before
                     {$font-awesome}
                 &:nth-child(1) a::before
-                  icons('')
+                  content '\f015'
                 &:last-child
                   a
                     font-size .9rem !important
             > .list_toolbar
-              icons('' '' '', 2)
+              icons('\f086' '\f0ca' '\f2f6', 2)
           .wrap_toolbar
             > .list_toolbar
-              icons('' '', 2)
+              icons('\f09e' '\f2f5', 2)

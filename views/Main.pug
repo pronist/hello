@@ -1,6 +1,7 @@
 main#main(role='main')
-  include Main/Cover
+  include Main/Tag
   include Main/Content
+  include Main/Component
 
 style
   :stylus
@@ -13,63 +14,9 @@ style
       margin 0 auto
       width $width
       padding-top 100px
+      min-height calc(100vh - 132px)
       @media screen and (max-width: 600px)
         width 100%
         padding 0 15px
         padding-top 25px
-
-style
-  :stylus
-    #main
-      $title-color = alpha(black, .9) !important
-      $category-color = #ed5207 !important
-      $date-color = alpha(black, .3)
-
-      .post
-        border-top 1px solid alpha(black, .1)
-        padding 40px 0
-        &:first-of-type
-          padding-top 0
-          padding-bottom 40px
-          border none
-        &:last-of-type
-          padding-bottom 0px
-        .title
-          margin-top 10px
-          line-height 1.5em
-          font-size 1.5rem
-          a
-            color $title-color
-        .category
-          margin-bottom 8px
-          a
-            font-size .92rem
-            font-weight 500
-            color $category-color
-        .thumbnail
-          width 100%
-        .summary
-          display -webkit-box
-          display -ms-flexbox
-          display box
-          -webkit-box-orient vertical
-          -webkit-line-clamp 3
-          line-height 1.8em
-          overflow hidden
-          max-height 80px
-          margin-top 1px
-          vertical-align top
-          word-break break-all
-        .date
-          font-size .87rem
-          color $date-color
-          > span
-            margin-left 7px
-        .thumbnail
-          margin-bottom 25px
-        @media screen and (max-width: 600px)
-          padding 25px 0
-          &:first-of-type
-            padding-bottom 25px
-          .title
-            font-size 1.3rem
+        min-height calc(100vh - 122px)
