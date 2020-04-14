@@ -1,40 +1,31 @@
-mixin notify(type)
+script.
+  function notify ($notify, pos, timeout) {
+    if ($notify.length > 0) {
+      const $thumbnail = $notify.find('.thumbnail')
+      if ($thumbnail.children('img[src$="img_relation.png"]').length > 0) {
+        $thumbnail.remove()
+      }
+      UIkit.notification($notify.get(0).outerHTML, { pos, timeout })
+      $notify.remove()
+    }
+  }
+
+mixin notify(type, label, pos)
   #{`s_article_${type}`}
-    a.notify(href=`[##_article_${type}_link_##]` class=`notify-${type} uk-box-shadow-medium`)
+    a.notify(href=`[##_article_${type}_link_##]` class='uk-box-shadow-medium' id=type)
       #{`s_article_${type}_thumbnail`}
         .thumbnail
           img(src=`[##_article_${type}_thumbnail_link_##]`)
+          //- img(src='https://t1.daumcdn.net/tistory_admin/static/mobile/m640/img_relation.png')
       .metainfo
-        if type === 'prev'
-          .description 이전 글
-        else
-          .description 다음 글
+        .description #{label}
         .title #{`[##_article_${type}_title_##]`}
 
   script.
-    setTimeout(() => {
-      const $notify = $(`.notify-#{type}`)
+    setTimeout(() => notify($('#' + '#{type}'), `#{pos}`, 15000), 5000)
 
-      if ($notify.length > 0) {
-        UIkit.notification($notify.get(0).outerHTML, {
-          pos: `bottom-${'#{type}' === 'prev' ? 'left' : 'right'}`, timeout: 15000
-        })
-        $notify.remove()
-      }
-    }, 5000)
-
-+notify('next')
-+notify('prev')
-
-script.
-  const $notify = $('.notify')
-
-  if ($notify.length > 0) {
-    const $thumbnail = $notify.find('.thumbnail')
-    if ($thumbnail.children('img[src*="tistory_admin"]').length > 0) {
-      $thumbnail.remove()
-    }
-  }
++notify('next', '다음 글', 'bottom-right')
++notify('prev', '이전 글', 'bottom-left')
 
 style
   :stylus
@@ -63,14 +54,14 @@ style
             overflow hidden
             img
               height 100%
-              max-width 180px
+              max-width 178px
           .metainfo
             background #f8f8f8
             padding 20px
             display flex
             flex-direction column
             justify-content center
-            max-width 220px
+            max-width 182px
             box-sizing border-box
             min-height 100px
             *
