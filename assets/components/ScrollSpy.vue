@@ -38,7 +38,7 @@ export default {
   #spy
     position relative
     right $right
-    @media screen and (max-width: 1178px)
+    @media screen and (max-width: 1200px)
       display none
     ul
       list-style none

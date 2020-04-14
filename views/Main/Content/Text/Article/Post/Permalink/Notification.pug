@@ -1,0 +1,87 @@
+mixin notify(type)
+  #{`s_article_${type}`}
+    a.notify(href=`[##_article_${type}_link_##]` class=`notify-${type} uk-box-shadow-medium`)
+      #{`s_article_${type}_thumbnail`}
+        .thumbnail
+          img(src=`[##_article_${type}_thumbnail_link_##]`)
+      .metainfo
+        if type === 'prev'
+          .description 이전 글
+        else
+          .description 다음 글
+        .title #{`[##_article_${type}_title_##]`}
+
+  script.
+    setTimeout(() => {
+      const $notify = $(`.notify-#{type}`)
+
+      if ($notify.length > 0) {
+        UIkit.notification($notify.get(0).outerHTML, {
+          pos: `bottom-${'#{type}' === 'prev' ? 'left' : 'right'}`, timeout: 15000
+        })
+        $notify.remove()
+      }
+    }, 5000)
+
++notify('next')
++notify('prev')
+
+script.
+  const $notify = $('.notify')
+
+  if ($notify.length > 0) {
+    const $thumbnail = $notify.find('.thumbnail')
+    if ($thumbnail.children('img[src*="tistory_admin"]').length > 0) {
+      $thumbnail.remove()
+    }
+  }
+
+style
+  :stylus
+    .notify
+      display none
+      @media screen and (max-width: 1600px)
+        display none !important
+style
+  :stylus
+    .uk-notification
+      bottom 55px
+      width initial
+      &.uk-notification-bottom-left
+        left 20px
+      &.uk-notification-bottom-right
+        right 20px
+      > *
+        display inline-block
+      .uk-notification-message
+        background none
+        padding 0
+        .notify
+          display flex
+          .thumbnail
+            height 100px
+            overflow hidden
+            img
+              height 100%
+              max-width 180px
+          .metainfo
+            background #f8f8f8
+            padding 20px
+            display flex
+            flex-direction column
+            justify-content center
+            max-width 220px
+            box-sizing border-box
+            min-height 100px
+            *
+              color black !important
+              overflow hidden
+              white-space nowrap
+              text-overflow ellipsis
+            .title
+              font-size .96rem
+              font-weight 500
+            .description
+              font-size .8rem
+              margin-bottom 3px
+              color alpha(black, .7) !important

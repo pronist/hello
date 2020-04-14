@@ -1,10 +1,3 @@
--
-  const webmaster = {
-    google: 'google-site-verification',
-    bing: 'msvalidate.01',
-    naver: 'naver-site-verification'
-  }
-
 doctype html
 
 html#hELLO(lang='ko')
@@ -21,32 +14,29 @@ html#hELLO(lang='ko')
     link(rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/xcode.min.css')
     link(rel='stylesheet' href='//cdn.jsdelivr.net/npm/load-awesome@1.1.0/css/line-scale.min.css')
 
-    each name, vendor in webmaster
-      meta(name=name content=`[##_var_${vendor}_##]`)
-
     style
       :stylus
-        $font-family = 'Noto Sans KR', sans-serif !important
+        $font-family = 'Noto Sans KR', sans-serif
         $a-color = alpha(black, .5)
         $a-hover-color = black
 
         *:not(i)
-          font-family $font-family
+          font-family $font-family !important
           outline none
           word-break break-all
-          a
-            color $a-color
-            text-decoration none !important
-            pointer-events: initial !important
-            &:hover
-              color $a-hover-color
-              transition-duration .5s
-          ul, ol
-            list-style none
-            margin 0
-            padding 0
-          img
-            border-radius 5px
+        a
+          color $a-color
+          text-decoration none !important
+          pointer-events: initial !important
+          &:hover
+            color $a-hover-color
+            transition-duration .5s
+        ul, ol
+          list-style none
+          margin 0
+          padding 0
+        img
+          border-radius 5px
 
   body(id='[##_body_id_##]')
     block TIDORY
@@ -55,4 +45,4 @@ html#hELLO(lang='ko')
     script(src='//cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit.min.js')
     script(src='//cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit-icons.min.js')
     script(src='//kit.fontawesome.com/65f7e05682.js')
-    script(src='//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-3.2.1.min.js')
+    script(src='//code.jquery.com/jquery-3.4.1.min.js')

@@ -20,10 +20,12 @@ script.
     UIkit.util.on(menubar, 'beforeshow', () => {
       $footer.css('display', 'none')
       $menubar.addClass('uk-animation-fade uk-animation-fast uk-animation-reverse')
+      $('.uk-notification').css('display', 'none')
     })
     UIkit.util.on(menubar, 'hidden', () => {
       $footer.css('display', 'flex')
       $menubar.removeClass()
+      $('.uk-notification').css('display', 'block')
     })
   })
 script.
