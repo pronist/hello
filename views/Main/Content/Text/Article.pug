@@ -53,7 +53,7 @@ style
             position relative
             .moreless-content
               margin-top 25px
-            > a
+            > .btn-toggle-moreless
               display inline-block
               border-radius 16px
               background-color black
@@ -67,10 +67,8 @@ style
                 margin-right 5px
                 color $moreLess-color
             &.open
-              a::before
-                content '\f0ab'
-            &:hover
-              transition-duration .5s
+              > .btn-toggle-moreless::before
+                  content '\f0ab'
             &::before
               z-index -1
               content ''
