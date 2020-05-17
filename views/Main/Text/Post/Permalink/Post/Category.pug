@@ -1,12 +1,12 @@
 script.
-  $('#post .another_category table th').contents().filter(function () { return this.nodeType === 3 }).remove()
+  $('.permalink .another_category table th').contents().filter(function () { return this.nodeType === 3 }).remove()
 
 style
   :stylus
     $background = #f8f8f8
     $color = alpha(black, .8)
 
-    #post
+    .permalink
       .another_category
         border none
         border-radius 5px

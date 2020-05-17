@@ -13,8 +13,14 @@
   */
 
 import Vue from 'vue'
+import InfiniteScrollPlugin from 'vue-infinite-scroll'
+
 import ScrollSpy from './components/ScrollSpy.vue'
+import InfiniteScroll from './components/InfiniteScroll.vue'
+
+Vue.use(InfiniteScrollPlugin)
 
 Vue.component('scrollspy', ScrollSpy)
+Vue.component('infinite-scroll', InfiniteScroll)
 
 new Vue({ el: '#app' })

@@ -1,0 +1,65 @@
+.post.index
+  s_article_rep_thumbnail
+    img.thumbnail(src='[##_article_rep_thumbnail_url_##]')
+  .category: a(href='[##_article_rep_category_link_##]') [##_article_rep_category_##]
+  h1.title: a(href='[##_article_rep_link_##]') [##_article_rep_title_##]
+  p.summary [##_article_rep_summary_##]
+  time.date
+    | →
+    span [##_article_rep_date_##]
+
+style
+  :stylus
+    $category-color = #ed5207
+    $title-color = alpha(black, .9)
+    $date-color = alpha(black, .3)
+
+    #text
+      .index
+        border-top 1px solid alpha(black, .1)
+        padding 40px 0
+        &:first-of-type
+          padding-top 0
+          padding-bottom 40px
+          border none
+        &:last-of-type
+          padding-bottom 0px
+        .title
+          margin-top 10px
+          line-height 1.5em
+          font-size 1.5rem
+          a
+            color $title-color !important
+        .category
+          margin-bottom 8px
+          a
+            font-size .92rem
+            font-weight 500
+            color $category-color !important
+        .thumbnail
+          width 100%
+        .summary
+          display -webkit-box
+          display -ms-flexbox
+          display box
+          -webkit-box-orient vertical
+          -webkit-line-clamp 3
+          line-height 1.8em
+          overflow hidden
+          max-height 80px
+          margin-top 1px
+          vertical-align top
+          word-break break-all
+        .date
+          font-size .87rem
+          color $date-color
+          > span
+            margin-left 7px
+        .thumbnail
+          margin-bottom 25px
+        @media screen and (max-width: 1200px)
+          padding 25px 0
+          &:first-of-type
+            padding-bottom 25px
+          .title
+            font-size 1.3rem

@@ -1,2 +1,9 @@
 #app
-  scrollspy(v-if='[##_body_id_##]' === 'tt-body-page' context='#post')
+  scrollspy(v-if=`
+    '[##_body_id_##]' === 'tt-body-page'
+  `)
+  infinite-scroll(v-if=`
+    '[##_body_id_##]' === 'tt-body-index' ||
+    '[##_body_id_##]' === 'tt-body-category' ||
+    '[##_body_id_##]' === 'tt-body-archive'
+  `)

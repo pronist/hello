@@ -1,6 +1,6 @@
 footer#footer(role='footer' class='uk-navbar-container uk-navbar-transparent' uk-navbar)
   .uk-navbar-left
-    small
+    small.copyright
       s_if_var_copyright
         | [##_var_copyright_##]
   .uk-navbar-right
@@ -10,9 +10,9 @@ footer#footer(role='footer' class='uk-navbar-container uk-navbar-transparent' uk
 style
   :stylus
     $copyright-color = alpha(black, .8)
-    $top-size = 24px
-    $top-font-size = 1rem
-    $top-color = white
+    $a-size = 24px
+    $a-font-size = 1rem
+    $a-color = white
 
     #footer
       width 100%
@@ -26,32 +26,32 @@ style
       .uk-navbar-left,
       .uk-navbar-right
         font-size .96em
+        > a
+            i
+              width $a-size
+              height $a-size
+              line-height $a-size
+              text-align center
+              background-color black
+              color $a-color !important
+              border-radius 50%
+              font-size $a-font-size
+              transition-duration .2s
+              display block
+            &:active > i
+              transform scale(.9)
       .uk-navbar-left
         text-align left
         line-height 1.3em
         transition-duration .1s
-        small
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
+        .copyright
+          overflow hidden
+          white-space nowrap
+          text-overflow ellipsis
           max-width calc(40vw)
       .uk-navbar-right
         .designed-by
           margin-right 8px
-        .top
-          i
-            width $top-size
-            height $top-size
-            line-height $top-size
-            text-align center
-            background-color black
-            color $top-color !important
-            border-radius 50%
-            font-size $top-font-size
-            transition-duration .2s
-            display block
-          &:active > i
-            transform scale(.9)
       @media screen and (max-width: 1200px)
         position initial
         margin-top 35px

@@ -4,33 +4,13 @@ nav#nav(role='navigation'
   uk-navbar
 )
   #s1(class='uk-navbar-left')
-    a(href='#' uk-toggle='target: #sidebar1')
-      each _ in Array(3)
-        div
-  .metainfo(class='uk-navbar-center')
-  #s2(class='uk-navbar-right')
-    a(href='#' uk-toggle='target: #sidebar2')
+    a(href='[##_blog_link_##]')
       img.profile(src='[##_image_##]')
-  include Navigation/Sidebar
+  .metainfo(class='uk-navbar-center')
 
 script.
-  const $footer = $('#footer')
-  Array('#sidebar1', '#sidebar2').forEach((menubar, i) => {
-    const $menubar = $(`#nav > #s${++i} > a`)
-    UIkit.util.on(menubar, 'beforeshow', () => {
-      $footer.css('display', 'none')
-      $menubar.addClass('uk-animation-fade uk-animation-fast uk-animation-reverse')
-      $('.uk-notification').css('display', 'none')
-    })
-    UIkit.util.on(menubar, 'hidden', () => {
-      $footer.css('display', 'flex')
-      $menubar.removeClass()
-      $('.uk-notification').css('display', 'block')
-    })
-  })
-script.
   const $metainfo = $('#nav > .metainfo')
-  $('#post > header > *:not(.metainfo)').each((_, $h) => $metainfo.append($($h).clone()))
+  $('.permalink > header > *:not(.metainfo)').each((_, $h) => $metainfo.append($($h).clone()))
 
 style
   :stylus
@@ -42,13 +22,6 @@ style
       box-sizing border-box
       margin-top 8px
       padding 0px 20px
-      #s1 > a > div
-        height 1px
-        width 16px
-        border-top 2px solid alpha(black, .6)
-        &:nth-child(2)
-          margin 3px 0
-          width 12px
       &.sticky
         background-color $sticky-background
         backdrop-filter blur(2px)
@@ -75,7 +48,7 @@ style
           font-size .96rem
         .category
           font-size .8rem
-      #s2 > a
+      #s1 > a
         &:active > *
           transform scale(.96)
         img
@@ -85,10 +58,6 @@ style
           height 40px
       @media screen and (max-width: 1200px)
         padding 0px 15px
-        #s1 > a > div
-          width 12px
-          &:nth-child(2)
-            width 8px
         #metainfo
           line-height .9rem
           .title
@@ -96,5 +65,5 @@ style
           .category
             font-size .7rem
         #s2 > a img
-          width 30px
-          height 30px
+          width 40px
+          height 40px

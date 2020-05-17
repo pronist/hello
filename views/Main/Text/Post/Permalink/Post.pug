@@ -1,13 +1,18 @@
-#article
-  include Article/Cover
-  include Article/Post
-  include Article/Notice
+.post.permalink
+  header#header(role='header')
+    a.category(href='[##_article_rep_category_link_##]') [##_article_rep_category_##]
+    h1.title [##_article_rep_title_##]
+    .metainfo
+      span.date [##_article_rep_date_##]
+      include Post/Admin
+  article.content [##_article_rep_desc_##]
+  include Post/PostBtn
+  include Post/Category
+  include Post/Tag
 
-//- Post/Permalink, Notice/Permalink
 script.
   hljs.initHighlightingOnLoad()
 
-//- Post/Permalink, Notice/Permalink
 style
   :stylus
     $font-awesome = 'Font Awesome 5 Pro'
@@ -17,7 +22,7 @@ style
     $color = alpha(black, .8)
     $moreLess-color = white
 
-    #article
+    #text
       .permalink
         text-align center
         color $color
@@ -115,7 +120,7 @@ style
           table
             td, th
               font-size .9rem
-              padding 10px 12px
+              padding 16px 12px
               box-sizing border-box
           h2, h3, h4
             font-weight 600
@@ -166,59 +171,3 @@ style
               font-size 1rem
             blockquote[data-ke-style=style1]::before
               font-size .85rem
-//- Cover, Post/Index, Notice/Index
-style
-  :stylus
-    $title-color = alpha(black, .9)
-    $category-color = #ed5207
-    $date-color = alpha(black, .3)
-
-    #article
-      .index
-        border-top 1px solid alpha(black, .1)
-        padding 40px 0
-        &:first-of-type
-          padding-top 0
-          padding-bottom 40px
-          border none
-        &:last-of-type
-          padding-bottom 0px
-        .title
-          margin-top 10px
-          line-height 1.5em
-          font-size 1.5rem
-          a
-            color $title-color !important
-        .category
-          margin-bottom 8px
-          a
-            font-size .92rem
-            font-weight 500
-            color $category-color !important
-        .thumbnail
-          width 100%
-        .summary
-          display -webkit-box
-          display -ms-flexbox
-          display box
-          -webkit-box-orient vertical
-          -webkit-line-clamp 3
-          line-height 1.8em
-          overflow hidden
-          max-height 80px
-          margin-top 1px
-          vertical-align top
-          word-break break-all
-        .date
-          font-size .87rem
-          color $date-color
-          > span
-            margin-left 7px
-        .thumbnail
-          margin-bottom 25px
-        @media screen and (max-width: 1200px)
-          padding 25px 0
-          &:first-of-type
-            padding-bottom 25px
-          .title
-            font-size 1.3rem
