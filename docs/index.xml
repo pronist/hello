@@ -15,43 +15,6 @@
       <homepage>http://pronist.tistory.com</homepage>
       <email>pronist@naver.com</email>
    </author>
-   <cover>
-    <item>
-      <name>ImageSlider</name>
-      <label><![CDATA[이미지 슬라이더]]></label>
-      <description><![CDATA[이미지 슬라이더를 표시합니다.]]></description>
-    </item>
-    <item>
-      <name>List</name>
-      <label><![CDATA[리스트]]></label>
-      <description><![CDATA[글 리스트를 표시합니다.]]></description>
-    </item>
-    <item>
-      <name>Masonry</name>
-      <label><![CDATA[벽돌 레이아웃]]></label>
-      <description><![CDATA[벽돌 레이아웃을 표시합니다.]]></description>
-    </item>
-  </cover>
-   <default>
-      <recentEntries>5</recentEntries>
-      <recentComments>5</recentComments>
-      <itemsOnGuestbook>15</itemsOnGuestbook>
-      <expandComment>1</expandComment>
-      <tagsInCloud>5</tagsInCloud>
-      <sortInCloud>1</sortInCloud>
-      <lengthOfRecentNotice>27</lengthOfRecentNotice>
-      <lengthOfRecentEntry>27</lengthOfRecentEntry>
-      <lengthOfRecentComment>27</lengthOfRecentComment>
-      <lengthOfLink>27</lengthOfLink>
-      <entriesOnPage>5</entriesOnPage>
-      <entriesOnList>5</entriesOnList>
-      <showListOnCategory>1</showListOnCategory>
-      <tree>
-        <showValue>0</showValue>
-        <labelLength>27</labelLength>
-      </tree>
-      <contentWidth>550</contentWidth>
-   </default>
    <variables>
     <variablegroup>
       <variable>
