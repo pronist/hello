@@ -2,18 +2,7 @@
   header#header(role='header')
     a.category(href='[##_article_rep_category_link_##]') [##_article_rep_category_##]
     h1.title [##_article_rep_title_##]
-    .metainfo
-      .author
-        .img
-          img.profile(src='[##_image_##]')
-        .description
-          .user
-            | [##_blogger_##]
-          a(href='[##_blog_link_##]'): .blogname [##_title_##]
-      time.date
-        | →
-        span [##_article_rep_date_##]
-      include Post/Admin
+    include Post/Metainfo
   article.content [##_article_rep_desc_##]
   include Post/PostBtn
   include Post/Category
@@ -21,6 +10,15 @@
 
 script.
   hljs.initHighlightingOnLoad()
+
+  $('figure.imageblock.alignCenter').each(function () {
+    $originWidth = $(this).data('origin-width')
+    $originWidth = $originWidth > 1100 ? 1100 : $originWidth
+    $(this).css({
+      'width': $originWidth,
+      'margin-left': (550 - $originWidth)/2 + 'px'
+    })
+  })
 
 style
   :stylus
@@ -30,14 +28,6 @@ style
 
     $color = alpha(black, .8)
     $moreLess-color = white
-
-    image(size)
-      max-width initial !important
-      width size !important
-      margin-left ((550px - size)/2)
-
-    $image-expanded = 1100px
-    $image-large = 900px
 
     #text
       .permalink
@@ -52,32 +42,6 @@ style
             font-weight 600
             font-size 1.9rem
             line-height 1.5em
-          .metainfo
-            margin-top 16px
-            font-size .9rem
-            color alpha(black, .5)
-            .date
-              color alpha(black, .3)
-              > span
-                margin-left 7px
-            span
-              display inline-block
-              padding 0 3px
-            .author
-              overflow hidden
-              margin 12px 0
-              .img
-                float left
-                .profile
-                  width 45px
-                  height 45px
-                  border-radius 50%
-              .user
-                color alpha(black, .8)
-              .description
-                float left
-                margin-left 10px
-                line-height 1.6em
         .content
           text-align left
           margin-top 35px
@@ -207,10 +171,3 @@ style
               font-size 1rem
             blockquote[data-ke-style=style1]::before
               font-size .85rem
-        @media screen and (min-width: 1200px)
-          .content
-            .imageblock
-              &.hl-expanded
-                image($image-expanded)
-              &.hl-large
-                image($image-large)

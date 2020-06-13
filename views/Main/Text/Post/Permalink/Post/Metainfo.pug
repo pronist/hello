@@ -1,0 +1,42 @@
+.metainfo
+  .author
+    .img
+      img.profile(src='[##_image_##]')
+    .description
+      .user
+        | [##_blogger_##]
+      a(href='[##_blog_link_##]')
+        .blogname [##_title_##]
+  time.date
+    | →
+    span [##_article_rep_date_##]
+  include Metainfo/Admin
+
+style
+  :stylus
+    .permalink
+      .metainfo
+        margin-top 16px
+        font-size .9rem
+        color alpha(black, .5)
+        .date
+          > span
+            margin-left 7px
+        span
+          display inline-block
+          padding 0 3px
+        .author
+          overflow hidden
+          margin 12px 0
+          .img
+            float left
+            .profile
+              width 45px
+              height 45px
+              border-radius 50%
+          .user
+            color alpha(black, .8)
+          .description
+            float left
+            margin-left 10px
+            line-height 1.6em
