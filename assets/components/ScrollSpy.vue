@@ -33,12 +33,12 @@ export default {
 <style lang="stylus">
   $width = 200px
   $top = 160px
-  $right = -670px
+  $right = -880px
 
   #spy
     position relative
     right $right
-    @media screen and (max-width: 1200px)
+    @media screen and (max-width: 1680px)
       display none
     ul
       list-style none

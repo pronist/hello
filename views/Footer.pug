@@ -5,7 +5,6 @@ footer#footer(role='footer' class='uk-navbar-container uk-navbar-transparent' uk
         | [##_var_copyright_##]
   .uk-navbar-right
     small.designed-by Designed By #[a(href='https://github.com/pronist' target='_blank') 정상우].
-    a.top(href='#hELLO' uk-scroll): i(class='fas fa-angle-up')
 
 style
   :stylus
@@ -20,26 +19,30 @@ style
       padding 0 20px
       box-sizing border-box
       position fixed
-      bottom 15px
+      bottom 20px
       *
         color $copyright-color
       .uk-navbar-left,
       .uk-navbar-right
         font-size .96em
-        > a
-            i
-              width $a-size
-              height $a-size
-              line-height $a-size
-              text-align center
-              background-color black
-              color $a-color !important
-              border-radius 50%
-              font-size $a-font-size
-              transition-duration .2s
-              display block
-            &:active > i
-              transform scale(.9)
+        button
+          background none
+          border none
+          cursor pointer
+        > a, button
+          i
+            width $a-size
+            height $a-size
+            line-height $a-size
+            text-align center
+            background-color black
+            color $a-color !important
+            border-radius 50%
+            font-size $a-font-size
+            transition-duration .2s
+            display block
+          &:active > i
+            transform scale(.9)
       .uk-navbar-left
         text-align left
         line-height 1.3em
@@ -49,12 +52,5 @@ style
           white-space nowrap
           text-overflow ellipsis
           max-width calc(40vw)
-      .uk-navbar-right
-        .designed-by
-          margin-right 8px
-      @media screen and (max-width: 1200px)
-        position initial
-        margin-top 35px
-        margin-bottom 25px
-        text-align center
-        padding 0 15px
+      @media screen and (max-width: 1680px)
+        display none

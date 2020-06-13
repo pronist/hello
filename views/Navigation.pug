@@ -7,6 +7,8 @@ nav#nav(role='navigation'
     a(href='[##_blog_link_##]')
       img.profile(src='[##_image_##]')
   .metainfo(class='uk-navbar-center')
+  #s2(class='uk-navbar-right')
+    .blogmenu [##_blog_menu_##]
 
 script.
   const $metainfo = $('#nav > .metainfo')
@@ -20,7 +22,7 @@ style
     #nav
       width 100%
       box-sizing border-box
-      margin-top 8px
+      margin-top 15px
       padding 0px 20px
       &.sticky
         background-color $sticky-background
@@ -56,6 +58,16 @@ style
           transition-duration .2s
           width 40px
           height 40px
+      #s2
+        .blogmenu
+          li
+            float left
+            font-size .9rem
+            margin-right 12px
+            > a
+              font-weight 500
+            &:last-child
+              margin-right 0
       @media screen and (max-width: 1200px)
         padding 0px 15px
         #metainfo

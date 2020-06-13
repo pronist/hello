@@ -22,7 +22,7 @@ mixin notify(type, label, pos)
         .title #{`[##_article_${type}_title_##]`}
 
   script.
-    setTimeout(() => notify($('#' + '#{type}'), `#{pos}`, 15000), 5000)
+    setTimeout(() => notify($('#' + '#{type}'), `#{pos}`, 15000), 3000)
 
 +notify('next', '다음 글', 'bottom-right')
 +notify('prev', '이전 글', 'bottom-left')
@@ -31,13 +31,13 @@ style
   :stylus
     .notify
       display none
-      @media screen and (max-width: 1600px)
+      @media screen and (max-width: 1680px)
         display none !important
 
 style
   :stylus
     .uk-notification
-      bottom 55px
+      bottom 65px
       width initial
       &.uk-notification-bottom-left
         left 20px
