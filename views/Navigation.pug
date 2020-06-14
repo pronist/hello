@@ -7,8 +7,6 @@ nav#nav(role='navigation'
     a(href='[##_blog_link_##]')
       img.profile(src='[##_image_##]')
   .metainfo(class='uk-navbar-center')
-  #s2(class='uk-navbar-right')
-    .blogmenu [##_blog_menu_##]
 
 script.
   const $metainfo = $('#nav > .metainfo')
@@ -58,16 +56,6 @@ style
           transition-duration .2s
           width 40px
           height 40px
-      #s2
-        .blogmenu
-          li
-            float left
-            font-size .9rem
-            margin-right 12px
-            > a
-              font-weight 500
-            &:last-child
-              margin-right 0
       @media screen and (max-width: 1200px)
         padding 0px 15px
         #metainfo
@@ -76,6 +64,3 @@ style
             font-size .86rem
           .category
             font-size .7rem
-        #s2 > a img
-          width 40px
-          height 40px
