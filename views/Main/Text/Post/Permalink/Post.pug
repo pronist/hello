@@ -7,18 +7,23 @@
   include Post/PostBtn
   include Post/Category
   include Post/Tag
+  include Post/Author
 
 script.
   hljs.initHighlightingOnLoad()
 
   $('figure.imageblock.alignCenter').each(function () {
-    $originWidth = $(this).data('origin-width')
-    $originWidth = $originWidth > 1100 ? 1100 : $originWidth
+    let originWidth = $(this).data('origin-width')
+    originWidth = originWidth > 1100 ? 1100 : originWidth
+
     $(this).css({
-      'width': $originWidth,
-      'max-width': 'none',
-      'margin-left': (550 - $originWidth)/2 + 'px'
+      'width': originWidth,
+      'max-width': 'none'
     })
+    const marginLeft = (670 - originWidth)/2
+    if (marginLeft < 0) {
+      $(this).css('margin-left', marginLeft)
+    }
   })
 
 style

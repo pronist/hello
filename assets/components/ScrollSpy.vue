@@ -33,7 +33,7 @@ export default {
 <style lang="stylus">
   $width = 200px
   $top = 160px
-  $right = -880px
+  $right = -940px
 
   #spy
     position relative
