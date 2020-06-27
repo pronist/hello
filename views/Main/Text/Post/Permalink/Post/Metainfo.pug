@@ -1,12 +1,6 @@
 .metainfo
-  .author
-    .img
-      img.profile(src='[##_image_##]')
-    .description
-      .user
-        | [##_blogger_##]
-      time.date [##_article_rep_date_##]
-      include Metainfo/Admin
+  time.date [##_article_rep_date_##]
+  include Metainfo/Admin
 
 style
   :stylus
@@ -18,18 +12,3 @@ style
           span
             display inline-block
             padding 0 3px
-          .author
-            overflow hidden
-            margin 12px 0
-            .img
-              float left
-              .profile
-                width 45px
-                height 45px
-                border-radius 50%
-            .user
-              color alpha(black, .8)
-            .description
-              float left
-              margin-left 10px
-              line-height 1.6em

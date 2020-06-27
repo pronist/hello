@@ -7,10 +7,19 @@ nav#nav(role='navigation'
     a(href='[##_blog_link_##]')
       img.profile(src='[##_image_##]')
   .metainfo(class='uk-navbar-center')
+    h1.title [##_title_##]
+  #s2(class='uk-navbar-right')
+    | [##_blog_menu_##]
 
 script.
-  const $metainfo = $('#nav > .metainfo')
-  $('.permalink > header > *:not(.metainfo)').each((_, $h) => $metainfo.append($($h).clone()))
+  const bodyId = $('body').attr('id')
+
+  if (bodyId === 'tt-body-page') {
+    const $metainfo = $('#nav > .metainfo')
+
+    $metainfo.empty()
+    $('.permalink > header > *:not(.metainfo)').each((_, $h) => $metainfo.append($($h).clone()))
+  }
 
 style
   :stylus
@@ -20,7 +29,7 @@ style
     #nav
       width 100%
       box-sizing border-box
-      margin-top 15px
+      margin-top 10px
       padding 0px 20px
       &.sticky
         background-color $sticky-background
@@ -56,11 +65,16 @@ style
           transition-duration .2s
           width 40px
           height 40px
+      #s2
+        ul
+          overflow hidden
+          li
+            float left
+            padding-right 12px
+            a
+              font-size .9rem
+              font-weight 400
       @media screen and (max-width: 1200px)
         padding 0px 15px
-        #metainfo
-          line-height .9rem
-          .title
-            font-size .86rem
-          .category
-            font-size .7rem
+        #s2
+          display none
