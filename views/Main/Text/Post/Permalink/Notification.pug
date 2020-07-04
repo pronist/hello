@@ -1,4 +1,11 @@
 script.
+  /**
+   * Notification
+   *
+   * @param {jQuery} $notify
+   * @param {string} pos
+   * @param {number} timeout
+   */
   function notify ($notify, pos, timeout) {
     if ($notify.length > 0) {
       const $thumbnail = $notify.find('.thumbnail')
@@ -22,6 +29,7 @@ mixin notify(type, label, pos)
         .title #{`[##_article_${type}_title_##]`}
 
   script.
+    // Notification initialize
     setTimeout(() => notify($('#' + '#{type}'), `#{pos}`, 15000), 3000)
 
 +notify('next', '다음 글', 'bottom-right')

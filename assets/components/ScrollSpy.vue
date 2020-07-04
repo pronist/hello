@@ -18,7 +18,6 @@ export default {
       return $(this.context).find('h2').get().reduce((spies, heading) => {
         const $heading = $(heading)
         const anchor = encodeURIComponent($heading.text())
-        $heading.attr('id', anchor)
         spies.push({ href: '#' + anchor, label: $heading.text() })
         return spies
       }, [])

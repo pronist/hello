@@ -1,4 +1,5 @@
 script.
+  // Remove only Text(nodeType 3)
   $('.permalink .another_category table th').contents().filter(function () { return this.nodeType === 3 }).remove()
 
 style

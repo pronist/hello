@@ -10,8 +10,10 @@
   include Post/Author
 
 script.
+  // highlight.js
   hljs.initHighlightingOnLoad()
 
+  // Image Alignment
   $('figure.imageblock.alignCenter').each(function () {
     let originWidth = $(this).data('origin-width')
     originWidth = originWidth > 1100 ? 1100 : originWidth
@@ -24,6 +26,15 @@ script.
     if (marginLeft < 0) {
       $(this).css('margin-left', marginLeft)
     }
+  })
+
+  // Add Id attribute in Heading elements
+  $('h2, h3, h4').each(function () {
+    const $heading = $(this)
+    const anchor = encodeURIComponent($heading.text())
+    const $a = $('<a></a>').attr('href', '#' + anchor).text($heading.text())
+
+    $heading.attr('id', anchor).empty().append($a)
   })
 
 style
@@ -56,10 +67,13 @@ style
           blockquote, ul, ol, table,
           h2, h3, h4
             margin 20px 0
+            > a
+              color #333
           p
             margin 0 !important
           figure[data-ke-type='opengraph']
             margin-top 10px !important
+            margin-bottom 30px !important
           div[data-ke-type=moreLess]
             position relative
             .moreless-content

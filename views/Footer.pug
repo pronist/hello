@@ -8,7 +8,7 @@ footer#footer(role='footer' class='uk-navbar-container uk-navbar-transparent' uk
 
 style
   :stylus
-    $copyright-color = alpha(black, .8)
+    $copyright-color = alpha(black, .5)
     $a-size = 24px
     $a-font-size = 1rem
     $a-color = white
@@ -20,29 +20,9 @@ style
       box-sizing border-box
       position fixed
       bottom 20px
-      *
+      font-size .96rem
+      > *
         color $copyright-color
-      .uk-navbar-left,
-      .uk-navbar-right
-        font-size .96em
-        button
-          background none
-          border none
-          cursor pointer
-        > a, button
-          i
-            width $a-size
-            height $a-size
-            line-height $a-size
-            text-align center
-            background-color black
-            color $a-color !important
-            border-radius 50%
-            font-size $a-font-size
-            transition-duration .2s
-            display block
-          &:active > i
-            transform scale(.9)
       .uk-navbar-left
         text-align left
         line-height 1.3em

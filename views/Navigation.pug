@@ -17,6 +17,7 @@ script.
   if (bodyId === 'tt-body-page') {
     const $metainfo = $('#nav > .metainfo')
 
+    // Metainfo initialize
     $metainfo.empty()
     $('.permalink > header > *:not(.metainfo)').each((_, $h) => $metainfo.append($($h).clone()))
   }
@@ -57,6 +58,7 @@ style
           font-size .96rem
         .category
           font-size .8rem
+          margin-bottom 3px
       #s1 > a
         &:active > *
           transform scale(.96)
