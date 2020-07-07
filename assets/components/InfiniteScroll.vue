@@ -1,5 +1,5 @@
 <template lang="pug">
-#infinite-scroll(v-infinite-scroll="infiniteScroll" infinite-scroll-disabled="isScrolled" infinite-scroll-throttle-delay="500")
+  #infinite-scroll(v-infinite-scroll="infiniteScroll" infinite-scroll-disabled="isScrolled" infinite-scroll-throttle-delay="500")
 </template>
 
 <script>

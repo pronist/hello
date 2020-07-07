@@ -12,14 +12,16 @@ style
   :stylus
     $category-color = #ed5207
     $title-color = alpha(black, .9)
+    $summary-color = alpha(black, .5)
     $date-color = alpha(black, .3)
+    $padding = 40px
 
     #text
       .index
-        padding 40px 0
+        padding $padding 0
         &:first-of-type
           padding-top 0
-          padding-bottom 40px
+          padding-bottom $padding
           border none
         &:last-of-type
           padding-bottom 0px
@@ -27,13 +29,13 @@ style
           margin-top 0px
           margin-bottom 15px
           line-height 1.5em
-          font-size 1.5rem
+          font-size 1.3rem
           a
             color $title-color !important
         .category
           margin-bottom 5px
           a
-            font-size .92rem
+            font-size .9rem
             font-weight 500
             color $category-color !important
         .thumbnail
@@ -51,6 +53,7 @@ style
           margin-top 1px
           vertical-align top
           word-break break-all
+          color $summary-color
         .date
           font-size .87rem
           color $date-color

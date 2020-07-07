@@ -1,6 +1,24 @@
 main#main(role='main')
+  #top
+    blogger(v-if=`
+      '[##_body_id_##]' === 'tt-body-index' ||
+      '[##_body_id_##]' === 'tt-body-category' ||
+      '[##_body_id_##]' === 'tt-body-archive'
+    `
+      thumbnail='[##_image_##]'
+      title='[##_title_##]'
+      blogger='[##_blogger_##]'
+      description='[##_desc_##]')
   include Main/Text
-  include Main/Component
+  #bottom
+    scrollspy(context='.permalink' v-if=`
+      '[##_body_id_##]' === 'tt-body-page'
+    `)
+    infinite-scroll(v-if=`
+      '[##_body_id_##]' === 'tt-body-index' ||
+      '[##_body_id_##]' === 'tt-body-category' ||
+      '[##_body_id_##]' === 'tt-body-archive'
+    `)
 
 style
   :stylus
@@ -11,7 +29,7 @@ style
       box-sizing border-box
       padding 0 25px
       margin 0 auto
-      margin-top 100px
+      margin-top 70px
       margin-bottom 150px
       width $width
       min-height calc(100vh - 132px)
