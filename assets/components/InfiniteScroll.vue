@@ -11,7 +11,7 @@ export default {
     return {
       isScrolled: false,
       page: 1,
-      container: document.querySelector('#text'),
+      container: document.querySelector('#main__content'),
       length: document.querySelectorAll('.post').length
     }
   },

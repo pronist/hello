@@ -1,16 +1,9 @@
 main#main(role='main')
-  #top
-    blogger(v-if=`
-      '[##_body_id_##]' === 'tt-body-index' ||
-      '[##_body_id_##]' === 'tt-body-category' ||
-      '[##_body_id_##]' === 'tt-body-archive'
-    `
-      thumbnail='[##_image_##]'
-      title='[##_title_##]'
-      blogger='[##_blogger_##]'
-      description='[##_desc_##]')
-  include Main/Text
-  #bottom
+  #main__t
+    include Main/Blogger
+  #main__content
+    include Main/Post
+  #main__b
     scrollspy(context='.permalink' v-if=`
       '[##_body_id_##]' === 'tt-body-page'
     `)
@@ -22,8 +15,6 @@ main#main(role='main')
 
 style
   :stylus
-    $width = 720px
-
     #main
       clear both
       box-sizing border-box
@@ -31,10 +22,9 @@ style
       margin 0 auto
       margin-top 70px
       margin-bottom 150px
-      width $width
       min-height calc(100vh - 132px)
       @media screen and (max-width: 1200px)
-        width 100%
+        width 100% !important
         padding 0 15px
         margin-top 25px
         margin-bottom 55px

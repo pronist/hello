@@ -1,8 +1,6 @@
 module.exports = {
   env: {
-    browser: true,
-    commonjs: true,
-    es6: true
+    browser: true
   },
   extends: [
     'standard',
@@ -17,11 +15,12 @@ module.exports = {
     hljs: 'readonly'
   },
   parserOptions: {
-    ecmaVersion: 2018
+    ecmaVersion: 2018,
   },
   rules: {
     'no-new' : 0,
-    'no-array-constructor': 0
+    'no-array-constructor': 0,
+    'vue/require-default-prop': 0
   },
   ignorePatterns: 'dist/'
 }

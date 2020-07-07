@@ -8,10 +8,7 @@
 <script>
 export default {
   props: {
-    context: {
-      type: String,
-      required: true
-    }
+    context: String
   },
   computed: {
     spies () {
