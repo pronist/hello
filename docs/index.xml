@@ -2,7 +2,7 @@
 <skin>
    <information>
       <name>hELLO</name>
-      <version>1.0</version>
+      <version>2.0</version>
       <description>
          <![CDATA[hELLO 티스토리 스킨은 자유롭게 개작하여 사용할 수 있고, 원 저작자의 저작권을 표시하는 것을 조건으로 재배포할 수 있습니다.]]>
       </description>
@@ -18,11 +18,53 @@
    <variables>
     <variablegroup>
       <variable>
-        <name>copyright</name>
-        <label>저작권</label>
-        <description><![CDATA[ 블로그 저작권 ]]></description>
-        <type>STRING</type>
-        <default></default>
+        <name>loader</name>
+        <label>로더</label>
+        <description><![CDATA[ 블로그 로딩 애니메이션 ]]></description>
+        <type>BOOL</type>
+        <default>true</default>
+      </variable>
+      <variable>
+        <name>sidebar</name>
+        <label>사이드바</label>
+        <description><![CDATA[ 사이드바 숨기기 ]]></description>
+        <type>BOOL</type>
+        <default>true</default>
+      </variable>
+      <variable>
+        <name>navbar</name>
+        <label>네비게이션</label>
+        <description><![CDATA[ 상단 네비게이션 ]]></description>
+        <type>BOOL</type>
+        <default>true</default>
+      </variable>
+      <variable>
+        <name>infinite-scroll</name>
+        <label>무한 스크롤</label>
+        <description><![CDATA[ 무한 스크롤 ]]></description>
+        <type>BOOL</type>
+        <default>true</default>
+      </variable>
+      <variable>
+        <name>scrollspy</name>
+        <label>글 스크롤 메뉴</label>
+        <description><![CDATA[ 글 스크롤 메뉴 ]]></description>
+        <type>BOOL</type>
+        <default>true</default>
+      </variable>
+      <variable>
+        <name>author</name>
+        <label>글 작성자</label>
+        <description><![CDATA[ 글 하단 작성자 ]]></description>
+        <type>BOOL</type>
+        <default>true</default>
+      </variable>
+      <variable>
+        <name>notify</name>
+        <label>이전 글/다음 글</label>
+        <description><![CDATA[ 이전 글/다음 글 ]]></description>
+        <type>BOOL</type>
+        <default>true</default>
       </variable>
     </variablegroup>
   </variables>

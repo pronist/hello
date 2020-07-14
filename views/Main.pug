@@ -4,15 +4,18 @@ main#main(role='main')
   #main__content
     include Main/Post
   #main__b
-    scrollspy(context='.permalink' v-if=`
-      '[##_body_id_##]' === 'tt-body-page'
-    `)
-    infinite-scroll(v-if=`
-      '[##_body_id_##]' === 'tt-body-index' ||
-      '[##_body_id_##]' === 'tt-body-category' ||
-      '[##_body_id_##]' === 'tt-body-tag' ||
-      '[##_body_id_##]' === 'tt-body-archive'
-    `)
+    s_if_var_infinite-scroll
+      infinite-scroll(v-if=`
+        '[##_body_id_##]' === 'tt-body-index' ||
+        '[##_body_id_##]' === 'tt-body-category' ||
+        '[##_body_id_##]' === 'tt-body-tag' ||
+        '[##_body_id_##]' === 'tt-body-archive' ||
+        '[##_body_id_##]' === 'tt-body-search'
+      `)
+    s_if_var_scrollspy
+      scrollspy(context='.permalink' v-if=`
+        '[##_body_id_##]' === 'tt-body-page'
+      `)
 
 style
   :stylus
@@ -21,7 +24,7 @@ style
       box-sizing border-box
       padding 0 25px
       margin 0 auto
-      margin-top 60px
+      margin-top 80px
       margin-bottom 150px
       min-height calc(100vh - 132px)
       @media screen and (max-width: 720px)
@@ -30,6 +33,6 @@ style
         margin-bottom 55px
         min-height calc(100vh - 122px)
       #main__t
-        margin-bottom 60px
+        margin-bottom 80px
         @media screen and (max-width: 720px)
           display none

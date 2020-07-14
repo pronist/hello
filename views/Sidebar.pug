@@ -1,0 +1,88 @@
+aside#sidebar(role='sidebar')
+  .sb-shadow
+    s_sidebar
+      s_sidebar_element
+        <!-- 프로필 -->
+        include Sidebar/Profile
+      s_sidebar_element
+        <!-- 방문자 수 -->
+        include Sidebar/Counter
+      s_sidebar_element
+        <!-- 검색 -->
+        include Sidebar/Search
+      s_sidebar_element
+        <!-- 카테고리 -->
+        include Sidebar/Category
+      s_sidebar_element
+        <!-- 블로그 메뉴 -->
+        include Sidebar/BlogMenu
+      s_sidebar_element
+        <!-- 인기 글 -->
+        include Sidebar/PopularPosts
+      s_sidebar_element
+        <!-- 태그 -->
+        include Sidebar/Tags
+      s_sidebar_element
+        <!-- 최근 댓글 -->
+        include Sidebar/RecentComments
+      s_sidebar_element
+        <!-- 최근 글 -->
+        include Sidebar/RecentPosts
+
+style
+  :stylus
+    $background = #f4f4f4
+    $width = 250px
+    $padding = 40px 0
+
+    #sidebar
+      background $background
+      position fixed
+      top 0
+      width $width
+      height 100%
+      overflow hidden
+      z-index 9998
+      .sb-shadow
+        overflow-x hidden
+        overflow-y scroll
+        height 100%
+        width $width + 20px
+        position absolute
+        padding $padding
+        box-sizing border-box
+        z-index 9997
+        > div, nav
+          padding 15px 0
+          padding-left 25px
+          box-sizing border-box
+          max-width $width
+          ul li
+            overflow hidden
+            white-space nowrap
+            text-overflow ellipsis
+            max-width $width - 50px
+        h2
+          font-size .9rem
+          font-weight 600
+          color alpha(black, .8)
+        .sb-blogmenu
+          ul li
+            padding 6px 0
+        .sb-popular-posts,
+        .sb-recent-posts,
+        .sb-tags,
+        .sb-recent-comments
+          ul li
+            padding 4px 0 !important
+        a
+          color alpha(black, .6)
+          font-size .9rem
+          &:hover
+            color black
+        i
+          margin-right 7px
+          font-size .7rem
+          color alpha(black, .5)
+      //- @media screen and (max-width: 1680px)
+        //- display none

@@ -1,18 +1,9 @@
 footer#footer(role='footer' class='uk-navbar-container uk-navbar-transparent' uk-navbar)
-  .uk-navbar-left
-    small.copyright
-      s_if_var_copyright
-        | [##_var_copyright_##]
   .uk-navbar-right
     small.designed-by Designed By #[a(href='https://github.com/pronist' target='_blank') 정상우].
 
 style
   :stylus
-    $copyright-color = alpha(black, .5)
-    $a-size = 24px
-    $a-font-size = 1rem
-    $a-color = white
-
     #footer
       width 100%
       overflow hidden
@@ -22,15 +13,6 @@ style
       bottom 20px
       font-size .96rem
       > *
-        color $copyright-color
-      .uk-navbar-left
-        text-align left
-        line-height 1.3em
-        transition-duration .1s
-        .copyright
-          overflow hidden
-          white-space nowrap
-          text-overflow ellipsis
-          max-width calc(40vw)
+        color alpha(black, .5)
       @media screen and (max-width: 1680px)
         display none

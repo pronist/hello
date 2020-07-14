@@ -1,0 +1,24 @@
+.sb-profile
+  img.thumbnail(src='[##_image_##]' width='100' height='100')
+  .title: a(href='[##_blog_link_##]') [##_title_##]
+  .blogger [##_blogger_##]
+
+style
+  :stylus
+    .sb-profile
+      text-align center
+      padding-left 0 !important
+      max-width 200px !important
+      margin-left 25px
+      img
+        border-radius 50%
+      .title > a
+        display inline-block
+        color alpha(black, .9) !important
+        font-size 1.05rem !important
+        margin-top 18px
+        margin-bottom 3px
+      .blogger
+        margin-bottom 15px
+        font-size .88rem
+        color alpha(black, .5)

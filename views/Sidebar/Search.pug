@@ -1,0 +1,17 @@
+.sb-search
+  s_search
+    div(class='uk-search uk-search-default')
+      span(uk-search-icon)
+      input(class='uk-search-input'
+        type='search'
+        name='[##_search_name_##]'
+        value='[##_search_text_##]'
+        onkeypress='if (event.keyCode == 13) { [##_search_onclick_submit_##] }')
+
+style
+  :stylus
+    .sb-search
+      .uk-search
+        background-color #e9e9e9
+        font-size .8rem
+        width 200px

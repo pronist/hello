@@ -1,5 +1,5 @@
 .post.permalink
-  header#header(role='header')
+  header.header(role='header')
     a.category(href='[##_article_rep_category_link_##]') [##_article_rep_category_##]
     h1.title [##_article_rep_title_##]
     include Post/Metainfo
@@ -7,35 +7,52 @@
   include Post/PostBtn
   include Post/Category
   include Post/Tag
-  include Post/Author
+  s_if_var_author
+    include Post/Author
 
 script.
-  // highlight.js
-  hljs.initHighlightingOnLoad()
+  /**
+   * Image Alignment
+   *
+   * @param {number} contentWidth
+   */
+  function alignImageBlock (contentWidth) {
+    $('figure.imageblock.alignCenter, figure.imagegridblock').each(function () {
+      let originWidth = $(this).data('origin-width')
+      originWidth = originWidth > 1100 ? 1100 : originWidth
 
-  // Image Alignment
-  $('figure.imageblock.alignCenter').each(function () {
-    let originWidth = $(this).data('origin-width')
-    originWidth = originWidth > 1100 ? 1100 : originWidth
-
-    $(this).css({
-      'width': originWidth,
-      'max-width': 'none'
+      $(this).css({
+        'width': originWidth,
+        'max-width': 'none'
+      })
+      const marginLeft = (contentWidth - originWidth)/2
+      if (marginLeft < 0) {
+        $(this).css('margin-left', marginLeft)
+      }
     })
-    const marginLeft = (670 - originWidth)/2
-    if (marginLeft < 0) {
-      $(this).css('margin-left', marginLeft)
-    }
-  })
+  }
 
-  // Add Id attribute in Heading elements
-  $('h2, h3, h4').each(function () {
-    const $heading = $(this)
-    const anchor = encodeURIComponent($heading.text())
-    const $a = $('<a></a>').attr('href', '#' + anchor).text($heading.text())
+  /**
+   * Add Id attribute in Heading elements
+   *
+   * @param {string} parent
+   * @param {string} selector
+   */
+  function wrapWithAnchor (parent, selector) {
+    const $parent = $(parent)
+    $parent.find(selector).each(function () {
+      const $heading = $(this)
+      const anchor = encodeURIComponent($heading.text())
+      const $a = $('<a></a>').attr('href', '#' + anchor).text($heading.text())
 
-    $heading.attr('id', anchor).empty().append($a)
-  })
+      $heading.attr('id', anchor).empty().append($a)
+    })
+  }
+
+script.
+  hljs.initHighlightingOnLoad()
+  alignImageBlock(670)
+  wrapWithAnchor('.post.permalink', 'h2, h3, h4')
 
 style
   :stylus
@@ -49,7 +66,7 @@ style
     #main__content
       .permalink
         color $color
-        #header
+        > .header
           text-align center
           .category
             font-weight 500

@@ -32,8 +32,9 @@ mixin notify(type, label, pos)
     // Notification initialize
     setTimeout(() => notify($('#' + '#{type}'), `#{pos}`, 15000), 3000)
 
-+notify('next', '다음 글', 'bottom-right')
-+notify('prev', '이전 글', 'bottom-left')
+s_if_var_notify
+  +notify('next', '다음 글', 'bottom-right')
+  +notify('prev', '이전 글', 'bottom-left')
 
 style
   :stylus
@@ -45,8 +46,9 @@ style
 style
   :stylus
     .uk-notification
-      bottom 65px
+      bottom 20px
       width initial
+      z-index 9999
       &.uk-notification-bottom-left
         left 20px
       &.uk-notification-bottom-right
@@ -56,6 +58,7 @@ style
       .uk-notification-message
         background none
         padding 0
+        z-index 9999
         .notify
           display flex
           .thumbnail
