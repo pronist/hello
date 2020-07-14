@@ -27,7 +27,7 @@
       <variable>
         <name>sidebar</name>
         <label>사이드바</label>
-        <description><![CDATA[ 사이드바 숨기기 ]]></description>
+        <description><![CDATA[ 사이드바 ]]></description>
         <type>BOOL</type>
         <default>true</default>
       </variable>
@@ -41,7 +41,14 @@
       <variable>
         <name>infinite-scroll</name>
         <label>무한 스크롤</label>
-        <description><![CDATA[ 무한 스크롤 ]]></description>
+        <description><![CDATA[ 무한 스크롤 기능 ]]></description>
+        <type>BOOL</type>
+        <default>true</default>
+      </variable>
+      <variable>
+        <name>paging</name>
+        <label>페이징</label>
+        <description><![CDATA[ 페이징 (글 페이지만 해당) ]]></description>
         <type>BOOL</type>
         <default>true</default>
       </variable>
@@ -55,7 +62,7 @@
       <variable>
         <name>author</name>
         <label>글 작성자</label>
-        <description><![CDATA[ 글 하단 작성자 ]]></description>
+        <description><![CDATA[ 글 하단 작성자. ]]></description>
         <type>BOOL</type>
         <default>true</default>
       </variable>
@@ -63,6 +70,13 @@
         <name>notify</name>
         <label>이전 글/다음 글</label>
         <description><![CDATA[ 이전 글/다음 글 ]]></description>
+        <type>BOOL</type>
+        <default>true</default>
+      </variable>
+      <variable>
+        <name>comment</name>
+        <label>댓글 기능</label>
+        <description><![CDATA[ 댓글 기능 ]]></description>
         <type>BOOL</type>
         <default>true</default>
       </variable>

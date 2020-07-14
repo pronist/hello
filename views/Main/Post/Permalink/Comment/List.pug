@@ -1,0 +1,98 @@
+mixin comment(isReplyable = false)
+  div(class='[##_rp_rep_class_##]')
+    unless isReplyable
+      .line
+    .header
+      .user
+        .pic: img(src='[##_rp_rep_logo_##]')
+        .metainfo
+          .name [##_rp_rep_name_##]
+          time.date [##_rp_rep_date_##]
+    .body [##_rp_rep_desc_##]
+    .control
+      a(href='[##_rp_rep_link_##]') 댓글주소
+      a(href='#' onclick='[##_rp_rep_onclick_delete_##]') 수정/삭제
+      if isReplyable
+        a(href='#' onclick='[##_rp_rep_onclick_reply_##]') 댓글쓰기
+
+.comment-list
+  s_rp_container
+    ol
+      s_rp_rep
+        li(id='[##_rp_rep_id_##]')
+          +comment()
+          s_rp2_container
+            ol
+              s_rp2_rep
+                li(id='[##_rp_rep_id_##]')
+                  +comment(true)
+
+script.
+  // Move comment report to control area
+  $('.comment-list > ol > li .header').each(function () {
+    const $report = $(this).find('.metainfo > .date > a')
+    $(this).parent().find('.control').append($report)
+  })
+
+style
+  :stylus
+    $imgSize = 48px
+    $imgPaddingRight = 15px
+
+    .comment-list
+      padding-top 45px
+      ol
+        display flex
+        flex-direction column-reverse
+        ol
+          padding-left $imgSize + $imgPaddingRight
+        li
+          padding 10px 0
+          position relative
+          .line
+            position absolute
+            width 1px
+            height 100%
+            background-color alpha(black, .1)
+            left ($imgSize / 2)
+            z-index 1
+          .header
+            overflow hidden
+            .user
+              float left
+              overflow hidden
+              > div
+                float left
+              .pic
+                margin-right $imgPaddingRight
+                img
+                  border-radius 50%
+                  width $imgSize
+                  height $imgSize
+                  position relative
+                  z-index 2
+              .metainfo
+                .name
+                  font-size 1rem
+                  font-weight 600
+                  a
+                    color alpha(black, .9) !important
+                  .tistoryProfileLayerTrigger
+                    display none
+                .date
+                  color alpha(black, .3)
+                  font-size .85rem
+          .control
+            padding-left $imgSize + $imgPaddingRight
+            margin 10px 0
+            a
+              display inline-block
+              margin-right 5px
+              font-size .8rem
+          .body
+            padding-top 10px
+            padding-bottom 5px
+            padding-left $imgSize + $imgPaddingRight
+            line-height 1.8em
+            color alpha(black, .7)
+            font-size .95rem

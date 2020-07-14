@@ -28,7 +28,7 @@ export default {
 
 <style lang="stylus">
   $width = 200px
-  $top = 160px
+  $top = 190px
   $right = -940px
 
   #spy

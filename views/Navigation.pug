@@ -3,10 +3,9 @@ s_if_var_navbar
     class='uk-navbar-container uk-navbar-transparent'
     uk-sticky='animation: uk-animation-slide-top; cls-active: sticky; cls-inactive: uk-navbar-transparent; top: 300'
     uk-navbar)
-    s_not_var_sidebar
-      #s1(class='uk-navbar-left')
-        a(href='[##_blog_link_##]')
-          img.profile(src='[##_image_##]')
+    #s1(class='uk-navbar-left')
+      a(href='[##_blog_link_##]')
+        img.profile(src='[##_image_##]')
     .metainfo(class='uk-navbar-center')
       h1.title [##_title_##]
 
@@ -68,3 +67,4 @@ style
           height 40px
       @media screen and (max-width: 1200px)
         padding 0px 15px
+        padding-top 10px

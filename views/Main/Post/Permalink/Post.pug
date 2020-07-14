@@ -81,6 +81,9 @@ style
         .content
           text-align left
           margin-top 40px
+          .another_category
+            a
+              text-decoration none !important
           figure[data-ke-type='opengraph'],
           div[data-ke-type=moreLess],
           blockquote, ul, ol, table,
@@ -88,6 +91,7 @@ style
             margin 20px 0
             > a
               color #333
+              text-decoration none !important
           p
             margin 0 !important
           figure[data-ke-type='opengraph']
@@ -181,7 +185,7 @@ style
               border-radius 5px
               white-space normal
           b, strong
-            color $base-color
+            color alpha(black, .9)
             font-size 1rem
             font-weight 500
           pre
@@ -195,7 +199,7 @@ style
             border-radius 5px
           a
             color $base-color
-            text-decoration underline
+            text-decoration underline !important
         @media screen and (max-width: 1200px)
           #header
             .title
