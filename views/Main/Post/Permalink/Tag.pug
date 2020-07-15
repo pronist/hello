@@ -1,9 +1,9 @@
 s_tag_label
-  #tags [##_tag_label_rep_##]
+  divtags [##_tag_label_rep_##]
 
 script.
   // Remove only Text(nodeType 3)
-  $('#tags').contents().filter(function () {
+  $('.tags').contents().filter(function () {
     return this.nodeType === 3
   }).remove()
 
@@ -16,7 +16,7 @@ style
     $height = 32px
 
     .permalink
-      #tags
+      .tags
         text-align left
         margin-top 5px
         a

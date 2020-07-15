@@ -15,6 +15,7 @@ main#main(role='main')
         '[##_body_id_##]' === 'tt-body-index' ||
         '[##_body_id_##]' === 'tt-body-category' ||
         '[##_body_id_##]' === 'tt-body-archive' ||
+        '[##_body_id_##]' === 'tt-body-tag' ||
         '[##_body_id_##]' === 'tt-body-search'
       `)
     s_if_var_scrollspy
@@ -24,24 +25,21 @@ main#main(role='main')
 
 style
   :stylus
-    #tt-body-page,
-    #tt-body-guestbook
-      #main
-        width 720px
-        @media screen and (max-width: 720px)
-          width 100%
-    #tt-body-tag
-      #main
-        width 1100px
-        @media screen and (max-width: 1100px)
+    #tt-body-page
+      .permalink
+        width 670px
+        margin 0 auto
+        @media screen and (max-width: 670px)
           width 100%
     #tt-body-index,
     #tt-body-category,
     #tt-body-archive,
+    #tt-body-tag,
     #tt-body-search
-      #main
-        width 600px
-        @media screen and (max-width: 600px)
+     .index
+        width 550px
+        margin 0 auto
+        @media screen and (max-width: 550px)
           width 100%
 
 style
