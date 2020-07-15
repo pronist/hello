@@ -1,4 +1,7 @@
 footer#footer(role='footer' class='uk-navbar-container uk-navbar-transparent' uk-navbar)
+  .uk-float-left
+    a.top(href='#hELLO' uk-scroll)
+      i(class='fa fa-chevron-circle-up' aria-hidden='true')
   .uk-navbar-right
     small.designed-by Designed By #[a(href='https://github.com/pronist' target='_blank') 정상우].
 
@@ -6,13 +9,25 @@ style
   :stylus
     #footer
       width 100%
-      overflow hidden
       padding 0 20px
       box-sizing border-box
       position fixed
       bottom 20px
-      font-size .96rem
+      font-size .92rem
       > *
         color alpha(black, .5)
-      @media screen and (max-width: 1680px)
+      .uk-float-left
+        .top
+          color alpha(black, .9)
+          transition-duration .2s
+          &:active > *
+            transform scale(.96)
+          i
+            font-size 1.7rem
+      .uk-navbar-right
+        small
+          padding 0 2px
+          &:last-child
+            padding-right 0
+      @media screen and (max-width: 1400px)
         display none

@@ -14,6 +14,28 @@ html#hELLO(lang='ko')
     link(rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/xcode.min.css')
     link(rel='stylesheet' href='//cdn.jsdelivr.net/npm/load-awesome@1.1.0/css/ball-clip-rotate.min.css')
 
+    style
+      :stylus
+        $font-family = 'Noto Sans KR', sans-serif
+        $a-color = alpha(black, .5)
+        $a-hover-color = black
+
+        *:not(i)
+          font-family $font-family !important
+          outline none
+          word-break break-all
+        ul, ol
+          list-style none
+          margin 0
+          padding 0
+        a
+          color $a-color
+          text-decoration none !important
+          pointer-events: initial !important
+          &:hover
+            color $a-hover-color
+            transition-duration .2s
+
   body(id='[##_body_id_##]')
     block TIDORY
 
@@ -22,26 +44,3 @@ html#hELLO(lang='ko')
     script(src='//cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit-icons.min.js')
     script(src='//kit.fontawesome.com/65f7e05682.js')
     script(src='//code.jquery.com/jquery-3.4.1.min.js')
-
-style
-  :stylus
-    #hELLO
-      $font-family = 'Noto Sans KR', sans-serif
-      $a-color = alpha(black, .5)
-      $a-hover-color = black
-
-      *:not(i)
-        font-family $font-family !important
-        outline none
-        word-break break-all
-      a
-        color $a-color
-        text-decoration none !important
-        pointer-events: initial !important
-        &:hover
-          color $a-hover-color
-          transition-duration .2s
-      ul, ol
-        list-style none
-        margin 0
-        padding 0

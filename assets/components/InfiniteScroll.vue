@@ -7,12 +7,16 @@ import _ from 'lodash'
 import axios from 'axios'
 
 export default {
+  props: {
+    main: String,
+    context: String
+  },
   data () {
     return {
       isScrolled: false,
       page: 1,
-      container: document.querySelector('#main__content'),
-      length: document.querySelectorAll('.post').length
+      container: document.querySelector(this.main),
+      length: document.querySelectorAll(this.context).length
     }
   },
   methods: {
@@ -28,7 +32,7 @@ export default {
       const posts = await axios.get(window.location.pathname, { params: { page: ++this.page } }).then(({ data }) => {
         const parser = new DOMParser()
         const doc = parser.parseFromString(data, 'text/html')
-        return doc.querySelectorAll('.post')
+        return doc.querySelectorAll(this.context)
       })
       _.each(posts, post => this.container.appendChild(post))
 

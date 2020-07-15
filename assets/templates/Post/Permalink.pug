@@ -1,0 +1,7 @@
+mixin permalink(type, hasCategory = true)
+  s_permalink_article_rep
+    include @/templates/Post/Permalink/Post
+    if hasCategory
+      s_if_var_comment
+        include @/templates/Post/Permalink/Comment
+      include ~views/Main/Post/Permalink/Notification

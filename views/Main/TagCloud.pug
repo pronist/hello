@@ -1,19 +1,9 @@
 s_tag
   #tags
-    header#header(role='header')
-      h1.name 태그 클라우드
     ul
       s_tag_rep
         li
           a(href='[##_tag_link_##]' class='[##_tag_class_##]') [##_tag_name_##]
-
-style
-  :stylus
-    #tt-body-tag
-      #main
-        width 1200px
-        @media screen and (max-width: 1200px)
-          width 100%
 
 style
   :stylus
@@ -23,12 +13,6 @@ style
     $color-hover = white
 
     #tags
-      #header
-        text-align center
-        .name
-          font-weight 600
-          font-size 1.9rem
-          margin-bottom 50px
       ul
         column-count 6
         column-gap 20px
@@ -54,9 +38,5 @@ style
           column-count 1
         @media screen and (min-width: 640px) and (max-width: 960px)
           column-count 2
-      @media screen and (min-width: 960px) and (max-width: 1200px)
-        #header
-          .name
-            font-size 1.7rem
-        ul
+        @media screen and (min-width: 960px) and (max-width: 1100px)
           column-count 4

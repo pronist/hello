@@ -17,6 +17,9 @@ aside#sidebar(role='sidebar')
         <!-- 블로그 메뉴 -->
         include Sidebar/BlogMenu
       s_sidebar_element
+        <!-- 공지사항 -->
+        include Sidebar/Notice
+      s_sidebar_element
         <!-- 인기 글 -->
         include Sidebar/PopularPosts
       s_sidebar_element
@@ -28,6 +31,14 @@ aside#sidebar(role='sidebar')
       s_sidebar_element
         <!-- 최근 글 -->
         include Sidebar/RecentPosts
+
+style(scoped)
+  :stylus
+    #footer
+      width calc(100vw - 270px)
+      right 0
+      @media screen and (max-width: 1680px)
+        width 100%
 
 style
   :stylus

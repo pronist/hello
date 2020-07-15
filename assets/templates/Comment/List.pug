@@ -1,53 +1,51 @@
-mixin comment(isReplyable = false)
-  div(class='[##_rp_rep_class_##]')
-    unless isReplyable
+mixin comment(type, isReplyable = true)
+  div(class=`[##_${type}_rep_class_##]`)
+    if isReplyable
       .line
     .header
       .user
-        .pic: img(src='[##_rp_rep_logo_##]')
+        .pic: img(src=`[##_${type}_rep_logo_##]`)
         .metainfo
-          .name [##_rp_rep_name_##]
-          time.date [##_rp_rep_date_##]
-    .body [##_rp_rep_desc_##]
+          .name #{`[##_${type}_rep_name_##]`}
+          time.date #{`[##_${type}_rep_date_##]`}
+    .body #{`[##_${type}_rep_desc_##]`}
     .control
-      a(href='[##_rp_rep_link_##]') 댓글주소
-      a(href='#' onclick='[##_rp_rep_onclick_delete_##]') 수정/삭제
+      a(href='#' onclick=`[##_${type}_rep_onclick_delete_##]`) 수정/삭제
       if isReplyable
-        a(href='#' onclick='[##_rp_rep_onclick_reply_##]') 댓글쓰기
+        a(href='#' onclick=`[##_${type}_rep_onclick_reply_##]`) 댓글쓰기
 
-.comment-list
-  s_rp_container
-    ol
-      s_rp_rep
-        li(id='[##_rp_rep_id_##]')
-          +comment()
-          s_rp2_container
-            ol
-              s_rp2_rep
-                li(id='[##_rp_rep_id_##]')
-                  +comment(true)
+mixin list(type, rType)
+  div(class=`${type}-list list`)
+    #{`s_${type}_container`}
+      ol
+        #{`s_${type}_rep`}
+          li(id=`[##_{${type}_rep_id_##]`)
+            +comment(type)
+            #{`s_${rType}_container`}
+              ol
+                #{`s_${rType}_rep`}
+                  li(id=`[##_${type}_rep_id_##]`)
+                    +comment(type, false)
 
 script.
   // Move comment report to control area
-  $('.comment-list > ol > li .header').each(function () {
+  $('.list > ol > li .header').each(function () {
     const $report = $(this).find('.metainfo > .date > a')
     $(this).parent().find('.control').append($report)
   })
 
 style
   :stylus
-    $imgSize = 48px
+    $imgSize = 60px
     $imgPaddingRight = 15px
 
-    .comment-list
-      padding-top 45px
+    .list
+      padding-top 35px
       ol
         display flex
         flex-direction column-reverse
-        ol
-          padding-left $imgSize + $imgPaddingRight
         li
-          padding 10px 0
+          padding 5px 0
           position relative
           .line
             position absolute
@@ -96,3 +94,7 @@ style
             line-height 1.8em
             color alpha(black, .7)
             font-size .95rem
+          ol
+            padding-top 5px !important
+            li
+              padding-left $imgSize + $imgPaddingRight

@@ -18,7 +18,6 @@ module.exports = {
     ecmaVersion: 2018,
   },
   rules: {
-    'no-new' : 0,
     'no-array-constructor': 0,
     'vue/require-default-prop': 0
   },

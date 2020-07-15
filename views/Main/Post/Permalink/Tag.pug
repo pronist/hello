@@ -3,7 +3,9 @@ s_tag_label
 
 script.
   // Remove only Text(nodeType 3)
-  $('#tags').contents().filter(function () { return this.nodeType === 3 }).remove()
+  $('#tags').contents().filter(function () {
+    return this.nodeType === 3
+  }).remove()
 
 style
   :stylus

@@ -1,14 +1,18 @@
-.post.permalink
+div(class=`${type} permalink`)
   header.header(role='header')
-    a.category(href='[##_article_rep_category_link_##]') [##_article_rep_category_##]
-    h1.title [##_article_rep_title_##]
-    include Post/Metainfo
-  article.content [##_article_rep_desc_##]
-  include Post/PostBtn
-  include Post/Category
-  include Post/Tag
+    if hasCategory
+      a.category(href='[##_article_rep_category_link_##]') [##_article_rep_category_##]
+    h1.title #{`[##_${type}_rep_title_##]`}
+    .metainfo
+      time.date #{`[##_${type}_rep_date_##]`}
+      include @/templates/Post/Permalink/Metainfo/Admin
+  article.content #{`[##_${type}_rep_desc_##]`}
+  include @/templates/Post/Permalink/PostBtn
+  if hasCategory
+    include ~views/Main/Post/Permalink/Category
+    include ~views/Main/Post/Permalink/Tag
   s_if_var_author
-    include Post/Author
+    include @/templates/Post/Permalink/Author
 
 script.
   /**
@@ -18,14 +22,12 @@ script.
    */
   function alignImageBlock (contentWidth) {
     $('figure.imageblock.alignCenter, figure.imagegridblock').each(function () {
-      let originWidth = $(this).data('origin-width')
-      originWidth = originWidth > 1100 ? 1100 : originWidth
+      let width = $(this).data('origin-width')
+      width = width > 1100 ? 1100 : width
 
-      $(this).css({
-        'width': originWidth,
-        'max-width': 'none'
-      })
-      const marginLeft = (contentWidth - originWidth)/2
+      $(this).css({ width, 'max-width': 'none' })
+
+      const marginLeft = (contentWidth - width) / 2
       if (marginLeft < 0) {
         $(this).css('margin-left', marginLeft)
       }
@@ -50,9 +52,10 @@ script.
   }
 
 script.
-  hljs.initHighlightingOnLoad()
   alignImageBlock(670)
-  wrapWithAnchor('.post.permalink', 'h2, h3, h4')
+  wrapWithAnchor('.permalink', 'h2, h3, h4')
+
+  hljs.initHighlightingOnLoad()
 
 style
   :stylus
@@ -78,6 +81,12 @@ style
             font-weight 600
             font-size 1.7rem
             line-height 1.5em
+          .metainfo
+            font-size .9rem
+            color alpha(black, .5)
+            span
+              display inline-block
+              padding 0 3px
         .content
           text-align left
           margin-top 40px
@@ -200,7 +209,7 @@ style
           a
             color $base-color
             text-decoration underline !important
-        @media screen and (max-width: 1200px)
+        @media screen and (max-width: 1100px)
           #header
             .title
               font-size 1.7rem

@@ -1,12 +1,17 @@
+include @/templates/Comment
+include @/templates/Post
+
 main#main(role='main')
   #main__content
+    include Main/Guestbook
     include Main/Post
+    include Main/Notice
     include Main/TagCloud
     s_if_var_paging
       include Main/Paging
   #main__b
     s_if_var_infinite-scroll
-      infinite-scroll(v-if=`
+      infinite-scroll(main='#main__content' context='.article' v-if=`
         '[##_body_id_##]' === 'tt-body-index' ||
         '[##_body_id_##]' === 'tt-body-category' ||
         '[##_body_id_##]' === 'tt-body-archive' ||
@@ -19,16 +24,38 @@ main#main(role='main')
 
 style
   :stylus
+    #tt-body-page,
+    #tt-body-guestbook
+      #main
+        width 720px
+        @media screen and (max-width: 720px)
+          width 100%
+    #tt-body-tag
+      #main
+        width 1100px
+        @media screen and (max-width: 1100px)
+          width 100%
+    #tt-body-index,
+    #tt-body-category,
+    #tt-body-archive,
+    #tt-body-search
+      #main
+        width 600px
+        @media screen and (max-width: 600px)
+          width 100%
+
+style
+  :stylus
     #main
       clear both
-      box-sizing border-box
       padding 0 25px
       margin 0 auto
-      margin-top 50px
+      margin-top 75px
       margin-bottom 100px
       min-height calc(100vh - 132px)
+      box-sizing border-box
       @media screen and (max-width: 720px)
         padding 0 15px
-        margin-top 25px
+        margin-top 35px
         margin-bottom 55px
         min-height calc(100vh - 122px)

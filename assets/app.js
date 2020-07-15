@@ -23,4 +23,4 @@ Vue.use(InfiniteScrollPlugin)
 Vue.component('scrollspy', ScrollSpy)
 Vue.component('infinite-scroll', InfiniteScroll)
 
-new Vue({ el: '#main__b' })
+window.Vue = new Vue({ el: '#main__b' })
