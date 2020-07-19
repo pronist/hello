@@ -5,3 +5,228 @@ mixin permalink(type, hasCategory = true)
       s_if_var_comment
         include @/templates/Post/Permalink/Comment
       include ~views/Main/Post/Permalink/Notification
+
+script.
+  /**
+   * Settings for Permalink
+   */
+  // Image Alignment
+  h.alignImageBlock('figure.imageblock.alignCenter', 640, 1100)
+  // Headings
+  h.wrapWithAnchor('.permalink', 'h2, h3, h4')
+  // Code Highlighting
+  hljs.initHighlightingOnLoad()
+
+style
+  :stylus
+    $font-awesome = 'Font Awesome 5 Pro'
+    $base-color = #ed5207
+    $base-color-grey = #f8f8f8
+
+    $color = alpha(black, .8)
+    $moreLess-color = white
+
+    #main__content
+      .permalink
+        color $color
+        > .header
+          text-align center
+          .category
+            font-weight 500
+            color $base-color
+            font-size .96rem
+          .title
+            margin-top 0
+            margin-bottom 5px
+            font-weight 600
+            font-size 1.7rem
+            line-height 1.5em
+          .metainfo
+            font-size .9rem
+            color alpha(black, .5)
+            span
+              display inline-block
+              padding 0 3px
+        .content
+          text-align left
+          margin-top 40px
+          .another_category
+            a
+              text-decoration none !important
+          figure[data-ke-type='opengraph'],
+          div[data-ke-type=moreLess],
+          blockquote, ul, ol, table,
+          h2, h3, h4
+            margin 20px 0
+            > a
+              color #333
+              text-decoration none !important
+          p
+            margin 0 !important
+          figure[data-ke-type='opengraph']
+            margin-top 10px !important
+          div[data-ke-type=moreLess]
+            position relative
+            .moreless-content
+              margin-top 25px
+            > .btn-toggle-moreless
+              display inline-block
+              border-radius 16px
+              background-color black
+              padding 2px 14px
+              color $moreLess-color !important
+              font-size .85rem !important
+              font-weight 600
+              &::before
+                font-family $font-awesome
+                content '\f0a9'
+                margin-right 5px
+                color $moreLess-color
+            &.open
+              > .btn-toggle-moreless::before
+                  content '\f0ab'
+            &::before
+              z-index -1
+              content ''
+              position absolute
+              top 15px
+              left 0
+              height 0
+              width 100%
+              border-bottom 1px dashed alpha(black, .1)
+          blockquote
+            font-style initial
+            &[data-ke-style=style1]
+              text-align: center
+              font-size 1.1rem
+              &::before
+                font-family $font-awesome
+                content '\f10e'
+                font-weight 600
+                display block
+                margin-bottom 3px
+              p
+                color black
+            &[data-ke-style=style2]
+              border solid #acacac
+              border-width 0 0 0 2px
+              padding 1px 0 0 12px
+              color #666
+              line-height 1.8em
+              text-align left
+              font-size .9rem
+            &[data-ke-style=style3]
+              font-size 1rem
+              background none
+          ul, ol
+            padding-left 20px
+            li
+              margin 6px 0
+          ul li
+            list-style circle
+            line-height 1.8em
+          table, td, th
+            border none
+            border-bottom 1px solid alpha(black, .1)
+          table
+            td, th
+              font-size .9rem
+              padding 16px 12px
+              box-sizing border-box
+          h2, h3, h4
+            font-weight 600
+            line-height 1.8em
+          h2
+            font-size 1.5rem
+          h3
+            font-size 1.3rem
+          h4
+            font-size 1.1rem
+          p, span
+            line-height 1.8em
+            letter-spacing .8px
+            > code
+              position relative
+              top -1px
+              color $base-color
+              padding 2px 8px
+              background $base-color-grey
+              border-radius 5px
+              white-space normal
+          b, strong
+            color alpha(black, .9)
+            font-size 1rem
+            font-weight 500
+          pre
+            border none
+            padding 0
+            code
+              background-color $base-color-grey
+              border-radius 5px
+              padding 15px
+          img
+            border-radius 5px
+          a
+            color $base-color
+            text-decoration underline !important
+        @media screen and (max-width: 1200px)
+          .header
+            .title
+              font-size 1.7rem
+          .content
+            h2
+              font-size 1.3rem
+            h3
+              font-size 1.2rem
+            h4
+              font-size 1rem
+            .imageblock
+              &.alignCenter
+                width 100% !important
+                margin 0 !important
+            blockquote[data-ke-style=style1]::before
+              font-size .85rem
+
+style
+  :stylus
+    $base-background-color = #292a2d
+
+    html[data-theme='dark']
+      #main__content
+        .permalink
+          > .header
+            .title
+              color white
+            .category
+              color alpha(white, .8)
+            .metainfo
+              color alpha(white, .8)
+          .content
+            div[data-ke-type=moreLess]
+              &::before
+                border-bottom 1px dashed white
+            figure[id^=og]
+              > a
+                border none
+              .og-text
+                background $base-background-color
+              .og-image
+                border none
+            b, strong
+              color white
+            h2, h3, h4
+              > a
+                color white
+            blockquote
+              color white
+            p, span
+              color white !important
+              > code
+                background $base-background-color !important
+                color white
+            pre
+              > code
+                background $base-background-color
+                color white
+            a
+              color white

@@ -1,7 +1,5 @@
 mixin comment(type, isReplyable = true)
   div(class=`[##_${type}_rep_class_##]`)
-    if isReplyable
-      .line
     .header
       .user
         .pic: img(src=`[##_${type}_rep_logo_##]`)
@@ -28,29 +26,29 @@ mixin list(type, rType)
                     +comment(type, false)
 
 script.
-  // Move comment report to control area
+  /**
+   * Copy report button to form control
+   */
   $('.list > ol > li .header').each(function () {
     const $report = $(this).find('.metainfo > .date > a')
-    $(this).parent().find('.control').append($report)
+    $(this).parent().find('control').append($report)
   })
 
 style
   :stylus
-    $imgSize = 60px
-    $imgPaddingRight = 15px
+    $imgSize = 48px
+    $imgPaddingRight = 12px
 
     .list
       padding-top 35px
-      width 670px
-      margin 0 auto
-
-      ol
+      > ol
         display flex
         flex-direction column-reverse
-        li
+        > li
           padding 5px 0
           position relative
-          .line
+          &::before
+            content ''
             position absolute
             width 1px
             height 100%
@@ -77,7 +75,7 @@ style
                   font-size 1rem
                   font-weight 600
                   a
-                    color alpha(black, .9) !important
+                    color alpha(black, .9)
                   .tistoryProfileLayerTrigger
                     display none
                 .date
@@ -91,15 +89,31 @@ style
               margin-right 5px
               font-size .8rem
           .body
-            padding-top 10px
+            padding-top 15px
             padding-bottom 5px
             padding-left $imgSize + $imgPaddingRight
             line-height 1.8em
             color alpha(black, .7)
             font-size .95rem
-          ol
-            padding-top 5px !important
-            li
+          > ol
+             > li
+              padding-top 10px
               padding-left $imgSize + $imgPaddingRight
-      @media screen and (max-width: 720px)
-        width 100%
+
+style
+  :stylus
+    html[data-theme='dark']
+      .list
+        > ol li
+          &::before
+            background-color alpha(white, .5)
+        .header
+          .user
+            .metainfo
+              .name
+                a
+                  color white
+              .date
+                color alpha(white, .8)
+        .body
+          color white

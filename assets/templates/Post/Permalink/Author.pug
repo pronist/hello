@@ -38,3 +38,13 @@ style
             max-height 50px
             vertical-align top
             word-break break-all
+
+style
+  :stylus
+    html[data-theme='dark']
+      .permalink
+        > .author
+          border-top 1px solid alpha(white, .8)
+          .description
+            *
+              color white

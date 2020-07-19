@@ -1,7 +1,7 @@
 include @/templates/Comment
 include @/templates/Post
 
-main#main(role='main')
+main#__main(role='main')
   #main__content
     include Main/Guestbook
     include Main/Post
@@ -22,38 +22,35 @@ main#main(role='main')
       scrollspy(context='.permalink' v-if=`
         '[##_body_id_##]' === 'tt-body-page'
       `)
+    s_if_var_switch-theme: theme-btn
+    s_if_var_to-top: to-top
 
 style
   :stylus
-    #tt-body-page
-      .permalink
-        width 670px
-        margin 0 auto
-        @media screen and (max-width: 720px)
-          width 100%
+    #__main
+      clear both
+      padding 0 25px
+      margin 0 auto
+      padding-top 75px
+      padding-bottom 100px
+      box-sizing border-box
+      @media screen and (max-width: 690px)
+        padding 0 15px
+        padding-top 25px
+        padding-bottom 55px
+        width 100% !important
+
+style
+  :stylus
+    #tt-body-page,
+    #tt-body-guestbook
+      #__main
+        width 640px + 50px
+
     #tt-body-index,
     #tt-body-category,
     #tt-body-archive,
     #tt-body-tag,
     #tt-body-search
-     .index
-        width 550px
-        margin 0 auto
-        @media screen and (max-width: 550px)
-          width 100%
-
-style
-  :stylus
-    #main
-      clear both
-      padding 0 25px
-      margin 0 auto
-      margin-top 75px
-      margin-bottom 100px
-      min-height calc(100vh - 132px)
-      box-sizing border-box
-      @media screen and (max-width: 720px)
-        padding 0 15px
-        margin-top 35px
-        margin-bottom 55px
-        min-height calc(100vh - 122px)
+     #__main
+        width 550px + 50px

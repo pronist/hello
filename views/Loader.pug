@@ -1,19 +1,21 @@
 s_if_var_loader
-  #loader
+  #__loader
     div(class='la-ball-clip-rotate uk-position-center')
       each _ in Array(1)
         div
 
 script.
-  // Loader out
-  $(document).ready(() => $('#loader').fadeOut(500))
+  /**
+   * Loader Out
+   */
+  $(document).ready(() => $('#__loader').fadeOut(500))
 
 style
   :stylus
     $color = #fd9372
     $background-color = white
 
-    #loader
+    #__loader
       z-index 9999
       position fixed
       top 0
@@ -22,3 +24,11 @@ style
       background-color $background-color
       .la-ball-clip-rotate
         color $color
+
+style
+  :stylus
+    html[data-theme='dark']
+      #__loader
+        background-color #1e1f21
+        .la-ball-clip-rotate
+          color white

@@ -2,10 +2,10 @@ s_tag_label
   .tags [##_tag_label_rep_##]
 
 script.
-  // Remove only Text(nodeType 3)
-  $('.tags').contents().filter(function () {
-    return this.nodeType === 3
-  }).remove()
+  /**
+   * Remove Textnode Only in Tags
+   */
+  h.removeTextNodeOnly('.tags')
 
 style
   :stylus
@@ -22,7 +22,7 @@ style
         a
           margin-top 10px
           margin-right 10px
-          background $background
+          background-color $background
           color $color
           display inline-block
           font-size .8rem
@@ -34,3 +34,15 @@ style
           &:hover
             background-color $background-hover
             color $color-hover
+
+style
+  :stylus
+    html[data-theme='dark']
+      .permalink
+        .tags
+          a
+            background-color #292a2d
+            color white
+            &:hover
+              background-color white
+              color black !important

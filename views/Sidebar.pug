@@ -1,5 +1,6 @@
-aside#sidebar(role='sidebar')
-  .sb-shadow
+#sidebar__mask
+aside#__sidebar(role='sidebar')
+  #sidebar__shadow
     s_sidebar
       s_sidebar_element
         <!-- 프로필 -->
@@ -38,7 +39,13 @@ style
     $width = 250px
     $padding = 40px 0
 
-    #sidebar
+    #sidebar__mask
+      position fixed
+      width 100%
+      height 100%
+      background-color alpha(black, .7)
+
+    #__sidebar
       background $background
       position fixed
       top 0
@@ -46,7 +53,7 @@ style
       height 100%
       overflow hidden
       z-index 9998
-      .sb-shadow
+      #sidebar__shadow
         overflow-x hidden
         overflow-y scroll
         height 100%
@@ -79,7 +86,6 @@ style
           ul li
             padding 4px 0 !important
         a
-          color alpha(black, .6)
           font-size .9rem
           &:hover
             color black
@@ -87,5 +93,27 @@ style
           margin-right 7px
           font-size .7rem
           color alpha(black, .5)
-      @media screen and (max-width: 1680px)
+    @media screen and (min-width: 1600px)
+      #sidebar__mask
+        display none !important
+      #__sidebar
+        left 0 !important
+    @media screen and (max-width: 1600px)
+      #sidebar__mask
+        z-index 9997 !important
         display none
+      #__sidebar
+        transition-duration .2s
+        left -250px
+
+style
+  :stylus
+    html[data-theme='dark']
+      #__sidebar
+        background-color #292a2d
+        #sidebar__shadow
+          h2
+            color white
+          ul li
+            a
+              color alpha(white, .8)

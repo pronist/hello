@@ -16,7 +16,34 @@
       <email>pronist@naver.com</email>
    </author>
    <variables>
-    <variablegroup>
+    <variablegroup name="공통">
+      <variable>
+        <name>theme</name>
+        <label>테마</label>
+        <description><![CDATA[ 블로그 테마 ]]></description>
+        <type>SELECT</type>
+        <option><![CDATA[
+          [
+            {"name":"light", "label":"라이트 모드", "value":"light"},
+            {"name":"dark", "label":"다크 모드", "value":"dark"}
+          ]
+        ]]></option>
+        <default>light</default>
+      </variable>
+      <variable>
+        <name>switch-theme</name>
+        <label>수동 테마 변경</label>
+        <description><![CDATA[ 수동 테마 변경 ]]></description>
+        <type>BOOL</type>
+        <default>true</default>
+      </variable>
+      <variable>
+        <name>to-top</name>
+        <label>제일 위로</label>
+        <description><![CDATA[ 제일 위로 ]]></description>
+        <type>BOOL</type>
+        <default>true</default>
+      </variable>
       <variable>
         <name>loader</name>
         <label>로더</label>
@@ -38,6 +65,8 @@
         <type>BOOL</type>
         <default>true</default>
       </variable>
+    </variablegroup>
+    <variablegroup name="홈 (인덱스)">
       <variable>
         <name>infinite-scroll</name>
         <label>무한 스크롤</label>
@@ -45,6 +74,8 @@
         <type>BOOL</type>
         <default>true</default>
       </variable>
+    </variablegroup>
+    <variablegroup name="글 (퍼머링크)">
       <variable>
         <name>paging</name>
         <label>페이징</label>
@@ -89,6 +120,6 @@
     <lengthOfRecentEntry>30</lengthOfRecentEntry>
     <lengthOfRecentComment>30</lengthOfRecentComment>
     <lengthOfRecentTrackback>30</lengthOfRecentTrackback>
-    <contentWidth>670</contentWidth>
+    <contentWidth>640</contentWidth>
   </default>
 </skin>

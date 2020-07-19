@@ -1,10 +1,10 @@
-footer#footer(role='footer' class='uk-navbar-container uk-navbar-transparent' uk-navbar)
+footer#__footer(role='footer' class='uk-navbar-container uk-navbar-transparent' uk-navbar)
   .uk-navbar-right
     small.designed-by Designed By #[a(href='https://github.com/pronist' target='_blank') 정상우].
 
 style
   :stylus
-    #footer
+    #__footer
       width 100%
       padding 0 20px
       box-sizing border-box
@@ -18,5 +18,12 @@ style
           padding 0 2px
           &:last-child
             padding-right 0
-      @media screen and (max-width: 1400px)
+      @media screen and (max-width: 1600px)
         display none
+
+style
+  :stylus
+    html[data-theme='dark']
+      #__footer
+        > *
+          color alpha(white, .8)

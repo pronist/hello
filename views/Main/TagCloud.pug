@@ -1,5 +1,5 @@
 s_tag
-  #tags
+  #__tags
     ul
       s_tag_rep
         li
@@ -7,12 +7,15 @@ s_tag
 
 style
   :stylus
+    $width = 1100px
+
     #tt-body-tag
-      #tags
-        width 1100px
-        margin 0 auto
+      #__tags
+        width $width
+        margin-left -($width/4)
         @media screen and (max-width: 1200px)
           width 100%
+          margin-left 0
 
 style
   :stylus
@@ -21,7 +24,7 @@ style
     $color = alpha(black, .7)
     $color-hover = white
 
-    #tags
+    #__tags
       ul
         column-count 6
         column-gap 20px
@@ -43,9 +46,22 @@ style
             &:hover
               background-color $background-hover
               color $color-hover
-        @media screen and (max-width: 640px)
+        @media screen and (max-width: 690px)
           column-count 1
-        @media screen and (min-width: 640px) and (max-width: 960px)
+        @media screen and (min-width: 690px) and (max-width: 960px)
           column-count 2
         @media screen and (min-width: 960px) and (max-width: 1200px)
           column-count 4
+
+style
+  :stylus
+    html[data-theme='dark']
+      #__tags
+        ul
+          li
+            a
+              background #292a2d
+              color white
+              &:hover
+                background-color white
+                color black !important

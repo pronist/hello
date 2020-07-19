@@ -8,9 +8,17 @@ style
         .link_tit
           font-size .9rem
           font-weight 600
-          color alpha(black, .8) !important
+          color alpha(black, .8)
           margin-bottom 14px
           display inline-block
         .category_list
           li
             padding-top 12px
+
+style
+  :stylus
+    html[data-theme='dark']
+      .sb-category
+        .tt_category
+          .link_tit
+            color white

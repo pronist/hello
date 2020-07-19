@@ -1,5 +1,5 @@
 <template lang="pug">
-  #spy
+  #__spy
     ul(class="uk-nav uk-nav-default")
       li(v-for="spy in spies")
         a(:href="spy.href") {{ spy.label }}
@@ -21,30 +21,42 @@ export default {
     }
   },
   mounted () {
-    UIkit.scrollspyNav('#spy', { closest: 'li' })
+    UIkit.scrollspyNav('#__spy', { closest: 'li' })
   }
 }
 </script>
 
 <style lang="stylus">
   $width = 200px
-  $top = 190px
-  $right = -1530px
+  $top = 75px + 50px
+  $right = -920px
 
-  #spy
+  #__spy
     position relative
     right $right
-    @media screen and (max-width: 1680px)
+    @media screen and (max-width: 1600px)
       display none
     ul
       list-style none
       text-align left
       position fixed
-      top $top
       width $width
       font-weight 500
+      top $top
       .uk-active
         a
           transition-duration .5s
           color black
+</style>
+
+<style lang="stylus">
+  html[data-theme='dark']
+    #__spy
+      ul
+        .uk-active
+          a
+            color white
+        li
+          a
+            color alpha(white, .8)
 </style>

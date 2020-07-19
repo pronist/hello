@@ -14,7 +14,7 @@ style
         border-radius 50%
       .title > a
         display inline-block
-        color alpha(black, .9) !important
+        color alpha(black, .9)
         font-size 1.05rem !important
         margin-top 18px
         margin-bottom 3px
@@ -22,3 +22,12 @@ style
         margin-bottom 15px
         font-size .88rem
         color alpha(black, .5)
+
+style
+  :stylus
+    html[data-theme='dark']
+      .sb-profile
+        .title > a
+          color white !important
+        .blogger
+          color alpha(white, .8)
