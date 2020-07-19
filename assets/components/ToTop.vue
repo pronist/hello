@@ -33,6 +33,8 @@ export default {
     &:hover
       background-color #292a2d
       color alpha(white, .9)
+    @media screen and (max-width: 1600px)
+      bottom 20px
 </style>
 
 <style lang="stylus">

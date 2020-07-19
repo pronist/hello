@@ -41,6 +41,7 @@ style
   :stylus
     $sticky-background = alpha(white, .8)
     $padding = 8px
+    $profileimgSize = 50px
 
     #__nav
       width 100%
@@ -78,12 +79,16 @@ style
         img
           border-radius 50%
           transition-duration .2s
-          width 40px
-          height 40px
+          width $profileimgSize
+          height $profileimgSize
           cursor pointer
-      @media screen and (max-width: 1200px)
+      @media screen and (max-width: 1260px)
         padding 0px 15px
         padding-top 10px
+        #nav__s1
+          img
+            width $profileimgSize - 10px
+            height $profileimgSize - 10px
 
 style
   :stylus

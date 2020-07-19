@@ -50,11 +50,12 @@ export default {
       &:hover
         background-color #292a2d
         color alpha(white, .9)
-      @media screen and (max-width: 1200px)
+      @media screen and (max-width: 1600px)
         border-radius 50%
         padding 0
         width $size
         height $size
+        bottom 20px
         line-height 35px
         text-align center
         .mode-text
