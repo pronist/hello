@@ -1,12 +1,13 @@
-s_if_var_navbar
-  nav#__nav(role='navigation'
-    class='uk-navbar-container uk-navbar-transparent'
-    uk-sticky='animation: uk-animation-slide-top; cls-active: sticky; cls-inactive: uk-navbar-transparent; top: 300'
-    uk-navbar)
-    #nav__s1(class='uk-navbar-left')
-      img.profile(src='[##_image_##]')
-    .metainfo(class='uk-navbar-center')
-      h1.title [##_title_##]
+nav#__nav(role='navigation'
+  class='uk-navbar-container uk-navbar-transparent'
+  uk-sticky='animation: uk-animation-slide-top; cls-active: sticky; cls-inactive: uk-navbar-transparent; top: 300'
+  uk-navbar)
+  #nav__s1(class='uk-navbar-left')
+    img.profile(src='[##_image_##]')
+  .metainfo(class='uk-navbar-center')
+    h1.title [##_title_##]
+  #nav__s2(class='uk-navbar-right')
+    include Navigation/Subscribe
 
 script.
   /**
@@ -41,7 +42,7 @@ style
   :stylus
     $sticky-background = alpha(white, .8)
     $padding = 8px
-    $profileimgSize = 50px
+    $profileimgSize = 35px
 
     #__nav
       width 100%
@@ -83,12 +84,9 @@ style
           height $profileimgSize
           cursor pointer
       @media screen and (max-width: 1260px)
-        padding 0px 15px
-        padding-top 10px
-        #nav__s1
-          img
-            width $profileimgSize - 10px
-            height $profileimgSize - 10px
+        .metainfo
+          .title
+            font-size .9rem
 
 style
   :stylus
@@ -98,4 +96,4 @@ style
           .title
             color white
         &.sticky
-          background-color alpha(black .5)
+          background-color alpha(#1e1f21, .8)

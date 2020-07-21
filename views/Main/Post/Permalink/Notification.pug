@@ -15,9 +15,8 @@ mixin notify(type, label, pos)
      */
     setTimeout(() => h.notify('#' + '#{type}', `#{pos}`, 15000), 3000)
 
-s_if_var_notify
-  +notify('next', '다음 글', 'bottom-right')
-  +notify('prev', '이전 글', 'bottom-left')
++notify('next', '다음 글', 'bottom-right')
++notify('prev', '이전 글', 'bottom-left')
 
 style
   :stylus
@@ -28,14 +27,17 @@ style
 
 style
   :stylus
+    $bottom = 20px
+    $sidePosition = 20px
+
     .uk-notification
-      bottom 20px
+      bottom $bottom
       width initial
       z-index 9999
       &.uk-notification-bottom-left
-        left 20px
+        left $sidePosition
       &.uk-notification-bottom-right
-        right 20px
+        right $sidePosition
       > *
         display inline-block
       .uk-notification-message
@@ -78,7 +80,7 @@ style
       .uk-notification
         .uk-notification-message
           .metainfo
-            background-color black
+            background-color #353638
             *
               color white !important
             .description

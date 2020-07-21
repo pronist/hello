@@ -1,0 +1,6 @@
+.menu_toolbar(class='#menubar')
+  h2.screen_out 티스토리툴바
+  #menubar_wrapper.btn_tool.btn_tool_type1
+    include TistoryToolbar/TistoryToolbar
+  if process.env.IS_OWNER === 'false'
+    include TistoryToolbar/Subscribe

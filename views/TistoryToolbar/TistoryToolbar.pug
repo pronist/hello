@@ -1,0 +1,43 @@
+button.btn_menu_toolbar.btn_menu_type2
+  span.img_common_tistory.ico_tistory_sign 관리메뉴열기
+if process.env.LOGIN === 'true'
+  .header_layer.layer_profile
+    .inner_header_layer
+      h2.screen_out 개인정보
+      .info_profile
+        a.txt_id.txt_id_type2(href='#none') @정상우
+        span.txt_email pronist@naver.com
+        a.link_setting.link_setting_type2(href='https://www.tistory.com/member') 계정관리
+      .wrap_list(class='#blogList' style='max-height: 300px;')
+        div
+          h3.tit_list_type 운영중인 블로그
+          .info_profile.info_profile_type1
+            a.txt_id(href='http://pronist.tistory.com') hELLO.
+            a.img_common_tistory.link_edit(href='http://pronist.tistory.com/manage/post') 쓰기
+            a.img_common_tistory.link_setting(href='https://pronist.tistory.com/manage') 블로그 관리
+          .info_profile.info_profile_type1
+            a.txt_id(href='http://appwriter.tistory.com') 티스토리 스킨 프레임워크, 티도리(TIDORY)
+            a.img_common_tistory.link_edit(href='http://appwriter.tistory.com/manage/post') 쓰기
+            a.img_common_tistory.link_setting(href='https://appwriter.tistory.com/manage') 블로그 관리
+      .wrap_toolbar
+        h2.screen_out 이동링크목록
+        ul.list_toolbar
+          li
+            a.link_list(href='https://www.tistory.com') 티스토리 홈
+          li
+            a.link_list(href='https://www.tistory.com/feed') 피드
+          li
+            a.link_list(href='https://www.tistory.com/auth/logout') 로그아웃
+else
+  .header_layer.layer_tool
+    .inner_header_layer
+      h2.screen_out 개인정보
+      ul.list_toolbar
+        li
+          a.link_list(href='https://www.tistory.com') 티스토리 홈
+        li
+          a.link_list(href='https://www.tistory.com/category') 스토리
+        li
+          a.link_list(href='https://www.tistory.com/forum') 포럼
+        li
+          a.link_list(href='https://www.tistory.com/auth/login') 로그인

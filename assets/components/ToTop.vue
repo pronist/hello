@@ -11,11 +11,13 @@ export default {
 
 <style lang="stylus">
   $size = 35px
+  $bottom = 48px
+  $right = 20px
 
   #__toTop
     position fixed
-    right 20px
-    bottom 50px
+    right $right
+    bottom $bottom
     border-radius 25px
     border none
     cursor pointer
@@ -40,10 +42,10 @@ export default {
 <style lang="stylus">
   html[data-theme='dark']
     #__toTop
-      border #292a2d
-      background-color #292a2d
+      border #333638
+      background-color #333638
       color alpha(white, .9)
       box-shadow none
       &:hover
-        background-color #353638
+        background-color #53575c
 </style>

@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "start": "tidory start",
-    "preview": "tidory preview",
-    "build": "tidory build",
-    "production": "tidory production",
+    "start": "cross-env NODE_ENV=development tidory start",
+    "preview": "cross-env NODE_ENV=development tidory preview",
+    "build": "cross-env NODE_ENV=build tidory build",
+    "production": "cross-env NODE_ENV=production tidory production",
     "deploy": "tidory deploy",
     "store": "tidory store",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore . && pug-lint .",
@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-loader": "^4.0.0",

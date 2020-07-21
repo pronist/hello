@@ -4,7 +4,8 @@ mixin permalink(type, hasCategory = true)
     if hasCategory
       s_if_var_comment
         include @/templates/Post/Permalink/Comment
-      include ~views/Main/Post/Permalink/Notification
+      s_if_var_notify
+        include ~views/Main/Post/Permalink/Notification
 
 script.
   /**
@@ -202,9 +203,11 @@ style
             .metainfo
               color alpha(white, .8)
           .content
+            hr
+              filter brightness(0) invert(1);
             div[data-ke-type=moreLess]
               &::before
-                border-bottom 1px dashed white
+                border-bottom 1px dashed alpha(white, .5)
             figure[id^=og]
               > a
                 border none
@@ -212,22 +215,12 @@ style
                 background $base-background-color
               .og-image
                 border none
-            b, strong
-              color white
-            h2, h3, h4
-              > a
-                color white
-            blockquote
-              color white
-            p, span
+            b, strong, blockquote,
+            code, a,
+            table td, table th,
+            ol,ul, p, span
               color white !important
             code
               background $base-background-color !important
-              color white
-            a
-              color white
             table, td, th
               border-bottom 1px solid alpha(white, .5)
-            table
-              td, th
-                color white

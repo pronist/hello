@@ -1,12 +1,16 @@
 extends app
 
 block TIDORY
-  include views/Loader
+  if process.env.NODE_ENV === 'development'
+    include views/TistoryToolbar
+  s_if_var_loader
+    include views/Loader
   s_t3
     #__tidory
       s_if_var_sidebar
         include views/Sidebar
-      include views/Navigation
+      s_if_var_navbar
+        include views/Navigation
       include views/Main
       include views/Footer
 

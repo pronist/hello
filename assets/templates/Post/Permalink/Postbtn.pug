@@ -1,3 +1,12 @@
+if process.env.NODE_ENV === 'development'
+  if process.env.IS_OWNER === 'false'
+    button.btn_menu_toolbar.btn_subscription(type='button' class='#subscribe' data-blog-id='3751118' data-url='https://pronist.tistory.com/5' data-device='web_pc')
+      em.txt_state 구독하기
+      strong.txt_tool_id hELLO.
+      span.img_common_tistory.ico_check_type1
+    script.
+      $('.permalink .btn_menu_toolbar.btn_subscription').appendTo('.permalink .container_postbtn')
+
 style
   :stylus
     $base-color = #ed5207
@@ -57,3 +66,14 @@ style
               background-color white
               .txt_state
                 color black !important
+        .ico_postbtn
+          filter brightness(0) invert(1);
+      #tistoryEtcLayer, #tistorySnsLayer
+        background-color #353638
+        *
+          color white
+        .ico_postbtn.ico_arrbt
+          filter invert(50%)
+        .btn_mark
+          &:hover
+            background-color #53575c

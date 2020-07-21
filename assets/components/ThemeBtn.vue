@@ -26,14 +26,16 @@ export default {
 
 <style lang="stylus">
   $size = 35px
+  $bottom = 48px
+  $right = 20px
 
   #__theme-btn
     #theme__input
       display none
     label
       position fixed
-      right 20px + $size + 12px
-      bottom 50px
+      right $right + $size + 12px
+      bottom $bottom
       border-radius 25px
       font-size .8rem
       padding 8px 18px
@@ -66,11 +68,11 @@ export default {
   html[data-theme='dark']
     #__theme-btn
       label
-        border #292a2d
-        background-color #292a2d
+        border #353638
+        background-color #353638
         color alpha(white, .9)
         box-shadow none
         z-index 9999
         &:hover
-          background-color #353638
+          background-color #53575c
 </style>

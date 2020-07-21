@@ -1,0 +1,45 @@
+script.
+  /**
+   * Copy TistoryToolbar to Body
+   */
+  $(document).ready(() => {
+    $('.menu_toolbar > div[class=btn_tool]').appendTo('#__nav > #nav__s2')
+    $('#__nav > #nav__s2 > div[class=btn_tool] > .btn_menu_toolbar.btn_subscription').append('<i class="fa fa-star"></i>')
+  })
+
+style
+  :stylus
+    $size = 35px
+
+    #__nav
+      div[class=btn_tool]
+        .btn_menu_toolbar.btn_subscription
+          cursor pointer
+          width $size
+          height $size
+          line-height $size - 2px
+          text-align center
+          border-radius 50%
+          border none
+          background-color white
+          box-shadow 0 0 0 1px rgba(0, 0, 0, .1), 0 2px 5px rgba(0, 0, 0, .1)
+          transition-duration .1s
+          *:not(i)
+            display none
+          &:hover
+            background-color #292a2d
+            color alpha(white, .9)
+
+style
+  :stylus
+    html[data-theme='dark']
+      #__nav
+        div[class=btn_tool]
+          .btn_menu_toolbar.btn_subscription
+            border #353638
+            background-color #353638
+            color alpha(white, .9)
+            box-shadow none
+            z-index 9999
+            &:hover
+              background-color #53575c

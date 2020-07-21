@@ -12,6 +12,9 @@ aside#__sidebar(role='sidebar')
         <!-- 검색 -->
         include Sidebar/Search
       s_sidebar_element
+        <!-- 티스토리 -->
+        include Sidebar/TistoryToolbar
+      s_sidebar_element
         <!-- 카테고리 -->
         include Sidebar/Category
       s_sidebar_element
@@ -32,18 +35,25 @@ aside#__sidebar(role='sidebar')
       s_sidebar_element
         <!-- 최근 글 -->
         include Sidebar/RecentPosts
-
 style
   :stylus
-    $background = #f4f4f4
-    $width = 250px
-    $padding = 40px 0
-
     #sidebar__mask
       position fixed
       width 100%
       height 100%
       background-color alpha(black, .7)
+      @media screen and (min-width: 1600px)
+        display none !important
+      @media screen and (max-width: 1600px)
+        z-index 9997 !important
+        display none
+
+style
+  :stylus
+    $background = #f4f4f4
+    $width = 250px
+    $padding = 25px 0
+    $paddingLeft = 20px
 
     #__sidebar
       background $background
@@ -64,7 +74,7 @@ style
         z-index 9997
         > div, nav
           padding 15px 0
-          padding-left 25px
+          padding-left $paddingLeft
           box-sizing border-box
           max-width $width
           ul li
@@ -93,16 +103,9 @@ style
           margin-right 7px
           font-size .7rem
           color alpha(black, .5)
-    @media screen and (min-width: 1600px)
-      #sidebar__mask
-        display none !important
-      #__sidebar
+      @media screen and (min-width: 1600px)
         left 0 !important
-    @media screen and (max-width: 1600px)
-      #sidebar__mask
-        z-index 9997 !important
-        display none
-      #__sidebar
+      @media screen and (max-width: 1600px)
         transition-duration .2s
         left -250px
 

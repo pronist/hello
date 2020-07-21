@@ -1,11 +1,12 @@
 mixin form(type)
   div(class=`${type}-form form`)
     #{`s_${type}_input_form`}
-      textarea(name=`${type === 'guest' ? '[##_guest_textarea_body_##]' : '[##_rp_input_comment_##]'}`)
-      div(class=`${type}-form-control form-control`)
-        input#secret(type='checkbox' name=`[##_${type}_input_is_secret_##]`)
-        label(for='secret')
-        a(href='#' onclick=`[##_${type}_onclick_submit_##]`)
+        .form__shadow
+          textarea(name=`${type === 'guest' ? '[##_guest_textarea_body_##]' : '[##_rp_input_comment_##]'}`)
+          div(class=`${type}-form-control form-control`)
+            input#secret(type='checkbox' name=`[##_${type}_input_is_secret_##]`)
+            label(for='secret')
+            a(href='#' onclick=`[##_${type}_onclick_submit_##]`)
 
 style
   :stylus
@@ -23,25 +24,35 @@ style
       border-radius 16px
       box-sizing border-box
       height 200px
-      padding 25px
-      textarea
-        border none
-        outline none
-        background none
-        resize none
-        width 100%
-        height 110px
-        padding 0
-      @media screen and (max-width: 690px)
-        height 150px
-        padding 15px
-        width 100%
+      padding 20px
+      position relative
+      .form__shadow
+        box-sizing border-box
         textarea
-          width 100%
-          max-width 100%
-          height 75px
+          border none
+          outline none
+          background none
+          resize none
+          height 110px
+          padding 0
+          padding-right 40px
+          width 640px + 20px
+          overflow-x hidden
+          overflow-y scroll
+          box-sizing border-box
+          font-size .92rem
+      @media screen and (max-width: 690px)
+        height 160px
+        width 100%
+        .form__shadow
+          textarea
+            width 100vw
+            height 75px
+            padding-right 67px
       .form-control
-        float right
+        position absolute
+        right 20px
+        bottom 10px
         > *
           margin-left 20px
         input[type=checkbox]
