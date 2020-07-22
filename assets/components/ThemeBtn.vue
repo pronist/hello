@@ -57,7 +57,7 @@ export default {
         padding 0
         width $size
         height $size
-        bottom 20px
+        bottom 15px
         right $right + $size + 12px - 5px
         line-height 35px
         text-align center

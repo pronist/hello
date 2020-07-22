@@ -36,7 +36,7 @@ export default {
       background-color #292a2d
       color alpha(white, .9)
     @media screen and (max-width: 1600px)
-      bottom 20px
+      bottom 15px
       right $right - 5px
 </style>
 
