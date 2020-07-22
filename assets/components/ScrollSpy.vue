@@ -43,6 +43,7 @@ export default {
       width $width
       font-weight 500
       top $top
+      z-index 9996
       .uk-active
         a
           transition-duration .5s

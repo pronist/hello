@@ -46,11 +46,11 @@ export default {
       box-shadow 0 0 0 1px rgba(0, 0, 0, .1), 0 2px 5px rgba(0, 0, 0, .1)
       color alpha(black, .8)
       font-weight 500
-      z-index 9999
+      z-index 9996
       .mode-text
         margin-left 8px
       &:hover
-        background-color #292a2d
+        background-color alpha(black, .9)
         color alpha(white, .9)
       @media screen and (max-width: 1600px)
         border-radius 50%
@@ -58,6 +58,7 @@ export default {
         width $size
         height $size
         bottom 20px
+        right $right + $size + 12px - 5px
         line-height 35px
         text-align center
         .mode-text
@@ -72,7 +73,6 @@ export default {
         background-color #353638
         color alpha(white, .9)
         box-shadow none
-        z-index 9999
         &:hover
           background-color #53575c
 </style>

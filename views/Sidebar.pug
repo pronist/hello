@@ -35,6 +35,25 @@ aside#__sidebar(role='sidebar')
       s_sidebar_element
         <!-- 최근 글 -->
         include Sidebar/RecentPosts
+
+s_if_var_sidebar
+  style(scoped)
+    :stylus
+      @media screen and (min-width: 1600px)
+        #__sidebar
+          left 0 !important
+        #sidebar__mask
+          display none !important
+
+s_not_var_sidebar
+  style(scoped)
+    :stylus
+      @media screen and (min-width: 1600px)
+        #__sidebar
+          left -250px
+        #sidebar__mask
+          display none
+
 style
   :stylus
     #sidebar__mask
@@ -42,10 +61,7 @@ style
       width 100%
       height 100%
       background-color alpha(black, .7)
-      @media screen and (min-width: 1600px)
-        display none !important
       @media screen and (max-width: 1600px)
-        z-index 9997 !important
         display none
 
 style
@@ -63,6 +79,7 @@ style
       height 100%
       overflow hidden
       z-index 9998
+      transition-duration .2s
       #sidebar__shadow
         overflow-x hidden
         overflow-y scroll
@@ -103,10 +120,7 @@ style
           margin-right 7px
           font-size .7rem
           color alpha(black, .5)
-      @media screen and (min-width: 1600px)
-        left 0 !important
       @media screen and (max-width: 1600px)
-        transition-duration .2s
         left -250px
 
 style

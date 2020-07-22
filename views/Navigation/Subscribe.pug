@@ -9,7 +9,7 @@ script.
 
 style
   :stylus
-    $size = 35px
+    $size = 40px
 
     #__nav
       div[class=btn_tool]
@@ -21,14 +21,15 @@ style
           text-align center
           border-radius 50%
           border none
-          background-color white
-          box-shadow 0 0 0 1px rgba(0, 0, 0, .1), 0 2px 5px rgba(0, 0, 0, .1)
+          background-color alpha(black, .9)
+          color white
           transition-duration .1s
           *:not(i)
             display none
-          &:hover
-            background-color #292a2d
-            color alpha(white, .9)
+          @media screen and (max-width: 1260px)
+            width $size - 5px
+            height $size - 5px
+            line-height $size - 5px - 2px
 
 style
   :stylus

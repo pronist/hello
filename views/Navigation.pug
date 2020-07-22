@@ -31,6 +31,7 @@ script.
   $('#__nav > #nav__s1 > .profile').on('click', () => {
     $sidebar.css('left', 0)
     $sidebarMask.fadeIn(200)
+    $sidebarMask.css('z-index', 9997)
   })
   // Fade Out
   $sidebarMask.on('click', () => {
@@ -42,7 +43,7 @@ style
   :stylus
     $sticky-background = alpha(white, .8)
     $padding = 8px
-    $profileimgSize = 35px
+    $profileSize = 40px
 
     #__nav
       width 100%
@@ -72,21 +73,24 @@ style
         text-align center
         display none
         .title
-          font-size .96rem
+          font-size .92rem
         .category
           font-size .8rem
-          margin-bottom 3px
+          margin-bottom 1px
       #nav__s1
         img
           border-radius 50%
           transition-duration .2s
-          width $profileimgSize
-          height $profileimgSize
+          width $profileSize
+          height $profileSize
           cursor pointer
       @media screen and (max-width: 1260px)
-        .metainfo
-          .title
-            font-size .9rem
+        padding 0 15px
+        padding-top 10px
+        #nav__s1
+          img
+            width $profileSize - 5px
+            height $profileSize - 5px
 
 style
   :stylus

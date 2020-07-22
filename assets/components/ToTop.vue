@@ -31,12 +31,13 @@ export default {
     text-align center
     border-radius 50%
     font-size .9rem
-    z-index 9999
+    z-index 9996
     &:hover
       background-color #292a2d
       color alpha(white, .9)
     @media screen and (max-width: 1600px)
       bottom 20px
+      right $right - 5px
 </style>
 
 <style lang="stylus">
