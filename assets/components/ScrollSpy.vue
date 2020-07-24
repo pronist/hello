@@ -12,7 +12,7 @@ export default {
   },
   computed: {
     spies () {
-      return $(this.context).find('h2').get().reduce((spies, heading) => {
+      return $(this.context).find('.content > h2').get().reduce((spies, heading) => {
         const $heading = $(heading)
         const anchor = encodeURIComponent($heading.text())
         spies.push({ href: '#' + anchor, label: $heading.text() })

@@ -5,6 +5,12 @@ s_paging
       li: a([##_paging_rep_link_##]) [##_paging_rep_link_num_##]
     li: a([##_next_page_##] class='[##_no_more_next_##]'): span(uk-pagination-next)
 
+s_not_var_infinite-scroll
+  style(scoped)
+    :stylus
+      .paging
+        display flex !important
+
 style
   :stylus
     #tt-body-page,

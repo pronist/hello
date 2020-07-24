@@ -1,20 +1,38 @@
+mixin formGuestControl(type)
+  .form__guest
+    .name
+      label(for='name') 이름
+      input(type='text' name=`[##_${type}_input_name_##]` value='[##_guest_name_##]')
+    .password
+      label(for='password') 암호
+      input(type='password' maxlength='8' name=`[##_${type}_input_password_##]` value='[##_guest_password_##]')
+
 mixin form(type)
   div(class=`${type}-form form`)
     #{`s_${type}_input_form`}
       .form__shadow
         textarea(name=`${type === 'guest' ? '[##_guest_textarea_body_##]' : '[##_rp_input_comment_##]'}`)
-        div(class=`${type}-form-control form-control`)
-          input#secret(type='checkbox' name=`[##_${type}_input_is_secret_##]`)
-          label(for='secret')
-          a(href='#' onclick=`[##_${type}_onclick_submit_##]`)
+        div(class=`${type}-form-control form-control` uk-grid)
+          if process.env.NODE_ENV === 'development'
+            .form__control__inner(class='uk-width-auto')
+              +formGuestControl(type)
+          else
+            #{`s_${type}_member`}
+              .form__control__inner(class='uk-width-auto')
+                #{type === 'guest' ? 's_guest_form' : 's_rp_guest'}
+                  +formGuestControl(type)
+          .form__submit(class='uk-width-expand')
+            input#secret(type='checkbox' name=`[##_${type}_input_is_secret_##]`)
+            label#secret-label(for='secret')
+            a(href='#' onclick=`[##_${type}_onclick_submit_##]`)
 
 style
   :stylus
     $background = #f8f8f8
     $icons = {
       'a::before': '\f0ab', // Submit
-      'input[type=checkbox]:checked + label::before': '\f023' // Secret:locked
-      'label::before': '\f13e' // Secret:unlocked
+      'input[type=checkbox]:checked + #secret-label::before': '\f023' // Secret:locked
+      '#secret-label::before': '\f13e' // Secret:unlocked
     }
 
     .form
@@ -33,7 +51,7 @@ style
           outline none
           background none
           resize none
-          height 110px
+          height 120px
           padding 0
           padding-right 40px
           width 640px + 20px
@@ -50,32 +68,63 @@ style
             height 75px
             padding-right 67px
       .form-control
-        position absolute
-        right 20px
-        bottom 10px
-        > *
-          margin-left 20px
+        align-items baseline
+        display flex
         input[type=checkbox]
           display none
-        a
-          &::before
-            font-size 2rem
-        for $k, $i in $icons
-          {$k}
-            font-family 'Font Awesome 5 Pro'
-            font-weight 600
-            content $i
-            color alpha(black, .9)
+        .form__control__inner
+          .form__guest
+            width 420px
+            > *
+              display inline-block
+              width 170px
+            input
+              border none
+              background none
+              display inline-block
+              width 100px
+            label
+              font-size .8rem
+              margin-right 5px
+        .form__submit
+          text-align right
+          padding 0
+          > *
+            padding-left 20px
+          a
+            &::before
+              font-size 2rem
+          for $k, $i in $icons
+            {$k}
+              font-family 'Font Awesome 5 Pro'
+              font-weight 600
+              content $i
+              color alpha(black, .9)
+        @media screen and (max-width: 690px)
+          align-items center
+          .form__control__inner
+            .form__guest
+              width 150px
+              > *
+                display block
+                margin 0
+                padding 0
+                width 100%
+          .form__submit
+            position relative
+            top 6px
+
 
 style
   :stylus
     html[data-theme='dark']
       .form
         background-color #292a2d
-        textarea
+        textarea, input, label
           color white
         .form-control
-          a::before,
-          input[type=checkbox]:checked + label::before,
-          label::before
-            color white !important
+          .form__submit
+            a::before,
+            input[type=checkbox]:checked + label::before,
+            #secret-label::before
+              color white !important

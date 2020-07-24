@@ -27,13 +27,11 @@ script.
    */
   const $sidebar = $('#__sidebar')
   const $sidebarMask = $('#sidebar__mask')
-  // Fade In
+
   $('#__nav > #nav__s1 > .profile').on('click', () => {
     $sidebar.css('left', 0)
     $sidebarMask.fadeIn(200)
-    $sidebarMask.css('z-index', 9997)
   })
-  // Fade Out
   $sidebarMask.on('click', () => {
     $sidebar.css('left', '-250px')
     $sidebarMask.fadeOut(200)
