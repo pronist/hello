@@ -10,69 +10,67 @@ style
     $date-color = alpha(black, .3)
     $padding = 40px
 
-    #main__content
-      .index
-        padding $padding 0
+    .index
+      padding $padding 0
+      &:first-of-type
+        padding-top 0
+        padding-bottom $padding
+        border none
+      &:last-of-type
+        padding-bottom 0px
+      .title
+        margin-top 0px
+        margin-bottom 15px
+        line-height 1.5em
+        font-size 1.3rem
+        a
+          color $title-color
+      .category
+        margin-bottom 5px
+        a
+          font-size .9rem
+          font-weight 500
+          color $category-color
+      .thumbnail
+        width 100%
+        margin-bottom 15px
+        border-radius 5px
+      .summary
+        display -webkit-box
+        display -ms-flexbox
+        display box
+        -webkit-box-orient vertical
+        -webkit-line-clamp 3
+        line-height 1.8em
+        overflow hidden
+        max-height 80px
+        margin-top 1px
+        vertical-align top
+        word-break break-all
+        color $summary-color
+      .date
+        font-size .87rem
+        color $date-color
+        > span
+          margin-left 7px
+      @media screen and (max-width: 1200px)
+        padding 25px 0
         &:first-of-type
-          padding-top 0
-          padding-bottom $padding
-          border none
-        &:last-of-type
-          padding-bottom 0px
+          padding-bottom 25px
         .title
-          margin-top 0px
-          margin-bottom 15px
-          line-height 1.5em
           font-size 1.3rem
-          a
-            color $title-color
-        .category
-          margin-bottom 5px
-          a
-            font-size .9rem
-            font-weight 500
-            color $category-color
-        .thumbnail
-          width 100%
-          margin-bottom 15px
-          border-radius 5px
-        .summary
-          display -webkit-box
-          display -ms-flexbox
-          display box
-          -webkit-box-orient vertical
-          -webkit-line-clamp 3
-          line-height 1.8em
-          overflow hidden
-          max-height 80px
-          margin-top 1px
-          vertical-align top
-          word-break break-all
-          color $summary-color
-        .date
-          font-size .87rem
-          color $date-color
-          > span
-            margin-left 7px
-        @media screen and (max-width: 1200px)
-          padding 25px 0
-          &:first-of-type
-            padding-bottom 25px
-          .title
-            font-size 1.3rem
 
 style
   :stylus
     html[data-theme='dark']
-      #main__content
-        .index
-          .title
-            a
-              color white !important
-          .category
-            a
-              color alpha(white, .9) !important
-          .summary
-            color white
-          .date
-            color alpha(white, .8)
+      .index
+        .title
+          a
+            color white !important
+        .category
+          a
+            color alpha(white, .9) !important
+        .summary
+          color white
+        .date
+          color alpha(white, .8)
