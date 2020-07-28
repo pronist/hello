@@ -7,8 +7,8 @@
     "deploy": "tidory deploy",
     "store": "tidory store",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore . && pug-lint .",
-    "deploy:developer": "npm run lint && push-dir --dir=dist --branch=tistory-skin --cleanup",
-    "deploy:user": "npm run lint && push-dir --dir=dist --branch=dist --cleanup"
+    "github:developer": "npm run lint && push-dir --dir=dist --branch=tistory-skin --cleanup",
+    "github:user": "npm run lint && push-dir --dir=dist --branch=dist --cleanup"
   },
   "license": "MIT",
   "repository": {
