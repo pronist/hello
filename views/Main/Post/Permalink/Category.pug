@@ -2,14 +2,14 @@ script.
   /**
    * Remove Textnode Only in Category
    */
-  h.removeTextNodeOnly('.permalink .another_category table th')
+  h.removeTextNodeOnly('.content__permalink .another_category table th')
 
 style
   :stylus
     $background = #f8f8f8
     $color = alpha(black, .8)
 
-    .permalink
+    .content__permalink
       .another_category
         border none
         border-radius 5px
@@ -67,7 +67,7 @@ style
 style
   :stylus
     html[data-theme='dark']
-      .permalink
+      .content__permalink
         .another_category
           background-color #292a2d
           table th a, h4, h4 a

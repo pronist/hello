@@ -14,7 +14,7 @@ script.
   // Image Alignment
   h.alignImageBlock('figure.imageblock.alignCenter', 640, 1100)
   // Headings
-  h.wrapWithAnchor('.permalink', 'h2, h3, h4')
+  h.wrapWithAnchor('.content__permalink', 'h2, h3, h4')
   // Code Highlighting
   hljs.initHighlightingOnLoad()
 
@@ -27,7 +27,7 @@ style
     $color = alpha(black, .8)
     $moreLess-color = white
 
-    .permalink
+    .content__permalink
       color $color
       > .header
         text-align center
@@ -121,7 +121,8 @@ style
             font-size .9rem
           &[data-ke-style=style3]
             font-size 1rem
-            background none
+            background #f8f8f8 !important
+            border none !important
         ul, ol
           padding-left 20px
           li
@@ -192,7 +193,7 @@ style
     $base-background-color = #292a2d
 
     html[data-theme='dark']
-      .permalink
+      .content__permalink
         > .header
           .title
             color white
@@ -221,6 +222,9 @@ style
           .imageblock
             figcaption
               color alpha(white, .8)
+          blockquote
+            &[data-ke-style=style3]
+              background #292a2d !important
           code
             background $base-background-color !important
           table, td, th

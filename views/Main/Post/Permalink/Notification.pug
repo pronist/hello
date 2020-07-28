@@ -1,6 +1,6 @@
 mixin notify(type, label, pos)
   #{`s_article_${type}`}
-    a.notify(href=`[##_article_${type}_link_##]` class='uk-box-shadow-medium' id=type)
+    a.permalink__notify(href=`[##_article_${type}_link_##]` class='uk-box-shadow-medium' id=type)
       #{`s_article_${type}_thumbnail`}
         .thumbnail
           img(src=`[##_article_${type}_thumbnail_link_##]`)
@@ -20,7 +20,7 @@ mixin notify(type, label, pos)
 
 style
   :stylus
-    .notify
+    .permalink__notify
       display none
       @media screen and (max-width: 1600px)
         display none !important
@@ -44,7 +44,7 @@ style
         background none
         padding 0
         z-index 9999
-        .notify
+        .permalink__notify
           display flex
           .thumbnail
             height 100px

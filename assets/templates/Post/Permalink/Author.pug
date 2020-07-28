@@ -1,4 +1,4 @@
-.author
+.permalink__author
   .img
     img.profile(src='[##_image_##]')
   .description
@@ -8,8 +8,8 @@
 
 style
   :stylus
-    .permalink
-      > .author
+    .content__permalink
+      .permalink__author
         overflow hidden
         border-top 1px solid alpha(black, .1)
         margin-top 30px
@@ -42,8 +42,8 @@ style
 style
   :stylus
     html[data-theme='dark']
-      .permalink
-        > .author
+      .content__permalink
+        .permalink__author
           border-top 1px solid alpha(white, .5)
           .description
             *

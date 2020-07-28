@@ -1,5 +1,5 @@
 s_paging
-  ul.paging(class='uk-pagination uk-flex-center' uk-margin)
+  ul#__paging(class='uk-pagination uk-flex-center' uk-margin)
     li: a([##_prev_page_##] class='[##_no_more_prev_##]'): span(uk-pagination-previous)
     s_paging_rep
       li: a([##_paging_rep_link_##]) [##_paging_rep_link_num_##]
@@ -8,14 +8,14 @@ s_paging
 s_not_var_infinite-scroll
   style(scoped)
     :stylus
-      .paging
+      #__paging
         display flex !important
 
 style
   :stylus
     #tt-body-page,
     #tt-body-guestbook
-      .paging
+      #__paging
         display flex
 
 style
@@ -26,7 +26,7 @@ style
     $selected-color = white
     $size = 32px
 
-    .paging
+    #__paging
       margin 0 auto
       margin-top 85px
       display none
@@ -64,7 +64,7 @@ style
 style
   :stylus
     html[data-theme='dark']
-      .paging
+      #__paging
         li
           a
             color white

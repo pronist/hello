@@ -8,7 +8,7 @@ mixin formGuestControl(type)
       input(type='password' maxlength='8' name=`[##_${type}_input_password_##]` value='[##_guest_password_##]')
 
 mixin form(type)
-  div(class=`${type}-form form`)
+  div(class=`${type}-form content__form`)
     #{`s_${type}_input_form`}
       .form__shadow
         textarea(name=`${type === 'guest' ? '[##_guest_textarea_body_##]' : '[##_rp_input_comment_##]'}`)
@@ -35,7 +35,7 @@ style
       '#secret-label::before': '\f13e' // Secret:unlocked
     }
 
-    .form
+    .content__form
       overflow hidden
       background $background
       margin-top 25px
@@ -117,7 +117,7 @@ style
 style
   :stylus
     html[data-theme='dark']
-      .form
+      .content__form
         background-color #292a2d
         textarea, input, label
           color white

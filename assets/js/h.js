@@ -22,6 +22,7 @@ module.exports = class {
 
     if ($notify.length > 0) {
       const $thumbnail = $notify.find('.thumbnail')
+
       if ($thumbnail.children('img[src$="img_relation.png"]').length > 0) {
         $thumbnail.remove()
       }

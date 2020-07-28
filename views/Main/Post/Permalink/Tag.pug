@@ -1,11 +1,11 @@
 s_tag_label
-  .tags [##_tag_label_rep_##]
+  .permalink__tags [##_tag_label_rep_##]
 
 script.
   /**
    * Remove Textnode Only in Tags
    */
-  h.removeTextNodeOnly('.tags')
+  h.removeTextNodeOnly('.permalink__tags')
 
 style
   :stylus
@@ -15,8 +15,8 @@ style
     $color-hover = white
     $height = 32px
 
-    .permalink
-      .tags
+    .content__permalink
+      .permalink__tags
         text-align left
         margin-top 5px
         a
@@ -38,8 +38,8 @@ style
 style
   :stylus
     html[data-theme='dark']
-      .permalink
-        .tags
+      .content__permalink
+        .permalink__tags
           a
             background-color #292a2d
             color white

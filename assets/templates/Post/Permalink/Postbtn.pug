@@ -5,7 +5,7 @@ if process.env.NODE_ENV === 'development'
       strong.txt_tool_id hELLO.
       span.img_common_tistory.ico_check_type1
     script.
-      $('.permalink .btn_menu_toolbar.btn_subscription').appendTo('.permalink .container_postbtn')
+      $('.content__permalink .btn_menu_toolbar.btn_subscription').appendTo('.content__permalink .container_postbtn')
 
 style
   :stylus
@@ -16,7 +16,7 @@ style
     $postbtn-btn-subscription-color-hover = white
     $height = 32px
 
-    .permalink
+    .content__permalink
       .container_postbtn
         padding 0
         margin-top 50px
@@ -55,7 +55,7 @@ style
 style
   :stylus
     html[data-theme='dark']
-      .permalink
+      .content__permalink
         .container_postbtn
           > *:not(.postbtn_ccl)
             background-color #292a2d

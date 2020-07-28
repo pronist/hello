@@ -6,7 +6,7 @@ mixin admin()
   span.state
     a(href='#' onclick='[##_s_ad_s2_onclick_##]') [##_s_ad_s1_label_##]
 
-span.admin
+span.permalink__admin
   if process.env.NODE_ENV === 'development'
     if process.env.IS_OWNER === 'true' && process.env.LOGIN === 'true'
       +admin()

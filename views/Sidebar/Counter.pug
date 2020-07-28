@@ -1,4 +1,4 @@
-.sb-counter
+#sidebar__counter
   div(class='uk-float-left uk-text-left')
     .cnt-item
       .title 전체 방문자
@@ -13,37 +13,39 @@
 
 style
   :stylus
-    .sb-counter
-      width 230px
-      overflow hidden
-      .cnt-item
-        float left
-        font-size .8rem
-        .title
-          color alpha(black, .5)
-          font-weight 500
-        .cnt
-          font-size 1rem
-          color alpha(black, .7)
-          font-weight 600
-          overflow hidden
-          white-space nowrap
-          text-overflow ellipsis
-      .uk-float-left
-        .cnt
-          max-width 70px
-      .uk-float-right
+    #__sidebar
+      #sidebar__counter
+        width 230px
+        overflow hidden
         .cnt-item
-          &:first-child
-            margin-right 10px
-        .cnt
-          max-width 55px
+          float left
+          font-size .8rem
+          .title
+            color alpha(black, .5)
+            font-weight 500
+          .cnt
+            font-size 1rem
+            color alpha(black, .7)
+            font-weight 600
+            overflow hidden
+            white-space nowrap
+            text-overflow ellipsis
+        .uk-float-left
+          .cnt
+            max-width 70px
+        .uk-float-right
+          .cnt-item
+            &:first-child
+              margin-right 10px
+          .cnt
+            max-width 55px
 
 style
   :stylus
     html[data-theme='dark']
-      .sb-counter
-        .title
-          color alpha(white, .8)
-        .cnt
-          color white
+      #__sidebar
+        #sidebar__counter
+          .title
+            color alpha(white, .8)
+          .cnt
+            color white
