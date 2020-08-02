@@ -5,14 +5,14 @@ s_tag
         li
           a(href='[##_tag_link_##]' class='[##_tag_class_##]') [##_tag_name_##]
 
-style
+style(scoped)
   :stylus
-    $width = 1100px
+    $width = unquote('[##_var_tagcloud-width_##]' + 'px')
 
     #tt-body-tag
       #__tags
         width $width
-        margin-left -($width/4)
+        margin-left s('calc((%s - %s) / 2)', unquote('[##_var_index-width_##]' + 'px'), $width)
         @media screen and (max-width: 1200px)
           width 100%
           margin-left 0
@@ -26,8 +26,9 @@ style
 
     #__tags
       ul
-        column-count 6
+        column-count auto
         column-gap 20px
+        column-width 160px
         li
           break-inside avoid
           text-align center

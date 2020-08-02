@@ -2,3 +2,9 @@ s_guest
   #__guestbook
     +form('guest')
     +list('guest', 'guest_reply')
+
+style(scoped)
+  :stylus
+    #tt-body-guestbook
+      #__main
+        width unquote('[##_var_guestbook-width_##]' + 'px')

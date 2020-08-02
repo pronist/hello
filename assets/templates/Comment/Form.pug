@@ -12,19 +12,28 @@ mixin form(type)
     #{`s_${type}_input_form`}
       .form__shadow
         textarea(name=`${type === 'guest' ? '[##_guest_textarea_body_##]' : '[##_rp_input_comment_##]'}`)
-        div(class=`${type}-form-control form-control` uk-grid)
+        div(class=`${type}-form-control form-control`)
           if process.env.NODE_ENV === 'development'
-            .form__control__inner(class='uk-width-auto')
+            .form__control__inner
               +formGuestControl(type)
           else
             #{`s_${type}_member`}
-              .form__control__inner(class='uk-width-auto')
+              .form__control__inner
                 #{type === 'guest' ? 's_guest_form' : 's_rp_guest'}
                   +formGuestControl(type)
-          .form__submit(class='uk-width-expand')
+          .form__submit
             input#secret(type='checkbox' name=`[##_${type}_input_is_secret_##]`)
             label#secret-label(for='secret')
             a(href='#' onclick=`[##_${type}_onclick_submit_##]`)
+
+style(scoped)
+  :stylus
+    #tt-body-page
+      .content__form .form__shadow textarea
+        width 'calc(%s + 20px)' % unquote('[##_var_article-width_##]' + 'px')
+    #tt-body-guestbook
+      .content__form .form__shadow textarea
+        width 'calc(%s + 20px)' % unquote('[##_var_guestbook-width_##]' + 'px')
 
 style
   :stylus
@@ -54,42 +63,44 @@ style
           height 120px
           padding 0
           padding-right 40px
-          width 640px + 20px
           overflow-x hidden
           overflow-y scroll
           box-sizing border-box
           font-size .92rem
-      @media screen and (max-width: 690px)
+      @media screen and (max-width: 1200px)
         height 160px
         width 100%
         .form__shadow
           textarea
-            width 100vw
+            width 100vw !important
             height 75px
             padding-right 67px
       .form-control
-        align-items baseline
+        align-items center
         display flex
         input[type=checkbox]
           display none
         .form__control__inner
           .form__guest
-            width 420px
+            position absolute
+            left 20px
+            bottom 18px
             > *
               display inline-block
-              width 170px
             input
               border none
               background none
               display inline-block
-              width 100px
+              width 125px
             label
               font-size .8rem
               margin-right 5px
         .form__submit
-          text-align right
+          position absolute
+          right 20px
+          bottom 10px
           padding 0
-          > *
+          > a
             padding-left 20px
           a
             &::before
@@ -100,19 +111,15 @@ style
               font-weight 600
               content $i
               color alpha(black, .9)
-        @media screen and (max-width: 690px)
+        @media screen and (max-width: 1200px)
           align-items center
           .form__control__inner
             .form__guest
-              width 150px
               > *
                 display block
                 margin 0
                 padding 0
                 width 100%
-          .form__submit
-            position relative
-            top 6px
 
 style
   :stylus

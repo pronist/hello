@@ -22,35 +22,38 @@ main#__main(role='main')
       scrollspy(context='.content__permalink' v-if=`
         '[##_body_id_##]' === 'tt-body-page'
       `)
-    s_if_var_switch-theme: theme-btn
-    s_if_var_to-top: to-top
+    s_if_var_to-top
+      to-top
+    s_if_var_switch-theme
+      theme-btn
 
 style
   :stylus
     #__main
       clear both
-      padding 0 25px
+      padding 0
       margin 0 auto
       padding-top 75px
       padding-bottom 100px
-      box-sizing border-box
-      @media screen and (max-width: 690px)
+      max-width 1100px
+      min-width 320px
+      @media screen and (max-width: 1200px)
         padding 0 15px
         padding-top 25px
         padding-bottom 55px
         width 100% !important
+        box-sizing border-box
 
-style
+style(scoped)
   :stylus
-    #tt-body-page,
-    #tt-body-guestbook
+    #tt-body-page
       #__main
-        width 640px + 50px
+        width unquote('[##_var_article-width_##]' + 'px')
 
     #tt-body-index,
     #tt-body-category,
     #tt-body-archive,
     #tt-body-tag,
     #tt-body-search
-     #__main
-        width 550px + 50px
+      #__main
+        width unquote('[##_var_index-width_##]' + 'px')

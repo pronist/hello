@@ -13,28 +13,32 @@ script.
   /**
    * Copy metainfo to Navigation header
    */
-  const $h = $('.content__permalink > header > *:not(.metainfo)')
-  const $metainfo = $('#__nav > #nav__metainfo')
-  // Only for permalink
-  if ($h.length) {
-    $metainfo.empty()
-    $h.each((_, $h) => $metainfo.append($($h).clone()))
-  }
+  $(document).ready(() => {
+    const $h = $('.content__permalink > header > *:not(.metainfo)')
+    const $metainfo = $('#__nav > #nav__metainfo')
+    // Only for permalink
+    if ($h.length) {
+      $metainfo.empty()
+      $h.each((_, $h) => $metainfo.append($($h).clone()))
+    }
+  })
 
 script.
   /**
    * Sidebar Toogle
    */
-  const $sidebar = $('#__sidebar')
-  const $sidebarMask = $('#sidebar__mask')
+  $(document).ready(() => {
+    const $sidebar = $('#__sidebar')
+    const $sidebarMask = $('#sidebar__mask')
 
-  $('#__nav > #nav__s1 > .profile').on('click', () => {
-    $sidebar.css('left', 0)
-    $sidebarMask.fadeIn(200)
-  })
-  $sidebarMask.on('click', () => {
-    $sidebar.css('left', '-250px')
-    $sidebarMask.fadeOut(200)
+    $('#__nav > #nav__s1 > .profile').on('click', () => {
+      $sidebar.css('left', 0)
+      $sidebarMask.fadeIn(200)
+    })
+    $sidebarMask.on('click', () => {
+      $sidebar.css('left', '-250px')
+      $sidebarMask.fadeOut(200)
+    })
   })
 
 style

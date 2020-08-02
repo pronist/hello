@@ -29,9 +29,11 @@ script.
   /**
    * Copy report button to form control
    */
-  $('.content__list > ol > li .header').each(function () {
-    const $report = $(this).find('.metainfo > .date > a')
-    $(this).parent().find('.control').append($report)
+  $(document).ready(() => {
+    $('.content__list > ol > li .header').each(function () {
+      const $report = $(this).find('.metainfo > .date > a')
+      $(this).parent().find('.control').append($report)
+    })
   })
 
 style

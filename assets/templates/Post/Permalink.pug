@@ -7,16 +7,37 @@ mixin permalink(type, hasCategory = true)
       s_if_var_notify
         include ~views/Main/Post/Permalink/Notification
 
+script(scoped).
+  $(document).ready(() => {
+    // Image Alignment
+    $('figure.imageblock.alignCenter').each(function () {
+      let width = $(this).data('origin-width')
+      width = width > 1100 ? 1100 : width
+
+      const marginLeft = (Number('[##_var_article-width_##]') - width) / 2
+      if (marginLeft < 0) {
+        $(this).css('margin-left', marginLeft)
+      }
+      $(this).css({ width, 'max-width': 'none' })
+    })
+  })
+
 script.
   /**
    * Settings for Permalink
    */
-  // Image Alignment
-  h.alignImageBlock('figure.imageblock.alignCenter', 640, 1100)
-  // Headings
-  h.wrapWithAnchor('.content__permalink', 'h2, h3, h4')
-  // Code Highlighting
-  hljs.initHighlightingOnLoad()
+  $(document).ready(() => {
+    // Headings
+    $('.content__permalink').find('h2, h3, h4').each(function () {
+      const $heading = $(this)
+      const anchor = encodeURIComponent($heading.text())
+      const $a = $('<a></a>').attr('href', '#' + anchor).text($heading.text())
+
+      $heading.attr('id', anchor).empty().append($a)
+    })
+    // Code Highlighting
+    hljs.initHighlightingOnLoad()
+  })
 
 style
   :stylus
@@ -29,7 +50,7 @@ style
 
     .content__permalink
       color $color
-      > .header
+      .header
         text-align center
         .category
           font-weight 500
@@ -137,8 +158,6 @@ style
             font-size .9rem
             padding 16px 12px
             box-sizing border-box
-        h2, h3, h4
-          font-weight 600
         h2
           font-size 1.5rem
         h3

@@ -13,7 +13,7 @@ mixin notify(type, label, pos)
     /**
      * Set timer for Notification
      */
-    setTimeout(() => h.notify('#' + '#{type}', `#{pos}`, 15000), 3000)
+    $(document).ready(() => setTimeout(() => h.notify('#' + '#{type}', `#{pos}`, 15000), 3000))
 
 +notify('next', '다음 글', 'bottom-right')
 +notify('prev', '이전 글', 'bottom-left')

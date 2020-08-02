@@ -12,9 +12,20 @@ style
             color alpha(black, .8)
             margin-bottom 14px
             display inline-block
+          .c_cnt
+            font-size .72rem
           .category_list
             li
               padding-top 12px
+              .sub_category_list
+                li
+                  &::before
+                    content '\f061'
+                    font-family 'Font Awesome 5 Pro'
+                    font-weight 600
+                    margin-right 5px
+                    color alpha(black, .3)
+                    font-size .72rem
 
 style
   :stylus
@@ -24,3 +35,8 @@ style
           .tt_category
             .link_tit
               color white !important
+            .category_list
+              .sub_category_list
+                li
+                  &::before
+                    color alpha(white, .8)
