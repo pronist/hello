@@ -11,8 +11,8 @@
 In project, There is a Configuration file that is named as **tidory.config.example.js**. \
 You must change the file name to **tidory.config.js** for development with this project.
 
-I recommend to develop with a preview server, but you must set configurations in **tidory.config.js**. \
-Reference the configuration [document](<https://tidory.com/docs/configuration/>), then set ```ts_session``` and ```url``` options.
+You must set configurations in **tidory.config.js** . Ref. the configuration [document](<https://tidory.com/docs/configuration/>), \
+then set ```ts_session``` and ```url``` options.
 
 ```bash
 # tidory preview
