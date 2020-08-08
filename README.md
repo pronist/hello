@@ -8,16 +8,7 @@
 
 ## Getting Started
 
-In project, There is a Configuration file that is named as **tidory.config.example.js**. \
-You must change the file name to **tidory.config.js** for development with this project.
-
-You must set configurations in **tidory.config.js** . Ref. the configuration [document](<https://tidory.com/docs/configuration/>), \
-then set ```ts_session``` and ```url``` options.
-
-```bash
-# tidory preview
-npm run preview
-```
+In the project, There is a **configuration file** that is named as **tidory.config.example.js**. You must change the file name to **tidory.config.js** for development with this project. You must set configurations in **tidory.config.js** ```ts_session``` and ```url``` options.  Ref. the configuration [document](<https://tidory.com/docs/configuration/>).
 
 ## License
 
