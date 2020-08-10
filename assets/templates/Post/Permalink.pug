@@ -7,18 +7,24 @@ mixin permalink(type, hasCategory = true)
       s_if_var_notify
         include ~views/Main/Post/Permalink/Notification
 
-script(scoped).
+script.
+  /**
+   * Media contents allignment
+   */
   $(document).ready(() => {
-    // Image Alignment
-    $('figure.imageblock.alignCenter').each(function () {
-      let width = $(this).data('origin-width')
+    const alignImage = function (width) {
       width = width > 1100 ? 1100 : width
+      $(this).css({ width, 'max-width': 'none', 'margin-left': `calc((100% - ${width}px) / 2)`})
+    }
 
-      const marginLeft = (Number('[##_var_article-width_##]') - width) / 2
-      if (marginLeft < 0) {
-        $(this).css('margin-left', marginLeft)
-      }
-      $(this).css({ width, 'max-width': 'none' })
+    $('figure.imageblock.alignCenter, iframe').each(function () {
+      alignImage.call(this, $(this).data('origin-width') || $(this).attr('width') || $(this).width())
+    })
+    $('figure.imagegridblock').each(function () {
+      alignImage.call(this, 1100)
+    })
+    $('figure.imageslideblock.alignCenter').each(function () {
+      alignImage.call(this, $(this).find('.image-wrap.selected > img').data('origin-width'))
     })
   })
 
@@ -91,6 +97,11 @@ style
           figcaption
             font-size .9rem
             color alpha(black, .5)
+        .imageslideblock
+          .image-container
+            width inherit !important
+            height inherit !important
+            overflow unset
         div[data-ke-type=moreLess]
           position relative
           .moreless-content
@@ -200,10 +211,11 @@ style
             font-size 1.2rem
           h4
             font-size 1rem
-          .imageblock
-            &.alignCenter
-              width 100% !important
-              margin 0 !important
+          .imageblock.alignCenter, iframe,
+          .imagegridblock,
+          .imageslideblock.alignCenter
+            width 100% !important
+            margin 0 !important
           blockquote[data-ke-style=style1]::before
             font-size .85rem
 
@@ -213,6 +225,11 @@ style
 
     html[data-theme='dark']
       .content__permalink
+        .fileblock
+          border none !important
+          background-color #292a2d
+          .image, a::after
+            filter brightness(0) invert(1);
         > .header
           .title
             color white
@@ -238,7 +255,7 @@ style
           table td, table th,
           ol,ul, p, span
             color white !important
-          .imageblock
+          .imagegridblock, .imageslideblock, .imageblock
             figcaption
               color alpha(white, .8)
           blockquote
