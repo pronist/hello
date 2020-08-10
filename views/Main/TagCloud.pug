@@ -13,9 +13,6 @@ style(scoped)
       #__tags
         width $width
         margin-left s('calc((%s - %s) / 2)', unquote('[##_var_index-width_##]' + 'px'), $width)
-        @media screen and (max-width: 1200px)
-          width 100%
-          margin-left 0
 
 style
   :stylus
@@ -53,6 +50,9 @@ style
           column-count 2
         @media screen and (min-width: 960px) and (max-width: 1200px)
           column-count 4
+      @media screen and (max-width: 1200px)
+        width 100% !important
+        margin-left 0 !important
 
 style
   :stylus

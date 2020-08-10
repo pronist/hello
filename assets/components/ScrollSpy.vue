@@ -2,7 +2,7 @@
   #__spy
     ul(class="uk-nav uk-nav-default")
       li(v-for="spy in spies")
-        a(:href="spy.href") {{ spy.label }}
+        a(:href="spy.href" :data-tag="spy.tag") {{ spy.label }}
 </template>
 
 <script>
@@ -12,10 +12,10 @@ export default {
   },
   computed: {
     spies () {
-      return $(this.context).find('h2').get().reduce((spies, heading) => {
+      return $(this.context).find('h2, h3').get().reduce((spies, heading) => {
         const $heading = $(heading)
         const anchor = encodeURIComponent($heading.text())
-        spies.push({ href: '#' + anchor, label: $heading.text() })
+        spies.push({ href: '#' + anchor, label: $heading.text(), tag: $heading.prop('tagName') })
         return spies
       }, [])
     }
@@ -29,11 +29,10 @@ export default {
 <style lang="stylus">
   $width = 200px
   $top = 75px + 50px
-  $right = -920px
 
   #__spy
     position relative
-    right $right
+    float right
     @media screen and (max-width: 1600px)
       display none
     ul
@@ -48,6 +47,8 @@ export default {
         a
           transition-duration .5s
           color black
+      a[data-tag=H3]
+        padding-left 15px
 </style>
 
 <style lang="stylus">

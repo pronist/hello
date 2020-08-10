@@ -1,0 +1,40 @@
+#scroll-indicator
+  .progress-container
+    .progress-bar
+
+script.
+  /**
+   * Scoll Indicator
+   */
+  $(document).ready(() => {
+    $(window).on('scroll', () => {
+      $('#scroll-indicator .progress-bar').css('width', ($(window).scrollTop() / ($(document).outerHeight() - $(window).height())) * 100 + '%')
+    })
+  })
+
+style
+  :stylus
+    $height = 5px
+    $background-color = #1e1f21
+
+    #scroll-indicator
+      position fixed
+      top 0
+      width 100%
+      z-index 9999
+      .progress-container
+        width 100%
+        height $height
+        .progress-bar
+          height 3px
+          background-color $background-color
+          width 0%
+          border-radius 0 5px 5px 0
+
+style
+  :stylus
+    html[data-theme='dark']
+      #scroll-indicator
+        .progress-container
+          .progress-bar
+            background-color alpha(white, .8)
