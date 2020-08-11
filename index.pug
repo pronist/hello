@@ -3,9 +3,9 @@ extends app
 block TIDORY
   if process.env.NODE_ENV === 'development'
     include views/TistoryToolbar
-  include views/ScrollIndicator
   s_if_var_loader
     include views/Loader
+  include views/ScrollIndicator
   s_t3
     #__tidory
       include views/Sidebar

@@ -5,7 +5,8 @@ div(class=`${type} content__permalink`)
     h1.title #{`[##_${type}_rep_title_##]`}
     .metainfo
       time.date #{`[##_${type}_rep_date_##]`}
-      include @/templates/Post/Permalink/Metainfo/Admin
+      if hasCategory
+        include @/templates/Post/Permalink/Metainfo/Admin
   article.content #{`[##_${type}_rep_desc_##]`}
   include @/templates/Post/Permalink/PostBtn
   if hasCategory

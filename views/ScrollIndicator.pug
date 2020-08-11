@@ -8,7 +8,9 @@ script.
    */
   $(document).ready(() => {
     $(window).on('scroll', () => {
-      $('#scroll-indicator .progress-bar').css('width', ($(window).scrollTop() / ($(document).outerHeight() - $(window).height())) * 100 + '%')
+      const winScroll = $(window).scrollTop()
+      const height = $(document).outerHeight() - $(window).height()
+      $('#scroll-indicator .progress-bar').css('width', (winScroll / height) * 100 + '%')
     })
   })
 
