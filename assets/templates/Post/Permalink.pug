@@ -36,8 +36,8 @@ script.
     // Headings
     $('.content__permalink').find('h2, h3, h4').each(function () {
       const $heading = $(this)
-      const anchor = $heading.text()
-      const $a = $('<a></a>').attr('href', '#' + anchor).text(anchor)
+      const anchor = encodeURIComponent($heading.text())
+      const $a = $('<a></a>').attr('href', '#' + anchor).text($heading.text())
 
       $heading.attr('id', anchor).empty().append($a)
     })

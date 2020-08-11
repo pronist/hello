@@ -14,14 +14,14 @@ export default {
     spies () {
       return $(this.context).find('h2, h3').get().reduce((spies, heading) => {
         const $heading = $(heading)
-        const anchor = $heading.text()
-        spies.push({ href: '#' + anchor, label: anchor, tag: $heading.prop('tagName').toLowerCase() })
+        const anchor = encodeURIComponent($heading.text())
+        spies.push({ href: '#' + anchor, label: $heading.text(), tag: $heading.prop('tagName').toLowerCase() })
         return spies
       }, [])
     }
   },
   mounted () {
-    UIkit.scrollspyNav('#__spy', { closest: 'li', scroll: true })
+    UIkit.scrollspyNav('#__spy', { closest: 'li' })
   }
 }
 </script>
