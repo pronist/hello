@@ -79,16 +79,17 @@ style
           .header
             overflow hidden
             .user
-              float left
+              display flex
+              flex-direction row
               overflow hidden
-              > div
-                float left
               .pic
                 margin-right $imgPaddingRight
                 img
                   border-radius 50%
                   width $imgSize
                   height $imgSize
+                  min-height $imgSize
+                  min-width $imgSize
                   position relative
                   z-index 2
               .metainfo
