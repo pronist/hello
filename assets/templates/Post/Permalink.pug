@@ -17,7 +17,7 @@ script.
       $(this).css({ width, 'max-width': 'none', 'margin-left': `calc((100% - ${width}px) / 2)`})
     }
 
-    $('figure.imageblock.alignCenter, iframe').each(function () {
+    $('figure.imageblock.alignCenter').each(function () {
       alignImage.call(this, $(this).data('origin-width') || $(this).attr('width') || $(this).width())
     })
     $('figure.imagegridblock').each(function () {
@@ -38,7 +38,9 @@ script.
       const $heading = $(this)
       const anchor = encodeURIComponent($heading.text())
       const $a = $('<a></a>').attr('href', '#' + anchor).text($heading.text())
+      const htmlContent = $heading.html()
 
+      $a.html(htmlContent)
       $heading.attr('id', anchor).empty().append($a)
     })
     // Code Highlighting
@@ -201,6 +203,8 @@ style
             background-color $base-color-grey
             border-radius 5px
             padding 15px
+            &, *
+              font-family 'D2Coding' !important
         img
           border-radius 5px
         a
@@ -217,7 +221,7 @@ style
             font-size 1.2rem
           h4
             font-size 1rem
-          .imageblock.alignCenter, iframe,
+          .imageblock.alignCenter,
           .imagegridblock,
           .imageslideblock.alignCenter
             width 100% !important

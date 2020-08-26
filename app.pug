@@ -8,11 +8,12 @@ html#__hELLO(lang='ko' data-theme='[##_var_theme_##]')
     title [##_page_title_##] — [##_title_##]
 
     link(rel='alternate' type='application/rss+xml' title='[##_title_##]' href='[##_rss_url_##]')
-    link(rel='stylesheet' href='//fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700')
 
+    link(rel='stylesheet' href='//fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700')
+    link(rel='stylesheet' href='//cdn.jsdelivr.net/npm/load-awesome@1.1.0/css/ball-clip-rotate.min.css')
     link(rel='stylesheet' href='//cdn.jsdelivr.net/npm/uikit@3.3.7/dist/css/uikit.min.css')
     link(rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/xcode.min.css')
-    link(rel='stylesheet' href='//cdn.jsdelivr.net/npm/load-awesome@1.1.0/css/ball-clip-rotate.min.css')
+    link(rel='stylesheet' href='//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-ligature-full.css')
 
     script(src='//code.jquery.com/jquery-3.4.1.min.js')
 
@@ -39,6 +40,9 @@ html#__hELLO(lang='ko' data-theme='[##_var_theme_##]')
             font-family $font-family !important
             outline none
             word-break break-all
+          //- Ads
+          ins
+            all unset
           ul, ol
             list-style none
             margin 0

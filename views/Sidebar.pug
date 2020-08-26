@@ -12,9 +12,6 @@ aside#__sidebar(role='sidebar')
         <!-- 검색 -->
         include Sidebar/Search
       s_sidebar_element
-        <!-- 티스토리 -->
-        include Sidebar/TistoryToolbar
-      s_sidebar_element
         <!-- 카테고리 -->
         include Sidebar/Category
       s_sidebar_element
@@ -35,6 +32,9 @@ aside#__sidebar(role='sidebar')
       s_sidebar_element
         <!-- 최근 글 -->
         include Sidebar/RecentPosts
+      s_sidebar_element
+        <!-- 티스토리 -->
+        include Sidebar/TistoryToolbar
 
 s_if_var_sidebar
   style(scoped)
