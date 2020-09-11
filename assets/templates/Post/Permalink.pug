@@ -44,7 +44,7 @@ script.
       $heading.attr('id', anchor).empty().append($a)
     })
     // Code Highlighting
-    hljs.initHighlightingOnLoad()
+    hljs.initHighlighting()
   })
 
 style(scoped)
@@ -93,7 +93,8 @@ style
           > a
             color black
             text-decoration none !important
-        blockquote [data-ke-style=style2],
+        blockquote[data-ke-style=style2],
+        blockquote[data-ke-style=style3],
         ul li, table td, table th,
         h2, h3, h4, p, span
           line-height 1.8em
@@ -237,7 +238,7 @@ style
       .content__permalink
         .fileblock
           border none !important
-          background-color #292a2d
+          background-color $base-background-color
           .image, a::after
             filter brightness(0) invert(1);
         > .header
@@ -253,6 +254,8 @@ style
           div[data-ke-type=moreLess]
             &::before
               border-bottom 1px dashed alpha(white, .5)
+            a
+              background-color $base-background-color
           figure[id^=og]
             > a
               border none !important
@@ -270,7 +273,7 @@ style
               color alpha(white, .8)
           blockquote
             &[data-ke-style=style3]
-              background #292a2d !important
+              background $base-background-color !important
           code
             background $base-background-color !important
           table, td, th

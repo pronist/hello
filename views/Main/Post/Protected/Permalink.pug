@@ -1,0 +1,44 @@
+div(class='protected content__permalink')
+  header.header(role='header')
+    a.category(href='[##_article_rep_category_link_##]') [##_article_rep_category_##]
+    h1.title [##_article_rep_title_##]
+    .metainfo
+      time.date [##_article_rep_date_##]
+  div(class='uk-text-center')
+    p.text
+      | 보호되어 있는 글입니다.
+      br
+      | 내용을 보시려면 비밀번호를 입력하세요.
+    input.input(type='password'
+      class='uk-input'
+      maxlength='16'
+      id='[##_article_password_##]'
+      name='[##_article_password_##]'
+      onkeydown='if (event.keyCode == 13)[##_article_dissolve_##]'
+      placeholder='비밀번호')
+
+style
+  :stylus
+    .protected.content__permalink
+      .text
+        text-align center
+        margin-top 30px
+        font-size .96rem
+        line-height 1.8em
+      .input
+        background-color #f8f8f8 !important
+        border none
+        font-size .8rem
+        width 200px
+        margin 0 auto
+        transition none
+
+style
+  :stylus
+    html[data-theme='dark']
+      .protected.content__permalink
+        .text
+          color white
+        .input
+          background-color #292a2d !important
+          color white !important
