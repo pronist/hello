@@ -3,6 +3,7 @@ include @/templates/Post
 
 main#__main(role='main')
   #main__content
+    include Main/Cover
     include Main/Guestbook
     include Main/Post
     include Main/Notice
@@ -56,4 +57,5 @@ style(scoped)
     #tt-body-tag,
     #tt-body-search
       #__main
-        width unquote('[##_var_index-width_##]' + 'px')
+        //- width unquote('[##_var_index-width_##]' + 'px')
+        width 1100px

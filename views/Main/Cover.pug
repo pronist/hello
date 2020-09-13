@@ -1,0 +1,211 @@
+mixin coverItem()
+  s_cover_item
+    li.content__index
+      s_cover_item_article_info
+        block
+
+mixin coverImage()
+  a.img(href='[##_cover_item_url_##]')
+    s_cover_item_thumbnail
+      img.thumbnail(src='[##_cover_item_thumbnail_##]')&attributes(attributes)
+
+mixin coverDescription(isFeatured=false)
+  .description&attributes(attributes)
+    .category: a(href='[##_cover_item_category_url_##]') [##_cover_item_category_##]
+    h1.title: a(href='[##_cover_item_url_##]') [##_cover_item_title_##]
+    unless isFeatured
+      p.summary [##_cover_item_summary_##]
+      time.date
+        | →
+        span [##_cover_item_simple_date_##]
+
+mixin cover(mode, isFeatured=false, isFullScreen=false)
+  case mode
+    when 'default'
+    when 'list'
+    when 'grid'
+    when 'gallery'
+      section.content__cover(data-mode=mode)
+        h1.cover__title [##_cover_title_##]
+        ul&attributes(attributes)
+          +coverItem()
+            +coverImage()
+            +coverDescription(isFeatured)
+    when 'slide'
+    when 'screen'
+      section.content__cover(data-mode=mode class='uk-position-relative uk-visible-toggle uk-light' tabindex='-1')&attributes(attributes)
+        h1.cover__title [##_cover_title_##]
+        ul(class='uk-slideshow-items' uk-height-viewport=isFullScreen)
+          +coverItem()
+            +coverImage()(uk-cover)
+            div(class='uk-overlay-primary uk-position-cover')
+            +coverDescription(true)(class='uk-position-center uk-position-small')
+
+s_cover_group
+  s_cover_rep
+    s_cover(name='default')
+      +cover('default')
+    s_cover(name='list')
+      +cover('list')
+    s_cover(name='grid')
+      +cover('grid')(class='uk-child-width-1-2@s uk-child-width-1-[##_var_grid-column-count_##]@m' uk-grid)
+    s_cover(name='gallery')
+      +cover('gallery', true)(class='uk-child-width-1-2@s uk-child-width-1-[##_var_gallery-column-count_##]@m' uk-grid)
+    s_cover(name='slide')
+      +cover('slide', false)(uk-slideshow='min-height: 280; max-height: [##_var_slide-height_##]; autoplay: true; animation: fade')
+    s_cover(name='screen')
+      +cover('screen')(uk-slideshow='autoplay: true; animation: fade')
+
+style
+  :stylus
+    .content__cover
+      margin 40px 0
+      &:first-of-type
+        margin-top 0
+      &:last-of-type
+        margin-bottom 0px
+      .uk-grid
+        margin 0 -10px !important
+      .cover__title
+        text-align center
+        font-size 1.6rem
+        margin-top 80px
+        margin-bottom 62px
+        font-weight 600
+        line-height 1.6em
+        @media screen and (max-width: 1200px)
+          font-size 1.3rem
+          margin-bottom 30px
+          margin-top 50px
+      .content__index
+        .img
+          display block
+    .content__cover[data-mode='slide'],
+    .content__cover[data-mode='screen']
+      .cover__title
+        display none
+    .content__cover[data-mode='gallery'],
+    .content__cover[data-mode='slide'],
+    .content__cover[data-mode='screen']
+      .content__index
+        .description
+          .category
+            text-align center
+          .title
+            line-height 1.3em
+          *
+            color white !important
+            margin 0
+
+//- [data-mode='list']
+style
+  :stylus
+    .content__cover[data-mode='list']
+      .content__index
+        padding 25px 0
+        border-top 1px solid alpha(black, .1)
+        display flex
+        flex-direction row-reverse
+        align-items center
+        &:last-of-type
+          border-bottom 1px solid alpha(black, .1)
+        .img
+          margin-left 20px
+          min-height 225px
+          display flex
+          align-items center
+          .thumbnail
+            min-width 300px
+            max-width 300px
+            margin-bottom 0
+        .description
+          font-size .96rem
+        @media screen and (max-width: 690px)
+          display block
+          border none
+          .img
+            min-height unset !important
+            margin 0
+            .thumbnail
+              min-width unset !important
+              max-width unset !important
+              margin-bottom 20px
+
+//- [data-mode='grid']
+style
+  :stylus
+    $gap = 10px
+
+    .content__cover[data-mode='grid']
+      margin 0
+      .content__index
+        padding $gap
+        box-sizing border-box
+        .description
+          font-size .96rem
+          .title
+            font-size 1.2rem
+
+//- [data-mode='gallery']
+style(scoped)
+  :stylus
+    .content__cover[data-mode='gallery']
+      .content__index
+        .img
+          .thumbnail
+            height unquote('[##_var_gallery-item-height_##]' + 'px')
+style
+  :stylus
+    $gap = 10px
+
+    .content__cover[data-mode='gallery']
+      .content__index
+        padding $gap
+        margin 0
+        position relative
+        .img
+          .thumbnail
+            margin 0
+            object-fit cover
+            max-width none
+            border-radius 0
+          &:hover + .description
+            opacity 1
+        .description
+          box-sizing border-box
+          padding 8px 15px
+          bottom $gap
+          width 'calc(100% - %s)' % ($gap * 2)
+          background-color alpha(black, .5)
+          text-align center
+          position absolute
+          opacity 0
+          transition-duration .3s
+          &:hover
+            opacity 1
+          .category a
+            font-size .82rem
+          .title
+            font-size .92rem
+
+//- [data-mode='slide']
+style
+  :stylus
+    .content__cover[data-mode='slide']
+      .description
+        .title
+          font-size 1.8rem
+          @media screen and (max-width: 1200px)
+            font-size 1.5rem
+
+//- [data-mode='screen']
+style
+  :stylus
+    .content__cover[data-mode='screen']
+      .description
+        .category a
+          font-size 1rem
+        .title
+          font-size 2.2rem
+          @media screen and (max-width: 1200px)
+            font-size 1.8rem

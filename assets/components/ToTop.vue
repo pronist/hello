@@ -11,7 +11,7 @@ export default {
 
 <style lang="stylus">
   $size = 35px
-  $bottom = 48px
+  $bottom = 20px
   $right = 20px
 
   #__toTop

@@ -1,4 +1,4 @@
-mixin index(type, mode='default', hasCategory=true)
+mixin index(type, hasCategory=true)
   s_index_article_rep
     include @/templates/Post/Index/Post
 
@@ -18,41 +18,44 @@ style
         border none
       &:last-of-type
         padding-bottom 0px
-      .title
-        margin-top 0px
-        margin-bottom 15px
-        line-height 1.5em
-        font-size 1.3rem
-        a
-          color $title-color
-      .category
-        margin-bottom 5px
-        a
-          font-size .9rem
+      .img
+        .thumbnail
+          width 100%
+          margin-bottom 15px
+          border-radius 5px
+      .description
+        .title
+          margin-top 0px
+          margin-bottom 15px
+          line-height 1.5em
+          font-size 1.3rem
           font-weight 500
-          color $category-color
-      .thumbnail
-        width 100%
-        margin-bottom 15px
-        border-radius 5px
-      .summary
-        display -webkit-box
-        display -ms-flexbox
-        display box
-        -webkit-box-orient vertical
-        -webkit-line-clamp 3
-        line-height 1.8em
-        overflow hidden
-        max-height 80px
-        margin-top 1px
-        vertical-align top
-        word-break break-all
-        color $summary-color
-      .date
-        font-size .87rem
-        color $date-color
-        > span
-          margin-left 7px
+          a
+            color $title-color
+        .category
+          margin-bottom 5px
+          a
+            font-size .9rem
+            font-weight 500
+            color $category-color
+        .summary
+          display -webkit-box
+          display -ms-flexbox
+          display box
+          -webkit-box-orient vertical
+          -webkit-line-clamp 3
+          line-height 1.8em
+          overflow hidden
+          max-height 80px
+          margin-top 1px
+          vertical-align top
+          word-break break-all
+          color $summary-color
+        .date
+          font-size .87rem
+          color $date-color
+          > span
+            margin-left 7px
       @media screen and (max-width: 1200px)
         padding 25px 0
         &:first-of-type

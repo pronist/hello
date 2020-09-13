@@ -39,11 +39,41 @@ aside#__sidebar(role='sidebar')
 s_if_var_sidebar
   style(scoped)
     :stylus
+      $width = 250px
+
       @media screen and (min-width: 1600px)
         #__sidebar
           left 0 !important
         #sidebar__mask
           display none !important
+        //- BODY
+        body
+          padding-left 250px !important
+        //- COVER
+        .content__cover[data-mode='slide'], .content__cover[data-mode='screen']
+          width 'calc(100vw - %s)' % ($width)
+          margin-left 'calc((((100vw - %s) - 100%) / 2) * -1)' % ($width)
+        //- NAV
+        #__nav
+          #nav__s1
+            display none
+      @media screen and (max-width: 1600px)
+        //- BODY
+        body
+          padding-left 0 !important
+        //- COVER
+        .content__cover[data-mode='slide'], .content__cover[data-mode='screen']
+          width 100vw
+          margin-left calc(((100vw - 100%) / 2) * -1)
+          min-width 320px
+        //- NAV
+        #__nav
+          #nav__s1
+            display block
+      @media screen and (max-width: 320px)
+        //- COVER
+        .content__cover[data-mode='slide'], .content__cover[data-mode='screen']
+          margin-left -15px
 
 s_not_var_sidebar
   style(scoped)
