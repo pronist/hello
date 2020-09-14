@@ -15,8 +15,26 @@
       <homepage>http://pronist.tistory.com</homepage>
       <email>pronist@naver.com</email>
    </author>
+   <liststyle>
+    <item>
+      <value>default</value>
+      <label>리스트 (오리지널)</label>
+    </item>
+    <item>
+      <value>list</value>
+      <label>리스트</label>
+    </item>
+    <item>
+      <value>grid</value>
+      <label>그리드</label>
+    </item>
+    <item>
+      <value>gallery</value>
+      <label>갤러리</label>
+    </item>
+   </liststyle>
    <cover>
-      <item>
+    <item>
       <name>default</name>
       <label>리스트 (오리지널)</label>
       <description>기본적으로 hELLO 스킨에서 제공하는 오리지널 리스트입니다</description>
@@ -159,10 +177,17 @@
       </variable>
     </variablegroup>
     <variablegroup name="홈 (인덱스)">
-      <variable>
+      <!-- <variable>
         <name>infinite-scroll</name>
         <label>무한 스크롤</label>
         <description><![CDATA[ 무한 스크롤 기능 ]]></description>
+        <type>BOOL</type>
+        <default>false</default>
+      </variable> -->
+      <variable>
+        <name>list-title</name>
+        <label>글 목록 제목 표시</label>
+        <description><![CDATA[ 글 목록에 제목을 표시합니다 ]]></description>
         <type>BOOL</type>
         <default>true</default>
       </variable>
@@ -175,13 +200,13 @@
         <type>BOOL</type>
         <default>true</default>
       </variable>
-      <variable>
+      <!-- <variable>
         <name>scrollspy</name>
         <label>TOC(Table Of Contents)</label>
         <description><![CDATA[ TOC(Table Of Contents) ]]></description>
         <type>BOOL</type>
         <default>true</default>
-      </variable>
+      </variable> -->
       <variable>
         <name>author</name>
         <label>글 작성자</label>
@@ -206,6 +231,7 @@
     </variablegroup>
   </variables>
   <default>
+    <liststyle>gallery</liststyle>
     <recentEntries>5</recentEntries>
     <recentComments>5</recentComments>
     <lengthOfRecentNotice>30</lengthOfRecentNotice>

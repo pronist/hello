@@ -47,19 +47,20 @@ s_if_var_sidebar
         #sidebar__mask
           display none !important
         //- BODY
-        body
+        #__tidory
           padding-left 250px !important
         //- COVER
         .content__cover[data-mode='slide'], .content__cover[data-mode='screen']
-          width 'calc(100vw - %s)' % ($width)
           margin-left 'calc((((100vw - %s) - 100%) / 2) * -1)' % ($width)
         //- NAV
         #__nav
           #nav__s1
             display none
+        #__nav, .content__cover[data-mode='slide'], .content__cover[data-mode='screen']
+          width 'calc(100vw - %s)' % ($width)
       @media screen and (max-width: 1600px)
         //- BODY
-        body
+        #__tidory
           padding-left 0 !important
         //- COVER
         .content__cover[data-mode='slide'], .content__cover[data-mode='screen']
@@ -69,7 +70,7 @@ s_if_var_sidebar
         //- NAV
         #__nav
           #nav__s1
-            display block
+            display flex
       @media screen and (max-width: 320px)
         //- COVER
         .content__cover[data-mode='slide'], .content__cover[data-mode='screen']

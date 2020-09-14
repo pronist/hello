@@ -1,25 +1,39 @@
 footer#__footer(role='footer' class='uk-navbar-container uk-navbar-transparent' uk-navbar)
-  .uk-navbar-right
-    small.designed-by Designed By #[a(href='https://github.com/pronist' target='_blank') 정상우].
+  .uk-navbar-left
+    a#__designed-by(href='https://pronist.tistory.com/5' target='_blank')
+      i(class='fa fa-code')
 
 style
   :stylus
+    $size = 35px
+
     #__footer
-      width 100%
       padding 0 20px
       box-sizing border-box
       position fixed
       bottom 20px
       font-size .92rem
-      > *
-        color alpha(black, .5)
-      .uk-navbar-right
-        small
-          padding 0 2px
-          &:last-child
-            padding-right 0
+      #__designed-by
+        display inline-block
+        border-radius 25px
+        border none
+        cursor pointer
+        transition-duration .1s
+        background-color white
+        box-shadow 0 0 0 1px rgba(0, 0, 0, .1), 0 2px 5px rgba(0, 0, 0, .1)
+        color alpha(black, .8)
+        width $size
+        height $size
+        line-height $size
+        text-align center
+        border-radius 50%
+        font-size .9rem
+        z-index 9996
+        &:hover
+          background-color #292a2d
+          color alpha(white, .9)
       @media screen and (max-width: 1600px)
-        display none
+        bottom 15px
 
 style
   :stylus

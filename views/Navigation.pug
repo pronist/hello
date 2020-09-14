@@ -43,6 +43,13 @@ script.
 
 style
   :stylus
+    #tt-body-page
+      #__nav
+        #nav__metainfo
+          display none
+
+style
+  :stylus
     $sticky-background = alpha(white, .8)
     $padding = 8px
     $profileSize = 40px
@@ -51,34 +58,34 @@ style
       width 100%
       box-sizing border-box
       padding 0px 20px
-      padding-top 10px
+      height 59px
+      position absolute
+      top 0
       &.sticky
         background-color $sticky-background
         backdrop-filter blur(2px)
         padding-top $padding + 3px
         padding-bottom $padding
         #nav__metainfo
-          display block
-          line-height 1rem
-          > *
-            overflow hidden
-            white-space nowrap
-            text-overflow ellipsis
-            max-width calc(80vw - 152px)
-          .title, .category
-            font-weight 500
-          .title
-            margin 0
-          .category
-            display inline-block
+          display block !important
       #nav__metainfo
+        line-height 1rem
         text-align center
-        display none
+        > *
+          overflow hidden
+          white-space nowrap
+          text-overflow ellipsis
+          max-width calc(80vw - 152px)
+        .title, .category
+          font-weight 500
         .title
+          margin 0
           font-size .92rem
+          font-weight 600
         .category
           font-size .8rem
           margin-bottom 3px
+          display inline-block
       #nav__s1
         img
           border-radius 50%
@@ -88,7 +95,7 @@ style
           cursor pointer
       @media screen and (max-width: 1260px)
         padding 0 15px
-        padding-top 10px
+        height 54px
         #nav__s1
           img
             width $profileSize - 5px

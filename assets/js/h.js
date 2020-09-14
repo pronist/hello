@@ -30,4 +30,32 @@ module.exports = class {
       $notify.remove()
     }
   }
+
+  /**
+   * List Style
+   *
+   * @param {string} container
+   * @param {object} counts
+   */
+  static list (container, list, counts) {
+    const $container = $(container)
+    const mode = $container.data('mode')
+
+    if (mode === 'grid' || mode === 'gallery') {
+      const $l = $container.find(list)
+
+      $l.attr({
+        'uk-grid': '',
+        class: `uk-child-width-1-2@s uk-child-width-1-${mode === 'grid'
+          ? counts.grid
+          : counts.gallery
+        }@m`
+      })
+      switch (mode) {
+        case 'gallery':
+          $l.find('.summary, .date').remove()
+          break
+      }
+    }
+  }
 }
