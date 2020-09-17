@@ -12,7 +12,8 @@ main#__main(role='main')
     s_if_var_paging
       include Main/Paging
   #__widgets
-    include ~views/Main/Widgets/Scrollspy
+    s_if_var_scrollspy
+      include Main/Widgets/Scrollspy
 
 style
   :stylus

@@ -76,10 +76,12 @@ style
           margin 0
       ul
         margin-top 0 !important
-        @media screen and (max-width: 1200px)
+      @media screen and (max-width: 1200px)
+        ul
           font-size 1.3rem
+        .cover__title
+          margin-top 40px
           margin-bottom 30px
-          margin-top 50px
 
 style
   :stylus
@@ -116,9 +118,9 @@ style
 style
   :stylus
     .__slide.main__cover[data-mode='screen']
-      height 100vh
+      min-height 100vh !important
       .uk-slideshow-items
-        height 100vh
+        min-height 100vh !important
         .description
           .category a
             font-size 1rem

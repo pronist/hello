@@ -3,22 +3,26 @@
 
 script.
   $(document).ready(() => {
-    const spies = $('.content__permalink').find('h2, h3').get().reduce((spies, heading) => {
-      const $heading = $(heading)
-      const anchor = encodeURIComponent($heading.text())
-      spies.push({ href: '#' + anchor, label: $heading.text(), tag: $heading.prop('tagName').toLowerCase() })
-      return spies
-    }, [])
-    const $spy = $('#__spy ul')
+    const $permalink = $('.content__permalink')
 
-    spies.forEach(spy => {
-      const $a = $('<a></a>').text(spy.label).attr({
-        'href': spy.href,
-        'data-tag': spy.tag
-      })
-      $spy.append($('<li></li>').append($a))
+    if ($permalink.length) {
+        const spies = $permalink.find('h2, h3').get().reduce((spies, heading) => {
+          const $heading = $(heading)
+          const anchor = encodeURIComponent($heading.text())
+          spies.push({ href: '#' + anchor, label: $heading.text(), tag: $heading.prop('tagName').toLowerCase() })
+          return spies
+        }, [])
+        const $spy = $('#__spy ul')
+
+        spies.forEach(spy => {
+          const $a = $('<a></a>').text(spy.label).attr({
+            'href': spy.href,
+            'data-tag': spy.tag
+          })
+          $spy.append($('<li></li>').append($a))
+        })
+      }
     })
-  })
 
 script.
   /**
@@ -26,15 +30,18 @@ script.
    */
   $(document).ready(() => {
     const $permalink = $('.content__permalink')
-    const $spy = $('#__spy')
-    const $content = $permalink.children('.content')
 
-    const { top, left } = $content.position()
+    if ($permalink.length) {
+      const $spy = $('#__spy')
+      const $content = $permalink.children('.content')
 
-    $spy.css({
-      top: top + 50, // margin-top
-      height: $content.height()
-    })
+      const { top, left } = $content.position()
+
+      $spy.css({
+        top: top + 50, // margin-top
+        height: $content.height()
+      })
+    }
   })
 
 style(scoped)
@@ -54,7 +61,7 @@ style
       list-style none
       text-align left
       font-weight 500
-      z-index 9996
+      z-index 0
       display none
       ul
         position sticky
