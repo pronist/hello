@@ -37,25 +37,21 @@ module.exports = class {
    * @param {string} container
    * @param {object} counts
    */
-  static list (container, list, counts) {
+  static list (container, counts) {
     const $container = $(container)
-    const mode = $container.data('mode')
+    const mode = $container.parent().attr('data-mode')
 
     if (mode === 'grid' || mode === 'gallery') {
-      const $l = $container.find(list)
-
-      $l.attr({
-        'uk-grid': '',
-        class: `uk-child-width-1-2@s uk-child-width-1-${mode === 'grid'
-          ? counts.grid
-          : counts.gallery
-        }@m`
-      })
       switch (mode) {
         case 'gallery':
-          $l.find('.summary, .date').remove()
+          $container.find('.summary, .date').remove()
           break
       }
+      $container.attr('class', `uk-child-width-1-2@s uk-child-width-1-${mode === 'grid'
+        ? counts.grid
+        : counts.gallery}@m`
+      )
+      UIkit.grid(container)
     }
   }
 }

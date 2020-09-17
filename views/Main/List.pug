@@ -1,36 +1,24 @@
 s_list
-  .__list(data-mode='[##_list_style_##]')
-    s_if_var_list-title
-      h1.list__title [##_list_conform_##]
-      script(scoped).
-        /**
-        * set List Title
-        */
-        $(document).ready(() => $('.__list > .list__title').text(
-          location.pathname === '/'
-            ? '[##_title_##]'
-            : '[##_list_conform_##]'
-          )
+  section.__list.main__list(data-mode='[##_list_style_##]')
+    h1.list__title [##_list_conform_##]
+    script(scoped).
+      /**
+      * set List Title
+      */
+      $(document).ready(() => $('.__list > .list__title').text(
+        '[##_list_conform_##]' === '전체 글'
+          ? '[##_title_##]'
+          : '[##_list_conform_##]'
         )
+      )
     ul
-      s_list_rep
-        li.content__index
-          a.img(href='[##_list_rep_link_##]')
-            s_list_rep_thumbnail
-              img.thumbnail(src='[##_list_rep_thumbnail_##]')
-          .description
-            .category: a(href='[##_list_rep_category_link_##]') [##_list_rep_category_##]
-            h1.title: a(href='[##_list_rep_link_##]') [##_list_rep_title_##]
-            p.summary [##_list_rep_summary_##]
-            time.date
-              | →
-              span [##_list_rep_regdate_##]
+      +index('list')
 
 script(scoped).
   /**
    * List Style - Grid, Gallery
    */
-  $(document).ready(() => h.list('.__list', 'ul', {
+  $(document).ready(() => h.list('.__list.main__list > ul', {
     grid: '[##_var_grid-column-count_##]',
     gallery: '[##_var_gallery-column-count_##]'
   }))
@@ -117,7 +105,7 @@ style
   :stylus
     .__list
       ul
-        margin-top 62px
+        margin-top 125px
       .uk-grid
         margin-left -10px
         margin-right -10px
@@ -125,7 +113,7 @@ style
         font-size 1.8rem
         text-align center
         margin-top 80px
-        margin-bottom 0
+        margin-bottom -65px
         font-weight 600
       .content__index
         .img
@@ -153,6 +141,7 @@ style
         display flex
         flex-direction row-reverse
         align-items center
+        justify-content flex-end
         &:last-of-type
           border-bottom 1px solid alpha(black, .1)
         .img
@@ -166,6 +155,7 @@ style
             margin-bottom 0
         .description
           font-size .96rem
+          min-width calc(100% - 320px)
         @media screen and (max-width: 690px)
           display block
           border none
@@ -176,6 +166,8 @@ style
               min-width unset !important
               max-width unset !important
               margin-bottom 20px
+          .description
+            width 100%
 
 //- [data-mode='grid']
 style

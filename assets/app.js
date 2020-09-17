@@ -12,21 +12,4 @@
   * after import assets it will be contained in app.js
   */
 
-import Vue from 'vue'
-import InfiniteScrollPlugin from 'vue-infinite-scroll'
-
-import ScrollSpy from './components/ScrollSpy.vue'
-import InfiniteScroll from './components/InfiniteScroll.vue'
-import ToTop from './components/ToTop.vue'
-import ThemeBtn from './components/ThemeBtn.vue'
-
-Vue.use(InfiniteScrollPlugin)
-
-Vue.component('scrollspy', ScrollSpy)
-Vue.component('infinite-scroll', InfiniteScroll)
-Vue.component('to-top', ToTop)
-Vue.component('theme-btn', ThemeBtn)
-
-window.Vue = new Vue({ el: '#main__b' })
-
 window.h = require('./js/h')

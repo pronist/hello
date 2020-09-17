@@ -1,12 +1,12 @@
 div(class=`${type} content__index`)
   .img
     #{`s_${type}_rep_thumbnail`}
-      img.thumbnail(src=`[##_${type}_rep_thumbnail_url_##]`)
+      img.thumbnail(src=`[##_${type}_rep_thumbnail${type === 'list' ? '' : '_url'}_##]`)
   .description
     if hasCategory
-      .category: a(href='[##_article_rep_category_link_##]') [##_article_rep_category_##]
+      .category: a(href=`[##_${type}_rep_category_link_##]`) #{`[##_${type}_rep_category_##]`}
     h1.title: a(href=`[##_${type}_rep_link_##]`) #{`[##_${type}_rep_title_##]`}
     p.summary #{`[##_${type}_rep_summary_##]`}
     time.date
       | →
-      span #{`[##_${type}_rep_date_##]`}
+      span #{`[##_${type}_rep_${type === 'list' ? 'regdate' : 'date'}_##]`}

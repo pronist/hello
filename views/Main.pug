@@ -11,23 +11,8 @@ main#__main(role='main')
     include Main/List
     s_if_var_paging
       include Main/Paging
-  #main__b
-    //- s_if_var_infinite-scroll
-      infinite-scroll(main='#main__content > .__list > ul' context='.content__index' v-if=`
-        '[##_body_id_##]' === 'tt-body-index' ||
-        '[##_body_id_##]' === 'tt-body-category' ||
-        '[##_body_id_##]' === 'tt-body-archive' ||
-        '[##_body_id_##]' === 'tt-body-tag' ||
-        '[##_body_id_##]' === 'tt-body-search'
-      `)
-    //- s_if_var_scrollspy
-      scrollspy(context='.content__permalink' v-if=`
-        '[##_body_id_##]' === 'tt-body-page'
-      `)
-    s_if_var_to-top
-      to-top
-    s_if_var_switch-theme
-      theme-btn
+  #__widgets
+    include ~views/Main/Widgets/Scrollspy
 
 style
   :stylus
@@ -35,23 +20,27 @@ style
       clear both
       padding 0
       margin 0 auto
-      padding-top 59px
       padding-bottom 100px
       max-width 1100px
       min-width 320px
       @media screen and (max-width: 1200px)
         padding 0 15px
-        padding-top 54px
         padding-bottom 55px
         width 100% !important
         box-sizing border-box
 
 style
   :stylus
-    #tt-body-page,
     #tt-body-guestbook,
     #tt-body-tag
-      margin-top 75px
+      padding-top 75px
+      h1
+        font-size 1.8rem
+        text-align center
+        margin-bottom 60px
+        font-weight 600
+        @media screen and (max-width: 1200px)
+          font-size 1.5rem
 
 style(scoped)
   :stylus
@@ -65,5 +54,4 @@ style(scoped)
     #tt-body-tag,
     #tt-body-search
       #__main
-        //- width unquote('[##_var_index-width_##]' + 'px')
-        width 1100px
+        width unquote('[##_var_index-width_##]' + 'px')

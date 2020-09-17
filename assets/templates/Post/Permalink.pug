@@ -1,11 +1,39 @@
 mixin permalink(pageType, type, hasCategory = true)
   #{`s_${pageType}_rep`}
-    include @/templates/Post/Permalink/Post
-    if hasCategory
-      s_if_var_comment
-        include @/templates/Post/Permalink/Comment
-      s_if_var_notify
-        include ~views/Main/Post/Permalink/Notification
+    div(id=`__${pageType}`)
+      include @/templates/Post/Permalink/Post
+      if hasCategory
+        s_if_var_comment
+          include @/templates/Post/Permalink/Comment
+        s_if_var_notify
+          include ~views/Main/Post/Permalink/Notification
+
+script.
+  /**
+   * Set Permalink Mode
+   */
+  $(document).ready(() => {
+    const $permalink = $('.content__permalink')
+    let mode = $permalink.attr('data-mode')
+
+    const $nav = $('#__nav')
+
+    /**
+    * Mode to 'default' if not exist thumbnail
+    */
+    if (! $permalink.find('.header > .img').length) {
+      mode = 'default'
+    }
+    /**
+     * Mode hands control
+     */
+    const $modeHansControl = $('.content__permalink > .content div.h[data-mode]')
+    if ($modeHansControl.length) {
+      mode = $modeHansControl.attr('data-mode')
+    }
+
+    $permalink.attr('data-mode', mode)
+  })
 
 script.
   /**
@@ -47,15 +75,70 @@ script.
     hljs.initHighlighting()
   })
 
-style(scoped)
+style
   :stylus
-    #tt-body-page
-      #__spy
-        left 'calc(((1100px - %s - 200px) / 2) + 170px)' % unquote('[##_var_article-width_##]' + 'px')
+    .content__permalink[data-mode='tape'], .content__permalink[data-mode='screen']
+      padding-top 0
+      .header
+        display flex
+        flex-direction column
+        align-items center
+        justify-content center
+        .img
+          display block
+          .mask, .thumbnail
+            position absolute
+            top 0
+            right 0
+          .thumbnail
+            object-fit cover
+            z-index 1
+          .mask
+            background-color alpha(black, .5)
+            z-index 2
+        .heading
+          .category, .title, .metainfo *
+            position relative
+            z-index 3
+            color white !important
+
+//- [data-mode='screen']
+style
+  :stylus
+    .content__permalink[data-mode='screen']
+      .header
+        height 100vh
+        .img
+          .mask, .thumbnail
+            height 100vh
+        .heading
+          .title
+            font-size 2.2rem
+
+//- [data-mode='tape']
+style
+  :stylus
+    .content__permalink[data-mode='tape']
+      .header
+        height 280px
+        .img
+          .mask, .thumbnail
+            height 280px
+
+//- [data-mode='default']
+style
+  :stylus
+    .content__permalink[data-mode='default']
+      padding-top 125px
+      .header
+        .img
+          display none
+      @media screen and (max-width: 1200px)
+        padding-top 25px
 
 style
   :stylus
-    $font-awesome = 'Font Awesome 5 Pro'
+    $font-awesome = 'Font Awesome 5 Free'
     $base-color = #ed5207
     $base-color-grey = #f8f8f8
 
@@ -66,25 +149,28 @@ style
       color $color
       .header
         text-align center
-        .category
-          font-weight 500
-          color $base-color
-          font-size .96rem
-        .title
-          margin-top 0
-          margin-bottom 5px
-          font-weight 600
-          font-size 1.7rem
-          line-height 1.5em
-        .metainfo
-          font-size .9rem
-          color alpha(black, .5)
-          span
-            display inline-block
-            padding 0 3px
+        .img
+          display none
+        .heading
+          .category
+            font-weight 500
+            color $base-color
+            font-size .96rem
+          .title
+            margin-top 0
+            margin-bottom 5px
+            font-weight 600
+            font-size 1.7rem
+            line-height 1.5em
+          .metainfo
+            font-size .9rem
+            color alpha(black, .5)
+            span
+              display inline-block
+              padding 0 3px
       .content
         text-align left
-        margin-top 40px
+        margin-top 50px
         figure[data-ke-type='opengraph'],
         div[data-ke-type=moreLess],
         blockquote, ul, ol, table,

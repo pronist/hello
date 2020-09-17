@@ -1,20 +1,39 @@
 footer#__footer(role='footer' class='uk-navbar-container uk-navbar-transparent' uk-navbar)
-  .uk-navbar-left
+  div(class='uk-navbar-left')
     a#__designed-by(href='https://pronist.tistory.com/5' target='_blank')
       i(class='fa fa-code')
+  div(class='uk-navbar-right')
+    s_if_var_switch-theme
+      #__theme-btn
+        i(aria-hidden='true' class='fa fa-moon-o')
+    s_if_var_to-top
+      a#__toTop(href='#' uk-scroll='target: #__hELLO')
+        i(class='fa fa-chevron-up')
+
+script.
+  $(document).ready(() => {
+    const $themeBtn = $('#__theme-btn')
+    $themeBtn.on('click', () => {
+      const TTDARK = $('html').attr('data-theme') === 'dark' ? 'N' : 'Y'
+      localStorage.TTDARK = TTDARK
+
+      $('html').attr('data-theme', localStorage.TTDARK === 'N' ? 'light' : 'dark')
+    })
+  })
 
 style
   :stylus
     $size = 35px
 
     #__footer
+      width 100%
       padding 0 20px
       box-sizing border-box
       position fixed
       bottom 20px
       font-size .92rem
-      #__designed-by
-        display inline-block
+      z-index 9996
+      #__designed-by, #__toTop, #__theme-btn
         border-radius 25px
         border none
         cursor pointer
@@ -28,10 +47,12 @@ style
         text-align center
         border-radius 50%
         font-size .9rem
-        z-index 9996
+      #__designed-by, #__toTop, #__theme-btn
         &:hover
-          background-color #292a2d
+          background-color alpha(black, .9)
           color alpha(white, .9)
+      #__toTop
+        margin-left 12px
       @media screen and (max-width: 1600px)
         bottom 15px
 
@@ -39,5 +60,12 @@ style
   :stylus
     html[data-theme='dark']
       #__footer
-        > *
-          color alpha(white, .8)
+        #__theme-btn,
+        #__toTop,
+        #__designed-by
+          border #353638
+          background-color #353638
+          color alpha(white, .9)
+          box-shadow none
+          &:hover
+            background-color #53575c

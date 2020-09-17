@@ -1,6 +1,6 @@
 nav#__nav(role='navigation'
   class='uk-navbar-container uk-navbar-transparent'
-  uk-sticky='animation: uk-animation-slide-top; cls-active: sticky; cls-inactive: uk-navbar-transparent; top: 300;'
+  uk-sticky='top: 280; animation: uk-animation-slide-top; cls-active: sticky; cls-inactive: uk-navbar-transparent;'
   uk-navbar)
   #nav__s1(class='uk-navbar-left')
     img.profile(src='[##_image_##]')
@@ -14,7 +14,7 @@ script.
    * Copy metainfo to Navigation header
    */
   $(document).ready(() => {
-    const $h = $('.content__permalink > header > *:not(.metainfo)')
+    const $h = $('.content__permalink > header > .heading > *:not(.metainfo)')
     const $metainfo = $('#__nav > #nav__metainfo')
     // Only for permalink
     if ($h.length) {
@@ -43,34 +43,32 @@ script.
 
 style
   :stylus
-    #tt-body-page
-      #__nav
-        #nav__metainfo
-          display none
+    .uk-sticky-placeholder
+      display none
 
 style
   :stylus
-    $sticky-background = alpha(white, .8)
-    $padding = 8px
     $profileSize = 40px
 
     #__nav
-      width 100%
+      width 100% !important
       box-sizing border-box
       padding 0px 20px
       height 59px
       position absolute
+      z-index 9996
+      background none
       top 0
       &.sticky
-        background-color $sticky-background
+        background-color alpha(white, .8)
         backdrop-filter blur(2px)
-        padding-top $padding + 3px
-        padding-bottom $padding
         #nav__metainfo
-          display block !important
+          display block
       #nav__metainfo
         line-height 1rem
         text-align center
+        flex-direction column
+        display none
         > *
           overflow hidden
           white-space nowrap
@@ -105,8 +103,8 @@ style
   :stylus
     html[data-theme='dark']
       #__nav
+        &.sticky
+          background-color alpha(#1e1f21, .8)
         #nav__metainfo
           .title
             color white
-        &.sticky
-          background-color alpha(#1e1f21, .8)

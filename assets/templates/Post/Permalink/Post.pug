@@ -1,12 +1,17 @@
-div(class=`${type} content__permalink`)
+div(class=`${type} content__permalink` data-mode='[##_var_article-mode_##]')
   header.header(role='header')
-    if hasCategory
-      a.category(href='[##_article_rep_category_link_##]') [##_article_rep_category_##]
-    h1.title #{`[##_${type}_rep_title_##]`}
-    .metainfo
-      time.date #{`[##_${type}_rep_date_##]`}
+    #{`s_${type}_rep_thumbnail`}
+      .img
+        .mask
+        img.thumbnail(src=`[##_${type}_rep_thumbnail_url_##]`)
+    .heading
       if hasCategory
-        include @/templates/Post/Permalink/Metainfo/Admin
+        a.category(href='[##_article_rep_category_link_##]') [##_article_rep_category_##]
+      h1.title #{`[##_${type}_rep_title_##]`}
+      .metainfo
+        time.date #{`[##_${type}_rep_date_##]`}
+        if hasCategory
+          include @/templates/Post/Permalink/Metainfo/Admin
   article.content #{`[##_${type}_rep_desc_##]`}
   include @/templates/Post/Permalink/PostBtn
   if hasCategory

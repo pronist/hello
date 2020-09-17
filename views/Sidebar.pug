@@ -50,30 +50,42 @@ s_if_var_sidebar
         #__tidory
           padding-left 250px !important
         //- COVER
-        .content__cover[data-mode='slide'], .content__cover[data-mode='screen']
+        .main__cover[data-mode='tape'], .main__cover[data-mode='screen']
+          width 'calc(100vw - %s)' % ($width) !important
           margin-left 'calc((((100vw - %s) - 100%) / 2) * -1)' % ($width)
         //- NAV
         #__nav
           #nav__s1
             display none
-        #__nav, .content__cover[data-mode='slide'], .content__cover[data-mode='screen']
-          width 'calc(100vw - %s)' % ($width)
+        //- PERMALINK
+        .content__permalink[data-mode='tape'], .content__permalink[data-mode='screen']
+          .header
+            .thumbnail, .mask
+              width 'calc(100% - %s)' % ($width)
+        //- GLOBAL
+        #__nav, #__footer
+          width 'calc(100% - %s)' % ($width) !important
       @media screen and (max-width: 1600px)
         //- BODY
         #__tidory
           padding-left 0 !important
         //- COVER
-        .content__cover[data-mode='slide'], .content__cover[data-mode='screen']
+        .main__cover[data-mode='tape'], .main__cover[data-mode='screen']
           width 100vw
           margin-left calc(((100vw - 100%) / 2) * -1)
           min-width 320px
+        //- PERMALINK
+        .content__permalink[data-mode='tape'], .content__permalink[data-mode='screen']
+          .header
+            .thumbnail, .mask
+              width 100vw
         //- NAV
         #__nav
           #nav__s1
             display flex
       @media screen and (max-width: 320px)
         //- COVER
-        .content__cover[data-mode='slide'], .content__cover[data-mode='screen']
+        .main__cover[data-mode='tape'], .main__cover[data-mode='screen']
           margin-left -15px
 
 s_not_var_sidebar

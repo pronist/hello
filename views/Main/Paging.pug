@@ -5,19 +5,6 @@ s_paging
       li: a([##_paging_rep_link_##]) [##_paging_rep_link_num_##]
     li: a([##_next_page_##] class='[##_no_more_next_##]'): span(uk-pagination-next)
 
-s_not_var_infinite-scroll
-  style(scoped)
-    :stylus
-      #__paging
-        display flex !important
-
-style
-  :stylus
-    #tt-body-page,
-    #tt-body-guestbook
-      #__paging
-        display flex
-
 style
   :stylus
     $color = black
@@ -29,7 +16,7 @@ style
     #__paging
       margin 0 auto
       margin-top 85px
-      display none
+      display flex
       li
         font-size .9rem
         padding-left 0
