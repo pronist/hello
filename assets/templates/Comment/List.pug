@@ -17,7 +17,7 @@ mixin list(type, rType)
     #{`s_${type}_container`}
       ol
         #{`s_${type}_rep`}
-          li(id=`[##_{${type}_rep_id_##]`)
+          li(id=`[##_${type}_rep_id_##]`)
             +comment(type)
             #{`s_${rType}_container`}
               ol
