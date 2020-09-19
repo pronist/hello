@@ -104,23 +104,25 @@ style
 style
   :stylus
     .__list
+      &.main__list
+        margin-top 120px
       ul
-        margin-top 125px
+        margin-top 60px
       .uk-grid
         margin-left -10px
         margin-right -10px
       .list__title
         font-size 1.8rem
         text-align center
-        margin-top 80px
-        margin-bottom -65px
         font-weight 600
       .content__index
         .img
           display block
       @media screen and (max-width: 1200px)
-        ul, .list__title
-          margin-top 25px
+        &.main__list
+          margin-top 80px
+        ul
+          margin-top 40px
         .list__title
           font-size 1.5rem
 
@@ -159,6 +161,8 @@ style
         @media screen and (max-width: 690px)
           display block
           border none
+          &:first-of-type
+            padding-top 0
           .img
             min-height unset !important
             margin 0
@@ -168,6 +172,13 @@ style
               margin-bottom 20px
           .description
             width 100%
+
+style
+  :stylus
+    html[data-theme='dark']
+      .__list[data-mode='list']
+        .content__index
+          border-color alpha(white, .5)
 
 //- [data-mode='grid']
 style

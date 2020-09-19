@@ -62,6 +62,8 @@ style
       margin 40px 0
       &:first-of-type
         margin-top 0
+        .cover__title
+          margin-top 80px
       &:last-of-type
         margin-bottom 0px
       .cover__title
@@ -77,6 +79,9 @@ style
       ul
         margin-top 0 !important
       @media screen and (max-width: 1200px)
+        &:first-of-type
+          .cover__title
+            margin-top 80px
         ul
           font-size 1.3rem
         .cover__title
@@ -92,8 +97,10 @@ style
 
 style
   :stylus
-    .__slide.main__cover[data-mode='tape'],
-    .__slide.main__cover[data-mode='screen']
+    .__slide.main__cover[data-mode='tape'], .__slide.main__cover[data-mode='screen']
+      width 100vw
+      margin-left calc(((100vw - 100%) / 2) * -1)
+      min-width 320px
       .content__index
         .description
           .category
@@ -103,6 +110,8 @@ style
           *
             color white !important
             margin 0
+      @media screen and (max-width: 320px)
+        margin-left -15px
 
 //- [data-mode='tape']
 style

@@ -90,6 +90,7 @@ style
             position absolute
             top 0
             right 0
+            width 100%
           .thumbnail
             object-fit cover
             z-index 1
@@ -114,6 +115,9 @@ style
         .heading
           .title
             font-size 2.2rem
+            @media screen and (max-width: 1200px)
+              font-size 1.8rem
+
 
 //- [data-mode='tape']
 style
@@ -129,12 +133,10 @@ style
 style
   :stylus
     .content__permalink[data-mode='default']
-      padding-top 125px
+      padding-top 80px
       .header
         .img
           display none
-      @media screen and (max-width: 1200px)
-        padding-top 25px
 
 style
   :stylus
@@ -304,6 +306,7 @@ style
           .title
             font-size 1.7rem
         .content
+          margin-top 25px
           h2
             font-size 1.3rem
           h3
