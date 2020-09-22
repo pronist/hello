@@ -3,7 +3,7 @@ div(class=`${type} content__permalink` data-mode='[##_var_article-mode_##]')
     #{`s_${type}_rep_thumbnail`}
       .img
         .mask
-        img.thumbnail(src=`[##_${type}_rep_thumbnail_url_##]`)
+        img.thumbnail(src=`[##_${type}_rep_thumbnail_raw_url_##]`)
     .heading
       if hasCategory
         a.category(href='[##_article_rep_category_link_##]') [##_article_rep_category_##]

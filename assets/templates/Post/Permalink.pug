@@ -16,7 +16,7 @@ script.
     const $permalink = $('.content__permalink')
     let mode = $permalink.attr('data-mode')
 
-    const $nav = $('#__nav')
+    const supports = [ 'default', 'tape', 'screen' ]
 
     /**
     * Mode to 'default' if not exist thumbnail
@@ -30,6 +30,7 @@ script.
     const $modeHansControl = $('.content__permalink > .content div.h[data-mode]')
     if ($modeHansControl.length) {
       mode = $modeHansControl.attr('data-mode')
+      mode = supports.includes(mode) ? mode : 'default'
     }
 
     $permalink.attr('data-mode', mode)
@@ -61,7 +62,6 @@ script.
    * Settings for Permalink
    */
   $(document).ready(() => {
-    // Headings
     $('.content__permalink').find('h2, h3, h4').each(function () {
       const $heading = $(this)
       const anchor = encodeURIComponent($heading.text())
@@ -71,9 +71,13 @@ script.
       $a.html(htmlContent)
       $heading.attr('id', anchor).empty().append($a)
     })
-    // Code Highlighting
-    hljs.initHighlighting()
   })
+
+script.
+  /**
+   * Code Highlighting
+   */
+  $(document).ready(() => hljs.initHighlighting())
 
 style
   :stylus

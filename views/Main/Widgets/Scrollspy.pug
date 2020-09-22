@@ -2,40 +2,40 @@
   ul(class='uk-nav uk-nav-default' uk-scrollspy-nav='closest: li')
 
 script.
+  /**
+   * Create a scrollspy menu
+   */
   $(document).ready(() => {
     const $permalink = $('.content__permalink')
 
-    if ($permalink.length) {
-        const spies = $permalink.find('h2, h3').get().reduce((spies, heading) => {
-          const $heading = $(heading)
-          const anchor = encodeURIComponent($heading.text())
-          spies.push({ href: '#' + anchor, label: $heading.text(), tag: $heading.prop('tagName').toLowerCase() })
-          return spies
-        }, [])
-        const $spy = $('#__spy ul')
-
-        spies.forEach(spy => {
-          const $a = $('<a></a>').text(spy.label).attr({
-            'href': spy.href,
-            'data-tag': spy.tag
-          })
-          $spy.append($('<li></li>').append($a))
-        })
-      }
+    // Extract Headings
+    const spies = $permalink.find('h2, h3').get().reduce((spies, heading) => {
+      const $heading = $(heading)
+      const anchor = encodeURIComponent($heading.text())
+      spies.push({ href: '#' + anchor, label: $heading.text(), tag: $heading.prop('tagName').toLowerCase() })
+      return spies
+    }, [])
+    // Build
+    const $spy = $('#__spy ul')
+    spies.forEach(spy => {
+      const $a = $('<a></a>').text(spy.label).attr({
+        'href': spy.href,
+        'data-tag': spy.tag
+      })
+      $spy.append($('<li></li>').append($a))
     })
+  })
 
 script.
   /**
    * Set scrollspy position
    */
   $(document).ready(() => {
-    const $permalink = $('.content__permalink')
+    const $spy = $('#__spy')
+    const $content = $('.content__permalink').children('.content')
 
-    if ($permalink.length) {
-      const $spy = $('#__spy')
-      const $content = $permalink.children('.content')
-
-      const { top, left } = $content.position()
+    if ($content.length) {
+      const { top } = $content.position()
 
       $spy.css({
         top: top + 50, // margin-top
