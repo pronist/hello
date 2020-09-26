@@ -54,4 +54,43 @@ module.exports = class {
       UIkit.grid(container)
     }
   }
+
+  /**
+   * Set Styled Heading
+   *
+   * @param {string} container
+   * @param {string} mode
+   * @param {object} options
+   */
+  static setStyledHeading (container, mode, options = {}) {
+    const $container = $(container)
+
+    options = {
+      controllable: options.controllable || false,
+      modeHansControlElement: options.modeHansControlElement || '',
+      attr: options.attr || 'data-mode'
+    }
+
+    const supports = ['default', 'tape', 'screen']
+
+    /**
+    * Mode to 'default' if not exist thumbnail
+    */
+    if (!$container.find('header > .img').length) {
+      mode = 'default'
+    }
+
+    /**
+     * Mode hands control
+     */
+    if (options.controllable) {
+      const $modeHansControl = $(options.modeHansControlElement)
+      if ($modeHansControl.length) {
+        mode = $modeHansControl.attr(options.attr)
+        mode = supports.includes(mode) ? mode : 'default'
+      }
+    }
+
+    $container.attr(options.attr, mode)
+  }
 }

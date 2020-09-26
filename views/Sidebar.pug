@@ -66,8 +66,9 @@ s_if_var_sidebar
           #nav__s1
             display none !important
         //- PERMALINK
-        .content__permalink[data-mode='tape'], .content__permalink[data-mode='screen']
-          .header
+        .content__permalink[data-mode='tape'], .content__permalink[data-mode='screen'],
+        .main__list[data-image-mode='tape'], .main__list[data-image-mode='screen']
+          header
             .thumbnail, .mask
               width 'calc(100% - %s)' % ($width) !important
         //- GLOBAL

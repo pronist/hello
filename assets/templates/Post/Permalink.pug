@@ -8,33 +8,14 @@ mixin permalink(pageType, type, hasCategory = true)
         s_if_var_notify
           include ~views/Main/Post/Permalink/Notification
 
-script.
+script(scoped).
   /**
-   * Set Permalink Mode
+   * Set Styled Heading
    */
-  $(document).ready(() => {
-    const $permalink = $('.content__permalink')
-    let mode = $permalink.attr('data-mode')
-
-    const supports = [ 'default', 'tape', 'screen' ]
-
-    /**
-    * Mode to 'default' if not exist thumbnail
-    */
-    if (! $permalink.find('.header > .img').length) {
-      mode = 'default'
-    }
-    /**
-     * Mode hands control
-     */
-    const $modeHansControl = $('.content__permalink > .content div.h[data-mode]')
-    if ($modeHansControl.length) {
-      mode = $modeHansControl.attr('data-mode')
-      mode = supports.includes(mode) ? mode : 'default'
-    }
-
-    $permalink.attr('data-mode', mode)
-  })
+  $(document).ready(() => h.setStyledHeading('.content__permalink', '[##_var_article-mode_##]', {
+    controllable: true,
+    modeHansControlElement: '.content__permalink > .content div.h[data-mode]'
+  }))
 
 script.
   /**
@@ -59,7 +40,7 @@ script.
 
 script.
   /**
-   * Settings for Permalink
+   * Headings
    */
   $(document).ready(() => {
     $('.content__permalink').find('h2, h3, h4').each(function () {
@@ -81,68 +62,6 @@ script.
 
 style
   :stylus
-    .content__permalink[data-mode='tape'], .content__permalink[data-mode='screen']
-      padding-top 0
-      .header
-        display flex
-        flex-direction column
-        align-items center
-        justify-content center
-        .img
-          display block
-          .mask, .thumbnail
-            position absolute
-            top 0
-            right 0
-            width 100%
-          .thumbnail
-            object-fit cover
-            z-index 1
-          .mask
-            background-color alpha(black, .5)
-            z-index 2
-        .heading
-          .category, .title, .metainfo *
-            position relative
-            z-index 3
-            color white !important
-
-//- [data-mode='screen']
-style
-  :stylus
-    .content__permalink[data-mode='screen']
-      .header
-        height 100vh
-        .img
-          .mask, .thumbnail
-            height 100vh
-        .heading
-          .title
-            font-size 2.2rem
-            @media screen and (max-width: 1200px)
-              font-size 1.8rem
-
-//- [data-mode='tape']
-style
-  :stylus
-    .content__permalink[data-mode='tape']
-      .header
-        height 280px
-        .img
-          .mask, .thumbnail
-            height 280px
-
-//- [data-mode='default']
-style
-  :stylus
-    .content__permalink[data-mode='default']
-      padding-top 80px
-      .header
-        .img
-          display none
-
-style
-  :stylus
     $font-awesome = 'Font Awesome 5 Free'
     $base-color = #ed5207
     $base-color-grey = #f8f8f8
@@ -152,6 +71,7 @@ style
 
     .content__permalink
       color $color
+      padding-top 120px
       .header
         text-align center
         .img

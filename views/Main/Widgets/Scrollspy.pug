@@ -15,6 +15,7 @@ script.
       spies.push({ href: '#' + anchor, label: $heading.text(), tag: $heading.prop('tagName').toLowerCase() })
       return spies
     }, [])
+
     // Build
     const $spy = $('#__spy ul')
     spies.forEach(spy => {
@@ -36,11 +37,7 @@ script.
 
     if ($content.length) {
       const { top } = $content.position()
-
-      $spy.css({
-        top: top + 50, // margin-top
-        height: $content.height()
-      })
+      $spy.css({ top: top + 50, height: $content.height() })
     }
   })
 
