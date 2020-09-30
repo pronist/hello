@@ -40,6 +40,8 @@ mixin cover(mode, isFeatured=false)
             +coverImage()(uk-cover)
             div(class='uk-overlay-primary uk-position-cover')
             +coverDescription(true)(class='uk-position-center uk-position-small')
+        a(class='uk-position-center-left uk-position-small uk-hidden-hover' href='#' uk-slidenav-previous uk-slideshow-item='previous')
+        a(class='uk-position-center-right uk-position-small uk-hidden-hover' href='#' uk-slidenav-next uk-slideshow-item='next')
 
 s_cover_group
   s_cover_rep
@@ -59,34 +61,28 @@ s_cover_group
 style
   :stylus
     .main__cover
-      margin 40px 0
-      &:first-of-type
-        margin-top 0
-        .cover__title
-          margin-top 80px
+      margin-top 40px !important
+      margin-bottom 40px !important
       &:last-of-type
         margin-bottom 0px
       .cover__title
         text-align center
         font-size 1.6rem
-        margin-top 80px
-        margin-bottom 62px
         font-weight 600
         line-height 1.6em
         color black
+        margin-top 80px
+        margin-bottom 60px
         &:empty
           margin 0 !important
       ul
-        margin-top 0 !important
+        margin-top 0
       @media screen and (max-width: 1200px)
-        &:first-of-type
-          .cover__title
-            margin-top 80px
+        .cover__title
+          margin-top 80px
+          margin-bottom 25px
         ul
           font-size 1.3rem
-        .cover__title
-          margin-top 40px
-          margin-bottom 30px
 
 style
   :stylus
@@ -97,7 +93,25 @@ style
 
 style
   :stylus
-    .__slide.main__cover[data-mode='tape'], .__slide.main__cover[data-mode='screen']
+    .__list.main__cover[data-mode='default'],
+    .__list.main__cover[data-mode='list'],
+    .__list.main__cover[data-mode='gallery'],
+    .__list.main__cover[data-mode='grid']
+      &:first-of-type
+        margin-top 120px !important
+      @media screen and (max-width: 1200px)
+        &:first-of-type
+          margin-top 80px !important
+
+    .__slide.main__cover[data-mode='tape'],
+    .__slide.main__cover[data-mode='screen']
+      &:first-of-type
+        margin-top 0 !important
+
+style
+  :stylus
+    .__slide.main__cover[data-mode='tape'],
+    .__slide.main__cover[data-mode='screen']
       width 100vw
       margin-left calc(((100vw - 100%) / 2) * -1)
       min-width 320px
@@ -110,7 +124,11 @@ style
           *
             color white !important
             margin 0
-      @media screen and (max-width: 320px)
+    @media screen and (max-width: 1200px)
+      a[uk-slideshow-item]
+        display none
+    @media screen and (max-width: 320px)
+      .content__index
         margin-left -15px
 
 //- [data-mode='tape']

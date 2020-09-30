@@ -216,10 +216,21 @@ style
       .content__index
         padding $gap
         box-sizing border-box
+        height 480px
+        .img
+          .thumbnail
+            max-width none
+            object-fit cover
+            height 220px
         .description
           font-size .96rem
           .title
             font-size 1.2rem
+        @media screen and (max-width: 640px)
+          height unset !important
+          .img
+            .thumbnail
+              height unset !important
 
 //- [data-mode='gallery']
 style(scoped)
