@@ -35,9 +35,6 @@
     "stylus-loader": "^3.0.2"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "tidory": "*",
-    "vue": "^2.6.11",
-    "vue-infinite-scroll": "^2.0.2"
+    "tidory": "*"
   }
 }
