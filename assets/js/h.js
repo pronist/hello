@@ -88,6 +88,7 @@ module.exports = class {
       if ($modeHansControl.length) {
         mode = $modeHansControl.attr(options.attr)
         mode = supports.includes(mode) ? mode : 'default'
+        $modeHansControl.empty()
       }
     }
 

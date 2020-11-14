@@ -56,6 +56,19 @@ script.
 
 script.
   /**
+   * Table
+   */
+  $(document).ready(() => {
+    $('.content__permalink').find('table').each(function () {
+      $table = $(this)
+      if (typeof $table.attr('class') === 'undefined') {
+        $table.attr('data-h-type', 'table')
+      }
+    })
+  })
+
+script.
+  /**
    * Code Highlighting
    */
   $(document).ready(() => hljs.initHighlighting())
@@ -115,6 +128,12 @@ style
           margin 0 !important
         figure[data-ke-type='opengraph']
           margin-top 10px !important
+        figure[data-ke-type='video'],
+        .imageblock, .imagegridblock, .imageslideblock
+          margin 0 auto 20px
+        figure[data-ke-type='video']
+          &:empty
+            all unset
         .imageblock
           figcaption
             font-size .9rem
@@ -183,11 +202,12 @@ style
             margin 6px 0
         ul li
           list-style circle
-        table, td, th
+        table[data-h-type=table]
           border none
           border-bottom 1px solid alpha(black, .1)
-        table
           td, th
+            border none
+            border-bottom 1px solid alpha(black, .1)
             font-size .9rem
             padding 16px 12px
             box-sizing border-box

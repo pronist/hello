@@ -56,6 +56,7 @@ style
           width 100%
           margin-bottom 15px
           border-radius 5px
+          background-color white
       .description
         .title
           margin-top 0px
@@ -172,13 +173,14 @@ style
           border-bottom 1px solid alpha(black, .1)
         .img
           margin-left 20px
-          min-height 225px
           display flex
           align-items center
           .thumbnail
-            min-width 300px
-            max-width 300px
+            max-width none
+            width 300px
+            height 225px
             margin-bottom 0
+            object-fit cover
         .description
           font-size .96rem
           min-width calc(100% - 320px)
@@ -212,7 +214,6 @@ style
     $gap = 10px
 
     .__list[data-mode='grid']
-      margin 0
       .content__index
         padding $gap
         box-sizing border-box
