@@ -111,7 +111,6 @@ style
         margin-top 50px
         position relative
         z-index 1
-        figure[data-ke-type='opengraph'],
         div[data-ke-type=moreLess],
         blockquote, ul, ol, table,
         h2, h3, h4
@@ -126,18 +125,15 @@ style
           line-height 1.8em
         p
           margin 0 !important
-        figure[data-ke-type='opengraph']
-          margin-top 10px !important
-        figure[data-ke-type='video'],
-        .imageblock, .imagegridblock, .imageslideblock
+        figure
           margin 0 auto 20px
-        figure[data-ke-type='video']
-          &:empty
-            all unset
-        .imageblock
           figcaption
             font-size .9rem
             color alpha(black, .5)
+            &:empty
+              all unset
+        figure[data-ke-type='opengraph']
+          margin-top 10px !important
         .imageslideblock
           .image-container
             width inherit !important
@@ -241,6 +237,7 @@ style
               font-family 'D2Coding' !important
         img
           border-radius 5px
+          background-color white
         a
           color $base-color
           text-decoration underline !important
@@ -303,7 +300,7 @@ style
           table td, table th,
           ol,ul, p, span
             color white !important
-          .imagegridblock, .imageslideblock, .imageblock
+          figure
             figcaption
               color alpha(white, .8)
           blockquote
