@@ -1,12 +1,9 @@
-$IMG_MARGIN_LEFT = 10px
-
 #__sidebar
   #sidebar__popular-posts, #sidebar__recent-posts
     li
       display flex
       .metainfo
         TextOverflowHidden()
-        width 'calc(70% - %s)' % $IMG_MARGIN_LEFT
         .date
           color alpha($THEME_COLOR_BLACK, .5)
           font-size .76rem
@@ -15,5 +12,5 @@ $IMG_MARGIN_LEFT = 10px
         height 45px
         width 30%
         object-fit cover
-        margin-left $IMG_MARGIN_LEFT
+        margin-left 10px
         background-color white //- NT
