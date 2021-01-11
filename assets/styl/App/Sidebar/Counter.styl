@@ -1,0 +1,26 @@
+#__sidebar
+  #sidebar__counter
+    width 230px
+    overflow hidden
+    .cnt-item
+      float left
+      font-size .8rem
+      .title
+        color alpha($THEME_COLOR_BLACK, .5)
+        font-weight 500
+      .cnt
+        color alpha($THEME_COLOR_BLACK, .7)
+        font-size 1rem
+        font-weight 600
+        overflow hidden
+        white-space nowrap
+        text-overflow ellipsis
+    .uk-float-left
+      .cnt
+        max-width 70px
+    .uk-float-right
+      .cnt-item
+        &:first-child
+          margin-right 10px
+      .cnt
+        max-width 55px

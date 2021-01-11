@@ -7,12 +7,9 @@ nav#__nav(role='navigation'
   #nav__metainfo(class='uk-navbar-center')
     h1.title [##_title_##]
   #nav__s2(class='uk-navbar-right')
-    include Navigation/Subscribe
 
 script.
-  /**
-   * Copy metainfo to Navigation header
-   */
+  // Copy metainfo to Navigation header
   $(document).ready(() => {
     const $h = $('.content__permalink > header > .heading > *:not(.metainfo)')
     const $metainfo = $('#__nav > #nav__metainfo')
@@ -24,87 +21,11 @@ script.
   })
 
 script.
-  /**
-   * Sidebar Toogle
-   */
+  // Sidebar Toogle
   $(document).ready(() => {
     const $sidebar = $('#__sidebar')
-    const $sidebarMask = $('#sidebar__mask')
+    const $m = $('#sidebar__mask')
 
-    $('#__nav > #nav__s1 > .profile').on('click', () => {
-      $sidebar.css('left', 0)
-      $sidebarMask.fadeIn(200)
-    })
-    $sidebarMask.on('click', () => {
-      $sidebar.css('left', '-250px')
-      $sidebarMask.fadeOut(200)
-    })
+    $('#__nav > #nav__s1 > .profile').on('click', () => { $sidebar.css('left', 0); $m.fadeIn(200) })
+    $m.on('click', () => { $sidebar.css('left', '-250px'); $m.fadeOut(200) })
   })
-
-style
-  :stylus
-    .uk-sticky-placeholder
-      display none
-
-style
-  :stylus
-    $profileSize = 40px
-
-    #__nav
-      width 100% !important
-      box-sizing border-box
-      padding 0px 20px
-      height 59px
-      position absolute
-      z-index 9996
-      background none
-      top 0
-      &.sticky
-        background-color alpha(white, .8)
-        backdrop-filter blur(2px)
-        #nav__metainfo
-          display block
-      #nav__metainfo
-        line-height 1rem
-        text-align center
-        flex-direction column
-        display none
-        > *
-          overflow hidden
-          white-space nowrap
-          text-overflow ellipsis
-          max-width calc(80vw - 152px)
-        .title, .category
-          font-weight 500
-        .title
-          margin 0
-          font-size .92rem
-          font-weight 600
-        .category
-          font-size .8rem
-          margin-bottom 3px
-          display inline-block
-      #nav__s1
-        img
-          border-radius 50%
-          transition-duration .2s
-          width $profileSize
-          height $profileSize
-          cursor pointer
-      @media screen and (max-width: 1260px)
-        padding 0 15px
-        height 54px
-        #nav__s1
-          img
-            width $profileSize - 5px
-            height $profileSize - 5px
-
-style
-  :stylus
-    html[data-theme='dark']
-      #__nav
-        &.sticky
-          background-color alpha(#1e1f21, .8)
-        #nav__metainfo
-          .title
-            color white

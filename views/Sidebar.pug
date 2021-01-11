@@ -36,17 +36,10 @@ aside#__sidebar(role='sidebar')
         <!-- 티스토리 -->
         include Sidebar/TistoryToolbar
 
-style
-  :stylus
-    #__sidebar
-      left -250px
-    #sidebar__mask
-      display none
-
 s_if_var_sidebar
   style(scoped)
     :stylus
-      $width = 250px
+      $SIDEBAR_WIDTH = 250px
 
       @media screen and (min-width: 1400px)
         #__sidebar
@@ -55,112 +48,31 @@ s_if_var_sidebar
           display none !important
         //- BODY
         #__tidory
-          padding-left $width !important
+          padding-left $SIDEBAR_WIDTH !important
         //- COVER
-        .main__cover[data-mode='tape'], .main__cover[data-mode='screen']
-          width 'calc(100vw - %s)' % ($width) !important
-          margin-left 'calc((((100vw - %s) - 100%) / 2) * -1)' % ($width) !important
+        .main__cover[data-mode='slider'],
+        .main__cover[data-mode='slider-screen'],
+        .main__cover[data-mode='slideshow'],
+        .main__cover[data-mode='slideshow-screen']
+          width 'calc(100vw - %s)' % ($SIDEBAR_WIDTH) !important
+          margin-left 'calc((((100vw - %s) - 100%) / 2) * -1)' % ($SIDEBAR_WIDTH) !important
           min-width unset !important
         //- NAV
         #__nav
           #nav__s1
             display none !important
         //- PERMALINK
-        .content__permalink[data-mode='tape'], .content__permalink[data-mode='screen'],
-        .main__list[data-image-mode='tape'], .main__list[data-image-mode='screen']
+        .content__permalink[data-mode='tape'],
+        .content__permalink[data-mode='screen'],
+        .main__list[data-image-mode='tape'],
+        .main__list[data-image-mode='screen']
           header
             .thumbnail, .mask
-              width 'calc(100% - %s)' % ($width) !important
+              width 'calc(100% - %s)' % ($SIDEBAR_WIDTH) !important
         //- GLOBAL
         #__nav, #__footer
-          width 'calc(100% - %s)' % ($width) !important
+          width 'calc(100% - %s)' % ($SIDEBAR_WIDTH) !important
         //- NOTIFICATION
         .uk-notification
           &.uk-notification-bottom-left
-            left $width + 20px !important
-
-style
-  :stylus
-    #sidebar__mask
-      position fixed
-      width 100%
-      height 100%
-      background-color alpha(black, .7)
-      z-index 9997
-      top 0
-      right 0
-      @media screen and (max-width: 1400px)
-        display none
-
-style
-  :stylus
-    $background = #f4f4f4
-    $width = 250px
-    $padding = 25px 0
-    $paddingLeft = 20px
-
-    #__sidebar
-      background $background
-      position fixed
-      top 0
-      width $width
-      height 100%
-      overflow hidden
-      z-index 9998
-      transition-duration .2s
-      transition-property left
-      #sidebar__shadow
-        overflow-x hidden
-        overflow-y scroll
-        height 100%
-        width $width + 20px
-        position absolute
-        padding $padding
-        box-sizing border-box
-        z-index 9997
-        > div, nav
-          padding 15px 0
-          padding-left $paddingLeft
-          box-sizing border-box
-          max-width $width
-          ul li
-            overflow hidden
-            white-space nowrap
-            text-overflow ellipsis
-            max-width $width - 50px
-        h2
-          font-size .9rem
-          font-weight 600
-          color alpha(black, .8)
-        #sidebar__blogmenu
-          ul li
-            padding 6px 0
-        #sidebar__popular-posts,
-        #sidebar__recent-posts,
-        #sidebar__tags,
-        #sidebar__recent-comments,
-        #sidebar__notice
-          ul li
-            padding 4px 0 !important
-        a
-          font-size .9rem
-          &:hover
-            color black
-        i
-          margin-right 7px
-          font-size .7rem
-          color alpha(black, .5)
-      @media screen and (max-width: 1400px)
-        left -250px
-
-style
-  :stylus
-    html[data-theme='dark']
-      #__sidebar
-        background-color #292a2d
-        #sidebar__shadow
-          h2
-            color white
-          ul li
-            a
-              color alpha(white, .8)
+            left $SIDEBAR_WIDTH + 20px !important

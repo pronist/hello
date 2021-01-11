@@ -11,65 +11,7 @@ footer#__footer(role='footer' class='uk-navbar-container uk-navbar-transparent' 
         i(class='fa fa-chevron-up')
 
 script.
-  /**
-   * Change a Theme with Button
-   */
+  // Switch theme
   $(document).ready(() => {
-    const $themeBtn = $('#__theme-btn')
-    $themeBtn.on('click', () => {
-      const TTDARK = $('html').attr('data-theme') === 'dark' ? 'N' : 'Y'
-      localStorage.TTDARK = TTDARK
-
-      $('html').attr('data-theme', localStorage.TTDARK === 'N' ? 'light' : 'dark')
-    })
+    $('#__theme-btn').on('click', () => { h.Theme.switch(); h.Theme.hljs(); })
   })
-
-style
-  :stylus
-    $size = 35px
-
-    #__footer
-      width 100%
-      padding 0 20px
-      box-sizing border-box
-      position fixed
-      bottom 20px
-      font-size .92rem
-      z-index 9996
-      #__designed-by, #__toTop, #__theme-btn
-        border-radius 25px
-        border none
-        cursor pointer
-        transition-duration .1s
-        background-color white
-        box-shadow 0 0 0 1px rgba(0, 0, 0, .1), 0 2px 5px rgba(0, 0, 0, .1)
-        color alpha(black, .8)
-        width $size
-        height $size
-        line-height $size
-        text-align center
-        border-radius 50%
-        font-size .9rem
-      #__designed-by, #__toTop, #__theme-btn
-        &:hover
-          background-color alpha(black, .9)
-          color alpha(white, .9)
-      #__toTop
-        margin-left 12px
-      @media screen and (max-width: 1600px)
-        bottom 15px
-        padding 0 15px
-
-style
-  :stylus
-    html[data-theme='dark']
-      #__footer
-        #__theme-btn,
-        #__toTop,
-        #__designed-by
-          border #353638
-          background-color #353638
-          color alpha(white, .9)
-          box-shadow none
-          &:hover
-            background-color #53575c

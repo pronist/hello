@@ -1,0 +1,15 @@
+$BUTTON_MARGIN = 3px
+$SIZE = 35px
+
+.content__permalink
+  .permalink__btn
+    overflow hidden
+    margin 0 '-(%s)' % ($BUTTON_MARGIN)
+    margin-top 25px
+    a, button
+      margin 0 $BUTTON_MARGIN
+      button($SIZE, $SIZE, 50%, $SIZE - 3, $THEME_COLOR_WHITE, alpha($THEME_COLOR_BLACK, .9))
+    .wrap_btn
+      display inline-block !important
+      .ico_postbtn
+        display none !important

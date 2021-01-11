@@ -1,0 +1,38 @@
+.__list[data-mode='gallery']
+  .content__index
+    padding 0 10px
+    padding-top 20px
+    padding-bottom 0
+    margin 0
+    position relative
+    overflow hidden
+    .img
+      .thumbnail
+        margin 0
+        object-fit cover
+        max-width none
+        border-radius 0
+      &:hover + .description
+        transform translateY(0)
+    .description
+      box-sizing border-box
+      padding 8px 15px
+      bottom 0
+      width 'calc(100% - %s)' % (10px * 2)
+      background-color alpha($THEME_COLOR_BLACK, .5)
+      backdrop-filter blur(5px)
+      text-align center
+      position absolute
+      transition-duration .3s
+      transform translateY(100%)
+      &:hover
+        transform translateY(0)
+      .category a
+        font-size .82rem
+        text-align center
+      .title
+        font-size .92rem
+        line-height 1.5em
+      *
+        color $THEME_COLOR_WHITE !important
+        margin 0

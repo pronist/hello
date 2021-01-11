@@ -1,0 +1,21 @@
+.content__permalink
+  .container_postbtn
+    .wrap_btn[id^=reaction-]
+      color $THEME_COLOR_WHITE !important
+      display inline-block
+      border none
+      margin-right 9px
+      .btn_post.uoc-icon
+        button(60px, 35px, 5px, unset, $THEME_COLOR_RED , $THEME_COLOR_WHITE)
+        > .uoc-icon
+            > .ico_like
+              display none
+      .uoc-count
+        font-size .8rem
+        font-weight 600
+        color $THEME_COLOR_WHITE !important
+        line-height unset !important
+        &::before
+          font-weight 600
+          margin-right 5px
+          FontAwesome('\f004')

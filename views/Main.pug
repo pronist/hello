@@ -1,7 +1,5 @@
-include @/templates/Comment
-include @/templates/Post
-style
-  include:stylus @/styl/styled-heading.styl
+include @/templates/Mixins/Comment
+include @/templates/Mixins/Post
 
 main#__main(role='main')
   #main__content
@@ -13,37 +11,10 @@ main#__main(role='main')
     include Main/List
     s_if_var_paging
       include Main/Paging
-  #__widgets
+
+  #__
     s_if_var_scrollspy
-      include Main/Widgets/Scrollspy
-
-style
-  :stylus
-    #__main
-      clear both
-      padding 0
-      margin 0 auto
-      padding-bottom 70px
-      max-width 1100px
-      min-width 320px
-      @media screen and (max-width: 1200px)
-        padding 0 15px
-        padding-bottom 55px
-        width 100% !important
-        box-sizing border-box
-
-style
-  :stylus
-    #__guestbook,
-    #__tags
-      padding-top 75px
-      h1
-        font-size 1.8rem
-        text-align center
-        margin-bottom 60px
-        font-weight 600
-        @media screen and (max-width: 1200px)
-          font-size 1.5rem
+      include @/templates/Scrollspy
 
 style(scoped)
   :stylus

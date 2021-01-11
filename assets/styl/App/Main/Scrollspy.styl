@@ -1,0 +1,19 @@
+#__spy
+  position absolute
+  width 180px
+  list-style none
+  text-align left
+  font-weight 500
+  z-index 0
+  display none
+  ul
+    position sticky
+    top 80px
+  .uk-active
+    a
+      transition-duration .5s
+      color alpha($THEME_COLOR_BLACK, .9)
+  a[data-tag=h3]
+    padding-left 15px
+  @media screen and (max-width: 1820px)
+    display none !important

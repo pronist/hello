@@ -1,0 +1,45 @@
+#__sidebar
+  #sidebar__tistory
+    .header_layer
+      position initial
+      top unset
+      bottom unset
+      left unset
+      right unset
+      box-shadow none
+      padding 0
+      display block !important
+      max-width 230px
+      &::after
+        display none
+      a
+        color alpha($THEME_COLOR_BLACK, .7)
+      .inner_header_layer
+        background-color $THEME_BACKGROUND_COLOR_LEVEL1
+        *
+          padding-left 0
+          border none
+        > .info_profile
+          padding 0
+          padding-top 6px
+          .link_setting.link_setting_type2
+            font-size .8rem
+        > .wrap_list
+          box-shadow none
+          .tit_list_type
+            padding-top 22px
+            margin-bottom 10px
+            font-size .8rem
+        .list_toolbar
+          max-width 200px
+          margin-top 6px
+          padding-top 3px
+          > li
+            padding-top 8px
+            a
+              color alpha($THEME_COLOR_BLACK, .9)
+              &:hover
+                color alpha($THEME_COLOR_BLACK, .9)
+        .info_profile_type1
+          &:last-child
+            margin-bottom 0px

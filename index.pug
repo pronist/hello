@@ -1,8 +1,7 @@
 extends app
 
 block TIDORY
-  if process.env.NODE_ENV === 'development'
-    include views/TistoryToolbar
+  include views/TistoryToolbar
   s_if_var_loader
     include views/Loader
   include views/ScrollIndicator
@@ -15,7 +14,4 @@ block TIDORY
       include views/Footer
 
   style
-    :stylus
-      #__tidory
-        min-width 320px
-        padding-left 0
+    include:stylus @/styl/Index.styl

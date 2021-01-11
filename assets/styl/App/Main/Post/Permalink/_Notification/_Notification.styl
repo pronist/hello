@@ -1,0 +1,48 @@
+$BOTTOM = 20px
+$SIDE_POSITION = 20px
+
+.uk-notification
+  bottom $BOTTOM
+  width initial
+  z-index 9998
+  &.uk-notification-bottom-left
+    left $SIDE_POSITION
+  &.uk-notification-bottom-right
+    right $SIDE_POSITION
+  > *
+    display inline-block
+  .uk-notification-message
+    background none
+    padding 0
+    z-index 9998
+    .permalink__notify
+      display flex
+      .thumbnail
+        height 100px
+        overflow hidden
+        img
+          background-color white //- NT
+          height 100%
+          width 178px
+          object-fit cover
+      .metainfo
+        background-color $THEME_BACKGROUND_COLOR_LEVEL1
+        padding 20px
+        display flex
+        flex-direction column
+        justify-content center
+        max-width 182px
+        box-sizing border-box
+        min-height 100px
+        *
+          color alpha($THEME_COLOR_BLACK, .9) !important
+          overflow hidden
+          white-space nowrap
+          text-overflow ellipsis
+        .title
+          font-size .96rem
+          font-weight 500
+        .description
+          color alpha($THEME_COLOR_BLACK, .7) !important
+          font-size .8rem
+          margin-bottom 3px

@@ -1,0 +1,25 @@
+div(class=`${type} content__permalink` data-mode='[##_var_article-mode_##]')
+  header.header(role='header')
+    #{`s_${type}_rep_thumbnail`}
+      .img
+        .mask
+        img.thumbnail(src=`[##_${type}_rep_thumbnail_raw_url_##]`)
+    .heading
+      if hasCategory
+        a.category(href='[##_article_rep_category_link_##]') [##_article_rep_category_##]
+      h1.title #{`[##_${type}_rep_title_##]`}
+      .metainfo
+        time.date #{`[##_${type}_rep_date_##]`}
+        if hasCategory
+          include Post/Admin
+  article.content
+    | #{`[##_${type}_rep_desc_##]`}
+    include Post/Subscription
+  footer.footer(role='footer')
+    if hasCategory
+      s_if_var_related
+        include Post/Related
+      include Post/Tag
+      include Post/Btn
+    s_if_var_author
+      include Post/Author

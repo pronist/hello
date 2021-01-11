@@ -1,0 +1,16 @@
+#tistoryEtcLayer
+  display inline-block !important
+  .btn_mark
+    &::before
+      font-weight 600
+      FontAwesome()
+    &[role='modify']::before
+      content '\f304'
+    &[role='delete']::before
+      content '\f1f8'
+    &[role='public']::before
+      content '\f09c'
+    &[role='private']::before
+      content '\f023'
+  @media screen and (max-width: 690px)
+    display none !important

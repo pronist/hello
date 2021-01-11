@@ -1,0 +1,22 @@
+#__nav
+  &.sticky
+    #nav__metainfo
+      display block
+  #nav__metainfo
+    line-height 1rem
+    text-align center
+    flex-direction column
+    display none
+    > *
+      TextOverflowHidden()
+      max-width calc(80vw - 152px)
+    .title, .category
+      font-weight 500
+    .title
+      margin 0
+      font-size .92rem
+      font-weight 600
+    .category
+      font-size .8rem
+      margin-bottom 3px
+      display inline-block

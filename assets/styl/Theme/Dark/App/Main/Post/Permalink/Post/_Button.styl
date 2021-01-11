@@ -1,0 +1,13 @@
+html[data-theme='dark']
+  .content__permalink
+    .container_postbtn, .permalink__btn
+      a, button
+        border-color $THEME_BACKGROUND_COLOR_LEVEL3 !important
+        background-color $THEME_BACKGROUND_COLOR_LEVEL3 !important
+        color alpha($THEME_COLOR_WHITE, .8) !important
+        &:hover
+          border-color $THEME_BACKGROUND_COLOR_LEVEL4 !important
+          background-color $THEME_BACKGROUND_COLOR_LEVEL4 !important
+      .container_postbtn .btn_subscription
+        &::before
+          color alpha($THEME_COLOR_WHITE, .9)

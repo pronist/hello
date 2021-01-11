@@ -1,0 +1,60 @@
+mixin permalink(pageType, type, hasCategory = true)
+  #{`s_${pageType}_rep`}
+    div(id=`__${pageType}`)
+      include Permalink/Post
+      if hasCategory
+        include Permalink/Comment
+        s_if_var_notify
+          include Permalink/Notification
+
+script(scoped).
+  // Set Styled Heading
+  $(document).ready(() => h.Post.Mode.setStyledHeading('.content__permalink', '[##_var_article-mode_##]', {
+    controllable: true,
+    modeHansControlElement: '.content__permalink > .content div.h[data-mode]'
+  }))
+
+s_not_var_comment
+  script(scoped).
+    // Comment
+    $(document).ready(() => $('.permalink__comment').attr({'aria-hidden': true, 'hidden': ''}))
+
+script.
+  // Post
+  $(document).ready(() => {
+    // Media contents alignment
+    h.Post.Permalink.alignImageCenter({
+      imageSlideBlock: true,
+      imageBlock: true,
+      imageGridBlock: true
+    })
+    // Add 'a' tag into headings
+    h.Post.Permalink.headings('.content__permalink .content', 'h2, h3, h4')
+
+    // Code Highlighting
+    hljs.initHighlighting(); h.Theme.hljs()
+  })
+
+script.
+  // Tags
+  $(document).ready(() => {
+    $('.permalink__tags').contents().filter(function () { return this.nodeType === 3 }).remove()
+  })
+
+script.
+  // PostBtn
+  $(document).ready(() => {
+    // Trgger 'click' event for TistoryEtcLayer Display
+    $('.container_postbtn .wrap_btn_etc > button').trigger('click')
+  })
+
+script.
+  // TistoryLayer
+  $(document).ready(() => {
+    const $tistoryLayer = $('#tistoryEtcLayer, #tistorySnsLayer')
+
+    // Remove button texts
+    $tistoryLayer.find('.btn_mark').empty()
+    // Move into 'Bun'
+    $tistoryLayer.appendTo('.content__permalink .permalink__btn')
+  })

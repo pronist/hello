@@ -12,4 +12,10 @@
   * after import assets it will be contained in app.js
   */
 
-window.h = require('./js/h')
+const Theme = require('./js/Theme')
+const Permalink = require('./js/Post/Permalink')
+const Mode = require('./js/Post/Mode')
+
+window.h = {
+  Theme, Post: { Mode, Permalink }
+}

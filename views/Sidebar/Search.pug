@@ -7,24 +7,3 @@
         name='[##_search_name_##]'
         value='[##_search_text_##]'
         onkeypress='if (event.keyCode == 13) { [##_search_onclick_submit_##] }')
-
-style
-  :stylus
-    #__sidebar
-      #sidebar__search
-        .uk-search
-          background-color #e9e9e9
-          font-size .8rem
-          width 210px
-          .uk-search-input
-            border none
-
-style
-  :stylus
-    html[data-theme='dark']
-      #__sidebar
-        #sidebar__search
-          .uk-search
-            background-color #1e1f21 !important
-            .uk-search-icon
-              color alpha(white, .8)

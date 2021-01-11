@@ -9,7 +9,7 @@ s_notice_rep
     +permalink('permalink_article', 'notice', false)
 
 script.
-  /**
-   * Remove list element when notice permalink page
-   */
-   $(document).ready(() => $('#tt-body-page #__notice > .__list[data-mode]').remove())
+  // Remove list element when notice permalink page
+  $(document).ready(() => {
+    $('#tt-body-page #__notice > .__list[data-mode]').remove()
+  })

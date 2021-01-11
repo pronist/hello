@@ -4,30 +4,7 @@
       div
 
 script.
-  /**
-   * Loader Out
-   */
-  $(document).ready(() => $('#__loader').fadeOut(500))
-
-style
-  :stylus
-    $color = #fd9372
-    $background-color = white
-
-    #__loader
-      z-index 9999
-      position fixed
-      top 0
-      width 100%
-      height 100%
-      background-color $background-color
-      .la-ball-clip-rotate
-        color $color
-
-style
-  :stylus
-    html[data-theme='dark']
-      #__loader
-        background-color #1e1f21
-        .la-ball-clip-rotate
-          color white
+  // Loader Out
+  $(document).ready(() => {
+    setTimeout(() => $('#__loader').fadeOut(500), 2)
+  })

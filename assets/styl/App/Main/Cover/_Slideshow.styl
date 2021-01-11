@@ -1,0 +1,23 @@
+.__slider.main__cover[data-mode='slider'],
+.__slider.main__cover[data-mode='slider-screen'],
+.__slide.main__cover[data-mode='slideshow'],
+.__slide.main__cover[data-mode='slideshow-screen']
+  width 100vw
+  margin-left calc(((100vw - 100%) / 2) * -1)
+  min-width 320px
+  &:first-of-type
+    margin-top 0 !important
+  .content__index
+    .description
+      .category
+        text-align center
+      .title
+        line-height 1.5em
+      *
+        color white !important //- NT
+        margin 0
+  @media screen and (max-width: 1200px)
+    a[uk-slideshow-item], a[uk-slider-item]
+      display none
+  @media screen and (max-width: 320px)
+    margin-left -15px !important

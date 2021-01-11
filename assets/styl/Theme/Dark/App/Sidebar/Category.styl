@@ -1,0 +1,11 @@
+html[data-theme='dark']
+  #__sidebar
+    #sidebar__category
+      .tt_category
+        .link_tit
+          color $THEME_COLOR_WHITE !important
+        .category_list
+          .sub_category_list
+            li
+              &::before
+                color alpha($THEME_COLOR_WHITE, .8)

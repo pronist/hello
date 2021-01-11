@@ -8,9 +8,7 @@ s_list
       .heading
         h1.title [##_list_conform_##]
     script(scoped).
-      /**
-      * set List Title
-      */
+      // set List Title
       $(document).ready(() => $('.__list > .list__header .title').text(
         '[##_list_conform_##]' === '전체 글'
           ? '[##_title_##]'
@@ -21,214 +19,15 @@ s_list
       +index('list')
 
 script(scoped).
-  /**
-   * List Style - Grid, Gallery
-   */
-  $(document).ready(() => h.list('.__list.main__list > ul', {
+  // List Style - Grid, Gallery
+  $(document).ready(() => h.Post.Mode.list('.__list.main__list > ul', {
     grid: '[##_var_grid-column-count_##]',
     gallery: '[##_var_gallery-column-count_##]'
   }))
 
 script(scoped).
-  /**
-   * Set Styled Heading
-   */
-  $(document).ready(() => h.setStyledHeading('.main__list', '[##_var_list-image-mode_##]', { attr: 'data-image-mode' }))
-
-style
-  :stylus
-    $category-color = #ed5207
-    $title-color = alpha(black, .9)
-    $summary-color = alpha(black, .5)
-    $date-color = alpha(black, .3)
-    $padding = 40px
-
-    .content__index
-      padding $padding 0
-      &:first-of-type
-        padding-top 0
-        padding-bottom $padding
-        border none
-      &:last-of-type
-        padding-bottom 0px
-      .img
-        .thumbnail
-          width 100%
-          margin-bottom 15px
-          border-radius 5px
-          background-color white
-      .description
-        .title
-          margin-top 0px
-          margin-bottom 15px
-          line-height 1.5em
-          font-size 1.3rem
-          font-weight 500
-          a
-            color $title-color
-            img
-              display none
-        .category
-          margin-bottom 5px
-          a
-            font-size .9rem
-            font-weight 500
-            color $category-color
-        .summary
-          display -webkit-box
-          display -ms-flexbox
-          display box
-          -webkit-box-orient vertical
-          -webkit-line-clamp 3
-          line-height 1.8em
-          overflow hidden
-          max-height 80px
-          margin-top 1px
-          vertical-align top
-          word-break break-all
-          color $summary-color
-        .date
-          font-size .87rem
-          color $date-color
-          > span
-            margin-left 7px
-      @media screen and (max-width: 1200px)
-        padding 25px 0
-        &:first-of-type
-          padding-bottom 25px
-        .title
-          font-size 1.3rem
-        .summary
-          font-size .96rem
-
-style
-  :stylus
-    html[data-theme='dark']
-      .content__index
-        .title
-          a
-            color white !important
-        .category
-          a
-            color alpha(white, .9) !important
-        .summary
-          color white
-        .date
-          color alpha(white, .8)
-
-style
-  :stylus
-    .__list
-      &.main__list
-        margin-top 120px
-      ul
-        margin-top 60px
-      .uk-grid
-        margin-left -10px
-        margin-right -10px
-      .list__header
-        text-align center
-        .img
-          display none
-        .heading
-          .title
-            font-size 1.8rem
-            text-align center
-            font-weight 600
-            margin-bottom 0px
-          .description
-            margin-top 10px
-      .content__index
-        .img
-          display block
-      @media screen and (max-width: 1200px)
-        &.main__list
-          margin-top 80px
-        ul
-          margin-top 40px
-        .list__header
-          .title
-            font-size 1.5rem
-
-style
-  :stylus
-    html[data-theme='dark']
-      .__list
-        .list__header
-          .title
-            color white
-
-//- [data-mode='list']
-style
-  :stylus
-    .__list[data-mode='list']
-      .content__index
-        padding 25px 0
-        border-top 1px solid alpha(black, .1)
-        display flex
-        flex-direction row-reverse
-        align-items center
-        justify-content flex-end
-        &:last-of-type
-          border-bottom 1px solid alpha(black, .1)
-        .img
-          margin-left 20px
-          display flex
-          align-items center
-          .thumbnail
-            max-width none
-            width 300px
-            height 225px
-            margin-bottom 0
-            object-fit cover
-        .description
-          font-size .96rem
-          min-width calc(100% - 320px)
-        @media screen and (max-width: 690px)
-          display block
-          border none
-          &:first-of-type
-            padding-top 0
-          &:last-of-type
-            border none
-          .img
-            margin 0
-            .thumbnail
-              width 100% !important
-              margin-bottom 20px
-          .description
-            width 100%
-
-style
-  :stylus
-    html[data-theme='dark']
-      .__list[data-mode='list']
-        .content__index
-          border-color alpha(white, .5)
-
-//- [data-mode='grid']
-style
-  :stylus
-    $gap = 10px
-
-    .__list[data-mode='grid']
-      .content__index
-        padding $gap
-        box-sizing border-box
-        .img
-          .thumbnail
-            max-width none
-            object-fit cover
-            height 220px
-        .description
-          font-size .96rem
-          .title
-            font-size 1.2rem
-        @media screen and (max-width: 640px)
-          height unset !important
-          .img
-            .thumbnail
-              height unset !important
+  // Set Styled Heading
+  $(document).ready(() => h.Post.Mode.setStyledHeading('.main__list', '[##_var_list-image-mode_##]', { attr: 'data-image-mode' }))
 
 //- [data-mode='gallery']
 style(scoped)
@@ -238,42 +37,3 @@ style(scoped)
         .img
           .thumbnail
             height unquote('[##_var_gallery-item-height_##]' + 'px')
-style
-  :stylus
-    $gap = 10px
-
-    .__list[data-mode='gallery']
-      .content__index
-        padding $gap
-        margin 0
-        position relative
-        .img
-          .thumbnail
-            margin 0
-            object-fit cover
-            max-width none
-            border-radius 0
-          &:hover + .description
-            opacity 1
-        .description
-          box-sizing border-box
-          padding 8px 15px
-          bottom $gap
-          width 'calc(100% - %s)' % ($gap * 2)
-          background-color alpha(black, .5)
-          backdrop-filter blur(5px)
-          text-align center
-          position absolute
-          opacity 0
-          transition-duration .3s
-          &:hover
-            opacity 1
-          .category a
-            font-size .82rem
-            text-align center
-          .title
-            font-size .92rem
-            line-height 1.5em
-          *
-            color white !important
-            margin 0

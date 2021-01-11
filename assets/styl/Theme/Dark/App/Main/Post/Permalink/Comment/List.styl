@@ -1,0 +1,13 @@
+html[data-theme='dark']
+  .content__list
+    > ol li
+      &::before
+        background-color alpha($THEME_COLOR_WHITE, .5)
+    .header .user .metainfo
+        .name
+          &, a
+            color $THEME_COLOR_WHITE
+        .date
+          color alpha($THEME_COLOR_WHITE, .8)
+    .body
+      color $THEME_COLOR_WHITE

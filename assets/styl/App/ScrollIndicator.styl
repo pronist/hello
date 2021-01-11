@@ -1,0 +1,15 @@
+$HEIGHT = 3px
+
+#scroll-indicator
+  position fixed
+  top 0
+  width 100%
+  z-index 9998
+  .progress-container
+    width 100%
+    height $HEIGHT
+    .progress-bar
+      background-color alpha($THEME_COLOR_BLACK, .9)
+      height $HEIGHT
+      width 0%
+      border-radius 0 5px 5px 0

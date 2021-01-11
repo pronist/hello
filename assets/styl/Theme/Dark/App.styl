@@ -1,0 +1,9 @@
+@import '_*'
+@import 'App/**/*'
+
+html[data-theme='dark']
+  background-color $THEME_BACKGROUND_COLOR_LEVEL1
+  a
+    color alpha($THEME_COLOR_WHITE, .9)
+    &:hover
+      color $THEME_COLOR_WHITE !important

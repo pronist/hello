@@ -1,0 +1,20 @@
+button(width, height, borderRadius, lineHeight, backgroundColor, color)
+  border none
+  background none
+  display inline-block !important
+  border 1px solid alpha($THEME_COLOR_BLACK, .1)
+  cursor pointer
+  transition-duration .1s
+  text-align center
+  border-radius borderRadius
+  width width
+  height height
+  line-height lineHeight
+  background-color backgroundColor
+  color color
+  font-weight 500
+  padding 0
+  &:hover
+    border-color alpha($THEME_COLOR_BLACK, .9)
+    background-color alpha($THEME_COLOR_BLACK, .9)
+    color $THEME_COLOR_WHITE !important

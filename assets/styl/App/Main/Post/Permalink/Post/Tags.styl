@@ -1,0 +1,27 @@
+$HEIGHT = 32px
+
+.content__permalink
+  .permalink__tags
+    text-align left
+    margin-top 10px
+    a
+      margin-top 10px
+      margin-right 10px
+      background-color $THEME_BACKGROUND_COLOR_LEVEL1
+      color alpha($THEME_COLOR_BLACK, .5)
+      display inline-block
+      font-size .8rem
+      border-radius 5px
+      height $HEIGHT
+      line-height $HEIGHT - 2
+      padding 0 14px
+      transition-duration .2s
+      &:first-of-type
+        &::before
+          font-weight 600
+          margin-right 6px
+          FontAwesome('\f02b')
+          font-size .76rem
+      &:hover
+        background-color alpha($THEME_COLOR_BLACK, .9)
+        color $THEME_COLOR_WHITE !important

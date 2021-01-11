@@ -1,0 +1,36 @@
+mixin comment(type, isReplyable = true)
+  div(class=`[##_${type}_rep_class_##]`)
+    .header
+      .user
+        .pic: img(src=`[##_${type}_rep_logo_##]`)
+        .metainfo
+          .name #{`[##_${type}_rep_name_##]`}
+          time.date #{`[##_${type}_rep_date_##]`}
+    .body #{`[##_${type}_rep_desc_##]`}
+    .control
+      a(href='#' onclick=`[##_${type}_rep_onclick_delete_##]`) 수정/삭제
+      if isReplyable
+        a(href='#' onclick=`[##_${type}_rep_onclick_reply_##]`) 댓글쓰기
+        a.more(href='#') 댓글보기
+
+mixin list(type, rType)
+  div(class=`${type}-list content__list`)
+    #{`s_${type}_container`}
+      ol(uk-accordion='multiple: true; toggle: .control > .more; content: > ol; animation: false')
+        #{`s_${type}_rep`}
+          li(id=`[##_${type}_rep_id_##]`)
+            +comment(type)
+            #{`s_${rType}_container`}
+              ol
+                #{`s_${rType}_rep`}
+                  li(id=`[##_${type}_rep_id_##]`)
+                    +comment(type, false)
+
+script.
+  // Copy report button to form control
+  $(document).ready(() => {
+    $('.content__list > ol > li .header').each(function () {
+      const $report = $(this).find('.metainfo > .date > a')
+      $(this).parent().find('.control').append($report)
+    })
+  })

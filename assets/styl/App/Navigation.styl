@@ -1,0 +1,18 @@
+.uk-sticky-placeholder
+  display none
+
+#__nav
+  width 100% !important
+  box-sizing border-box
+  padding 0px 20px
+  height 59px
+  position absolute
+  z-index 9996
+  background none
+  top 0
+  &.sticky
+    background-color alpha($THEME_COLOR_WHITE, .8)
+    backdrop-filter blur(2px)
+  @media screen and (max-width: 1260px)
+    padding 0 15px
+    height 54px

@@ -1,0 +1,36 @@
+$PAGER_SIZE = 32px
+
+#__paging
+  margin 0 auto
+  margin-top 85px
+  display flex
+  li
+    font-size .9rem
+    padding-left 0
+    a
+      color alpha($THEME_COLOR_BLACK, .9)
+      &.no-more-prev,
+      &.no-more-next
+        color alpha($THEME_COLOR_BLACK, .5)
+      span
+        padding 0 4px
+        min-width $PAGER_SIZE
+        height $PAGER_SIZE
+        line-height $PAGER_SIZE
+        text-align center
+        display inline-block
+      .selected
+        background-color alpha($THEME_COLOR_BLACK, .9)
+        color $THEME_COLOR_WHITE
+        border-radius: 50%
+        padding-left 8px
+        padding-right 8px
+        box-sizing border-box
+  @media screen and (max-width: 1200px)
+    margin-top 45px
+    span
+      &:not(.selected)
+        display none
+      &.uk-pagination-previous,
+      &.uk-pagination-next
+        display inline-block

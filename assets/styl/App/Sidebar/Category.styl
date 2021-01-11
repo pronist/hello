@@ -1,0 +1,25 @@
+#__sidebar
+  #sidebar__category
+    .tt_category
+      .link_tit, .link_item, .link_sub_item
+        img
+          display none
+      .link_tit
+        color alpha($THEME_COLOR_BLACK, .9) !important
+        font-size .9rem
+        font-weight 600
+        margin-bottom 14px
+        display inline-block
+      .c_cnt
+        font-size .72rem
+      .category_list
+        li
+          padding-top 12px
+          .sub_category_list
+            li
+              &::before
+                color alpha($THEME_COLOR_BLACK, .3)
+                font-weight 600
+                margin-right 5px
+                font-size .72rem
+                FontAwesome('\f061')

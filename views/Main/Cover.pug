@@ -19,6 +19,21 @@ mixin coverDescription(isFeatured=false)
         | →
         span [##_cover_item_simple_date_##]
 
+mixin slider(mode, isFullScreen=false)
+  section.__slider.main__cover(data-mode=mode)
+    h1.cover__title [##_cover_title_##]
+    div(class='uk-position-relative uk-visible-toggle uk-light'
+      tabindex='-1'
+      uk-slider='finite: true; autoplay: true'
+      style=isFullScreen ? 'min-height: 100vh' : 'max-height: [##_var_slider-height_##]px; height: [##_var_slider-height_##]px')
+      ul&attributes(attributes)
+        +coverItem()
+          +coverImage()(style=isFullScreen ? 'min-height: 100vh' : 'max-height: [##_var_slider-height_##]px; height: [##_var_slider-height_##]px')
+          div(class='uk-overlay-primary uk-position-cover')
+          +coverDescription(true)(class='uk-position-center uk-panel')
+      a(class='uk-position-center-left uk-position-small uk-hidden-hover' href='#' uk-slidenav-previous uk-slider-item='previous')
+      a(class='uk-position-center-right uk-position-small uk-hidden-hover' href='#' uk-slidenav-next uk-slider-item='next')
+
 mixin cover(mode, isFeatured=false)
   case mode
     when 'default'
@@ -31,8 +46,8 @@ mixin cover(mode, isFeatured=false)
           +coverItem()
             +coverImage()
             +coverDescription(isFeatured)
-    when 'tape'
-    when 'screen'
+    when 'slideshow'
+    when 'slideshow-screen'
       section.__slide.main__cover(data-mode=mode class='uk-position-relative uk-visible-toggle uk-light' tabindex='-1')&attributes(attributes)
         h1.cover__title [##_cover_title_##]
         ul(class='uk-slideshow-items')
@@ -42,6 +57,10 @@ mixin cover(mode, isFeatured=false)
             +coverDescription(true)(class='uk-position-center uk-position-small')
         a(class='uk-position-center-left uk-position-small uk-hidden-hover' href='#' uk-slidenav-previous uk-slideshow-item='previous')
         a(class='uk-position-center-right uk-position-small uk-hidden-hover' href='#' uk-slidenav-next uk-slideshow-item='next')
+    when 'slider'
+      +slider(mode)&attributes(attributes)
+    when 'slider-screen'
+      +slider(mode, true)&attributes(attributes)
 
 s_cover_group
   s_cover_rep
@@ -53,104 +72,11 @@ s_cover_group
       +cover('grid')(class='uk-child-width-1-2@s uk-child-width-1-[##_var_grid-column-count_##]@m' uk-grid)
     s_cover(name='gallery')
       +cover('gallery', true)(class='uk-child-width-1-2@s uk-child-width-1-[##_var_gallery-column-count_##]@m' uk-grid)
-    s_cover(name='tape')
-      +cover('tape')(uk-slideshow='min-height: 280; max-height: [##_var_tape-height_##]; autoplay: true; animation: fade')
-    s_cover(name='screen')
-      +cover('screen')(uk-slideshow='autoplay: true; animation: fade')
-
-style
-  :stylus
-    .main__cover
-      margin-top 40px !important
-      margin-bottom 40px !important
-      &:last-of-type
-        margin-bottom 0px
-      .cover__title
-        text-align center
-        font-size 1.6rem
-        font-weight 600
-        line-height 1.6em
-        color black
-        margin-top 80px
-        margin-bottom 60px
-        &:empty
-          margin 0 !important
-      ul
-        margin-top 0
-      @media screen and (max-width: 1200px)
-        .cover__title
-          margin-top 80px
-          margin-bottom 25px
-        ul
-          font-size 1.3rem
-
-style
-  :stylus
-    html[data-theme='dark']
-      .main__cover
-        .cover__title
-          color white
-
-style
-  :stylus
-    .__list.main__cover[data-mode='default'],
-    .__list.main__cover[data-mode='list'],
-    .__list.main__cover[data-mode='gallery'],
-    .__list.main__cover[data-mode='grid']
-      &:first-of-type
-        margin-top 120px !important
-      @media screen and (max-width: 1200px)
-        &:first-of-type
-          margin-top 80px !important
-
-    .__slide.main__cover[data-mode='tape'],
-    .__slide.main__cover[data-mode='screen']
-      &:first-of-type
-        margin-top 0 !important
-
-style
-  :stylus
-    .__slide.main__cover[data-mode='tape'],
-    .__slide.main__cover[data-mode='screen']
-      width 100vw
-      margin-left calc(((100vw - 100%) / 2) * -1)
-      min-width 320px
-      .content__index
-        .description
-          .category
-            text-align center
-          .title
-            line-height 1.5em
-          *
-            color white !important
-            margin 0
-      @media screen and (max-width: 1200px)
-        a[uk-slideshow-item]
-          display none
-      @media screen and (max-width: 320px)
-        margin-left -15px !important
-
-//- [data-mode='tape']
-style
-  :stylus
-    .__slide.main__cover[data-mode='tape']
-      .description
-        .title
-          font-size 1.8rem
-          @media screen and (max-width: 1200px)
-            font-size 1.5rem
-
-//- [data-mode='screen']
-style
-  :stylus
-    .__slide.main__cover[data-mode='screen']
-      min-height 100vh !important
-      .uk-slideshow-items
-        min-height 100vh !important
-        .description
-          .category a
-            font-size 1rem
-          .title
-            font-size 2.2rem
-            @media screen and (max-width: 1200px)
-              font-size 1.8rem
+    s_cover(name='slideshow')
+      +cover('slideshow')(uk-slideshow='min-height: 280; max-height: [##_var_slideshow-height_##]; autoplay: true; animation: fade')
+    s_cover(name='slideshow-screen')
+      +cover('slideshow-screen')(uk-slideshow='autoplay: true; animation: fade')
+    s_cover(name='slider')
+      +cover('slider')(class='uk-slider-items uk-child-width-1-2@s uk-child-width-1-[##_var_slider-column-count_##]@m')
+    s_cover(name='slider-screen')
+      +cover('slider-screen')(class='uk-slider-items uk-child-width-1-2@s uk-child-width-1-[##_var_slider-column-count_##]@m')

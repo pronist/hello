@@ -1,0 +1,66 @@
+$IMG_SIZE = 48px
+$IMG_PADDING-LEFT = 12px
+
+.content__list
+  padding-top 35px
+  > ol
+    display flex
+    flex-direction column-reverse
+    > li
+      padding 5px 0
+      margin 0 !important
+      position relative
+      &::before
+        background-color alpha($THEME_COLOR_BLACK, .1)
+        content ''
+        position absolute
+        width 1px
+        height 100%
+        left ($IMG_SIZE / 2)
+        z-index 1
+      .header
+        overflow hidden
+        .user
+          display flex
+          flex-direction row
+          overflow hidden
+          .pic
+            margin-right $IMG_PADDING-LEFT
+            img
+              border-radius 50%
+              width $IMG_SIZE
+              height $IMG_SIZE
+              min-height $IMG_SIZE
+              min-width $IMG_SIZE
+              position relative
+              z-index 2
+          .metainfo
+            .name
+              color alpha($THEME_COLOR_BLACK, .9)
+              font-size 1rem
+              font-weight 600
+              a
+                color alpha($THEME_COLOR_BLACK, .9)
+              .tistoryProfileLayerTrigger
+                display none
+            .date
+              color alpha($THEME_COLOR_BLACK, .3)
+              font-size .85rem
+      .control
+        padding-left $IMG_SIZE + $IMG_PADDING-LEFT
+        margin 10px 0
+        a
+          display inline-block
+          margin-right 5px
+          font-size .8rem
+      .body
+        color alpha($THEME_COLOR_BLACK, .7)
+        padding-top 15px
+        padding-bottom 5px
+        padding-left $IMG_SIZE + $IMG_PADDING-LEFT
+        line-height 1.8em
+        font-size .95rem
+      > ol
+          > li
+            padding-top 10px
+            padding-left $IMG_SIZE + $IMG_PADDING-LEFT

@@ -1,0 +1,11 @@
+html[data-theme='dark']
+  .content__form
+    background-color $THEME_BACKGROUND_COLOR_LEVEL2
+    textarea, input, label
+      color $THEME_COLOR_WHITE
+    .form-control
+      .form__submit
+        a::before,
+        input[type=checkbox]:checked + label::before,
+        #secret-label::before
+          color $THEME_COLOR_WHITE !important

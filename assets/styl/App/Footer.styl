@@ -1,0 +1,34 @@
+$BUTTON_SIZE = 35px
+
+#__footer
+  width 100%
+  padding 0 20px
+  box-sizing border-box
+  position fixed
+  bottom 20px
+  font-size .92rem
+  z-index 9996
+  #__designed-by,
+  #__toTop,
+  #__theme-btn
+    background-color $THEME_COLOR_WHITE
+    color alpha($THEME_COLOR_BLACK, .9)
+    box-shadow 0 0 0 1px alpha($THEME_COLOR_BLACK, .1), 0 2px 5px alpha($THEME_COLOR_BLACK, .1)
+    border-radius 25px
+    border none
+    cursor pointer
+    transition-duration .1s
+    width $BUTTON_SIZE
+    height $BUTTON_SIZE
+    line-height $BUTTON_SIZE
+    text-align center
+    border-radius 50%
+    font-size .9rem
+    &:hover
+      background-color alpha($THEME_COLOR_BLACK, .9)
+      color alpha($THEME_COLOR_WHITE, .9)
+  #__toTop
+    margin-left 12px
+  @media screen and (max-width: 1600px)
+    bottom 15px
+    padding 0 15px

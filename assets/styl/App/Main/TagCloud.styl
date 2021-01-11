@@ -1,0 +1,32 @@
+#__tags
+  ul
+    column-count auto
+    column-gap 20px
+    column-width 160px
+    li
+      break-inside avoid
+      text-align center
+      margin-bottom 15px
+      a
+        background $THEME_BACKGROUND_COLOR_LEVEL1
+        color alpha($THEME_COLOR_BLACK, .7)
+        display inline-block
+        font-size .9rem
+        border-radius 5px
+        transition-duration .2s
+        line-height 1.8em
+        box-sizing border-box
+        padding 20px 14px
+        width 100%
+        &:hover
+          background-color $THEME_COLOR_ORANGE
+          color $THEME_COLOR_WHITE !important
+    @media screen and (max-width: 690px)
+      column-count 1
+    @media screen and (min-width: 690px) and (max-width: 960px)
+      column-count 2
+    @media screen and (min-width: 960px) and (max-width: 1200px)
+      column-count 4
+  @media screen and (max-width: 1200px)
+    width 100% !important
+    margin-left 0 !important

@@ -1,0 +1,147 @@
+.content__permalink
+  > .content,
+  > .content > .tt_article_useless_p_margin
+    text-align left
+    margin-top 50px
+    position relative
+    z-index 1
+    div[data-ke-type=moreLess], >
+      p
+        *:not(pre) > code
+          position relative
+          top -1px
+          padding 2px 8px
+          border-radius 5px
+          white-space normal
+        &, span
+          letter-spacing .8px
+        b, strong
+          font-weight 600
+        a
+          color $THEME_COLOR_ORANGE
+          text-decoration underline !important
+      div[data-ke-type=moreLess],
+      blockquote, ul, ol, table, h2, h3, h4
+        margin 20px 0
+        > a
+          color alpha($THEME_COLOR_BLACK, .9)
+          text-decoration none !important
+      blockquote[data-ke-style=style2],
+      blockquote[data-ke-style=style3],
+      ul li, table td, table th,
+      h2, h3, h4, p, span
+        line-height 1.8em
+      figure
+        margin-top 0 !important
+        margin-bottom 20px !important
+        figcaption
+          color alpha($THEME_COLOR_BLACK, .5)
+          font-size .9rem
+          &:empty
+            all unset
+        img
+          border-radius 5px
+          background-color white //- NT
+      figure[data-ke-type=opengraph]
+        margin-top 10px !important
+      figure.imageslideblock
+        .image-container
+          width inherit !important
+          height inherit !important
+          overflow unset
+      div[data-ke-type=moreLess]
+        position relative
+        &::before
+          border-bottom 1px dashed alpha($THEME_COLOR_BLACK, .1)
+          z-index -1
+          content ''
+          position absolute
+          top 15px
+          left 0
+          height 0
+          width 100%
+        .moreless-content
+          margin-top 25px
+        > .btn-toggle-moreless
+          background-color alpha($THEME_COLOR_BLACK, .9)
+          color $THEME_COLOR_WHITE !important
+          display inline-block
+          border-radius 16px
+          padding 2px 14px
+          font-size .85rem !important
+          font-weight 600
+          &::before
+            color $THEME_COLOR_WHITE
+            FontAwesome('\f0a9')
+            margin-right 5px
+        &.open
+          > .btn-toggle-moreless::before
+              content '\f0ab'
+      blockquote
+        font-style initial
+        &[data-ke-style=style1]
+          text-align: center
+          font-size 1.1rem
+          &::before
+            FontAwesome('\f10e')
+            font-weight 600
+            display block
+            margin-bottom 3px
+          p
+            color alpha($THEME_COLOR_BLACK, .9)
+        &[data-ke-style=style2]
+          border solid alpha($THEME_COLOR_BLACK, .3)
+          border-width 0 0 0 2px
+          padding 1px 0 0 12px
+          color alpha($THEME_COLOR_BLACK, .5)
+          text-align left
+          font-size .9rem
+        &[data-ke-style=style3]
+          background-color $THEME_BACKGROUND_COLOR_LEVEL1 !important
+          font-size 1rem
+          border none !important
+      ul, ol
+        padding-left 20px
+        margin-top 0px
+        li
+          margin 6px 0
+      table
+        border none
+        border-bottom 1px solid alpha($THEME_COLOR_BLACK, .1)
+        td, th
+          border none
+          border-bottom 1px solid alpha($THEME_COLOR_BLACK, .1)
+          font-size .9rem
+          padding 16px 12px
+          box-sizing border-box
+      h2
+        font-size 1.5rem
+      h3
+        font-size 1.3rem
+      h4
+        font-size 1.1rem
+      pre
+        border none
+        padding 0
+        code
+          background-color $THEME_BACKGROUND_COLOR_LEVEL1 !important
+          border-radius 5px
+          padding 15px
+          font-family 'D2Coding'
+    @media screen and (max-width: 1200px)
+      margin-top 25px
+      div[data-ke-type=moreLess], >
+        h2
+          font-size 1.3rem
+        h3
+          font-size 1.2rem
+        h4
+          font-size 1rem
+        figure.imageblock.alignCenter,
+        figure.imagegridblock,
+        figure.imageslideblock.alignCenter
+          width 100% !important
+          margin 0 !important
+          margin-bottom 20px !important
+        blockquote[data-ke-style=style1]::before
+          font-size .85rem

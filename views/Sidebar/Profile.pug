@@ -2,35 +2,3 @@
   img.thumbnail(src='[##_image_##]' width='100' height='100')
   .title: a(href='[##_blog_link_##]') [##_title_##]
   .blogger [##_blogger_##]
-
-style
-  :stylus
-    #__sidebar
-      #sidebar__profile
-        text-align center
-        padding-left 0 !important
-        max-width 210px !important
-        margin-left 20px
-        img
-          border-radius 50%
-        .title > a
-          display inline-block
-          color alpha(black, .9)
-          font-size 1.05rem !important
-          margin-top 18px
-          margin-bottom 3px
-          font-weight 500
-        .blogger
-          margin-bottom 15px
-          font-size .88rem
-          color alpha(black, .5)
-
-style
-  :stylus
-    html[data-theme='dark']
-      #__sidebar
-        #sidebar__profile
-          .title > a
-            color white !important
-          .blogger
-            color alpha(white, .8)

@@ -1,0 +1,39 @@
+.content__permalink
+  .permalink__related
+    border none
+    border-radius 5px
+    background-color $THEME_BACKGROUND_COLOR_LEVEL1
+    padding 20px
+    margin-top 15px !important
+    margin-bottom 0 !important
+    box-sizing border-box
+    strong
+      display block
+      font-size 1rem !important
+      border-bottom 1px solid alpha($THEME_COLOR_BLACK, .9) !important
+      margin-top 0 !important
+      margin-bottom 8px !important
+      &::after
+        content '\f0c9'
+    a
+      text-decoration none !important
+      font-size .9rem !important
+      &::after
+        content '\f061'
+    *
+      position relative
+      color alpha($THEME_COLOR_BLACK, .9) !important
+      &::after
+        font-weight 600
+        transform scale(.8)
+        position absolute
+        right 0
+        FontAwesome()
+    strong, a
+      overflow hidden
+      white-space nowrap
+      text-overflow ellipsis
+      display block
+      padding 5px 0 !important
+      padding-right 20px !important
+      line-height 1.5 !important

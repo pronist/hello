@@ -1,0 +1,81 @@
+.content__form
+  background-color $THEME_BACKGROUND_COLOR_LEVEL1
+  overflow hidden
+  background $background
+  margin-top 25px
+  border-radius 16px
+  box-sizing border-box
+  height 200px
+  padding 20px
+  position relative
+  .form__shadow
+    box-sizing border-box
+    textarea
+      border none
+      background none
+      resize none
+      height 120px
+      padding 0
+      padding-right 40px
+      overflow-x hidden
+      overflow-y scroll
+      box-sizing border-box
+      font-size .92rem
+  @media screen and (max-width: 1200px)
+    height 160px
+    width 100%
+    .form__shadow
+      textarea
+        width 100vw !important
+        height 75px
+        padding-right 67px
+  .form-control
+    align-items center
+    display flex
+    input[type=checkbox]
+      display none
+    .form__control__inner
+      .form__guest
+        position absolute
+        left 20px
+        bottom 18px
+        > *
+          display inline-block
+        input
+          border none
+          background none
+          display inline-block
+          width 125px
+        label
+          font-size .8rem
+          margin-right 5px
+    .form__submit
+      position absolute
+      right 20px
+      bottom 10px
+      padding 0
+      > a
+        padding-left 20px
+      a::before,
+      input[type=checkbox]:checked + #secret-label::before,
+      #secret-label::before
+        font-weight 600
+        color alpha($THEME_COLOR_BLACK, .9) !important
+        FontAwesome()
+      a
+        &::before
+          font-size 2rem
+          content '\f0ab'
+      input[type=checkbox]:checked + #secret-label::before
+        content '\f023'
+      #secret-label::before
+        content '\f13e'
+    @media screen and (max-width: 1200px)
+      align-items center
+      .form__control__inner
+        .form__guest
+          > *
+            display block
+            margin 0
+            padding 0
+            width 100%

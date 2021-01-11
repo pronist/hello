@@ -1,0 +1,24 @@
+mixin notify(type, label, pos)
+  #{`s_article_${type}`}
+    a.permalink__notify(href=`[##_article_${type}_link_##]` class='uk-box-shadow-medium' id=type)
+      #{`s_article_${type}_thumbnail`}
+        .thumbnail
+          img(src=`[##_article_${type}_thumbnail_link_##]`)
+          //- img(src='https://t1.daumcdn.net/tistory_admin/static/mobile/m640/img_relation.png')
+      .metainfo
+        .description #{label}
+        .title #{`[##_article_${type}_title_##]`}
+
++notify('next', '다음 글', 'bottom-right')
++notify('prev', '이전 글', 'bottom-left')
+
+script.
+  // Set timer for Notification
+  $(document).ready(() => {
+    const delay = 3000
+
+    setTimeout(() => {
+      h.Post.Permalink.notify('#next', 'bottom-right', 15000)
+      h.Post.Permalink.notify('#prev', 'bottom-left', 15000)
+    }, delay)
+  })

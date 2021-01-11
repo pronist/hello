@@ -1,0 +1,29 @@
+@import '_*'
+@import 'App/**/*'
+
+*, *::before, *::after
+  outline none
+  word-break break-all
+
+html,
+h1, h2, h3, h4, h5, :not(pre) > code,
+input, textarea
+  font-family 'Noto Sans KR', sans-serif
+
+html
+  body
+    overflow-x hidden
+  ins
+    all unset
+  ul, ol
+    list-style none
+    margin 0
+    padding 0
+  a
+    color alpha($THEME_COLOR_BLACK, .5)
+    text-decoration none !important
+    &:hover
+      color alpha($THEME_COLOR_BLACK, .9)
+      transition-duration .2s
+  a, button
+    pointer-events: initial !important
