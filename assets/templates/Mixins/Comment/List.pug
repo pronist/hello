@@ -16,7 +16,12 @@ mixin comment(type, isReplyable = true)
 mixin list(type, rType)
   div(class=`${type}-list content__list`)
     #{`s_${type}_container`}
-      ol(uk-accordion='multiple: true; toggle: .control > .more; content: > ol; animation: false')
+      ol(uk-accordion='multiple: true; toggle: .control > .more; content: > ol; animation: false; targets: > li[id^=comment]')
+        if process.env.NODE_ENV === 'development'
+          li#ttMorePreviousCommentsFor5.tt_more_preview_comments_wrap.uk-open(onclick='getEntryCommentsByPaging(5); return false;' style='text-align:center;cursor:pointer')
+            span.tt_more_preview_comments_text 이전 댓글 더보기
+            input#ttMorePreviousCommentsFirstWrittenFor5(type='hidden' value='1598944069')
+            input#ttMorePreviousCommentsFirstIdFor5(type='hidden' value='13003145')
         #{`s_${type}_rep`}
           li(id=`[##_${type}_rep_id_##]`)
             +comment(type)
