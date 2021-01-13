@@ -1,18 +1,18 @@
 .content__permalink
   .permalink__author
-    overflow hidden
-    border-top 1px solid alpha($THEME_COLOR_BLACK, .1)
-    margin-top 20px
-    padding 25px 0
+    border-top 1px dotted alpha($THEME_COLOR_BLACK, .2)
+    border-bottom 1px dotted alpha($THEME_COLOR_BLACK, .2)
+    margin-top 25px
+    padding 30px 0
     clear both
-    .img
-      float left
-      .profile
-        width 80px
-        height 80px
-        border-radius 50%
+    display flex
+    align-items center
+    .profile
+      width 80px
+      height 80px
+      border-radius 50%
     .description
-      margin-left 18px + 80px
+      margin-left 20px
       .user
         color alpha($THEME_COLOR_BLACK, .9)
         margin-bottom 5px
@@ -21,12 +21,5 @@
         line-height 1.8em
         font-size .9rem
         color alpha($THEME_COLOR_BLACK, .5)
-        display -webkit-box
-        display -ms-flexbox
-        display box
-        -webkit-box-orient vertical
-        -webkit-line-clamp 2
         overflow hidden
-        max-height 50px
-        vertical-align top
         word-break break-all

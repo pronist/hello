@@ -1,23 +1,29 @@
 $IMG_SIZE = 48px
-$IMG_PADDING-LEFT = 12px
+$IMG_PADDING-LEFT = 15px
 
 .content__list
   padding-top 35px
-  > ol
-    display flex
-    flex-direction column-reverse
-    > li
-      padding 5px 0
-      margin 0 !important
+  li
+    > div
       position relative
       &::before
         background-color alpha($THEME_COLOR_BLACK, .1)
         content ''
         position absolute
         width 1px
-        height 100%
+        height calc(100% - 50px)
         left ($IMG_SIZE / 2)
+        top 60px
         z-index 1
+  > ol
+    display flex
+    flex-direction column-reverse
+    > li
+      padding 20px 0
+      margin 0 !important
+      border-bottom 1px dotted alpha($THEME_COLOR_BLACK, .2)
+      &:last-child
+        padding-top 0
       .header
         overflow hidden
         .user
@@ -37,7 +43,7 @@ $IMG_PADDING-LEFT = 12px
           .metainfo
             .name
               color alpha($THEME_COLOR_BLACK, .9)
-              font-size 1rem
+              font-size .96rem
               font-weight 600
               a
                 color alpha($THEME_COLOR_BLACK, .9)
@@ -45,7 +51,7 @@ $IMG_PADDING-LEFT = 12px
                 display none
             .date
               color alpha($THEME_COLOR_BLACK, .3)
-              font-size .85rem
+              font-size .8rem
       .control
         padding-left $IMG_SIZE + $IMG_PADDING-LEFT
         margin 10px 0
@@ -59,8 +65,11 @@ $IMG_PADDING-LEFT = 12px
         padding-bottom 5px
         padding-left $IMG_SIZE + $IMG_PADDING-LEFT
         line-height 1.8em
-        font-size .95rem
+        font-size .92rem
       > ol
           > li
             padding-top 10px
-            padding-left $IMG_SIZE + $IMG_PADDING-LEFT
+            &:last-child
+              > div
+                &::before
+                  display none
