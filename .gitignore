@@ -3,3 +3,9 @@ node_modules
 
 # Distribution
 dist
+
+# Configuration
+tidory.config.js
+
+# .github
+.github
