@@ -11,7 +11,7 @@ mixin comment(type, isReplyable = true)
       a(href='#' onclick=`[##_${type}_rep_onclick_delete_##]`) 수정/삭제
       if isReplyable
         a(href='#' onclick=`[##_${type}_rep_onclick_reply_##]`) 댓글쓰기
-        a.more(href='#') 댓글 #[span.count]
+        a.more(href='#') 댓글보기
 
 mixin list(type, rType)
   #{`s_${type}_container`}
@@ -30,24 +30,3 @@ mixin list(type, rType)
                 #{`s_${rType}_rep`}
                   li(id=`[##_${type}_rep_id_##]`)
                     +comment(type, false)
-
-script.
-  // Copy report button to form control
-  $(document).ready(() => {
-    $('.content__list > ol > li .header').each(function () {
-      const $report = $(this).find('.metainfo > .date > a')
-      $(this).parent().find('.control').append($report)
-    })
-  })
-
-script.
-  // Set comment Counts
-  $(document).ready(() => {
-    $('.content__list > ol > li').each(function () {
-      const $re = $(this).find('> ol')
-      if ($re.length < 1) {
-        return $(this).find('.control > .more').remove()
-      }
-      $(this).find('.control > .more > .count').text($re.find('> li').length)
-    })
-  })
