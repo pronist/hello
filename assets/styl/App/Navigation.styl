@@ -16,3 +16,10 @@
   @media screen and (max-width: 1260px)
     padding 0 15px
     height 54px
+
+@media screen and (min-width: 1400px)
+  #__tidory[data-sidebar='true']
+    #__nav
+      width 'calc(100% - %s)' % ($SIDEBAR_WIDTH) !important
+      #nav__s1
+        display none !important

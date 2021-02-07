@@ -46,3 +46,9 @@ $SIDE_POSITION = 20px
           color alpha($THEME_COLOR_BLACK, .7) !important
           font-size .8rem
           margin-bottom 3px
+
+@media screen and (min-width: 1400px)
+  #__tidory[data-sidebar='true']
+    .uk-notification
+      &.uk-notification-bottom-left
+        left $SIDEBAR_WIDTH + 20px !important

@@ -5,12 +5,3 @@ s_tag
       s_tag_rep
         li
           a(href='[##_tag_link_##]' class='[##_tag_class_##]') [##_tag_name_##]
-
-style(scoped)
-  :stylus
-    $width = unquote('[##_var_tagcloud-width_##]' + 'px')
-
-    #tt-body-tag
-      #__tags
-        width $width
-        margin-left s('calc((%s - %s) / 2)', unquote('[##_var_index-width_##]' + 'px'), $width)

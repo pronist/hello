@@ -9,7 +9,7 @@ button(width, height, borderRadius, lineHeight, backgroundColor, color)
   border-radius borderRadius
   width width
   height height
-  line-height lineHeight
+  line-height lineHeight !important
   background-color backgroundColor
   color color
   font-weight 500
@@ -18,3 +18,5 @@ button(width, height, borderRadius, lineHeight, backgroundColor, color)
     border-color alpha($THEME_COLOR_BLACK, .9)
     background-color alpha($THEME_COLOR_BLACK, .9)
     color $THEME_COLOR_WHITE !important
+  i
+    line-height unset !important

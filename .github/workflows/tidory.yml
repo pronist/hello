@@ -1,0 +1,34 @@
+name: Tidory
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: 10.x
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install dependencies
+      run: npm install
+    - name: Lint with eslint & pug-lint
+      run: npm run lint
+    - name: Build for production
+      run: npm run production
+    - name: Publish
+      run: |
+        # Push to 'tistory-skin'
+        push-dir --dir=dist --branch=tistory-skin --cleanup
+        # Push to 'dist'
+        push-dir --dir=dist --branch=dist --cleanup

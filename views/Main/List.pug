@@ -7,33 +7,27 @@ s_list
           img.thumbnail(src='[##_list_image_##]')
       .heading
         h1.title [##_list_conform_##]
-    script(scoped).
-      // set List Title
-      $(document).ready(() => $('.__list > .list__header .title').text(
-        '[##_list_conform_##]' === '전체 글'
-          ? '[##_title_##]'
-          : '[##_list_conform_##]'
-        )
-      )
     ul
       +index('list')
 
-script(scoped).
+script.
+  // Set Styled Heading
+  $(document).ready(() => {
+    h.Post.Mode.setStyledHeading('.main__list', H.skinOptions.listImageMode, {
+      attr: 'data-image-mode'
+    })
+  })
+
+script.
+  // Set List Title
+  $(document).ready(() => {
+    const $title = $('.__list > .list__header .title')
+    $title.text() === '전체 글' ? $title.text(T.config.BLOG.title) : $title.text()
+  })
+
+script.
   // List Style - Grid, Gallery
   $(document).ready(() => h.Post.Mode.list('.__list.main__list > ul', {
-    grid: '[##_var_grid-column-count_##]',
-    gallery: '[##_var_gallery-column-count_##]'
+    grid: H.skinOptions.gridColumnCount,
+    gallery: H.skinOptions.galleryColumnCount
   }))
-
-script(scoped).
-  // Set Styled Heading
-  $(document).ready(() => h.Post.Mode.setStyledHeading('.main__list', '[##_var_list-image-mode_##]', { attr: 'data-image-mode' }))
-
-//- [data-mode='gallery']
-style(scoped)
-  :stylus
-    .__list[data-mode='gallery']
-      .content__index
-        .img
-          .thumbnail
-            height unquote('[##_var_gallery-item-height_##]' + 'px')

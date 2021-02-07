@@ -7,6 +7,9 @@
     z-index 1
     div[data-ke-type=moreLess], >
       p
+      blockquote[data-ke-style=style2],
+      blockquote[data-ke-style=style3]
+      ol, ul, table
         *:not(pre) > code
           position relative
           top -1px
@@ -100,11 +103,14 @@
           background-color $THEME_BACKGROUND_COLOR_LEVEL1 !important
           font-size 1rem
           border none !important
+          line-height 1.8em !important
       ul, ol
         padding-left 20px
         margin-top 0px
         li
           margin 6px 0
+          ul, ol
+            padding-left 20px
       table
         border none
         border-bottom 1px solid alpha($THEME_COLOR_BLACK, .1)

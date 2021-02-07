@@ -7,17 +7,23 @@ mixin permalink(pageType, type, hasCategory = true)
         s_if_var_notify
           include Permalink/Notification
 
-script(scoped).
+script.
   // Set Styled Heading
-  $(document).ready(() => h.Post.Mode.setStyledHeading('.content__permalink', '[##_var_article-mode_##]', {
+  $(document).ready(() => h.Post.Mode.setStyledHeading('.content__permalink', H.skinOptions.articleMode, {
     controllable: true,
     modeHansControlElement: '.content__permalink > .content div.h[data-mode]'
   }))
 
-s_not_var_comment
-  script(scoped).
-    // Comment
-    $(document).ready(() => $('.permalink__comment').attr({'aria-hidden': true, 'hidden': ''}))
+script.
+  // Comment
+  $(document).ready(() => {
+    const $comment = $('.permalink__comment')
+
+    if (H.skinOptions.comment) {
+      return $comment.attr({'aria-hidden': false })
+    }
+    $comment.attr({'aria-hidden': true, 'hidden': ''})
+  })
 
 script.
   // Post

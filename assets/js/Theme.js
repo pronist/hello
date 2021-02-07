@@ -13,8 +13,7 @@ module.exports = class {
    * Set hljs Theme
    */
   static hljs () {
-    const hljsTheme = $('html').attr('data-theme') === 'light' ? 'xcode' : 'vs2015'
-
+    const hljsTheme = $('html').attr('data-theme') === 'light' ? H.skinOptions.hljsThemeLight : H.skinOptions.hljsThemeDark
     $('link#hljs').attr('href', `//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/${hljsTheme}.min.css`)
   }
 }

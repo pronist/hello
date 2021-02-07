@@ -8,8 +8,8 @@ mixin formGuestControl(type)
       input(type='password' maxlength='8' name=`[##_${type}_input_password_##]` value='[##_guest_password_##]')
 
 mixin form(type)
-  div(class=`${type}-form content__form`)
-    #{`s_${type}_input_form`}
+  #{`s_${type}_input_form`}
+    div(class=`${type}-form content__form`)
       .form__shadow
         textarea(name=`${type === 'guest' ? '[##_guest_textarea_body_##]' : '[##_rp_input_comment_##]'}`)
         div(class=`${type}-form-control form-control`)
@@ -25,12 +25,3 @@ mixin form(type)
             input#secret(type='checkbox' name=`[##_${type}_input_is_secret_##]`)
             label#secret-label(for='secret')
             a(href='#' onclick=`[##_${type}_onclick_submit_##]`)
-
-style(scoped)
-  :stylus
-    #tt-body-page
-      .content__form .form__shadow textarea
-        width unquote('[##_var_article-width_##]' + 'px')
-    #tt-body-guestbook
-      .content__form .form__shadow textarea
-        width unquote('[##_var_guestbook-width_##]' + 'px')

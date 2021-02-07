@@ -1,7 +1,7 @@
-.__slider.main__cover[data-mode='slider'],
-.__slider.main__cover[data-mode='slider-screen'],
-.__slide.main__cover[data-mode='slideshow'],
-.__slide.main__cover[data-mode='slideshow-screen']
+.main__cover[data-mode='slider'],
+.main__cover[data-mode='slider-screen'],
+.main__cover[data-mode='slideshow'],
+.main__cover[data-mode='slideshow-screen']
   width 100vw
   margin-left calc(((100vw - 100%) / 2) * -1)
   min-width 320px
@@ -21,3 +21,13 @@
       display none
   @media screen and (max-width: 320px)
     margin-left -15px !important
+
+@media screen and (min-width: 1400px)
+  #__tidory[data-sidebar='true']
+    .main__cover[data-mode='slider'],
+    .main__cover[data-mode='slider-screen'],
+    .main__cover[data-mode='slideshow'],
+    .main__cover[data-mode='slideshow-screen']
+      width 'calc(100vw - %s)' % ($SIDEBAR_WIDTH) !important
+      margin-left 'calc((((100vw - %s) - 100%) / 2) * -1)' % ($SIDEBAR_WIDTH) !important
+      min-width unset !important

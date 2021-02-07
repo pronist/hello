@@ -15,17 +15,3 @@ main#__main(role='main')
   #__
     s_if_var_scrollspy
       include @/templates/Scrollspy
-
-style(scoped)
-  :stylus
-    #tt-body-page
-      #__main
-        width unquote('[##_var_article-width_##]' + 'px')
-
-    #tt-body-index,
-    #tt-body-category,
-    #tt-body-archive,
-    #tt-body-tag,
-    #tt-body-search
-      #__main
-        width unquote('[##_var_index-width_##]' + 'px')

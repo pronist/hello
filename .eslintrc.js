@@ -3,23 +3,21 @@ module.exports = {
     browser: true
   },
   extends: [
-    'standard',
-    'plugin:vue/recommended'
-  ],
-  plugins: [
-    'vue'
+    'standard'
   ],
   globals: {
     UIkit: 'readonly',
     $: 'readonly',
-    hljs: 'readonly'
+    hljs: 'readonly',
+    H: 'readonly',
+    h: 'readonly',
+    T: 'readonly'
   },
   parserOptions: {
     ecmaVersion: 2018,
   },
   rules: {
-    'no-array-constructor': 0,
-    'vue/require-default-prop': 0
+    'no-array-constructor': 0
   },
   ignorePatterns: 'dist/'
 }

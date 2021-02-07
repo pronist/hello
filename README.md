@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="https://github.com/pronist/hELLO/blob/master/images/logo.png" width="400">
-</p>
-
 # hELLO
 
 **hELLO** is a **Tistory Skin**. Powered by [Tidory Framework](http://www.tidory.com).

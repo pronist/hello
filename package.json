@@ -6,9 +6,7 @@
     "production": "cross-env NODE_ENV=production tidory production",
     "deploy": "tidory deploy",
     "store": "tidory store",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore . && pug-lint .",
-    "github:developer": "npm run lint && push-dir --dir=dist --branch=tistory-skin --cleanup",
-    "github:user": "npm run lint && push-dir --dir=dist --branch=dist --cleanup"
+    "lint": "eslint --ext .js --ignore-path .gitignore . && pug-lint ."
   },
   "license": "MIT",
   "repository": {

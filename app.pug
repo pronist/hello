@@ -18,13 +18,30 @@ html#__hELLO(lang='ko' data-theme='[##_var_theme_##]')
     script(src='//code.jquery.com/jquery-3.4.1.min.js')
 
     script(scoped).
+      window.H = {}
+      window.H.skinOptions = {
+        listImageMode: '[##_var_list-image-mode_##]',
+        gridColumnCount: '[##_var_grid-column-count_##]',
+        galleryColumnCount: '[##_var_gallery-column-count_##]',
+        articleMode: '[##_var_article-mode_##]',
+        hljsThemeLight: '[##_var_hljs-theme-light_##]',
+        hljsThemeDark: '[##_var_hljs-theme-dark_##]',
+        comment: '[##_var_comment_##]'
+      }
+    script(scoped).
       $('html').attr('data-theme', localStorage.TTDARK
         ? localStorage.TTDARK === 'Y' ? 'dark' : 'light'
         : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : $('html').attr('data-theme')
       )
 
-    //- Support Theme
-    //- * Dark
+    style(scoped)
+      :stylus
+        :root
+          --h-article-width unquote('[##_var_article-width_##]' + 'px')
+          --h-index-width unquote('[##_var_index-width_##]' + 'px')
+          --h-guestbook-width unquote('[##_var_guestbook-width_##]' + 'px')
+          --h-tagcloud-width unquote('[##_var_tagcloud-width_##]' + 'px')
+          --h-gallery-item-height unquote('[##_var_gallery-item-height_##]' + 'px')
     style
       include:stylus @/styl/App.styl
       include:stylus @/styl/Theme/Dark/App.styl

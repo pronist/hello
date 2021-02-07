@@ -2,7 +2,7 @@
 <skin>
    <information>
       <name>hELLO</name>
-      <version>3.2</version>
+      <version>3.2.1</version>
       <description>
          <![CDATA[hELLO 티스토리 스킨은 자유롭게 개작하여 사용할 수 있고, 원 저작자의 저작권을 표시하는 것을 조건으로 재배포할 수 있습니다.]]>
       </description>
@@ -230,6 +230,20 @@
           ]
         ]]></option>
         <default>default</default>
+      </variable>
+      <variable>
+        <name>hljs-theme-light</name>
+        <label>코드 하이라이팅 (라이트 모드)</label>
+        <description><![CDATA[ 코드 하이라이팅 (라이트 모드) ]]></description>
+        <type>STRING</type>
+        <default>xcode</default>
+      </variable>
+      <variable>
+        <name>hljs-theme-dark</name>
+        <label>코드 하이라이팅 (다크 모드)</label>
+        <description><![CDATA[ 코드 하이라이팅 (다크 모드) ]]></description>
+        <type>STRING</type>
+        <default>vs2015</default>
       </variable>
       <variable>
         <name>paging</name>

@@ -32,3 +32,8 @@ $BUTTON_SIZE = 35px
   @media screen and (max-width: 1600px)
     bottom 15px
     padding 0 15px
+
+@media screen and (min-width: 1400px)
+  #__tidory[data-sidebar='true']
+    #__footer
+      width 'calc(100% - %s)' % ($SIDEBAR_WIDTH) !important

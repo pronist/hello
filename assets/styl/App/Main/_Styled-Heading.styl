@@ -27,3 +27,13 @@
         position relative
         z-index 3
         color white !important //- NT
+
+@media screen and (min-width: 1400px)
+  #__tidory[data-sidebar='true']
+    .content__permalink[data-mode='tape'],
+    .content__permalink[data-mode='screen'],
+    .main__list[data-image-mode='tape'],
+    .main__list[data-image-mode='screen']
+      header
+        .thumbnail, .mask
+          width 'calc(100% - %s)' % ($SIDEBAR_WIDTH) !important

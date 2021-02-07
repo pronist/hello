@@ -18,3 +18,9 @@
     padding-left 15px
   @media screen and (max-width: 1820px)
     display none !important
+
+#tt-body-page
+  #__spy
+    display block
+    // (MAX_WIDTH + ARTICLE_WIDTH / 2) + MARGIN_LEFT
+    padding-left 'calc(((1100px + %s) / 2) + 50px)' % var(--h-article-width)
