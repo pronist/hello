@@ -6,7 +6,7 @@ module.exports = {
   /**
    * Tistory session cookie value
    */
-  ts_session: 'f53aa642c42d71fa256746a2853482da0119dca1',
+  ts_session: 'b81b9d31b60dbf0bb07d5c635b8e164f908c5a48',
 
   /**
    * Tistory blog URL

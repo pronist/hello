@@ -21,11 +21,11 @@ jobs:
       run: npm run lint
     - name: Build for production
       run: npm run production
-    - name: Deploy
-      run: npm run deploy
     - name: Push to Deploy Branches
       run: |
         # Push to 'tistory-skin'
-        push-dir --dir=dist --branch=tistory-skin --cleanup
+        npm run github:developer
         # Push to 'dist'
-        push-dir --dir=dist --branch=dist --cleanup
+        npm run github:user
+    - name: Deploy
+      run: npm run deploy
