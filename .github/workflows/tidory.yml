@@ -21,6 +21,8 @@ jobs:
       run: npm run lint
     - name: Build for production
       run: npm run production
+    - name: Deploy
+      run: npm run deploy
     - name: Push to Deploy Branches
       run: |
         # Push to 'tistory-skin'
