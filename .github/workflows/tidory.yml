@@ -7,12 +7,12 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: 10.x
+        node-version: 10
 
     steps:
     - uses: actions/checkout@v2
@@ -26,7 +26,7 @@ jobs:
       run: npm run lint
     - name: Build for production
       run: npm run production
-    - name: Publish
+    - name: Push to Deploy Branches
       run: |
         # Push to 'tistory-skin'
         push-dir --dir=dist --branch=tistory-skin --cleanup
