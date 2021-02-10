@@ -1,5 +1,6 @@
 #__spy
-  ul(class='uk-nav uk-nav-default' uk-scrollspy-nav='closest: li;')
+  #spy__shadow
+    ul(class='uk-nav uk-nav-default' uk-scrollspy-nav='closest: li;')
 
 script.
   // Scrollspy
@@ -7,14 +8,14 @@ script.
     const $context = $('.content__permalink .content')
 
     if ($context.length) {
-      const $spy = h.Post.Permalink.scrollspy({
+      h.Post.Permalink.scrollspy({
         context: '.content__permalink .content',
         spy: '#__spy ul',
         headings: 'h2, h3'
       })
       const { top } = $context.position()
 
-      $spy.css({
+      $('#__spy').css({
         top: top + 50,
         height: $context.height() + 53
       })

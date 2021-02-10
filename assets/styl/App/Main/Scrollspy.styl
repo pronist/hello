@@ -1,14 +1,33 @@
+$WIDTH = 180px
+$HEIGHT = 620px
+
 #__spy
   position absolute
-  width 180px
+  width $WIDTH
   list-style none
   text-align left
   font-weight 400
   z-index 0
   display none
-  ul
+  #spy__shadow
     position sticky
     top 80px
+    height $HEIGHT
+    overflow hidden
+    width $WIDTH
+    ul
+      overflow-x hidden
+      overflow-y scroll
+      height $HEIGHT
+      width $WIDTH + 20px
+      position absolute
+      border-left 1px dashed alpha(black, .2)
+      li
+        padding-left 20px
+        box-sizing border-box
+        max-width $WIDTH
+        a
+          font-size .82rem
   .uk-active
     a
       transition-duration .5s

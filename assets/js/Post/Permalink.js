@@ -86,7 +86,6 @@ module.exports = class {
 
       $spy.append($('<li></li>').append($a))
     })
-    return $spy.parent()
   }
 
   /**
