@@ -22,6 +22,7 @@ $HEIGHT = 620px
       width $WIDTH + 20px
       position absolute
       border-left 1px dashed alpha(black, .2)
+      box-sizing border-box
       li
         padding-left 20px
         box-sizing border-box
@@ -42,4 +43,4 @@ $HEIGHT = 620px
   #__spy
     display block
     // (MAX_WIDTH + ARTICLE_WIDTH / 2) + MARGIN_LEFT
-    padding-left 'calc(((1100px + %s) / 2) + 50px)' % var(--h-article-width)
+    margin-left 'calc(((1100px + %s) / 2) + 50px)' % var(--h-article-width)
