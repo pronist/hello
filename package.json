@@ -27,7 +27,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^6.2.1",
     "jstransformer-stylus": "^1.5.0",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "pug-lint": "^2.6.0",
     "pug-plain-loader": "^1.0.0",
     "push-dir": "^0.4.1",
