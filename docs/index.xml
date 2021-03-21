@@ -186,13 +186,6 @@
         <default>true</default>
       </variable>
       <variable>
-        <name>navbar</name>
-        <label>네비게이션</label>
-        <description><![CDATA[ 상단 네비게이션 ]]></description>
-        <type>BOOL</type>
-        <default>true</default>
-      </variable>
-      <variable>
         <name>sidebar</name>
         <label>사이드바</label>
         <description><![CDATA[ 사이드바 ]]></description>
