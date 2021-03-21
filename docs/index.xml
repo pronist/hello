@@ -2,7 +2,7 @@
 <skin>
    <information>
       <name>hELLO</name>
-      <version>3.2.1</version>
+      <version>3.2.2</version>
       <description>
          <![CDATA[hELLO 티스토리 스킨은 자유롭게 개작하여 사용할 수 있고, 원 저작자의 저작권을 표시하는 것을 조건으로 재배포할 수 있습니다.]]>
       </description>
@@ -31,6 +31,10 @@
     <item>
       <value>gallery</value>
       <label>갤러리</label>
+    </item>
+    <item>
+      <value>zigzag</value>
+      <label>지그재그</label>
     </item>
    </liststyle>
    <cover>
@@ -74,6 +78,16 @@
       <label>슬라이더 (스크린)</label>
       <description>슬라이더 (스크린) 형태로 글을 보여줍니다.</description>
     </item>
+    <item>
+      <name>slider-screen</name>
+      <label>슬라이더 (스크린)</label>
+      <description>슬라이더 (스크린) 형태로 글을 보여줍니다.</description>
+    </item>
+    <item>
+      <name>zigzag</name>
+      <label>지그재그</label>
+      <description>지그재그 형태로 글을 보여줍니다.</description>
+    </item>
    </cover>
    <variables>
     <variablegroup name='컨텐츠 너비'>
@@ -82,14 +96,14 @@
         <label>홈(인덱스)</label>
         <description><![CDATA[ 홈(인덱스) ]]></description>
         <type>STRING</type>
-        <default>820</default>
+        <default>920</default>
       </variable>
       <variable>
         <name>article-width</name>
         <label>글(퍼머링크)</label>
         <description><![CDATA[ 글(퍼머링크) ]]></description>
         <type>STRING</type>
-        <default>640</default>
+        <default>700</default>
       </variable>
       <variable>
         <name>guestbook-width</name>

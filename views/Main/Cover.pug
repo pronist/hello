@@ -40,6 +40,7 @@ mixin cover(mode, isFeatured=false)
     when 'list'
     when 'grid'
     when 'gallery'
+    when 'zigzag'
       section.__list.main__cover(data-mode=mode)
         h1.cover__title [##_cover_title_##]
         ul&attributes(attributes)
@@ -72,6 +73,8 @@ s_cover_group
       +cover('grid')(class='uk-child-width-1-2@s uk-child-width-1-[##_var_grid-column-count_##]@m' uk-grid)
     s_cover(name='gallery')
       +cover('gallery', true)(class='uk-child-width-1-2@s uk-child-width-1-[##_var_gallery-column-count_##]@m' uk-grid)
+    s_cover(name='zigzag')
+      +cover('zigzag')
     s_cover(name='slideshow')
       +cover('slideshow')(uk-slideshow='min-height: 280; max-height: [##_var_slideshow-height_##]; autoplay: true; animation: fade')
     s_cover(name='slideshow-screen')
