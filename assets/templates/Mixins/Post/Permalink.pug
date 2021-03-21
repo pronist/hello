@@ -61,6 +61,17 @@ script.
 
     // Remove button texts
     $tistoryLayer.find('.btn_mark').empty()
-    // Move into 'Bun'
+    // Move into
     $tistoryLayer.appendTo('.content__permalink .permalink__btn')
+  })
+
+script.
+  // TistorySnsLayer
+  $(document).ready(() => {
+    const $tistorySnsLayerBtns = $('#tistorySnsLayer > .bundle_post > a')
+
+    $tistorySnsLayerBtns.click(() => {
+      // Trigger 'click' event for correct running share buttons
+      $('.container_postbtn .postbtn_like > .wrap_btn_share > button.btn_share').trigger('click')
+    })
   })
