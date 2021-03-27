@@ -3,7 +3,7 @@ mixin notify(type, label, pos)
     a.permalink__notify(href=`[##_article_${type}_link_##]` class='uk-box-shadow-medium' id=type)
       #{`s_article_${type}_thumbnail`}
         .thumbnail
-          img.lazyload(data-src=`[##_article_${type}_thumbnail_link_##]` data-sizes='auto')
+          img(src=`[##_article_${type}_thumbnail_link_##]`)
           //- img(src='https://t1.daumcdn.net/tistory_admin/static/mobile/m640/img_relation.png')
       .metainfo
         .description #{label}
