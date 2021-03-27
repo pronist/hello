@@ -1,9 +1,8 @@
-nav#__nav(role='navigation'
-  class='uk-navbar-container uk-navbar-transparent'
+nav#__nav(class='uk-navbar-container uk-navbar-transparent'
   uk-sticky='top: 280; animation: uk-animation-slide-top; cls-active: sticky; cls-inactive: uk-navbar-transparent;'
   uk-navbar)
   #nav__s1(class='uk-navbar-left')
-    img.profile(src='[##_image_##]')
+    img.profile.lazyload(data-src='[##_image_##]' data-sizes='auto')
   #nav__metainfo(class='uk-navbar-center')
     h1.title [##_title_##]
   #nav__s2(class='uk-navbar-right')

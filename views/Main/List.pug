@@ -4,7 +4,7 @@ s_list
       s_list_image
         .img
           .mask
-          img.thumbnail(src='[##_list_image_##]')
+          img.thumbnail.lazyload(data-src='[##_list_image_##]' data-sizes='auto')
       .heading
         h1.title [##_list_conform_##]
     ul

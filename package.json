@@ -35,6 +35,7 @@
     "stylus-loader": "^3.0.2"
   },
   "dependencies": {
+    "lazysizes": "^5.3.0",
     "tidory": "*"
   }
 }

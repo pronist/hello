@@ -9,14 +9,15 @@ html#__hELLO(lang='ko' data-theme='[##_var_theme_##]')
 
     link(rel='alternate' type='application/rss+xml' title='[##_title_##]' href='[##_rss_url_##]')
 
-    link(rel='stylesheet' href='//fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700')
+    link(rel='preconnect' href='https://fonts.gstatic.com')
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700&display=swap')
     link(rel='stylesheet' href='//cdn.jsdelivr.net/npm/load-awesome@1.1.0/css/ball-clip-rotate.min.css')
     link(rel='stylesheet' href='//cdn.jsdelivr.net/npm/uikit@3.5.7/dist/css/uikit.min.css')
-    link(rel='stylesheet' href='//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-ligature-full.css')
+    link(rel='stylesheet' href='//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-ligature-full.css' media='print' onload='this.media="all"')
     link(rel='stylesheet' href='#' id='hljs')
 
-    script(src='//code.jquery.com/jquery-3.4.1.min.js')
-
+    script(scoped).
+      const $ = tjQuery
     script(scoped).
       window.H = {}
       window.H.skinOptions = {
@@ -49,7 +50,7 @@ html#__hELLO(lang='ko' data-theme='[##_var_theme_##]')
   body(id='[##_body_id_##]' data-sidebar-default='<s_if_var_sidebar>true</s_if_var_sidebar><s_not_var_sidebar>false</s_not_var_sidebar>')
     block TIDORY
 
+    script(src='//kit.fontawesome.com/65f7e05682.js')
     script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js')
     script(src='//cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit.min.js')
     script(src='//cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit-icons.min.js')
-    script(src='//kit.fontawesome.com/65f7e05682.js')

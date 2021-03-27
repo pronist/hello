@@ -2,7 +2,7 @@ mixin comment(type, isReplyable = true)
   div(class=`[##_${type}_rep_class_##]`)
     .header
       .user
-        .pic: img(src=`[##_${type}_rep_logo_##]`)
+        .pic: img.lazyload(data-src=`[##_${type}_rep_logo_##]` data-sizes='auto' width='48' height='48')
         .metainfo
           .name #{`[##_${type}_rep_name_##]`}
           time.date #{`[##_${type}_rep_date_##]`}

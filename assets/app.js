@@ -11,6 +11,7 @@
   *
   * after import assets it will be contained in app.js
   */
+require('lazysizes')
 
 const Theme = require('./js/Theme')
 const Permalink = require('./js/Post/Permalink')

@@ -12,4 +12,4 @@ In the project, There is a **configuration file** that is named as **tidory.conf
 
 [MIT](https://github.com/pronist/hELLO/blob/master/LICENSE)
 
-Copyright 2020. [SangWoo Jeong](https://github.com/pronist). All rights reserved.
+Copyright 2020-2021. [SangWoo Jeong](https://github.com/pronist). All rights reserved.
