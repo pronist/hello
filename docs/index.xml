@@ -307,6 +307,7 @@
             { "name": "list", "label": "리스트", "value": "list" },
             { "name": "grid", "label": "그리드", "value": "grid" },
             { "name": "gallery", "label": "갤러리", "value": "gallery" }
+            { "name": "zigzag", "label": "지그재그", "value": "zigzag" }
           ]
         ]]></option>
         <default>default</default>
