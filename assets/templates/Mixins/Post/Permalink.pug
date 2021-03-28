@@ -35,7 +35,10 @@ script.
       imageGridBlock: true
     })
     // Add 'a' tag into headings
-    h.Post.Permalink.headings('.content__permalink .content', 'h2, h3, h4')
+    h.Post.Permalink.headings(
+      '.content__permalink .content, .content__permalink .content > .tt_article_useless_p_margin',
+      '> h2, > h3, > h4'
+    )
 
     // Code Highlighting
     hljs.initHighlighting(); h.Theme.hljs()
