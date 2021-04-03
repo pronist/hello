@@ -1,5 +1,5 @@
 div(class=`${type} content__permalink` data-mode='[##_var_article-mode_##]')
-  header.header(role='header')
+  header.header
     #{`s_${type}_rep_thumbnail`}
       .img
         .mask
@@ -15,7 +15,7 @@ div(class=`${type} content__permalink` data-mode='[##_var_article-mode_##]')
   article.content
     | #{`[##_${type}_rep_desc_##]`}
     include Post/Subscription
-  footer.footer(role='footer')
+  footer.footer
     if hasCategory
       s_if_var_related
         include Post/Related

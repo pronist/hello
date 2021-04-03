@@ -15,9 +15,10 @@ script.
       })
       const { top } = $context.position()
 
+      $('#__spy > #spy__shadow').css('height', $('#__spy ul').height())
       $('#__spy').css({
         top: top + 50,
-        height: $context.height() + 620 - $('#__spy ul').height()
+        height: $context.height()
       })
     }
   })

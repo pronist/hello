@@ -2,7 +2,7 @@
 <skin>
    <information>
       <name>hELLO</name>
-      <version>3.2.3</version>
+      <version>3.3.0</version>
       <description>
          <![CDATA[ⓒ 2020-2021. SangWoo Jeong.]]>
       </description>
@@ -306,11 +306,55 @@
             { "name": "default", "label": "리스트 (오리지널)", "value": "default" },
             { "name": "list", "label": "리스트", "value": "list" },
             { "name": "grid", "label": "그리드", "value": "grid" },
-            { "name": "gallery", "label": "갤러리", "value": "gallery" }
+            { "name": "gallery", "label": "갤러리", "value": "gallery" },
             { "name": "zigzag", "label": "지그재그", "value": "zigzag" }
           ]
         ]]></option>
         <default>default</default>
+      </variable>
+    </variablegroup>
+    <variablegroup name="상호작용 메시지">
+      <variable>
+        <name>message-request</name>
+        <label>공감요청</label>
+        <description><![CDATA[ 공감요청 ]]></description>
+        <type>STRING</type>
+        <default><![CDATA[ 도움이 되셨다면 공감 부탁드립니다! ]]></default>
+      </variable>
+      <variable>
+        <name>message-heart</name>
+        <label>공감</label>
+        <description><![CDATA[ 공감 ]]></description>
+        <type>STRING</type>
+        <default><![CDATA[ 공감해주셔서 감사합니다. ]]></default>
+      </variable>
+      <variable>
+        <name>message-unheart</name>
+        <label>공감취소</label>
+        <description><![CDATA[ 공감취소 ]]></description>
+        <type>STRING</type>
+        <default><![CDATA[ 공감이 취소되었습니다. ]]></default>
+      </variable>
+      <variable>
+        <name>message-subscribe</name>
+        <label>구독</label>
+        <description><![CDATA[ 구독 ]]></description>
+        <type>STRING</type>
+        <default><![CDATA[ 구독 감사합니다. ]]></default>
+      </variable>
+      <variable>
+        <name>message-unsubscribe</name>
+        <label>구독취소</label>
+        <description><![CDATA[ 구독취소 ]]></description>
+        <type>STRING</type>
+        <default><![CDATA[ 구독이 취소되었습니다. ]]></default>
+      </variable>
+      <variable>
+        <name>message-url</name>
+        <label>URL 복사</label>
+        <description><![CDATA[ URL 복사 ]]></description>
+        <type>STRING</type>
+        <default><![CDATA[ 포스트 주소가 복사되었습니다. ]]></default>
       </variable>
     </variablegroup>
   </variables>
