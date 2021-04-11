@@ -17,17 +17,16 @@ module.exports = class {
     }
 
     $('.container_postbtn .postbtn_like .wrap_btn[id^=reaction-]').click(function () {
-      $tooltip.text(
-        $(this).find('.btn_post > .uoc-icon').hasClass('like_on') ? messages.Unheart : messages.Heart
-      )
+      const tooltip = $(this).find('.btn_post > .uoc-icon').hasClass('like_on') ? messages.Unheart : messages.Heart
+      $tooltip.text(tooltip)
+
       $layerTooltip.fadeIn(500)
       setTimeout(() => $layerTooltip.fadeOut(500), 3000)
     })
 
     $('.btn_menu_toolbar.btn_subscription').click(function () {
-      $tooltip.text(
-        $(this).hasClass('following') ? messages.Unsubscribe : messages.Subscribe
-      )
+      const tooltip = $(this).hasClass('following') ? messages.Unsubscribe : messages.Subscribe
+      $tooltip.text(tooltip)
     })
     $('#tistorySnsLayer .btn_mark[data-service=url]').click(() => $tooltip.text(messages.Url))
   }

@@ -1,17 +1,17 @@
 mixin formGuestControl(type)
   .form__guest
     .name
-      label(for='name') 이름
-      input(type='text' name=`[##_${type}_input_name_##]` value='[##_guest_name_##]')
+      label#name-label(for='name') 이름
+      input#name(type='text' name=`[##_${type}_input_name_##]` value='[##_guest_name_##]')
     .password
-      label(for='password') 암호
-      input(type='password' maxlength='8' name=`[##_${type}_input_password_##]` value='[##_guest_password_##]')
+      label#password-label(for='password') 암호
+      input#password(type='password' maxlength='8' name=`[##_${type}_input_password_##]` value='[##_guest_password_##]')
 
 mixin form(type)
   #{`s_${type}_input_form`}
     div(class=`${type}-form content__form`)
       .form__shadow
-        textarea(name=`${type === 'guest' ? '[##_guest_textarea_body_##]' : '[##_rp_input_comment_##]'}`)
+        textarea#comment(name=`${type === 'guest' ? '[##_guest_textarea_body_##]' : '[##_rp_input_comment_##]'}`)
         div(class=`${type}-form-control form-control`)
           if process.env.NODE_ENV === 'development'
             .form__control__inner
