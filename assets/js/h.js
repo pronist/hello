@@ -159,7 +159,7 @@ module.exports = class {
     /**
     * Mode to 'default' if not exist thumbnail
     */
-    if ($container.find(img).length > 0) {
+    if ($container.find(img).length <= 0) {
       mode = 'default'
     }
 
