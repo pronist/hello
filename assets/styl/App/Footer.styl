@@ -23,7 +23,10 @@ $BUTTON_SIZE = 35px
     line-height $BUTTON_SIZE
     text-align center
     border-radius 50%
-    font-size .9rem
+    font-size 0 !important
+    i
+      font-size .9rem !important
+      line-height $BUTTON_SIZE
     &:hover
       background-color alpha($THEME_COLOR_BLACK, .9)
       color alpha($THEME_COLOR_WHITE, .9)

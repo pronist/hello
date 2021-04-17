@@ -2,7 +2,7 @@
 <skin>
    <information>
       <name>hELLO</name>
-      <version>3.3.1</version>
+      <version>3.3.2</version>
       <description>
          <![CDATA[ⓒ 2020-2021. SangWoo Jeong.]]>
       </description>
@@ -96,21 +96,21 @@
         <label>홈(인덱스)</label>
         <description><![CDATA[ 홈(인덱스) ]]></description>
         <type>STRING</type>
-        <default>920</default>
+        <default>1100</default>
       </variable>
       <variable>
         <name>article-width</name>
         <label>글(퍼머링크)</label>
         <description><![CDATA[ 글(퍼머링크) ]]></description>
         <type>STRING</type>
-        <default>700</default>
+        <default>720</default>
       </variable>
       <variable>
         <name>guestbook-width</name>
         <label>방명록</label>
         <description><![CDATA[ 방명록 ]]></description>
         <type>STRING</type>
-        <default>640</default>
+        <default>720</default>
       </variable>
       <variable>
         <name>tagcloud-width</name>

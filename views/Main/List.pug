@@ -4,30 +4,24 @@ s_list
       s_list_image
         .img
           .mask
-          img.thumbnail.lazyload(data-src='[##_list_image_##]' data-sizes='auto')
+          img.thumbnail.lazyload(data-src='[##_list_image_##]' data-sizes='auto' alt='[##_list_conform_##]')
       .heading
         h1.title [##_list_conform_##]
     ul
       +index('list')
 
 script.
-  // Set Styled Heading
+  /* List */
   $(document).ready(() => {
-    h.Post.Mode.setStyledHeading('.main__list', H.skinOptions.listImageMode, {
+    // Set Styled Heading
+    h.setStyledHeading('.main__list', 'header > .img', H.skinOptions.listImageMode, {
       attr: 'data-image-mode'
     })
+    // List Style - Grid, Gallery
+    h.setListCount('.__list.main__list > ul', {
+      grid: H.skinOptions.gridColumnCount,
+      gallery: H.skinOptions.galleryColumnCount
+    })
+    // Set List Title
+    h.setListTitle('.__list > .list__header .title', T.config.BLOG.title)
   })
-
-script.
-  // Set List Title
-  $(document).ready(() => {
-    const $title = $('.__list > .list__header .title')
-    $title.text() === '전체 글' ? $title.text(T.config.BLOG.title) : $title.text()
-  })
-
-script.
-  // List Style - Grid, Gallery
-  $(document).ready(() => h.Post.Mode.list('.__list.main__list > ul', {
-    grid: H.skinOptions.gridColumnCount,
-    gallery: H.skinOptions.galleryColumnCount
-  }))

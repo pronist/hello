@@ -1,0 +1,25 @@
+if process.env.NODE_ENV === 'development'
+  include TistoryLayer/TistoryToolbar
+  include TistoryLayer/TistoryTooltipLayer
+
+script.
+  /* TistoryToolbar, TistoryTooltipLayer */
+  $(document).ready(() => {
+    /*
+     * Tistory Layer Tooltip
+     */
+    // Set 'Tistory Layer Tooltip'
+    h.setTooltipMessages({
+      Request: H.skinOptions.messageRequest,
+      Unheart: H.skinOptions.messageUnheart,
+      Heart: H.skinOptions.messageHeart,
+      Unsubscribe: H.skinOptions.messageUnsubscribe,
+      Subscribe: H.skinOptions.messageSubscribe,
+      Url: H.skinOptions.messageUrl,
+    })
+    /*
+     * TistoryToolbar
+     */
+    // Init 'TistoryToolbar'
+    h.initTistoryToolbar('#sidebar__tistory', '#nav__s2')
+  })

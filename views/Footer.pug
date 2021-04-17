@@ -1,17 +1,26 @@
 footer#__footer(class='uk-navbar-container uk-navbar-transparent' uk-navbar)
   div(class='uk-navbar-left')
     a#__designed-by(href='https://pronist.tistory.com/5' target='_blank' rel='noreferrer')
+      | hELLO. 티스토리 스킨을 소개합니다.
       i(class='fa fa-code')
   div(class='uk-navbar-right')
     s_if_var_switch-theme
       #__theme-btn
+        | 테마 바꾸기
         i(aria-hidden='true' class='fa fa-moon-o')
     s_if_var_to-top
       a#__toTop(href='#' uk-scroll='target: #__hELLO')
+        | 제일 위로
         i(class='fa fa-chevron-up')
 
 script.
-  // Switch theme
+  /* Footer */
   $(document).ready(() => {
-    $('#__theme-btn').on('click', () => { h.Theme.switch(); h.Theme.hljs(); })
+    // Switch skin theme
+    $('#__theme-btn').click(() => {
+      // set Skin Theme
+      h.switchSkinTheme()
+      // Set highlight.js Theme
+      h.setHljsTheme(H.skinOptions.hljsThemeLight, H.skinOptions.hljsThemeDark)
+    })
   })

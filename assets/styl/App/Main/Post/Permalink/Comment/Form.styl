@@ -16,6 +16,8 @@
   position relative
   .form__shadow
     box-sizing border-box
+    > label
+      font-size 0 !important
     > textarea
       border none
       background none
@@ -69,6 +71,7 @@
         color alpha($THEME_COLOR_BLACK, .9) !important
         FontAwesome()
       a
+        font-size 0
         &::before
           font-size 2rem
           content '\f0ab'

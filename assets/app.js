@@ -13,11 +13,4 @@
   */
 require('lazysizes')
 
-const Theme = require('./js/Theme')
-const Permalink = require('./js/Post/Permalink')
-const Mode = require('./js/Post/Mode')
-const Tistory = require('./js/Tistory')
-
-window.h = {
-  Tistory, Theme, Post: { Mode, Permalink }
-}
+window.h = require('./js/h')

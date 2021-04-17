@@ -4,5 +4,8 @@ if process.env.NODE_ENV === 'development'
       em.txt_state 구독하기
       strong.txt_tool_id hELLO.
       span.img_common_tistory.ico_check_type1
+
     script.
-      $('.content__permalink .btn_menu_toolbar.btn_subscription').appendTo('.content__permalink .container_postbtn')
+      $(document).ready(() => {
+        $('.content__permalink .btn_menu_toolbar.btn_subscription').appendTo('.content__permalink .container_postbtn')
+      })

@@ -2,9 +2,8 @@ mixin notify(type, label, pos)
   #{`s_article_${type}`}
     a.permalink__notify(href=`[##_article_${type}_link_##]` class='uk-box-shadow-medium' id=type)
       #{`s_article_${type}_thumbnail`}
-        .thumbnail
-          img(src=`[##_article_${type}_thumbnail_link_##]`)
-          //- img(src='https://t1.daumcdn.net/tistory_admin/static/mobile/m640/img_relation.png')
+        img.thumbnail.lazyload(src=`[##_article_${type}_thumbnail_link_##]` alt=`[##_article_${type}_title_##]`)
+        //- img(src='https://t1.daumcdn.net/tistory_admin/static/mobile/m640/img_relation.png')
       .metainfo
         .description #{label}
         .title #{`[##_article_${type}_title_##]`}
@@ -13,12 +12,11 @@ mixin notify(type, label, pos)
 +notify('prev', '이전 글', 'bottom-left')
 
 script.
-  // Set timer for Notification
+  /* Notification */
   $(document).ready(() => {
-    const delay = 3000
-
+    // Set timer for 'Notification'
     setTimeout(() => {
-      h.Post.Permalink.notify('#next', 'bottom-right', 15000)
-      h.Post.Permalink.notify('#prev', 'bottom-left', 15000)
-    }, delay)
+      h.setNotification('#next', '.thumbnail', 'bottom-right', 15000)
+      h.setNotification('#prev', '.thumbnail', 'bottom-left', 15000)
+    }, 3000)
   })

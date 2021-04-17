@@ -3,12 +3,8 @@
     .progress-bar
 
 script.
-  // Scoll Indicator
+  /* Scoll Indicator */
   $(document).ready(() => {
-    $(window).on('scroll', () => {
-      const winScroll = $(window).scrollTop()
-      const height = $(document).outerHeight() - $(window).height()
-
-      $('#scroll-indicator .progress-bar').css('width', (winScroll / height) * 100 + '%')
-    })
+    // Set 'Scroll Indicator'
+    $(window).on('scroll', () => h.setScrollIndicator('#scroll-indicator .progress-bar'))
   })

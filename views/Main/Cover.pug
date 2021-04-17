@@ -7,7 +7,7 @@ mixin coverItem()
 mixin coverImage()
   a.img(href='[##_cover_item_url_##]')
     s_cover_item_thumbnail
-      img.thumbnail.lazyload(data-src='[##_cover_item_thumbnail_##]' data-sizes='auto')&attributes(attributes)
+      img.thumbnail.lazyload(data-src='[##_cover_item_thumbnail_##]' data-sizes='auto' alt='[##_cover_item_title_##]')&attributes(attributes)
 
 mixin coverDescription(isFeatured=false)
   .description&attributes(attributes)

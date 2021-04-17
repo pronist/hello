@@ -8,8 +8,6 @@
 
 .la-ball-clip-rotate,.la-ball-clip-rotate > div
   position relative
-  -webkit-box-sizing border-box
-  -moz-box-sizing border-box
   box-sizing border-box
 
 .la-ball-clip-rotate
@@ -18,8 +16,6 @@
   color #fff
   width 32px
   height 32px
-  &.la-dark
-    color #333
   & > div
     display inline-block
     float none
@@ -32,27 +28,6 @@
     border-bottom-color transparent
     border-radius 100%
     animation ball-clip-rotate 0.75s linear infinite
-  &.la-sm
-    width 16px
-    height 16px
-    & > div
-      width 16px
-      height 16px
-      border-width 1px
-  &.la-2x
-    width 64px
-    height 64px
-    & > div
-      width 64px
-      height 64px
-      border-width 4px
-  &.la-3x
-    width 96px
-    height 96px
-    & > div
-      width 96px
-      height 96px
-      border-width 6px
 
 #__loader
   background-color $THEME_COLOR_WHITE

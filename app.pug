@@ -10,10 +10,12 @@ html#__hELLO(lang='ko' data-theme='[##_var_theme_##]')
     link(rel='alternate' type='application/rss+xml' title='[##_title_##]' href='[##_rss_url_##]')
 
     link(rel='preconnect' href='https://ka-f.fontawesome.com')
+    link(rel='preconnect' href='https://fonts.gstatic.com')
 
+    link(rel='stylesheet' href='//fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700&display=swap')
     link(rel='stylesheet' href='//cdn.jsdelivr.net/npm/uikit@3.5.7/dist/css/uikit.min.css')
-    link(rel='stylesheet' href='//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-ligature-full.css' media='print' onload='this.media="all"')
-    link(rel='stylesheet' href='#' id='hljs')
+    link(rel='stylesheet' href='//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-ligature-full.css' media='print' onload=`this.media='all'`)
+    link#__hljs(rel='stylesheet' href='#')
 
     script(scoped).
       const $ = tjQuery

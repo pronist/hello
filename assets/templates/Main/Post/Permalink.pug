@@ -1,0 +1,51 @@
+mixin permalink(pageType, type, hasCategory = true)
+  #{`s_${pageType}_rep`}
+    div(id=`__${pageType}`)
+      include Permalink/Post
+      if hasCategory
+        include Permalink/Comment
+        s_if_var_notify
+          include Permalink/Notification
+
+script.
+  /* Permalink */
+  $(document).ready(() => {
+    /*
+     * Article
+     */
+    // Set Styled Heading
+    h.setStyledHeading('.content__permalink', 'header > .img', H.skinOptions.articleMode, {
+      controllable: true,
+      modeHansControlElement: '.content__permalink > .content div.h[data-mode]'
+    })
+    // Media contents alignment
+    h.setAlignImageCenter({
+      imageSlideBlock: true,
+      imageBlock: true,
+      imageGridBlock: true
+    })
+    // Add 'a' tag into headings
+    h.setAnchorHeadings(
+      '.content__permalink .content, .content__permalink .content > .tt_article_useless_p_margin',
+      '> h2, > h3, > h4'
+    )
+    /*
+     * Highlight.js
+     */
+    // set Highlight.js Theme
+    h.setHljsTheme(H.skinOptions.hljsThemeLight, H.skinOptions.hljsThemeDark)
+    // init Highlight.js
+    hljs.initHighlighting()
+    /*
+     * Post Buttons (tistoryEtcLayer, tistorySnsLayer, Comment)
+     */
+    // Comment
+    h.setCommentToggleButton('.permalink__comment')
+    // init TistoryLayer
+    h.initTistoryLayer('.content__permalink .permalink__btn')
+    /*
+     * Tag
+     */
+    // Remove ',' text in Tags
+    $('.permalink__tags').contents().filter(function () { return this.nodeType === 3 }).remove()
+  })

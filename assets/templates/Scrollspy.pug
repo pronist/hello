@@ -3,22 +3,13 @@
     ul(class='uk-nav uk-nav-default' uk-scrollspy-nav='closest: li;')
 
 script.
-  // Scrollspy
+  /* Scrollspy */
   $(document).ready(() => {
-    const $context = $('.content__permalink .content')
-
-    if ($context.length) {
-      h.Post.Permalink.scrollspy({
-        context: '.content__permalink .content, .content__permalink .content > .tt_article_useless_p_margin',
-        spy: '#__spy ul',
-        headings: '> h2, > h3'
-      })
-      const { top } = $context.position()
-
-      $('#__spy > #spy__shadow').css('height', $('#__spy ul').height())
-      $('#__spy').css({
-        top: top + 50,
-        height: $context.height()
-      })
-    }
+    // Set 'Scrollspy'
+    h.setScrollspy({
+      context: '.content__permalink .content, .content__permalink .content > .tt_article_useless_p_margin',
+      spy: '#__spy',
+      headings: '> h2, > h3',
+      offset: 50,
+    })
   })

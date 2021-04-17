@@ -1,9 +1,10 @@
 .container_postbtn
   .wrap_btn > button[data-entry-id]
-    button($SIZE, $SIZE, 5px, $SIZE - 3, $THEME_COLOR_WHITE, alpha($THEME_COLOR_BLACK, .9))
+    button($SIZE, $SIZE, 5px, $SIZE - 2, $THEME_COLOR_WHITE, alpha($THEME_COLOR_BLACK, .9))
     color alpha($THEME_COLOR_BLACK, .9) !important
     &::before
       FontAwesome('\f200')
       font-weight 600
+      font-size $BUTTON_FONT-SIZE
     .ico_statistics
       display none
