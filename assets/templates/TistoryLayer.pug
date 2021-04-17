@@ -9,14 +9,15 @@ script.
      * Tistory Layer Tooltip
      */
     // Set 'Tistory Layer Tooltip'
-    h.setTooltipMessages({
+    const messages = {
       Request: H.skinOptions.messageRequest,
       Unheart: H.skinOptions.messageUnheart,
       Heart: H.skinOptions.messageHeart,
       Unsubscribe: H.skinOptions.messageUnsubscribe,
       Subscribe: H.skinOptions.messageSubscribe,
       Url: H.skinOptions.messageUrl,
-    })
+    }
+    h.setTooltipMessages(messages, $('.article.content__permalink').length > 0)
     /*
      * TistoryToolbar
      */
