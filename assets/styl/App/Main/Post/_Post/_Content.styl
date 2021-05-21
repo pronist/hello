@@ -1,6 +1,5 @@
 .content__permalink
-  > .content,
-  > .content > .tt_article_useless_p_margin
+  .contents_style
     text-align left
     margin-top 50px
     position relative
@@ -24,7 +23,7 @@
           color $THEME_COLOR_ORANGE
           font-weight 500
       div[data-ke-type=moreLess],
-      blockquote, ul, ol, table, h2, h3, h4
+      ul, ol, table, h2, h3, h4
         margin 20px 0
         > a
           color alpha($THEME_COLOR_BLACK, .9)
@@ -35,7 +34,7 @@
       h2, h3, h4, p, span
         line-height 1.8em
       figure
-        margin-top 0 !important
+        margin-top 20px !important
         margin-bottom 20px !important
         figcaption
           color alpha($THEME_COLOR_BLACK, .5)
@@ -82,14 +81,9 @@
               content '\f0ab'
       blockquote
         font-style initial
+        margin 20px 0 !important
         &[data-ke-style=style1]
-          text-align: center
-          font-size 1.1rem
-          &::before
-            FontAwesome('\f10e')
-            font-weight 600
-            display block
-            margin-bottom 3px
+          padding 28px 0 0 0 !important
           p
             color alpha($THEME_COLOR_BLACK, .9)
         &[data-ke-style=style2]
@@ -107,7 +101,7 @@
           color alpha($THEME_COLOR_BLACK, .5) !important
       ul, ol
         padding-left 35px
-        margin-top 0px
+        margin 14px auto 24px
         li
           margin 6px 0
           ul, ol

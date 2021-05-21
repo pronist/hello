@@ -1,7 +1,6 @@
 html[data-theme='dark']
   .content__permalink
-    > .content,
-    > .content > .tt_article_useless_p_margin
+    .contents_style
       div[data-ke-type=moreLess], >
         p
         blockquote[data-ke-style=style2],
@@ -24,7 +23,7 @@ html[data-theme='dark']
               .filename, .size
                 color $THEME_COLOR_WHITE !important
             .image, a::after
-              filter brightness(0) invert(1);
+              filter brightness(0) invert(1)
           &[data-ke-type=opengraph]
             *
               color $THEME_COLOR_WHITE !important
@@ -35,7 +34,7 @@ html[data-theme='dark']
             .og-image
               border none
         hr
-          filter brightness(0) invert(1);
+          filter brightness(0) invert(1)
         div[data-ke-type=moreLess]
           &::before
             border-bottom 1px dashed alpha($THEME_COLOR_WHITE, .8)
@@ -44,6 +43,7 @@ html[data-theme='dark']
         blockquote
           color alpha($THEME_COLOR_WHITE, .9) !important
           &[data-ke-style=style1]
+            filter brightness(0) invert(1)
             p
               color $THEME_COLOR_WHITE
           &[data-ke-style=style2]
