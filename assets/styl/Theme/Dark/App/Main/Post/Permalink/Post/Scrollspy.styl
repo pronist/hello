@@ -1,6 +1,10 @@
 html[data-theme='dark']
   #__spy
-    .uk-active a
-      color $THEME_COLOR_WHITE
-    li a
-      color alpha($THEME_COLOR_WHITE, .8)
+    #spy__shadow
+      ul
+        border-color alpha($THEME_COLOR_WHITE, .5)
+        li
+          a
+            color alpha($THEME_COLOR_WHITE, .8)
+          &.uk-active
+            color $THEME_COLOR_WHITE

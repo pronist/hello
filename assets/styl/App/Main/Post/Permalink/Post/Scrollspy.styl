@@ -8,9 +8,11 @@ $HEIGHT = 620px
   text-align left
   font-weight 400
   z-index 0
-  display none
+  display block
+  // (MAX_WIDTH + ARTICLE_WIDTH / 2) + MARGIN_LEFT
+  margin-left 'calc(((1100px + %s) / 2) + 50px) !important' % var(--h-article-width)
+  top 0
   #spy__shadow
-    position sticky
     top 80px
     max-height $HEIGHT
     overflow hidden
@@ -21,8 +23,7 @@ $HEIGHT = 620px
       overflow-y scroll
       max-height $HEIGHT
       width $WIDTH + 20px
-      position absolute
-      border-left 1px dashed alpha(black, .2)
+      border-left 1px dashed alpha($THEME_COLOR_BLACK, .2)
       box-sizing border-box
       li
         padding-left 20px
@@ -30,18 +31,12 @@ $HEIGHT = 620px
         max-width $WIDTH
         a
           font-size .82rem
-  .uk-active
-    a
-      transition-duration .5s
-      color alpha($THEME_COLOR_BLACK, .9)
-      font-weight 500
-  a[data-tag=h3]
-    padding-left 15px
+          &[data-tag=h3]
+            padding-left 15px
+        &.uk-active
+          a
+            transition-duration .5s
+            color alpha($THEME_COLOR_BLACK, .9)
+            font-weight 500
   @media screen and (max-width: 1820px)
     display none !important
-
-#tt-body-page
-  #__spy
-    display block
-    // (MAX_WIDTH + ARTICLE_WIDTH / 2) + MARGIN_LEFT
-    margin-left 'calc(((1100px + %s) / 2) + 50px)' % var(--h-article-width)

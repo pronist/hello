@@ -84,10 +84,8 @@ module.exports = class {
         .text(spy.label)
         .attr({ href: spy.href, 'data-tag': spy.tag })
 
-      $spy.find('ul').append($('<li></li>').append($a))
+      $spy.append($('<li></li>').append($a))
     })
-
-    $($spy).css({ top: $context.position().top + options.offset, height: $context.height() })
   }
 
   /**

@@ -1,63 +1,64 @@
 html[data-theme='dark']
   .content__permalink
-    .contents_style
-      div[data-ke-type=moreLess], >
-        p
-        blockquote[data-ke-style=style2],
-        blockquote[data-ke-style=style3]
-        ol, ul, table
-          color $THEME_COLOR_WHITE
-          &, code
-            color $THEME_COLOR_WHITE !important
-          code
-            background $THEME_BACKGROUND_COLOR_LEVEL2 !important
-          a
-            color $THEME_COLOR_BLUE !important
-        figure
-          figcaption
-            color alpha($THEME_COLOR_WHITE, .8)
-          &.fileblock
-            border none !important
-            background-color $THEME_BACKGROUND_COLOR_LEVEL2
-            .desc
-              .filename, .size
-                color $THEME_COLOR_WHITE !important
-            .image, a::after
-              filter brightness(0) invert(1)
-          &[data-ke-type=opengraph]
-            *
-              color $THEME_COLOR_WHITE !important
-            > a
-              border none !important
-            .og-text
-              background $THEME_BACKGROUND_COLOR_LEVEL2
-            .og-image
-              border none
-        hr
-          filter brightness(0) invert(1)
-        div[data-ke-type=moreLess]
-          &::before
-            border-bottom 1px dashed alpha($THEME_COLOR_WHITE, .8)
-          > .btn-toggle-moreless
-            background-color $THEME_BACKGROUND_COLOR_LEVEL2
-        blockquote
-          color alpha($THEME_COLOR_WHITE, .9) !important
-          &[data-ke-style=style1]
-            filter brightness(0) invert(1)
-            p
-              color $THEME_COLOR_WHITE
-          &[data-ke-style=style2]
-            border-color alpha($THEME_COLOR_WHITE, .3)
-          &[data-ke-style=style3]
-            background $THEME_BACKGROUND_COLOR_LEVEL2 !important
-        table
-          td, th
-            border-bottom 1px solid alpha($THEME_COLOR_WHITE, .5)
-            color $THEME_COLOR_WHITE !important
-        ol, ul
-          color $THEME_COLOR_WHITE
-        pre > code
-          background $THEME_BACKGROUND_COLOR_LEVEL2 !important
-        h2, h3, h4
-          &, a
+    > .content
+      .contents_style
+        div[data-ke-type=moreLess], >
+          p
+          blockquote[data-ke-style=style2],
+          blockquote[data-ke-style=style3]
+          ol, ul, table
             color $THEME_COLOR_WHITE
+            &, code
+              color $THEME_COLOR_WHITE !important
+            code
+              background $THEME_BACKGROUND_COLOR_LEVEL2 !important
+            a
+              color $THEME_COLOR_BLUE !important
+          figure
+            figcaption
+              color alpha($THEME_COLOR_WHITE, .8)
+            &.fileblock
+              border none !important
+              background-color $THEME_BACKGROUND_COLOR_LEVEL2
+              .desc
+                .filename, .size
+                  color $THEME_COLOR_WHITE !important
+              .image, a::after
+                filter brightness(0) invert(1)
+            &[data-ke-type=opengraph]
+              *
+                color $THEME_COLOR_WHITE !important
+              > a
+                border none !important
+              .og-text
+                background $THEME_BACKGROUND_COLOR_LEVEL2
+              .og-image
+                border none
+          hr
+            filter brightness(0) invert(1)
+          div[data-ke-type=moreLess]
+            &::before
+              border-bottom 1px dashed alpha($THEME_COLOR_WHITE, .8)
+            > .btn-toggle-moreless
+              background-color $THEME_BACKGROUND_COLOR_LEVEL2
+          blockquote
+            color alpha($THEME_COLOR_WHITE, .9) !important
+            &[data-ke-style=style1]
+              filter brightness(0) invert(1)
+              p
+                color $THEME_COLOR_WHITE
+            &[data-ke-style=style2]
+              border-color alpha($THEME_COLOR_WHITE, .3)
+            &[data-ke-style=style3]
+              background $THEME_BACKGROUND_COLOR_LEVEL2 !important
+          table
+            td, th
+              border-bottom 1px solid alpha($THEME_COLOR_WHITE, .5)
+              color $THEME_COLOR_WHITE !important
+          ol, ul
+            color $THEME_COLOR_WHITE
+          pre > code
+            background $THEME_BACKGROUND_COLOR_LEVEL2 !important
+          h2, h3, h4
+            &, a
+              color $THEME_COLOR_WHITE

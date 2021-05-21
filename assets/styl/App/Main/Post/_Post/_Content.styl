@@ -1,149 +1,151 @@
 .content__permalink
-  .contents_style
-    text-align left
-    margin-top 50px
+  > .content
     position relative
-    z-index 1
-    div[data-ke-type=moreLess], >
-      p
-      blockquote[data-ke-style=style2],
-      blockquote[data-ke-style=style3]
-      ol, ul, table
-        *:not(pre) > code
-          position relative
-          top -1px
-          padding 2px 8px
-          border-radius 5px
-          white-space normal
-        &, span
-          letter-spacing .8px
-        b, strong
-          font-weight 600
-        a
-          color $THEME_COLOR_ORANGE
-          font-weight 500
-      div[data-ke-type=moreLess],
-      ul, ol, table, h2, h3, h4
-        margin 20px 0
-        > a
-          color alpha($THEME_COLOR_BLACK, .9)
-          text-decoration none !important
-      blockquote[data-ke-style=style2],
-      blockquote[data-ke-style=style3],
-      ul li, table td, table th,
-      h2, h3, h4, p, span
-        line-height 1.8em
-      figure
-        margin-top 20px !important
-        margin-bottom 20px !important
-        figcaption
-          color alpha($THEME_COLOR_BLACK, .5)
-          font-size .9rem
-          &:empty
-            all unset
-        img
-          border-radius 5px
-          background-color white //- NT
-      figure[data-ke-type=opengraph]
-        margin-top 10px !important
-      figure.imageslideblock
-        .image-container
-          width inherit !important
-          height inherit !important
-          overflow unset
-      div[data-ke-type=moreLess]
-        position relative
-        &::before
-          border-bottom 1px dashed alpha($THEME_COLOR_BLACK, .3)
-          z-index -1
-          content ''
-          position absolute
-          top 15px
-          left 0
-          height 0
-          width 100%
-        .moreless-content
-          margin-top 25px
-        > .btn-toggle-moreless
-          background-color alpha($THEME_COLOR_BLACK, .9)
-          color $THEME_COLOR_WHITE !important
-          display inline-block
-          border-radius 16px
-          padding 2px 14px
-          font-size .85rem !important
-          font-weight 600
-          &::before
-            color $THEME_COLOR_WHITE
-            FontAwesome('\f0a9')
-            margin-right 5px
-        &.open
-          > .btn-toggle-moreless::before
-              content '\f0ab'
-      blockquote
-        font-style initial
-        margin 20px 0 !important
-        &[data-ke-style=style1]
-          padding 28px 0 0 0 !important
-          p
+    .contents_style
+      text-align left
+      margin-top 50px
+      position relative
+      z-index 1
+      div[data-ke-type=moreLess], >
+        p
+        blockquote[data-ke-style=style2],
+        blockquote[data-ke-style=style3]
+        ol, ul, table
+          *:not(pre) > code
+            position relative
+            top -1px
+            padding 2px 8px
+            border-radius 5px
+            white-space normal
+          &, span
+            letter-spacing .8px
+          b, strong
+            font-weight 600
+          a
+            color $THEME_COLOR_ORANGE
+            font-weight 500
+        div[data-ke-type=moreLess],
+        ul, ol, table, h2, h3, h4
+          margin 20px 0
+          > a
             color alpha($THEME_COLOR_BLACK, .9)
-        &[data-ke-style=style2]
-          border solid alpha($THEME_COLOR_BLACK, .3)
-          border-width 0 0 0 2px
-          padding 1px 0 0 12px
-          color alpha($THEME_COLOR_BLACK, .5)
-          text-align left
-          font-size .9rem
-        &[data-ke-style=style3]
-          background-color $THEME_BACKGROUND_COLOR_LEVEL1 !important
-          font-size 1rem
-          border none !important
-          line-height 1.8em !important
-          color alpha($THEME_COLOR_BLACK, .5) !important
-      ul, ol
-        padding-left 35px
-        margin 14px auto 24px
-        li
-          margin 6px 0
-          ul, ol
-            padding-left 35px
-      table
-        border none
-        border-bottom 1px solid alpha($THEME_COLOR_BLACK, .1)
-        td, th
+            text-decoration none !important
+        blockquote[data-ke-style=style2],
+        blockquote[data-ke-style=style3],
+        ul li, table td, table th,
+        h2, h3, h4, p, span
+          line-height 1.8em
+        figure
+          margin-top 20px !important
+          margin-bottom 20px !important
+          figcaption
+            color alpha($THEME_COLOR_BLACK, .5)
+            font-size .9rem
+            &:empty
+              all unset
+          img
+            border-radius 5px
+            background-color white //- NT
+        figure[data-ke-type=opengraph]
+          margin-top 10px !important
+        figure.imageslideblock
+          .image-container
+            width inherit !important
+            height inherit !important
+            overflow unset
+        div[data-ke-type=moreLess]
+          position relative
+          &::before
+            border-bottom 1px dashed alpha($THEME_COLOR_BLACK, .3)
+            z-index -1
+            content ''
+            position absolute
+            top 15px
+            left 0
+            height 0
+            width 100%
+          .moreless-content
+            margin-top 25px
+          > .btn-toggle-moreless
+            background-color alpha($THEME_COLOR_BLACK, .9)
+            color $THEME_COLOR_WHITE !important
+            display inline-block
+            border-radius 16px
+            padding 2px 14px
+            font-size .85rem !important
+            font-weight 600
+            &::before
+              color $THEME_COLOR_WHITE
+              FontAwesome('\f0a9')
+              margin-right 5px
+          &.open
+            > .btn-toggle-moreless::before
+                content '\f0ab'
+        blockquote
+          font-style initial
+          margin 20px 0 !important
+          &[data-ke-style=style1]
+            padding 28px 0 0 0 !important
+            p
+              color alpha($THEME_COLOR_BLACK, .9)
+          &[data-ke-style=style2]
+            border solid alpha($THEME_COLOR_BLACK, .3)
+            border-width 0 0 0 2px
+            padding 1px 0 0 12px
+            color alpha($THEME_COLOR_BLACK, .5)
+            text-align left
+            font-size .9rem
+          &[data-ke-style=style3]
+            background-color $THEME_BACKGROUND_COLOR_LEVEL1 !important
+            font-size 1rem
+            border none !important
+            line-height 1.8em !important
+            color alpha($THEME_COLOR_BLACK, .5) !important
+        ul, ol
+          padding-left 35px
+          margin 14px auto 24px
+          li
+            margin 6px 0
+            ul, ol
+              padding-left 35px
+        table
           border none
           border-bottom 1px solid alpha($THEME_COLOR_BLACK, .1)
-          font-size .9rem
-          padding 16px 12px
-          box-sizing border-box
-      h2
-        font-size 1.5rem
-      h3
-        font-size 1.3rem
-      h4
-        font-size 1.1rem
-      pre
-        border none
-        border-radius 0 !important
-        padding 0
-        background none !important
-        code
-          background-color $THEME_BACKGROUND_COLOR_LEVEL1 !important
-          padding 15px
-          font-family 'D2Coding'
-    @media screen and (max-width: 1200px)
-      margin-top 25px
-      div[data-ke-type=moreLess], >
+          td, th
+            border none
+            border-bottom 1px solid alpha($THEME_COLOR_BLACK, .1)
+            font-size .9rem
+            padding 16px 12px
+            box-sizing border-box
         h2
-          font-size 1.3rem
+          font-size 1.5rem
         h3
-          font-size 1.2rem
+          font-size 1.3rem
         h4
-          font-size 1rem
-        figure.imageblock.alignCenter,
-        figure.imagegridblock,
-        figure.imageslideblock.alignCenter
-          width 100% !important
-          margin 0 !important
-          margin-bottom 20px !important
-        blockquote[data-ke-style=style1]::before
-          font-size .85rem
+          font-size 1.1rem
+        pre
+          border none
+          border-radius 0 !important
+          padding 0
+          background none !important
+          code
+            background-color $THEME_BACKGROUND_COLOR_LEVEL1 !important
+            padding 15px
+            font-family 'D2Coding'
+      @media screen and (max-width: 1200px)
+        margin-top 25px
+        div[data-ke-type=moreLess], >
+          h2
+            font-size 1.3rem
+          h3
+            font-size 1.2rem
+          h4
+            font-size 1rem
+          figure.imageblock.alignCenter,
+          figure.imagegridblock,
+          figure.imageslideblock.alignCenter
+            width 100% !important
+            margin 0 !important
+            margin-bottom 20px !important
+          blockquote[data-ke-style=style1]::before
+            font-size .85rem

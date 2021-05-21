@@ -48,4 +48,9 @@ script.
      */
     // Remove ',' text in Tags
     $('.permalink__tags').contents().filter(function () { return this.nodeType === 3 }).remove()
+    /*
+    * Scrollspy
+    */
+    // Set 'Scrollspy'
+    h.setScrollspy({ context: '.content__permalink .contents_style', spy: '#__spy ul', headings: '> h2, > h3' })
   })
