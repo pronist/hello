@@ -7,35 +7,30 @@
     "deploy": "tidory deploy",
     "store": "tidory store",
     "lint": "eslint --ext .js --ignore-path .gitignore . && pug-lint .",
-    "github:developer": "push-dir --dir=dist --branch=tistory-skin --cleanup",
     "github:user": "push-dir --dir=dist --branch=dist --cleanup"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pronist/hELLO"
+    "url": "https://github.com/tistory-project/hELLO"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
-    "eslint-config-standard": "^14.1.0",
+    "eslint-config-standard": "^14.1.1",
     "eslint-loader": "^4.0.0",
-    "eslint-plugin-import": "^2.20.0",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-vue": "^6.2.1",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-standard": "^5.0.0",
     "jstransformer-stylus": "^1.5.0",
-    "pug": "^2.0.4",
     "pug-lint": "^2.6.0",
-    "pug-plain-loader": "^1.0.0",
     "push-dir": "^0.4.1",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2"
   },
   "dependencies": {
     "lazysizes": "^5.3.0",
-    "tidory": "*"
+    "tidory": "latest"
   }
 }

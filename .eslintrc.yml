@@ -1,0 +1,14 @@
+env:
+  browser: true
+
+extends: standard
+
+globals:
+  UIkit: readonly
+  $: readonly
+  hljs: readonly
+  H: readonly
+  h: readonly
+  T: readonly
+
+ignorePatterns: dist/
