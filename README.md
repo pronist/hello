@@ -1,6 +1,7 @@
 # hELLO
 
-**hELLO** 는 [티도리 프레임워크](http://www.tidory.com)로 작성된 티스토리 스킨입니다. 자세한 내용은 스킨 [문서](https://pronist.tistory.com/5)를 참고해주세요.
+**hELLO** 는 [티도리 프레임워크](http://www.tidory.com)로 작성된 티스토리 스킨입니다. \
+자세한 내용은 [문서](https://pronist.tistory.com/5)를 참고해주세요.
 
 ## License
 
