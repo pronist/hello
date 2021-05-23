@@ -1,12 +1,6 @@
 # hELLO
 
-**hELLO** is a **Tistory Skin**. Powered by [Tidory Framework](http://www.tidory.com).
-
-## Getting Started
-
-<https://tidory.com/docs/configuration/>
-
-In the project, There is a **configuration file** that is named as **tidory.config.example.js**. You must change the file name to **tidory.config.js** for development with this project. You must set configurations in **tidory.config.js** ```ts_session``` and ```url``` options.
+**hELLO** 는 [티도리 프레임워크](http://www.tidory.com)로 작성된 티스토리 스킨입니다. 자세한 내용은 스킨 [문서](https://pronist.tistory.com/5)를 참고해주세요.
 
 ## License
 
