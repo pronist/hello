@@ -33,6 +33,6 @@
   },
   "dependencies": {
     "lazysizes": "^5.3.0",
-    "tidory": "8"
+    "tidory": "^8.0.1"
   }
 }

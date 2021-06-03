@@ -1,8 +1,4 @@
-# Modules
 node_modules
-
-# Distribution
+package-lock.json
 dist
-
-# Configuration
 tidory.config.js
