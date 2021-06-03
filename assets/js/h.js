@@ -148,7 +148,7 @@ module.exports = class {
 
     options = {
       controllable: options.controllable || false,
-      modeHansControlElement: options.modeHansControlElement || '',
+      modeHandsControlElement: options.modeHandsControlElement || '',
       attr: options.attr || 'data-mode'
     }
 
@@ -165,7 +165,7 @@ module.exports = class {
      * Mode hands control
      */
     if (options.controllable) {
-      const $modeHansControl = $(options.modeHansControlElement)
+      const $modeHansControl = $(options.modeHandsControlElement)
       if ($modeHansControl.length) {
         mode = $modeHansControl.attr(options.attr)
         mode = supports.includes(mode) ? mode : 'default'

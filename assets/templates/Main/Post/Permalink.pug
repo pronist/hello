@@ -16,7 +16,7 @@ script.
     // Set Styled Heading
     h.setStyledHeading('.content__permalink', 'header > .img', H.skinOptions.articleMode, {
       controllable: true,
-      modeHansControlElement: '.content__permalink > .content div.h[data-mode]'
+      modeHandsControlElement: '.content__permalink .contents_style > div.h[data-mode]'
     })
     // Media contents alignment
     h.setAlignImageCenter({
@@ -25,10 +25,7 @@ script.
       imageGridBlock: true
     })
     // Add 'a' tag into headings
-    h.setAnchorHeadings(
-      '.content__permalink .content, .content__permalink .content > .tt_article_useless_p_margin',
-      '> h2, > h3, > h4'
-    )
+    h.setAnchorHeadings('.content__permalink .contents_style', '> h2, > h3, > h4')
     /*
      * Highlight.js
      */
