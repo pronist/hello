@@ -3,7 +3,8 @@
   bottom 40px !important
   text-align center
   z-index 9996 !important
-  left 250px !important
+  width 100%
+  left 0 !important
   background none !important
   transform none !important
   .inner_layer_tooltip
@@ -15,9 +16,6 @@
     padding 10px 15px !important
   p
     margin-right 15px
-  @media screen and (max-width: 1400px)
-    left 0 !important
-    width 100%
   @media screen and (max-width: 1200px)
     bottom unset !important
     top 60px
@@ -25,4 +23,5 @@
 @media screen and (min-width: 1400px)
   body[data-sidebar-default='true']
     .layer_tooltip
+      left 250px !important
       width 'calc(100% - %s)' % ($SIDEBAR_WIDTH) !important
