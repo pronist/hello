@@ -3,7 +3,6 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development tidory start",
     "preview": "cross-env NODE_ENV=development tidory preview",
-    "build": "cross-env NODE_ENV=build tidory build",
     "production": "cross-env NODE_ENV=production tidory production",
     "deploy": "tidory deploy",
     "store": "tidory store",
