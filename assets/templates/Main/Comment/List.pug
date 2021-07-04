@@ -11,13 +11,12 @@ mixin comment(type, isReplyable = true)
       a(href='#' onclick=`[##_${type}_rep_onclick_delete_##]`) 수정/삭제
       if isReplyable
         a(href='#' onclick=`[##_${type}_rep_onclick_reply_##]`) 댓글쓰기
-        s_not_var_re-comment
-          a.more(href='#') 댓글보기
+        a.more(href='#') 댓글보기
 
 mixin list(type, rType)
   #{`s_${type}_container`}
     div(class=`${type}-list content__list`)
-      ol(uk-accordion='<s_not_var_re-comment>multiple: true; toggle: .control > .more; content: > ol; animation: false; targets: > li[id^=comment]</s_not_var_re-comment>')
+      ol(uk-accordion='multiple: true; toggle: .control > .more; content: > ol; animation: false; targets: > li[id^=comment]')
         if process.env.NODE_ENV === 'development'
           li#ttMorePreviousCommentsFor5.tt_more_preview_comments_wrap.uk-open(onclick='getEntryCommentsByPaging(5); return false;' style='text-align:center;cursor:pointer')
             span.tt_more_preview_comments_text 이전 댓글 더보기
