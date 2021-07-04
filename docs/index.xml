@@ -281,6 +281,13 @@
         <default>true</default>
       </variable>
       <variable>
+        <name>re-comment</name>
+        <label>대댓글</label>
+        <description><![CDATA[ 대댓글 ]]></description>
+        <type>BOOL</type>
+        <default>true</default>
+      </variable>
+      <variable>
         <name>related</name>
         <label>카테고리의 다른 글</label>
         <description><![CDATA[ 카테고리의 다른 글 ]]></description>
