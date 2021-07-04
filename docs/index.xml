@@ -79,11 +79,6 @@
       <description>슬라이더 (스크린) 형태로 글을 보여줍니다.</description>
     </item>
     <item>
-      <name>slider-screen</name>
-      <label>슬라이더 (스크린)</label>
-      <description>슬라이더 (스크린) 형태로 글을 보여줍니다.</description>
-    </item>
-    <item>
       <name>zigzag</name>
       <label>지그재그</label>
       <description>지그재그 형태로 글을 보여줍니다.</description>

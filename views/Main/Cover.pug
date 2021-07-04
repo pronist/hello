@@ -1,15 +1,14 @@
 mixin coverItem()
   s_cover_item
     li.content__index
-      s_cover_item_article_info
-        block
+      block
 
 mixin coverImage()
   a.img(href='[##_cover_item_url_##]')
     s_cover_item_thumbnail
       img.thumbnail.lazyload(data-src='[##_cover_item_thumbnail_##]' data-sizes='auto' alt='[##_cover_item_title_##]')&attributes(attributes)
 
-mixin coverDescription(isFeatured=false)
+mixin coverDescriptionIfContent(isFeatured=false)
   .description&attributes(attributes)
     .category: a(href='[##_cover_item_category_url_##]') [##_cover_item_category_##]
     h1.title: a(href='[##_cover_item_url_##]') [##_cover_item_title_##]
@@ -18,6 +17,18 @@ mixin coverDescription(isFeatured=false)
       time.date
         | →
         span [##_cover_item_simple_date_##]
+
+mixin coverDescriptionIfNotContent(isFeatured=false)
+  .description&attributes(attributes)
+    h1.title: a(href='[##_cover_item_url_##]') [##_cover_item_title_##]
+    unless isFeatured
+      p.summary [##_cover_item_summary_##]
+
+mixin coverDescription(isFeatured=false)
+  s_cover_item_article_info
+    +coverDescriptionIfContent(isFeatured)&attributes(attributes)
+  s_cover_item_not_article_info
+    +coverDescriptionIfNotContent(isFeatured)&attributes(attributes)
 
 mixin slider(mode, isFullScreen=false)
   section.__slider.main__cover(data-mode=mode)
