@@ -2,8 +2,9 @@
   #sidebar__counter
     width 230px
     overflow hidden
+    display flex
+    justify-content space-between
     .cnt-item
-      float left
       font-size .8rem
       .title
         color alpha($THEME_COLOR_BLACK, .5)
@@ -15,10 +16,11 @@
         overflow hidden
         white-space nowrap
         text-overflow ellipsis
-    .uk-float-left
+    .total
       .cnt
-        max-width 70px
-    .uk-float-right
+        max-width 90px
+    .day
+      display flex
       .cnt-item
         &:first-child
           margin-right 10px
