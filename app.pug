@@ -9,6 +9,18 @@ html#__hELLO(lang='ko' data-theme='[##_var_theme_##]')
 
     link(rel='alternate' type='application/rss+xml' title='[##_title_##]' href='[##_rss_url_##]')
 
+    script(async src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js')
+
+    script(type='text/x-mathjax-config' scoped).
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+      })
+    script(async src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML')
+
+    script(defer src='//cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit.min.js')
+    script(defer src='//cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit-icons.min.js')
+    script(defer src='//kit.fontawesome.com/65f7e05682.js')
+
     link(rel='preconnect' href='https://ka-f.fontawesome.com')
     link(rel='preconnect' href='https://fonts.gstatic.com')
 
@@ -56,8 +68,3 @@ html#__hELLO(lang='ko' data-theme='[##_var_theme_##]')
 
   body(id='[##_body_id_##]' data-sidebar-default='<s_if_var_sidebar>true</s_if_var_sidebar><s_not_var_sidebar>false</s_not_var_sidebar>')
     block TIDORY
-
-    script(src='//kit.fontawesome.com/65f7e05682.js')
-    script(src='//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js')
-    script(src='//cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit.min.js')
-    script(src='//cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit-icons.min.js')
