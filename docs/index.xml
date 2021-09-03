@@ -2,7 +2,7 @@
 <skin>
    <information>
       <name>hELLO</name>
-      <version>3.4.4</version>
+      <version>3.4.5</version>
       <description>
          <![CDATA[ⓒ 2020-2021. SangWoo Jeong.]]>
       </description>
@@ -314,7 +314,7 @@
         <label>상호작용 메시지</label>
         <description><![CDATA[ 상호작용 메시지 ]]></description>
         <type>BOOL</type>
-        <default>false</default>
+        <default>true</default>
       </variable>
       <variable>
         <name>message-request</name>
