@@ -14,7 +14,9 @@ script.
       Subscribe: H.skinOptions.messageSubscribe,
       Url: H.skinOptions.messageUrl,
     }
-    h.setTooltipMessages(messages, $('.article.content__permalink').length > 0)
+    if (H.skinOptions.message) {
+      h.setTooltipMessages(messages, $('.article.content__permalink').length > 0)
+    }
   })
 
 script.

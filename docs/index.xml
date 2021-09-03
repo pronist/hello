@@ -310,6 +310,13 @@
     </variablegroup>
     <variablegroup name="상호작용 메시지">
       <variable>
+        <name>message</name>
+        <label>상호작용 메시지</label>
+        <description><![CDATA[ 상호작용 메시지 ]]></description>
+        <type>BOOL</type>
+        <default>false</default>
+      </variable>
+      <variable>
         <name>message-request</name>
         <label>공감요청</label>
         <description><![CDATA[ 공감요청 ]]></description>
