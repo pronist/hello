@@ -8,11 +8,8 @@ mixin permalink(pageType, type, hasCategory = true)
           include Permalink/Notification
 
 script.
-  /* Permalink */
+  /* Post */
   $(document).ready(() => {
-    /*
-     * Article
-     */
     // Set Styled Heading
     h.setStyledHeading('.content__permalink', 'header > .img', H.skinOptions.articleMode, {
       controllable: true,
@@ -26,28 +23,36 @@ script.
     })
     // Add 'a' tag into headings
     h.setAnchorHeadings('.content__permalink .contents_style', '> h2, > h3, > h4')
-    /*
-     * Highlight.js
-     */
-    // set Highlight.js Theme
+  })
+
+script.
+  /* Highlight.js */
+  $(document).ready(() => {
+    // Set Theme
     h.setHljsTheme(H.skinOptions.hljsThemeLight, H.skinOptions.hljsThemeDark)
-    // init Highlight.js
+    // Init
     hljs.initHighlighting()
-    /*
-     * Post Buttons (tistoryEtcLayer, tistorySnsLayer, Comment)
-     */
+  })
+
+script.
+  /* Buttons */
+  $(document).ready(() => {
     // Comment
     h.setCommentToggleButton('.permalink__comment')
-    // init TistoryLayer
+    // Init TistoryLayer
     h.initTistoryLayer('.content__permalink .permalink__btn')
-    /*
-     * Tag
-     */
+  })
+
+script.
+  /* Tag */
+  $(document).ready(() => {
     // Remove ',' text in Tags
     $('.permalink__tags').contents().filter(function () { return this.nodeType === 3 }).remove()
-    /*
-    * Scrollspy
-    */
-    // Set 'Scrollspy'
+  })
+
+script.
+  /* Scrollspy */
+  $(document).ready(() => {
+    // Set
     h.setScrollspy({ context: '.content__permalink .contents_style', spy: '#__spy ul', headings: '> h2, > h3' })
   })

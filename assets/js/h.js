@@ -154,14 +154,14 @@ module.exports = class {
 
     const supports = ['default', 'tape', 'screen']
 
-    /**
-    * Mode to 'default' if not exist thumbnail
-    */
+    /*
+     * Mode to 'default' if not exist thumbnail
+     */
     if ($container.find(img).length <= 0) {
       mode = 'default'
     }
 
-    /**
+    /*
      * Mode hands control
      */
     if (options.controllable) {
@@ -201,6 +201,7 @@ module.exports = class {
         setTimeout(() => $layerTooltip.fadeOut(500), 3000)
       })
     }
+
     $('.btn_menu_toolbar.btn_subscription').click(function () {
       const tooltip = $(this).hasClass('following') ? messages.Unsubscribe : messages.Subscribe
       $tooltip.text(tooltip)
