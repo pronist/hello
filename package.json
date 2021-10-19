@@ -12,7 +12,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tistory-project/hELLO"
+    "url": "https://github.com/pronist/hELLO"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",
@@ -28,10 +28,10 @@
     "pug-lint": "^2.6.0",
     "push-dir": "^0.4.1",
     "stylus": "^0.54.7",
-    "stylus-loader": "^3.0.2",
-    "tidory": "^8.0.2"
+    "stylus-loader": "^3.0.2"
   },
   "dependencies": {
-    "lazysizes": "^5.3.0"
+    "lazysizes": "^5.3.0",
+    "tidory": "^8.0.3"
   }
 }
