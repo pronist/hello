@@ -12,4 +12,18 @@
   * after import assets it will be contained in app.js
   */
 
-window.h = require('./js/h')
+const Layout = require('./js/layout')
+const List = require('./js/list')
+const Permalink = require('./js/permalink')
+const Sidebar = require('./js/Sidebar')
+const Theme = require('./js/theme')
+const TistoryLayer = require('./js/tistory-layer')
+
+window.h = {
+  Layout,
+  List,
+  Permalink,
+  Sidebar,
+  Theme,
+  TistoryLayer
+}

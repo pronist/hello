@@ -3,9 +3,11 @@ if process.env.NODE_ENV === 'development'
   include TistoryLayer/TistoryTooltipLayer
 
 script.
-  /* Tistory Layer Tooltip */
+  /*
+   * Tistory Layer
+   */
   $(document).ready(() => {
-    // Set 'Tistory Layer Tooltip'
+    //// Tooltip
     const messages = {
       Request: H.skinOptions.messageRequest,
       Unheart: H.skinOptions.messageUnheart,
@@ -15,13 +17,13 @@ script.
       Url: H.skinOptions.messageUrl,
     }
     if (H.skinOptions.message) {
-      h.setTooltipMessages(messages, $('.article.content__permalink').length > 0)
+      h.TistoryLayer.setTooltips(messages, $('.article.content__permalink').length)
     }
-  })
 
-script.
-  /* TistoryToolbar */
-  $(document).ready(() => {
-    // Init 'TistoryToolbar'
-    h.initTistoryToolbar('#sidebar__tistory', '#nav__s2')
+    //// TistoryTollbar
+
+    h.TistoryLayer.move({
+      tistory: '#sidebar__tistory',
+      subscription: '#nav__s2'
+    })
   })

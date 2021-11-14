@@ -12,7 +12,7 @@
         object-fit cover
         max-width none
         border-radius 0
-        height var(--h-gallery-item-height)
+        height 280px
       &:hover + .description
         transform translateY(0)
     .description
@@ -28,6 +28,8 @@
       transform translateY(100%)
       &:hover
         transform translateY(0)
+      .summary, .date
+        display none !important
       .category a
         font-size .82rem
         text-align center

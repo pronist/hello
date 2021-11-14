@@ -1,4 +1,4 @@
-mixin permalink(pageType, type, hasCategory = true)
+mixin permalink(pageType, type, hasCategory=true)
   #{`s_${pageType}_rep`}
     div(id=`__${pageType}`)
       include Permalink/Post
@@ -8,51 +8,60 @@ mixin permalink(pageType, type, hasCategory = true)
           include Permalink/Notification
 
 script.
-  /* Post */
+  /*
+   * Permalink
+   */
   $(document).ready(() => {
+    //// Layout
+
     // Set Styled Heading
-    h.setStyledHeading('.content__permalink', 'header > .img', H.skinOptions.articleMode, {
-      controllable: true,
-      modeHandsControlElement: '.content__permalink .contents_style > div.h[data-mode]'
-    })
+    h.Layout.setStyledHeading(
+      '.content__permalink',
+      'header > .img',
+      H.skinOptions.articleMode,
+      {
+        controllable: true,
+        modeHandsControlElement: '.content__permalink .contents_style > div.h[data-mode]'
+      }
+    )
+
+    ////
+
     // Media contents alignment
-    h.setAlignImageCenter({
+    h.Permalink.setAlignImageCenter({
       imageSlideBlock: true,
       imageBlock: true,
       imageGridBlock: true
     })
     // Add 'a' tag into headings
-    h.setAnchorHeadings('.content__permalink .contents_style', '> h2, > h3, > h4')
-  })
+    h.Permalink.setAnchorHeadings('.content__permalink .contents_style', '> h2, > h3, > h4')
 
-script.
-  /* Highlight.js */
-  $(document).ready(() => {
+    //// Highlight.js
+
     // Set Theme
-    h.setHljsTheme(H.skinOptions.hljsThemeLight, H.skinOptions.hljsThemeDark)
+    h.Theme.setHljsTheme(H.skinOptions.codeBlockLight, H.skinOptions.codeBlockDark)
     // Init
     hljs.initHighlighting()
-  })
 
-script.
-  /* Buttons */
-  $(document).ready(() => {
+    //// Buttons
+
     // Comment
-    h.setCommentToggleButton('.permalink__comment')
+    h.Permalink.setCommentToggleButton('.permalink__comment', H.skinOptions.comment)
     // Init TistoryLayer
-    h.initTistoryLayer('.content__permalink .permalink__btn')
-  })
+    h.Permalink.setButtons('.content__permalink .permalink__btn')
 
-script.
-  /* Tag */
-  $(document).ready(() => {
+    //// Tags
+
     // Remove ',' text in Tags
-    $('.permalink__tags').contents().filter(function () { return this.nodeType === 3 }).remove()
-  })
+    $('.permalink__tags').contents().filter(function () {
+      return this.nodeType === 3
+    }).remove()
 
-script.
-  /* Scrollspy */
-  $(document).ready(() => {
-    // Set
-    h.setScrollspy({ context: '.content__permalink .contents_style', spy: '#__spy ul', headings: '> h2, > h3' })
+    //// Scrollspy
+
+    h.Permalink.setScrollspy({
+      context: '.content__permalink .contents_style',
+      spy: '#__spy ul',
+      headings: '> h2, > h3'
+    })
   })

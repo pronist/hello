@@ -28,21 +28,33 @@ html#__hELLO(lang='ko' data-theme='[##_var_theme_##]')
     script(scoped).
       window.H = {}
       window.H.skinOptions = {
+        indexWidth: '[##_var_index-width_##]',
+        articleWidth: '[##_var_article-width_##]',
+        guestbookWidth: '[##_var_guestbook-width_##]',
+        tagCloudWidth: '[##_var_tagcloud-width_##]',
+        theme: '[##_var_theme_##]',
+        codeBlockLight: '[##_var_code-block-light_##]',
+        codeBlockDark: '[##_var_code-block-dark_##]',
+        noticeListMode: '[##_var_notice-image-mode_##]',
         listImageMode: '[##_var_list-image-mode_##]',
-        gridColumnCount: '[##_var_grid-column-count_##]',
-        galleryColumnCount: '[##_var_gallery-column-count_##]',
-        articleMode: '[##_var_article-mode_##]',
-        hljsThemeLight: '[##_var_hljs-theme-light_##]',
-        hljsThemeDark: '[##_var_hljs-theme-dark_##]',
+        articleImageMode: '[##_var_article-image-mode_##]',
+        switchTheme: '[##_var_switch-theme_##]',
+        toTop: '[##_var_to-top_##]',
+        sidebar: '[##_var_sidebar_##]',
+        category: '[##_var_category_##]',
+        paging: '[##_var_paging_##]',
+        scrollspy: '[##_var_scrollspy_##]',
+        author: '[##_var_author_##]',
         comment: '[##_var_comment_##]',
+        related: '[##_var_related_##]',
+        notify: '[##_var_notify_##]',
         message: '[##_var_message_##]',
         messageRequest: '[##_var_message-request_##]',
         messageHeart: '[##_var_message-heart_##]',
         messageUnheart: '[##_var_message-unheart_##]',
         messageSubscribe: '[##_var_message-subscribe_##]',
         messageUnsubscribe: '[##_var_message-unsubscribe_##]',
-        messageUrl: '[##_var_message-url_##]',
-        categoryFold: '[##_var_category-fold_##]'
+        messageUrl: '[##_var_message-url_##]'
       }
     script(scoped).
       $('html').attr('data-theme', localStorage.TTDARK
@@ -57,7 +69,6 @@ html#__hELLO(lang='ko' data-theme='[##_var_theme_##]')
           --h-index-width unquote('[##_var_index-width_##]' + 'px')
           --h-guestbook-width unquote('[##_var_guestbook-width_##]' + 'px')
           --h-tagcloud-width unquote('[##_var_tagcloud-width_##]' + 'px')
-          --h-gallery-item-height unquote('[##_var_gallery-item-height_##]' + 'px')
     style
       include:stylus @/styl/App.styl
       include:stylus @/styl/Theme/Dark/App.styl

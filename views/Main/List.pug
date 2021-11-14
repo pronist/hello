@@ -11,17 +11,17 @@ s_list
       +index('list')
 
 script.
-  /* List */
+  /*
+   * List
+   */
   $(document).ready(() => {
     // Set Styled Heading
-    h.setStyledHeading('.main__list', 'header > .img', H.skinOptions.listImageMode, {
+    h.Layout.setStyledHeading('.main__list', 'header > .img', H.skinOptions.listImageMode, {
       attr: 'data-image-mode'
     })
+
     // List Style - Grid, Gallery
-    h.setListCount('.__list.main__list > ul', {
-      grid: H.skinOptions.gridColumnCount,
-      gallery: H.skinOptions.galleryColumnCount
-    })
+    h.List.setStyle('.__list.main__list > ul', $('.__list.main__list').attr('data-mode'))
     // Set List Title
-    h.setListTitle('.__list > .list__header .title', T.config.BLOG.title)
+    h.List.setTitle('.__list > .list__header .title', T.config.BLOG.title)
   })

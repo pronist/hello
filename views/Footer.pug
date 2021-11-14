@@ -14,13 +14,15 @@ footer#__footer(class='uk-navbar-container uk-navbar-transparent' uk-navbar)
         i(class='fa fa-chevron-up')
 
 script.
-  /* Footer */
+  /*
+   * Footer
+   */
   $(document).ready(() => {
     // Switch skin theme
     $('#__theme-btn').click(() => {
       // set Skin Theme
-      h.switchSkinTheme()
+      h.Theme.switchSkinTheme()
       // Set highlight.js Theme
-      h.setHljsTheme(H.skinOptions.hljsThemeLight, H.skinOptions.hljsThemeDark)
+      h.Theme.setHljsTheme(H.skinOptions.hljsThemeLight, H.skinOptions.hljsThemeDark)
     })
   })
