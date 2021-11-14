@@ -55,5 +55,10 @@ module.exports = {
       },
       ...webpackConfig.module.rules
     ]
+
+    webpackConfig.entry = {
+      vendor: './assets/vendor.js',
+      ...webpackConfig.entry
+    }
   }
 }

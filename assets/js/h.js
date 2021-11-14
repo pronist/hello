@@ -1,5 +1,26 @@
 module.exports = class {
   /**
+   * Set Category Fold
+   */
+  static setCategoryFold () {
+    const $li = $('.tt_category .category_list > li')
+    const $subCategory = $li.find('.sub_category_list')
+
+    if ($subCategory.length) {
+      $subCategory.prev('.link_item').append('<i class="fas fa-chevron-down"></i>')
+      if (!H.skinOptions.categoryFold) {
+        $subCategory.parent().addClass('uk-open')
+      }
+    }
+
+    UIkit.accordion('.tt_category .category_list', {
+      content: '> .sub_category_list',
+      toggle: '> .link_item',
+      multiple: true
+    })
+  }
+
+  /**
    * Media contents alignment
    *
    * Options:

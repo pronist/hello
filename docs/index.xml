@@ -201,6 +201,13 @@
         <type>BOOL</type>
         <default>true</default>
       </variable>
+      <variable>
+        <name>category-fold</name>
+        <label>카테고리 접기</label>
+        <description><![CDATA[ 카테고리 접기 ]]></description>
+        <type>BOOL</type>
+        <default>true</default>
+      </variable>
     </variablegroup>
     <variablegroup name="홈 (인덱스)">
       <variable>

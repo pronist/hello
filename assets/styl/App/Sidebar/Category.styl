@@ -15,6 +15,22 @@
       .category_list
         li
           padding-top 12px
+          margin-top 0 !important
+          position relative
+          &.uk-open
+            .link_item
+              .fa-chevron-down
+                transform rotate(-0.5turn)
+          .link_item
+            padding-right 20px !important
+            display block
+            TextOverflowHidden()
+            .fa-chevron-down
+              transition-duration .2s
+              font-size .82rem
+              position absolute
+              right 0
+              line-height 1.8em
           .sub_category_list
             li
               &::before
