@@ -3,10 +3,9 @@
     .progress-bar
 
 script.
-  /*
-   * Scoll Indicator
-   */
+  /* Scoll Indicator */
   $(document).ready(() => {
-    // Set 'Scroll Indicator'
-    $(window).on('scroll', () => h.Layout.setScrollIndicator('#scroll-indicator .progress-bar'))
+    $(window).on('scroll', () => {
+      h.Layout.setScrollIndicator('#scroll-indicator .progress-bar')
+    })
   })

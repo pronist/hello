@@ -8,16 +8,17 @@ nav#__nav(class='uk-navbar-container uk-navbar-transparent'
   #nav__s2(class='uk-navbar-right')
 
 script.
-  /*
-   * Navigation
-   */
+  /* Navigation */
   $(document).ready(() => {
-    // Copy Post headings to '#nav__metainfo'
+    h.Sidebar.setToggleButton(
+      '#__nav > #nav__s1 > .profile',
+      '#__sidebar',
+      '#sidebar__mask',
+      250
+    )
+
     h.Layout.copyHeadingToNavigation(
       '.content__permalink > header > .heading > *:not(.metainfo)',
       '#__nav > #nav__metainfo'
     )
-
-    // Set 'Sidebar' Toogle
-    h.Sidebar.setToggleButton('#__nav > #nav__s1 > .profile', '#__sidebar', '#sidebar__mask', 250)
   })

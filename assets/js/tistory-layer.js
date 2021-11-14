@@ -45,7 +45,7 @@ module.exports = class {
    * @param {string} tistory
    * @param {string} subscription
    */
-  static move (options) {
+  static moveTo (options) {
     // Menu
     $('.menu_toolbar > #menubar_wrapper > .header_layer').appendTo(options.tistory)
 

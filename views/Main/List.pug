@@ -11,17 +11,12 @@ s_list
       +index('list')
 
 script.
-  /*
-   * List
-   */
+  /* List */
   $(document).ready(() => {
-    // Set Styled Heading
     h.Layout.setStyledHeading('.main__list', 'header > .img', H.skinOptions.listImageMode, {
       attr: 'data-image-mode'
     })
 
-    // List Style - Grid, Gallery
     h.List.setStyle('.__list.main__list > ul', $('.__list.main__list').attr('data-mode'))
-    // Set List Title
     h.List.setTitle('.__list > .list__header .title', T.config.BLOG.title)
   })

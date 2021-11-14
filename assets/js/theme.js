@@ -5,15 +5,19 @@ module.exports = class {
    * @param {string} light
    * @param {string} dark
    */
-  static setHljsTheme (light, dark) {
-    const hljsTheme = $('html').attr('data-theme') === 'light' ? light : dark
-    $('link#__hljs').attr('href', `//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/${hljsTheme}.min.css`)
+  static switchCodeBlock (light, dark) {
+    const theme = $('html').attr('data-theme') === 'light' ? light : dark
+
+    $('link#__hljs').attr(
+      'href',
+      `//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/${theme}.min.css`
+    )
   }
 
   /**
    * Switch Skin Theme 'Light' <-> 'Dark'
    */
-  static switchSkinTheme () {
+  static switch () {
     const TTDARK = $('html').attr('data-theme') === 'dark' ? 'Y' : 'N'
 
     localStorage.TTDARK = TTDARK === 'Y' ? 'N' : 'Y'

@@ -12,11 +12,8 @@ mixin notify(type, label, pos)
 +notify('prev', '이전 글', 'bottom-left')
 
 script.
-  /*
-   * Notification
-   */
+  /* Notification */
   $(document).ready(() => {
-    // Set timer for 'Notification'
     setTimeout(() => {
       h.Permalink.setNotification('#next', '.thumbnail', 'bottom-right', 15000)
       h.Permalink.setNotification('#prev', '.thumbnail', 'bottom-left', 15000)
