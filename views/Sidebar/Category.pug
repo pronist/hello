@@ -4,6 +4,8 @@ nav#sidebar__category
 script.
   /* Category */
   $(document).ready(() => {
-    // Set 'Category' Fold
-    h.setCategoryFold()
+    if (H.skinOptions.categoryFold) {
+      // Set 'Category' Fold
+      h.setCategoryFold()
+    }
   })
