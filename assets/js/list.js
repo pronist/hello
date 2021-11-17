@@ -12,18 +12,4 @@ module.exports = class {
         UIkit.grid(container)
     }
   }
-
-  /**
-   * set List Title
-   *
-   * @param {string} title
-   * @param {string} text
-   */
-  static title (title, text) {
-    const $title = $(title)
-
-    if ($title.text() === '전체 글') {
-      $title.text(text)
-    }
-  }
 }
