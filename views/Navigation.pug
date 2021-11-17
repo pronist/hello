@@ -12,7 +12,9 @@ script.
   $(document).ready(() => {
     const $heading = $('.content__permalink > header > .heading > *:not(.metainfo)')
 
-    $('#__nav > #nav__metainfo')
-      .empty()
-      .append($heading.clone())
+    if ($heading.length) {
+      $('#__nav > #nav__metainfo')
+        .empty()
+        .append($heading.clone())
+    }
   })
