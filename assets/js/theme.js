@@ -5,8 +5,8 @@ module.exports = class {
    * @param {string} light
    * @param {string} dark
    */
-  static switchCodeBlock (light, dark) {
-    const theme = $('html').attr('data-theme') === 'light' ? light : dark
+  highlightjs (light, dark) {
+    const theme = $('html').attr('data-theme') === 'dark' ? dark : light
 
     $('link#__hljs').attr(
       'href',
@@ -17,7 +17,7 @@ module.exports = class {
   /**
    * Switch Skin Theme 'Light' <-> 'Dark'
    */
-  static switch () {
+  switch () {
     const TTDARK = $('html').attr('data-theme') === 'dark' ? 'Y' : 'N'
 
     localStorage.TTDARK = TTDARK === 'Y' ? 'N' : 'Y'

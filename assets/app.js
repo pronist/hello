@@ -18,6 +18,7 @@ const Permalink = require('./js/permalink')
 const Sidebar = require('./js/Sidebar')
 const Theme = require('./js/theme')
 const TistoryLayer = require('./js/tistory-layer')
+const Utils = require('./js/utils')
 
 window.h = {
   Layout,
@@ -25,5 +26,6 @@ window.h = {
   Permalink,
   Sidebar,
   Theme,
-  TistoryLayer
+  TistoryLayer,
+  Utils
 }

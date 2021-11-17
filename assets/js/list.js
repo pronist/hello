@@ -4,13 +4,11 @@ module.exports = class {
    *
    * @param {string} container
    */
-  static setStyle (container, mode) {
-    const $container = $(container)
-
+  static style (container, mode) {
     switch (mode) {
       case 'gallery':
       case 'grid':
-        $container.attr('class', 'uk-child-width-1-2@s uk-child-width-1-3@m')
+        $(container).attr('class', 'uk-child-width-1-2@s uk-child-width-1-3@m')
         UIkit.grid(container)
     }
   }
@@ -21,8 +19,11 @@ module.exports = class {
    * @param {string} title
    * @param {string} text
    */
-  static setTitle (title, text) {
+  static title (title, text) {
     const $title = $(title)
-    $title.text() === '전체 글' ? $title.text(text) : $title.text()
+
+    if ($title.text() === '전체 글') {
+      $title.text(text)
+    }
   }
 }

@@ -2,9 +2,8 @@ extends app
 
 block TIDORY
   include @/templates/TistoryLayer
-  s_if_var_loader
-    include views/Loader
   s_t3
+    include views/Loader
     #__tidory
       include views/Sidebar
       include views/Navigation

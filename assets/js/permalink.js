@@ -10,7 +10,7 @@ module.exports = class {
    *
    * @param {object} options
    */
-  static setAlignImageCenter (options) {
+  static alignImageCenter (options) {
     const alignImage = function (width) {
       width = width > 1100 ? 1100 : width
       $(this).css({ width, 'max-width': 'none', 'margin-left': `calc((100% - ${width}px) / 2)` })
@@ -39,7 +39,7 @@ module.exports = class {
    * @param {string} container
    * @param {string} headings
    */
-  static setAnchorHeadings (container, headings) {
+  static anchorHeadings (container, headings) {
     $(container).find(headings).each(function () {
       const $heading = $(this)
       const anchor = encodeURIComponent($heading.text()).replace(/[0-9-_.!~*'()\s]/g, '-')
@@ -49,21 +49,6 @@ module.exports = class {
       $a.html(htmlContent)
       $heading.attr('id', anchor).empty().append($a)
     })
-  }
-
-  /**
-   * set Comment Toggle Button
-   *
-   * @param {string} comment
-   */
-  static setCommentToggleButton (comment, isShow) {
-    const $comment = $(comment)
-
-    if (isShow) {
-      $comment.attr({ 'aria-hidden': false })
-    } else {
-      $comment.attr({ 'aria-hidden': true, hidden: '' })
-    }
   }
 
   /**
@@ -77,7 +62,7 @@ module.exports = class {
    *
    * @param {object} options
    */
-  static setScrollspy (options) {
+  static scrollspy (options) {
     /**
      * Extract Headings from target
      *
@@ -111,7 +96,7 @@ module.exports = class {
    * @param {string} img
    * @param {number} timeout
    */
-  static setNotification (notify, img, pos, timeout) {
+  static notification (notify, img, pos, timeout) {
     const $notify = $(notify)
 
     if ($notify.length > 0) {
@@ -124,23 +109,5 @@ module.exports = class {
       UIkit.notification($notify.get(0).outerHTML, { pos, timeout })
       $notify.remove()
     }
-  }
-
-  /**
-   * init TistoryLayer
-   *
-   * @param {string} postButton
-   */
-  static setButtons (postButton) {
-    // Trigger 'click' event for TistoryEtcLayer Display
-    $('.container_postbtn .wrap_btn_etc > button').trigger('click')
-
-    // Trigger 'click' event for correct running share buttons
-    $('#tistorySnsLayer > .bundle_post > a').click(() => {
-      $('.container_postbtn .postbtn_like > .wrap_btn_share > button.btn_share').trigger('click')
-    })
-
-    // Move into
-    $('#tistoryEtcLayer, #tistorySnsLayer').appendTo(postButton)
   }
 }

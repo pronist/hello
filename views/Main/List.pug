@@ -8,15 +8,19 @@ s_list
       .heading
         h1.title [##_list_conform_##]
     ul
-      +index('list')
+      s_list_rep
+        +index('list')
 
 script.
   /* List */
   $(document).ready(() => {
-    h.Layout.setStyledHeading('.main__list', 'header > .img', H.skinOptions.listImageMode, {
+    h.List.style('.__list.main__list > ul', $('.__list.main__list').attr('data-mode'))
+    h.List.title('.__list > .list__header .title', T.config.BLOG.title)
+  })
+
+script.
+  $(document).ready(() => {
+    h.Layout.styledHeading('.main__list', 'header > .img', H.skinOptions.listImageMode, {
       attr: 'data-image-mode'
     })
-
-    h.List.setStyle('.__list.main__list > ul', $('.__list.main__list').attr('data-mode'))
-    h.List.setTitle('.__list > .list__header .title', T.config.BLOG.title)
   })

@@ -1,5 +1,8 @@
 footer#__footer(class='uk-navbar-container uk-navbar-transparent' uk-navbar)
   div(class='uk-navbar-left')
+    //
+      이 부분은 스킨 제작자의 웹페이지로 이동됩니다.
+      hELLO 스킨은 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍니다. :)
     a#__designed-by(href='https://pronist.tistory.com/5' target='_blank' rel='noreferrer')
       | hELLO. 티스토리 스킨을 소개합니다.
       i(class='fa fa-code')
@@ -18,6 +21,6 @@ script.
   $(document).ready(() => {
     $('#__theme-btn').click(() => {
       h.Theme.switch()
-      h.Theme.switchCodeBlock(H.skinOptions.codeBlockLight, H.skinOptions.codeBlockDark)
+      h.Theme.highlightjs(H.skinOptions.codeBlockLight, H.skinOptions.codeBlockDark)
     })
   })

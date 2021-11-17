@@ -1,4 +1,6 @@
 s_article_rep
-  +permalink('permalink_article', 'article')
-  +permalink('page', 'article', false)
+  s_permalink_article_rep
+    +permalink('permalink_article', 'article')
+  s_page_rep
+    +permalink('page', 'article', false)
   include Post/Protected

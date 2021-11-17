@@ -1,28 +1,10 @@
 module.exports = class {
   /**
-   * Copy heading in 'POST' to navigation
-   *
-   * @param {string} header
-   * @param {string} metainfo
-   */
-  static copyHeadingToNavigation (header, metainfo) {
-    // Copy metainfo to 'Navigation' header
-    const $h = $(header)
-    const $metainfo = $(metainfo)
-
-    // Only for permalink
-    if ($h.length) {
-      $metainfo.empty()
-      $h.each((_, $h) => $metainfo.append($($h).clone()))
-    }
-  }
-
-  /**
    * Set scroll indicator
    *
    * @param {string} indicator
    */
-  static setScrollIndicator (indicator) {
+  static scrollIndicator (indicator) {
     const winScroll = $(window).scrollTop()
     const height = $(document).outerHeight() - $(window).height()
 
@@ -37,7 +19,7 @@ module.exports = class {
    * @param {string} mode
    * @param {object} options
    */
-  static setStyledHeading (container, img, mode, options = {}) {
+  static styledHeading (container, img, mode, options = {}) {
     const $container = $(container)
 
     options = {
@@ -60,6 +42,7 @@ module.exports = class {
      */
     if (options.controllable) {
       const $modeHansControl = $(options.modeHandsControlElement)
+
       if ($modeHansControl.length) {
         mode = $modeHansControl.attr(options.attr)
         mode = supports.includes(mode) ? mode : 'default'

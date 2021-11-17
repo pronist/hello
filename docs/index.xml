@@ -2,7 +2,7 @@
 <skin>
    <information>
       <name>hELLO</name>
-      <version>3.5.0</version>
+      <version>3.5.1</version>
       <description>
          <![CDATA[ⓒ 2020-2021. SangWoo Jeong.]]>
       </description>
@@ -88,8 +88,8 @@
     <variablegroup name='컨텐츠 너비'>
       <variable>
         <name>index-width</name>
-        <label>리스트</label>
-        <description><![CDATA[ 리스트 ]]></description>
+        <label>홈/글 목록</label>
+        <description><![CDATA[ 글 목록 ]]></description>
         <type>STRING</type>
         <default>1100</default>
       </variable>
@@ -146,24 +146,8 @@
     </variablegroup>
     <variablegroup name="모드">
       <variable>
-        <name>notice-list-mode</name>
-        <label>공지사항 목록</label>
-        <description><![CDATA[ 공지사항 글 목록 모드 ]]></description>
-        <type>SELECT</type>
-        <option><![CDATA[
-          [
-            { "name": "default", "label": "리스트 (오리지널)", "value": "default" },
-            { "name": "list", "label": "리스트", "value": "list" },
-            { "name": "grid", "label": "그리드", "value": "grid" },
-            { "name": "gallery", "label": "갤러리", "value": "gallery" },
-            { "name": "zigzag", "label": "지그재그", "value": "zigzag" }
-          ]
-        ]]></option>
-        <default>default</default>
-      </variable>
-      <variable>
         <name>list-image-mode</name>
-        <label>리스트 이미지</label>
+        <label>글 목록 이미지</label>
         <description><![CDATA[ 카테고리, 태그 등에서 보여줄 글 목록 이미지 모드 ]]></description>
         <type>SELECT</type>
         <option><![CDATA[
@@ -177,14 +161,30 @@
       </variable>
       <variable>
         <name>article-image-mode</name>
-        <label>글 이미지</label>
-        <description><![CDATA[ 글, 페이지, 공지사항 글 읽기 모드 ]]></description>
+        <label>글 읽기</label>
+        <description><![CDATA[ 글, 페이지, 공지사항 글 읽기 이미지 모드 ]]></description>
         <type>SELECT</type>
         <option><![CDATA[
           [
             { "name": "default", "label": "기본", "value": "default" },
             { "name": "tape", "label": "테이프", "value": "tape" },
             { "name": "screen", "label": "스크린", "value": "screen" }
+          ]
+        ]]></option>
+        <default>default</default>
+      </variable>
+      <variable>
+        <name>notice-list-mode</name>
+        <label>공지사항 글 목록</label>
+        <description><![CDATA[ 공지사항 글 목록 모드 ]]></description>
+        <type>SELECT</type>
+        <option><![CDATA[
+          [
+            { "name": "default", "label": "리스트 (오리지널)", "value": "default" },
+            { "name": "list", "label": "리스트", "value": "list" },
+            { "name": "grid", "label": "그리드", "value": "grid" },
+            { "name": "gallery", "label": "갤러리", "value": "gallery" },
+            { "name": "zigzag", "label": "지그재그", "value": "zigzag" }
           ]
         ]]></option>
         <default>default</default>
@@ -215,7 +215,7 @@
         <default>true</default>
       </variable>
       <variable>
-        <name>category</name>
+        <name>foldable-category</name>
         <label>카테고리 접기/펼치기</label>
         <description><![CDATA[ 카테고리 접기/펼치기 ]]></description>
         <type>BOOL</type>
@@ -223,13 +223,6 @@
       </variable>
     </variablegroup>
     <variablegroup name="글">
-      <variable>
-        <name>paging</name>
-        <label>페이징</label>
-        <description><![CDATA[ 페이징 ]]></description>
-        <type>BOOL</type>
-        <default>true</default>
-      </variable>
       <variable>
         <name>scrollspy</name>
         <label>TOC(Table Of Contents)</label>
@@ -241,13 +234,6 @@
         <name>author</name>
         <label>작성자</label>
         <description><![CDATA[ 글 하단 작성자 ]]></description>
-        <type>BOOL</type>
-        <default>true</default>
-      </variable>
-      <variable>
-        <name>comment</name>
-        <label>댓글</label>
-        <description><![CDATA[ 댓글 ]]></description>
         <type>BOOL</type>
         <default>true</default>
       </variable>

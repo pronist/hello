@@ -1,7 +1,4 @@
 .permalink__btn
-  button.permalink__comment-btn(uk-toggle='.permalink__comment')
-    i(class='fas fa-comment')
-    | 댓글
   if process.env.NODE_ENV === 'development'
     button(type='button' class='btn_mark' role='report') 신고하기
 

@@ -2,7 +2,7 @@ nav#__nav(class='uk-navbar-container uk-navbar-transparent'
   uk-sticky='top: 280; animation: uk-animation-slide-top; cls-active: sticky; cls-inactive: uk-navbar-transparent;'
   uk-navbar)
   #nav__s1(class='uk-navbar-left')
-    img.profile.lazyload(data-src='[##_image_##]' data-sizes='auto' alt='[##_blogger_##]' width='40' height='40')
+    img.profile.lazyload(data-src='[##_image_##]' data-sizes='auto' alt='[##_blogger_##]' width='40' height='40' uk-toggle="target: #__sidebar")
   #nav__metainfo(class='uk-navbar-center')
     h1.title [##_title_##]
   #nav__s2(class='uk-navbar-right')
@@ -10,15 +10,9 @@ nav#__nav(class='uk-navbar-container uk-navbar-transparent'
 script.
   /* Navigation */
   $(document).ready(() => {
-    h.Sidebar.setToggleButton(
-      '#__nav > #nav__s1 > .profile',
-      '#__sidebar',
-      '#sidebar__mask',
-      250
-    )
+    const $heading = $('.content__permalink > header > .heading > *:not(.metainfo)')
 
-    h.Layout.copyHeadingToNavigation(
-      '.content__permalink > header > .heading > *:not(.metainfo)',
-      '#__nav > #nav__metainfo'
-    )
+    $('#__nav > #nav__metainfo')
+      .empty()
+      .append($heading.clone())
   })

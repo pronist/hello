@@ -1,11 +1,12 @@
 html[data-theme='dark']
   #__sidebar
-    background-color $THEME_BACKGROUND_COLOR_LEVEL2
-    #sidebar__shadow
-      h2
-        color $THEME_COLOR_WHITE
-      ul li
-        *
-          color alpha($THEME_COLOR_WHITE, .8) !important
-        a:hover
-          color $THEME_COLOR_WHITE !important
+    .uk-offcanvas-bar
+      background-color $THEME_BACKGROUND_COLOR_LEVEL2
+      .__
+        h2
+          color $THEME_COLOR_WHITE
+        ul li
+          *
+            color alpha($THEME_COLOR_WHITE, .8) !important
+          a:hover
+            color $THEME_COLOR_WHITE !important

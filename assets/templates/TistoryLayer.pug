@@ -15,13 +15,14 @@ script.
     }
 
     if (H.skinOptions.message) {
-      h.TistoryLayer.setTooltips(messages, $('.article.content__permalink').length)
+      h.TistoryLayer.tooltip(messages, $('.article.content__permalink').length)
     }
   })
+
 script.
   /* TistoryToolbar */
   $(document).ready(() => {
-    h.TistoryLayer.moveTo({
+    h.TistoryLayer.toolbar({
       tistory: '#sidebar__tistory',
       subscription: '#nav__s2'
     })
