@@ -31,7 +31,10 @@
     "stylus-loader": "^3.0.2"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "highlight.js": "^11.3.1",
     "lazysizes": "^5.3.0",
-    "tidory": "^8.0.4"
+    "tidory": "^8.0.4",
+    "uikit": "^3.9.2"
   }
 }
