@@ -1,5 +1,17 @@
 module.exports = class {
   /**
+   * Sticky
+   */
+  static sticky (nav, context) {
+    const contextOffsetTop = $(context).offset().top
+    const $nav = $(nav)
+
+    return () => window.pageYOffset >= contextOffsetTop
+      ? $nav.addClass('sticky')
+      : $nav.removeClass('sticky')
+  }
+
+  /**
    * Set scroll indicator
    *
    * @param {string} indicator

@@ -8,10 +8,14 @@
   height 59px
   position absolute
   background none
-  top 0
+  top -59px
+  transition-duration .2s
   &.sticky
+    position fixed
+    top 0
     background-color alpha($THEME_COLOR_WHITE, .8)
     backdrop-filter blur(2px)
+    z-index 2
   @media screen and (max-width: 1260px)
     padding 0 15px
     height 54px
@@ -20,5 +24,5 @@
   body[data-sidebar-default='1']
     #__nav
       width 'calc(100% - %s)' % ($SIDEBAR_WIDTH) !important
-      #nav__s1
+      .left
         display none !important

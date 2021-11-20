@@ -31,9 +31,14 @@ script.
 
 script.
   $(document).ready(() => {
-    // Set Styled Heading
+    // Set styled heading
     h.Layout.styledHeading('.content__permalink','header > .img', H.skinOptions.articleMode, {
       controllable: true,
       modeHandsControlElement: '.content__permalink .contents_style > div.h[data-mode]'
     })
+    // Sticky nav
+    window.addEventListener(
+      'scroll',
+      h.Layout.sticky('#__nav', '.content__permalink .contents_style')
+    )
   })
