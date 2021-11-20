@@ -3,7 +3,7 @@ mixin permalink(pageType, type, hasCategory=true)
     include Permalink/Post
     if hasCategory
       include Permalink/Comment
-      //- s_if_var_notify
+      s_if_var_notify
         include Permalink/Notification
 
 script.

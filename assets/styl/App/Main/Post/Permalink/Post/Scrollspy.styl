@@ -9,15 +9,17 @@ $HEIGHT = 620px
   font-weight 400
   z-index 0
   display block
+  height 100%
   // (MAX_WIDTH + ARTICLE_WIDTH / 2) + MARGIN_LEFT
   margin-left 'calc(((1100px + %s) / 2) + 50px) !important' % var(--h-article-width)
   top 0
-  #spy__shadow
+  .__
+    position sticky
     top 80px
     max-height $HEIGHT
     overflow hidden
     width $WIDTH
-    height inherit
+    height 100%
     ul
       overflow-x hidden
       overflow-y scroll
