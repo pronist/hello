@@ -1,6 +1,12 @@
 nav#__nav(class='uk-navbar-container uk-navbar-transparent' uk-navbar)
   .left(class='uk-navbar-left')
-    img.profile.lazyload(data-src='[##_image_##]' data-sizes='auto' alt='[##_blogger_##]' width='40' height='40' uk-toggle='target: #__sidebar')
+    img.profile.lazyload(
+      data-src='[##_image_##]'
+      data-sizes='auto'
+      alt='[##_blogger_##]'
+      width='40'
+      height='40'
+      uk-toggle='target: #__sidebar; cls: opened')
   .center(class='uk-navbar-center')
     h1.title [##_title_##]
   .right(class='uk-navbar-right')
