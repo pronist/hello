@@ -5,7 +5,7 @@ module.exports = class {
    * @param {string} light
    * @param {string} dark
    */
-  static highlightjs (light, dark) {
+  static hljs (light, dark) {
     const theme = $('html').attr('data-theme') === 'dark' ? dark : light
 
     $('link#__hljs').attr(

@@ -3,7 +3,7 @@ mixin permalink(pageType, type, hasCategory=true)
     include Permalink/Post
     if hasCategory
       include Permalink/Comment
-      s_if_var_notify
+      //- s_if_var_notify
         include Permalink/Notification
 
 script.
@@ -24,7 +24,7 @@ script.
       imageGridBlock: true
     })
     // Highlight.js
-    h.Theme.highlightjs(H.skinOptions.codeBlockLight, H.skinOptions.codeBlockDark)
+    h.Theme.hljs(H.skinOptions.codeBlockLight, H.skinOptions.codeBlockDark)
     // Remove ',' text in Tags
     h.Utils.removeTextNode('.permalink__tags')
   })

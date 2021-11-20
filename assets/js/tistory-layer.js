@@ -41,22 +41,4 @@ module.exports = class {
       $tooltip.text(messages.Url)
     })
   }
-
-  /**
-   * Tistory Toolbar Layer
-   *
-   * @param {string} tistory
-   * @param {string} subscription
-   */
-  static toolbar (options) {
-    // Subscription
-    $('.menu_toolbar > div[class=btn_tool]').appendTo(options.subscription)
-
-    $(options.subscription)
-      .find('div[class=btn_tool] > .btn_menu_toolbar.btn_subscription')
-      .append('<i class="fa fa-star"></i>')
-
-    // Tistory
-    $('.menu_toolbar > #menubar_wrapper > .header_layer').appendTo(options.tistory)
-  }
 }

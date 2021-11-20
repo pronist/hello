@@ -22,8 +22,8 @@ script.
 script.
   /* TistoryToolbar */
   $(document).ready(() => {
-    h.TistoryLayer.toolbar({
-      tistory: '#sidebar__tistory',
-      subscription: '#nav__s2'
-    })
+    // Subscription
+    $('.menu_toolbar > div[class=btn_tool]').appendTo('#nav__s2')
+    // Tistory
+    $('.menu_toolbar > #menubar_wrapper > .header_layer').appendTo('#sidebar__tistory')
   })
