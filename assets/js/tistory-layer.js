@@ -59,22 +59,4 @@ module.exports = class {
     // Tistory
     $('.menu_toolbar > #menubar_wrapper > .header_layer').appendTo(options.tistory)
   }
-
-  /**
-   * Tistory Layers
-   *
-   * @param {string} postButton
-   */
-  static postButtons (postButton) {
-    // Trigger 'click' event for TistoryEtcLayer Display
-    $('.container_postbtn .wrap_btn_etc > button').trigger('click')
-
-    // Trigger 'click' event for correct running share buttons
-    $('#tistorySnsLayer > .bundle_post > a').click(() => {
-      $('.container_postbtn .postbtn_like > .wrap_btn_share > button.btn_share').trigger('click')
-    })
-
-    // Move into
-    $('#tistoryEtcLayer, #tistorySnsLayer').appendTo(postButton)
-  }
 }

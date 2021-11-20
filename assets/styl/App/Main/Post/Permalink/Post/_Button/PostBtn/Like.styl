@@ -1,21 +1,50 @@
 .content__permalink
   .container_postbtn
-    .wrap_btn[id^=reaction-]
-      color $THEME_COLOR_WHITE !important
-      display inline-block
-      border none
-      .btn_post.uoc-icon
-        button(60px, 35px, 5px, unset, $THEME_COLOR_RED , $THEME_COLOR_WHITE)
-        > .uoc-icon
-            > .ico_like
-              display none
-      .uoc-count
-        font-size .8rem
-        font-weight 600
+    .postbtn_like
+      .wrap_btn
         color $THEME_COLOR_WHITE !important
-        line-height unset !important
-        &::before
-          font-weight 600
-          margin-right 5px
-          FontAwesome('\f004')
-          font-size $BUTTON_FONT-SIZE
+        display inline-block
+        border none
+        &:not([id^=reaction-])
+          button
+            color alpha($THEME_COLOR_BLACK, .9) !important
+            button($SIZE, $SIZE, 5px, $SIZE - 2, $THEME_COLOR_WHITE, alpha($THEME_COLOR_BLACK, .9))
+        button, button[data-entry-id], .uoc-count
+          &::before
+            font-weight 600
+            FontAwesome()
+            font-size $BUTTON_FONT-SIZE
+        &.wrap_btn_share, &.wrap_btn_etc
+          .btn_post
+            > *
+              display none
+        &[id^=reaction-]
+          button
+            button(60px, 35px, 5px, unset, $THEME_COLOR_RED , $THEME_COLOR_WHITE)
+            > .uoc-icon
+                > .ico_like
+                  display none
+            .uoc-count
+              font-size .8rem
+              font-weight 600
+              color $THEME_COLOR_WHITE !important
+              line-height unset !important
+              &::before
+                margin-right 5px
+                content '\f004'
+        &.wrap_btn_share
+          .btn_share
+            &::before
+              content '\f1e0'
+        button[data-entry-id]
+          &::before
+            content '\f200'
+          .ico_statistics
+            display none
+        &.wrap_btn_etc
+          .btn_etc1
+            &::before
+              content '\f0ad'
+          .btn_etc2
+            &::before
+              content '\f141'
