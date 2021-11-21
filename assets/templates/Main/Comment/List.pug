@@ -15,7 +15,7 @@ mixin comment(type, isReplyable=true)
 
 mixin list(type, rType)
   #{`s_${type}_container`}
-    div(class=`${type}-list content__list`)
+    div(class=`${type}-list comments`)
       ol(uk-accordion='multiple: true; toggle: .control > .more; content: > ol; animation: false; targets: > li[id^=comment]')
         if process.env.NODE_ENV === 'development'
           li#ttMorePreviousCommentsFor5.tt_more_preview_comments_wrap.uk-open(onclick='getEntryCommentsByPaging(5); return false;' style='text-align:center;cursor:pointer')

@@ -1,5 +1,5 @@
 mixin permalink(pageType, type, hasCategory=true)
-  div(id=`__${pageType}`)
+  div(id=pageType)
     include Permalink/Post
     if hasCategory
       include Permalink/Comment
@@ -10,10 +10,10 @@ script.
   /* Permalink */
   $(document).ready(() => {
     // Add 'a' tag into headings
-    h.Permalink.anchorHeadings('.content__permalink .contents_style', '> h2, > h3, > h4')
+    h.Permalink.anchorHeadings('.permalink .contents_style', '> h2, > h3, > h4')
     // Scrollspy
     h.Permalink.scrollspy({
-      context: '.content__permalink .contents_style',
+      context: '.permalink .contents_style',
       spy: '#__spy ul',
       headings: '> h2, > h3'
     })
@@ -26,19 +26,19 @@ script.
     // Highlight.js
     h.Theme.hljs(H.skinOptions.codeBlockLight, H.skinOptions.codeBlockDark)
     // Remove ',' text in Tags
-    h.Utils.removeTextNode('.permalink__tags')
+    h.Utils.removeTextNode('.permalink .tags')
   })
 
 script.
   $(document).ready(() => {
     // Set styled heading
-    h.Layout.styledHeading('.content__permalink','header > .img', H.skinOptions.articleMode, {
+    h.Layout.styledHeading('.permalink','header > .img', H.skinOptions.articleMode, {
       controllable: true,
-      modeHandsControlElement: '.content__permalink .contents_style > div.h[data-mode]'
+      modeHandsControlElement: '.permalink .contents_style > div.h[data-mode]'
     })
     // Sticky nav
     window.addEventListener(
       'scroll',
-      h.Layout.sticky('#__nav', '.content__permalink .contents_style')
+      h.Layout.sticky('#__nav', '.permalink .contents_style')
     )
   })

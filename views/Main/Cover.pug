@@ -1,6 +1,6 @@
 mixin coverItem()
   s_cover_item
-    li.content__index
+    li.item
       block
 
 mixin coverImage()
@@ -11,7 +11,7 @@ mixin coverImage()
 mixin coverDescriptionIfContent(isFeatured=false)
   .description&attributes(attributes)
     .category: a(href='[##_cover_item_category_url_##]') [##_cover_item_category_##]
-    h1.title: a(href='[##_cover_item_url_##]') [##_cover_item_title_##]
+    h2.title: a(href='[##_cover_item_url_##]') [##_cover_item_title_##]
     unless isFeatured
       p.summary [##_cover_item_summary_##]
       time.date
@@ -20,7 +20,7 @@ mixin coverDescriptionIfContent(isFeatured=false)
 
 mixin coverDescriptionIfNotContent(isFeatured=false)
   .description&attributes(attributes)
-    h1.title: a(href='[##_cover_item_url_##]') [##_cover_item_title_##]
+    h2.title: a(href='[##_cover_item_url_##]') [##_cover_item_title_##]
     unless isFeatured
       p.summary [##_cover_item_summary_##]
 
@@ -31,8 +31,8 @@ mixin coverDescription(isFeatured=false)
     +coverDescriptionIfNotContent(isFeatured)&attributes(attributes)
 
 mixin slider(mode, isFullScreen=false)
-  section.__slider.main__cover(data-mode=mode)
-    h1.cover__title [##_cover_title_##]
+  section.slider.cover(data-mode=mode)
+    h1 [##_cover_title_##]
     div(class='uk-position-relative uk-visible-toggle uk-light'
       tabindex='-1'
       uk-slider='finite: true; autoplay: true'
@@ -52,16 +52,16 @@ mixin cover(mode, isFeatured=false)
     when 'grid'
     when 'gallery'
     when 'zigzag'
-      section.__list.main__cover(data-mode=mode)
-        h1.cover__title [##_cover_title_##]
+      section.list.cover(data-mode=mode)
+        h1 [##_cover_title_##]
         ul&attributes(attributes)
           +coverItem()
             +coverImage()
             +coverDescription(isFeatured)
     when 'slideshow'
     when 'slideshow-screen'
-      section.__slide.main__cover(data-mode=mode class='uk-position-relative uk-visible-toggle uk-light' tabindex='-1')&attributes(attributes)
-        h1.cover__title [##_cover_title_##]
+      section.slide.cover(data-mode=mode class='uk-position-relative uk-visible-toggle uk-light' tabindex='-1')&attributes(attributes)
+        h1 [##_cover_title_##]
         ul(class='uk-slideshow-items')
           +coverItem()
             +coverImage()(uk-cover)

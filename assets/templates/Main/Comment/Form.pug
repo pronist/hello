@@ -1,5 +1,5 @@
 mixin formGuestControl(type)
-  .form__guest
+  .guest
     .name
       label(for='name') 이름
       input#name(type='text' name=`[##_${type}_input_name_##]` value='[##_guest_name_##]')
@@ -9,20 +9,20 @@ mixin formGuestControl(type)
 
 mixin form(type)
   #{`s_${type}_input_form`}
-    div(class=`${type}-form content__form`)
-      .form__shadow
+    div(class=`${type}-form form`)
+      .__
         label(for='comment') 댓글
         textarea#comment(name=`${type === 'guest' ? '[##_guest_textarea_body_##]' : '[##_rp_input_comment_##]'}`)
         div(class=`${type}-form-control form-control`)
           if process.env.NODE_ENV === 'development'
-            .form__control__inner
+            .inputs
               +formGuestControl(type)
           else
             #{`s_${type}_member`}
-              .form__control__inner
+              .inputs
                 #{type === 'guest' ? 's_guest_form' : 's_rp_guest'}
                   +formGuestControl(type)
-          .form__submit
+          .submit
             input#secret(type='checkbox' name=`[##_${type}_input_is_secret_##]`)
             label#secret-label(for='secret')
             a(href='#' onclick=`[##_${type}_onclick_submit_##]`) 댓글쓰기

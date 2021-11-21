@@ -1,6 +1,6 @@
 mixin notify(type, label, pos)
   #{`s_article_${type}`}
-    a.permalink__notify(href=`[##_article_${type}_link_##]` class='uk-box-shadow-medium' id=type)
+    a.notify(href=`[##_article_${type}_link_##]` class='uk-box-shadow-medium' id=type)
       #{`s_article_${type}_thumbnail`}
         img.thumbnail.lazyload(src=`[##_article_${type}_thumbnail_link_##]` alt=`[##_article_${type}_title_##]`)
         //- img(src='https://t1.daumcdn.net/tistory_admin/static/mobile/m640/img_relation.png')

@@ -1,7 +1,7 @@
-.content__permalink[data-mode='tape'],
-.content__permalink[data-mode='screen'],
-.main__list[data-image-mode='tape'],
-.main__list[data-image-mode='screen']
+.permalink[data-mode='tape'],
+.permalink[data-mode='screen'],
+.list[data-image-mode='tape'],
+.list[data-image-mode='screen']
   margin-top 0 !important
   padding-top 0 !important
   header
@@ -30,10 +30,10 @@
 
 @media screen and (min-width: 1400px)
   body[data-sidebar-default='1']
-    .content__permalink[data-mode='tape'],
-    .content__permalink[data-mode='screen'],
-    .main__list[data-image-mode='tape'],
-    .main__list[data-image-mode='screen']
+    .permalink[data-mode='tape'],
+    .permalink[data-mode='screen'],
+    .list[data-image-mode='tape'],
+    .list[data-image-mode='screen']
       header
         .thumbnail, .mask
           width 'calc(100% - %s)' % ($SIDEBAR_WIDTH) !important

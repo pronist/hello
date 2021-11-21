@@ -2,13 +2,13 @@ module.exports = class {
   /**
    * Sticky
    */
-  static sticky (nav, context) {
+  static sticky (target, context) {
     const contextOffsetTop = $(context).offset().top
-    const $nav = $(nav)
+    const $target = $(target)
 
     return () => window.pageYOffset >= contextOffsetTop
-      ? $nav.addClass('sticky')
-      : $nav.removeClass('sticky')
+      ? $target.addClass('sticky')
+      : $target.removeClass('sticky')
   }
 
   /**

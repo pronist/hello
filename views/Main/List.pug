@@ -1,6 +1,6 @@
 s_list
-  section.__list.main__list(data-mode='[##_list_style_##]' data-image-mode='[##_var_list-image-mode_##]')
-    header.list__header
+  section.list(data-mode='[##_list_style_##]' data-image-mode='[##_var_list-image-mode_##]')
+    header
       s_list_image
         .img
           .mask
@@ -14,19 +14,19 @@ s_list
 script.
   /* List */
   $(document).ready(() => {
-    const $title = $('.__list > .list__header .title')
+    const $title = $('.list > header .title')
 
     $title.text($title.text() === '전체 글'
       ? T.config.BLOG.title
       : $title.text()
     )
 
-    h.List.style('.__list.main__list > ul', $('.__list.main__list').attr('data-mode'))
+    h.List.style('.list > ul', $('.list').attr('data-mode'))
   })
 
 script.
   $(document).ready(() => {
-    h.Layout.styledHeading('.main__list', 'header > .img', H.skinOptions.listImageMode, {
+    h.Layout.styledHeading('.list', 'header > .img', H.skinOptions.listImageMode, {
       attr: 'data-image-mode'
     })
   })

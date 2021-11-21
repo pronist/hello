@@ -1,12 +1,11 @@
 s_notice_rep
   #__notice
     s_index_article_rep
-      section.__list.main__list(data-mode='[##_var_notice-list-mode_##]')
-        header.list__header
+      section.list(data-mode='[##_var_notice-list-mode_##]')
+        header
           .heading
             h1.title 공지사항
         ul
-          s_index_article_rep
-            +index('notice', false)
+          +index('notice', false)
     s_permalink_article_rep
       +permalink('permalink_article', 'notice', false)

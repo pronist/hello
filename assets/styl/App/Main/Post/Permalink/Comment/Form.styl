@@ -1,11 +1,11 @@
 #tt-body-page
-  .content__form .form__shadow textarea
+  .form .__ textarea
     width var(--h-article-width)
 #tt-body-guestbook
-  .content__form .form__shadow textarea
+  .form .__ textarea
     width var(--h-guestbook-width)
 
-.content__form
+.form
   background-color $THEME_BACKGROUND_COLOR_LEVEL1
   overflow hidden
   margin-top 35px
@@ -14,7 +14,7 @@
   height 200px
   padding 20px
   position relative
-  .form__shadow
+  .__
     box-sizing border-box
     > label
       overflow: hidden
@@ -37,7 +37,7 @@
   @media screen and (max-width: 1200px)
     height 160px
     width 100%
-    .form__shadow
+    .__
       > textarea
         width 100vw !important
         height 65px
@@ -47,8 +47,8 @@
     display flex
     input[type=checkbox]
       display none
-    .form__control__inner
-      .form__guest
+    .inputs
+      .guest
         position absolute
         left 20px
         bottom 18px
@@ -62,7 +62,7 @@
         label
           font-size .8rem
           margin-right 5px
-    .form__submit
+    .submit
       position absolute
       right 20px
       bottom 10px
@@ -86,8 +86,8 @@
         content '\f13e'
     @media screen and (max-width: 1200px)
       align-items center
-      .form__control__inner
-        .form__guest
+      .inputs
+        .guest
           > *
             display block
             margin 0

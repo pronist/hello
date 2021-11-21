@@ -3,23 +3,23 @@ footer#__footer(class='uk-navbar-container uk-navbar-transparent' uk-navbar)
     //
       이 부분은 스킨 제작자의 웹페이지로 이동됩니다.
       hELLO 스킨은 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍니다. :)
-    a#__designed-by(href='https://pronist.tistory.com/5' target='_blank' rel='noreferrer')
+    a.designed-by(href='https://pronist.tistory.com/5' target='_blank' rel='noreferrer')
       | hELLO. 티스토리 스킨을 소개합니다.
       i(class='fa fa-code')
   div(class='uk-navbar-right')
     s_if_var_switch-theme
-      #__theme-btn
+      button.theme-btn
         | 테마 바꾸기
         i(aria-hidden='true' class='fa fa-moon')
     s_if_var_to-top
-      a#__toTop(href='#' uk-scroll='target: #__hELLO')
+      a.toTop(href='#' uk-scroll='target: #__hELLO')
         | 제일 위로
         i(class='fa fa-chevron-up')
 
 script.
   /* Footer */
   $(document).ready(() => {
-    $('#__theme-btn').click(() => {
+    $('#__footer .theme-btn').click(() => {
       // Switch Theme 'Light' <-> Dark'
       h.Theme.switch()
       // Highlight.js

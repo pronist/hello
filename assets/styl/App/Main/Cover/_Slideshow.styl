@@ -1,13 +1,13 @@
-.main__cover[data-mode='slider'],
-.main__cover[data-mode='slider-screen'],
-.main__cover[data-mode='slideshow'],
-.main__cover[data-mode='slideshow-screen']
+.cover[data-mode='slider'],
+.cover[data-mode='slider-screen'],
+.cover[data-mode='slideshow'],
+.cover[data-mode='slideshow-screen']
   width 100vw
   margin-left calc(((100vw - 100%) / 2) * -1)
   min-width 320px
   &:first-of-type
     margin-top 0 !important
-  .content__index
+  .item
     .description
       .category
         text-align center
@@ -24,10 +24,10 @@
 
 @media screen and (min-width: 1400px)
   body[data-sidebar-default='1']
-    .main__cover[data-mode='slider'],
-    .main__cover[data-mode='slider-screen'],
-    .main__cover[data-mode='slideshow'],
-    .main__cover[data-mode='slideshow-screen']
+    .cover[data-mode='slider'],
+    .cover[data-mode='slider-screen'],
+    .cover[data-mode='slideshow'],
+    .cover[data-mode='slideshow-screen']
       width 'calc(100vw - %s)' % ($SIDEBAR_WIDTH) !important
       margin-left 'calc((((100vw - %s) - 100%) / 2) * -1)' % ($SIDEBAR_WIDTH) !important
       min-width unset !important
