@@ -11,7 +11,8 @@ input, textarea
   font-family 'Noto Sans KR', sans-serif
 
 html
-  color alpha($THEME_COLOR_BLACK, .9)
+  color var(--h-color)
+  background-color var(--h-color-background-level-1)
   body
     overflow-x hidden
   ins
@@ -21,10 +22,10 @@ html
     margin 0
     padding 0
   a
-    color alpha($THEME_COLOR_BLACK, .5)
+    color var(--h-color-blurrier)
     text-decoration none !important
     &:hover
-      color alpha($THEME_COLOR_BLACK, .9)
+      color var(--h-color)
       transition-duration .2s
   a, button
     pointer-events: initial !important

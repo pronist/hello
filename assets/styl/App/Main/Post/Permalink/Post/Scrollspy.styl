@@ -1,9 +1,9 @@
-$WIDTH = 180px
-$HEIGHT = 620px
+$SPY_WIDTH = 180px
+$SPY_HEIGHT = 620px
 
 #__spy
   position absolute
-  width $WIDTH
+  width $SPY_WIDTH
   list-style none
   text-align left
   font-weight 400
@@ -16,28 +16,29 @@ $HEIGHT = 620px
   .__
     position sticky
     top 80px
-    max-height $HEIGHT
+    max-height $SPY_HEIGHT
     overflow hidden
-    width $WIDTH
+    width $SPY_WIDTH
     ul
       overflow-x hidden
       overflow-y scroll
-      max-height $HEIGHT
-      width $WIDTH + 20px
-      border-left 1px dashed alpha($THEME_COLOR_BLACK, .2)
+      max-height $SPY_HEIGHT
+      width $SPY_WIDTH + 20px
+      border-left 1px dashed var(--h-color-blurriest)
       box-sizing border-box
       li
         padding-left 20px
         box-sizing border-box
-        max-width $WIDTH
+        max-width $SPY_WIDTH
         a
+          color var(--h-color-blur)
           font-size .82rem
           &[data-tag=h3]
             padding-left 15px
         &.uk-active
           a
             transition-duration .5s
-            color alpha($THEME_COLOR_BLACK, .9)
+            color var(--h-color)
             font-weight 500
   @media screen and (max-width: 1820px)
     display none !important

@@ -8,13 +8,15 @@
     column-count auto
     column-gap 20px
     column-width 160px
+    h1
+      color var(--h-color) !important
     li
       break-inside avoid
       text-align center
       margin-bottom 15px
       a
-        background $THEME_BACKGROUND_COLOR_LEVEL1
-        color alpha($THEME_COLOR_BLACK, .7)
+        background var(--h-color-background-level-2)
+        color var(--h-color-blur)
         display inline-block
         font-size .9rem
         border-radius 5px
@@ -24,8 +26,8 @@
         padding 20px 14px
         width 100%
         &:hover
-          background $THEME_COLOR_ORANGE
-          color $THEME_COLOR_WHITE !important
+          background var(--h-button-color-hover-background)
+          color var(--h-button-color-hover) !important
     @media screen and (max-width: 690px)
       column-count 1
     @media screen and (min-width: 690px) and (max-width: 960px)

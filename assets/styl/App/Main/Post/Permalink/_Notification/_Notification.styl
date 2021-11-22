@@ -1,14 +1,14 @@
-$BOTTOM = 20px
-$SIDE_POSITION = 20px
+$NOTIFY_BOTTOM = 20px
+$NOTIFY_SIDE_POSITION = 20px
 
 .uk-notification
-  bottom $BOTTOM
+  bottom $NOTIFY_BOTTOM
   width initial
   z-index 4
   &.uk-notification-bottom-left
-    left $SIDE_POSITION
+    left $NOTIFY_SIDE_POSITION
   &.uk-notification-bottom-right
-    right $SIDE_POSITION
+    right $NOTIFY_SIDE_POSITION
   > *
     display inline-block
   .uk-notification-message
@@ -18,12 +18,12 @@ $SIDE_POSITION = 20px
     .notify
       display flex
       .thumbnail
-        background-color white //- NT
+        background-color white
         height 100px
         width 178px
         object-fit cover
       .metainfo
-        background-color $THEME_BACKGROUND_COLOR_LEVEL1
+        background-color var(--h-color-background-level-2)
         padding 20px
         display flex
         flex-direction column
@@ -32,7 +32,7 @@ $SIDE_POSITION = 20px
         box-sizing border-box
         min-height 100px
         *
-          color alpha($THEME_COLOR_BLACK, .9) !important
+          color var(--h-color) !important
           overflow hidden
           white-space nowrap
           text-overflow ellipsis
@@ -40,7 +40,7 @@ $SIDE_POSITION = 20px
           font-size .96rem
           font-weight 500
         .description
-          color alpha($THEME_COLOR_BLACK, .7) !important
+          color var(--h-color-blur) !important
           font-size .8rem
           margin-bottom 3px
 

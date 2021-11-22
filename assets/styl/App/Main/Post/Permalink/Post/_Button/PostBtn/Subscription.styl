@@ -1,16 +1,14 @@
-$SIZE = 35px
-
 .permalink
   .container_postbtn
     .btn_subscription
-      button($SIZE, $SIZE, 5px, $SIZE - 2, $THEME_COLOR_WHITE, alpha($THEME_COLOR_BLACK, .9))
+      button($BUTTON_SIZE, $BUTTON_SIZE, 5px, $BUTTON_SIZE - 2, var(--h-button-background), var(--h-button-color))
       &::before
         FontAwesome('\f005')
         font-weight 600
         font-size $BUTTON_FONT-SIZE
       &:hover
-        background-color alpha($THEME_COLOR_BLACK, .9)
+        background-color var(--h-button-color-hover-background)
         &::before
-          color $THEME_COLOR_WHITE
+          color var(--h-button-color-hover)
       > *
         display none !important

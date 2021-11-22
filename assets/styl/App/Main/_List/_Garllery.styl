@@ -20,22 +20,25 @@
       padding 8px 15px
       bottom 0
       width 'calc(100% - %s)' % (10px * 2)
-      background-color alpha($THEME_COLOR_BLACK, .5)
+      background-color alpha(black, .5)
       backdrop-filter blur(5px)
       text-align center
       position absolute
       transition-duration .3s
       transform translateY(100%)
+      color white
       &:hover
         transform translateY(0)
       .summary, .date
         display none !important
       .category a
+        color white !important
         font-size .82rem
         text-align center
       .title
         font-size .92rem
         line-height 1.5em
+        a
+          color white !important
       *
-        color $THEME_COLOR_WHITE !important
         margin 0

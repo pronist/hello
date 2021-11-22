@@ -2,7 +2,7 @@ button(width, height, borderRadius, lineHeight, backgroundColor, color)
   border none
   background none
   display inline-block !important
-  border 1px solid alpha($THEME_COLOR_BLACK, .1)
+  border 1px solid var(--h-color-blurriest)
   cursor pointer
   transition-duration .1s
   text-align center
@@ -16,8 +16,8 @@ button(width, height, borderRadius, lineHeight, backgroundColor, color)
   font-size 0 !important
   padding 0
   &:hover
-    border-color alpha($THEME_COLOR_BLACK, .9)
-    background-color alpha($THEME_COLOR_BLACK, .9)
-    color $THEME_COLOR_WHITE !important
+    border-color var(--h-button-color-hover-background)
+    background-color var(--h-button-color-hover-background)
+    color var(--h-button-color-hover) !important
   i
     line-height unset !important

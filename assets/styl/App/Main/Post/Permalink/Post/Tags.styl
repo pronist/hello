@@ -1,4 +1,4 @@
-$HEIGHT = 32px
+$TAG_HEIGHT = 32px
 
 .permalink
   .tags
@@ -7,13 +7,13 @@ $HEIGHT = 32px
     a
       margin-top 10px
       margin-right 10px
-      background-color $THEME_BACKGROUND_COLOR_LEVEL1
-      color alpha($THEME_COLOR_BLACK, .5)
+      background-color var(--h-color-background-level-2)
+      color var(--h-color-blur)
       display inline-block
       font-size .8rem
       border-radius 5px
-      height $HEIGHT
-      line-height $HEIGHT - 2
+      height $TAG_HEIGHT
+      line-height $TAG_HEIGHT - 2
       padding 0 14px
       transition-duration .2s
       &:first-of-type
@@ -23,5 +23,5 @@ $HEIGHT = 32px
           FontAwesome('\f02b')
           font-size .76rem
       &:hover
-        background-color alpha($THEME_COLOR_BLACK, .9)
-        color $THEME_COLOR_WHITE !important
+        background-color var(--h-button-color-hover-background)
+        color var(--h-button-color-hover) !important

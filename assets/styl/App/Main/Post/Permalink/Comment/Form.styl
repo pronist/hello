@@ -6,7 +6,7 @@
     width var(--h-guestbook-width)
 
 .form
-  background-color $THEME_BACKGROUND_COLOR_LEVEL1
+  background-color var(--h-color-background-level-2)
   overflow hidden
   margin-top 35px
   border-radius 16px
@@ -16,6 +16,8 @@
   position relative
   .__
     box-sizing border-box
+    textarea, input, label
+      color var(--h-color)
     > label
       overflow: hidden
       position: absolute
@@ -73,7 +75,7 @@
       input[type=checkbox]:checked + #secret-label::before,
       #secret-label::before
         font-weight 600
-        color alpha($THEME_COLOR_BLACK, .9) !important
+        color var(--h-color) !important
         FontAwesome()
       a
         font-size 0

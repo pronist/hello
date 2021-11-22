@@ -13,9 +13,9 @@
       &::after
         display none
       a
-        color alpha($THEME_COLOR_BLACK, .7)
+        color var(--h-color-blur)
       .inner_header_layer
-        background-color $THEME_BACKGROUND_COLOR_LEVEL1
+        background-color var(--h-color-background-level-2)
         *
           padding-left 0
           border none
@@ -24,12 +24,15 @@
           padding-top 6px
           .link_setting.link_setting_type2
             font-size .8rem
+          .txt_email
+            color var(--h-color-blur)
         > .wrap_list
           box-shadow none
           .tit_list_type
             padding-top 22px
             margin-bottom 10px
             font-size .8rem
+            color var(--h-color)
         .list_toolbar
           max-width 200px
           margin-top 6px
@@ -37,9 +40,9 @@
           > li
             padding-top 8px
             a
-              color alpha($THEME_COLOR_BLACK, .9)
+              color var(--h-color-blur)
               &:hover
-                color alpha($THEME_COLOR_BLACK, .9)
+                color var(--h-color)
         .info_profile_type1
           &:last-child
             margin-bottom 0px

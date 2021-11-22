@@ -4,7 +4,7 @@
     margin 80px 0
     position relative
     &::before
-      background-color alpha($THEME_COLOR_BLACK, .1)
+      background-color var(--h-color-blurriest)
       content ''
       position absolute
       width 1px
@@ -23,7 +23,7 @@
     .description
       position relative
       z-index 1
-      border 1px solid rgba(0, 0, 0, .1)
+      border 1px solid alpha(black, .1)
       padding 40px
       padding-bottom 60px
     &:nth-child(2n+1)

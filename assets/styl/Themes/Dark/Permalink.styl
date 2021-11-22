@@ -1,0 +1,22 @@
+html[data-theme='dark']
+  .permalink
+    > .content
+      .contents_style
+        hr
+          filter brightness(0) invert(1)
+        figure
+          &[data-ke-type=opengraph]
+            .og-image
+              border none !important
+              box-shadow none !important
+          &.fileblock
+            border none !important
+            background-color var(--h-color-background-level-2)
+            .desc
+              .filename, .size
+                color var(--h-color) !important
+            .image, a::after
+              filter brightness(0) invert(1)
+          &[data-ke-type=opengraph]
+            .og-text
+              background var(--h-color-background-level-2)

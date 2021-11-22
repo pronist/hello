@@ -1,4 +1,4 @@
-$HEIGHT = 3px
+$SCROLL_INDICATOR_HEIGHT = 3px
 
 #scroll-indicator
   position fixed
@@ -7,9 +7,9 @@ $HEIGHT = 3px
   z-index 9998
   .progress-container
     width 100%
-    height $HEIGHT
+    height $SCROLL_INDICATOR_HEIGHT
     .progress-bar
-      background-color alpha($THEME_COLOR_BLACK, .9)
-      height $HEIGHT
+      background-color var(--h-color)
+      height $SCROLL_INDICATOR_HEIGHT
       width 0%
       border-radius 0 5px 5px 0

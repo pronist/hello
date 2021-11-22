@@ -2,13 +2,12 @@
   .container_postbtn
     .postbtn_like
       .wrap_btn
-        color $THEME_COLOR_WHITE !important
         display inline-block
         border none
         &:not([id^=reaction-])
           button
-            color alpha($THEME_COLOR_BLACK, .9) !important
-            button($SIZE, $SIZE, 5px, $SIZE - 2, $THEME_COLOR_WHITE, alpha($THEME_COLOR_BLACK, .9))
+            color var(--h-button-color) !important
+            button($BUTTON_SIZE, $BUTTON_SIZE, 5px, $BUTTON_SIZE - 2, var(--h-button-background), var(--h-button-color))
         button, button[data-entry-id], .uoc-count
           &::before
             font-weight 600
@@ -20,14 +19,14 @@
               display none
         &[id^=reaction-]
           button
-            button(60px, 35px, 5px, unset, $THEME_COLOR_RED , $THEME_COLOR_WHITE)
+            button(60px, 35px, 5px, unset, var(--h-button-color-hover-background) , var(--h-button-color-hover))
             > .uoc-icon
                 > .ico_like
                   display none
             .uoc-count
               font-size .8rem
               font-weight 600
-              color $THEME_COLOR_WHITE !important
+              color var(--h-button-color-hover) !important
               line-height unset !important
               &::before
                 margin-right 5px

@@ -8,10 +8,10 @@ $PAGER_SIZE = 32px
     font-size .9rem
     padding-left 0
     a
-      color alpha($THEME_COLOR_BLACK, .9)
+      color var(--h-color)
       &.no-more-prev,
       &.no-more-next
-        color alpha($THEME_COLOR_BLACK, .5)
+        color var(--h-color-blurrier)
       &.next,
       &.prev
         font-size 0
@@ -23,8 +23,8 @@ $PAGER_SIZE = 32px
         text-align center
         display inline-block
       .selected
-        background-color alpha($THEME_COLOR_BLACK, .9)
-        color $THEME_COLOR_WHITE
+        background-color var(--h-button-color-hover-background)
+        color var(--h-button-color-hover)
         border-radius: 50%
         padding-left 8px
         padding-right 8px

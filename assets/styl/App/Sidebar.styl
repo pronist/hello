@@ -1,9 +1,7 @@
-$WIDTH = 250px
-
 #__sidebar
   position fixed
   top 0
-  width $WIDTH
+  width $SIDEBAR_WIDTH
   height 100%
   overflow hidden
   z-index 9998
@@ -19,14 +17,14 @@ $WIDTH = 250px
       top 0
       width 100vw
       height 100vh
-      background-color alpha($THEME_COLOR_BLACK, .6)
+      background-color alpha(black, .6)
       z-index 9997
   .__
-    background-color $THEME_BACKGROUND_COLOR_LEVEL1
+    background-color var(--h-color-background-level-2)
     overflow-x hidden
     overflow-y scroll
     height 100%
-    width $WIDTH + 20px
+    width $SIDEBAR_WIDTH + 20px
     position absolute
     padding 25px 0
     box-sizing border-box
@@ -35,14 +33,16 @@ $WIDTH = 250px
       padding 15px 0
       padding-left 20px
       box-sizing border-box
-      max-width $WIDTH
+      max-width $SIDEBAR_WIDTH
       ul li
         TextOverflowHidden()
-        max-width $WIDTH - 38px
+        max-width $SIDEBAR_WIDTH - 38px
         *
-          color alpha($THEME_COLOR_BLACK, .5) !important
+          color var(--h-color-blurrier) !important
+        a:hover
+          color var(--h-color)
     h2
-      color alpha($THEME_COLOR_BLACK, .9)
+      color var(--h-color)
       font-size .9rem
       font-weight 600
   @media screen and (max-width: 1400px)
