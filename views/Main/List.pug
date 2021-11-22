@@ -21,12 +21,12 @@ script.
       : $title.text()
     )
 
-    h.List.style('.list > ul', $('.list').attr('data-mode'))
+    h.liststyle('.list', '> ul')
   })
 
 script.
   $(document).ready(() => {
-    h.Layout.styledHeading('.list', 'header > .img', H.skinOptions.listImageMode, {
+    h.styledHeading('.list', 'header > .img', H.skinOptions.listImageMode, {
       attr: 'data-image-mode'
     })
   })

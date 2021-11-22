@@ -130,14 +130,14 @@
         <default>light</default>
       </variable>
       <variable>
-        <name>code-block-light</name>
+        <name>hljs-light</name>
         <label>코드블럭 (라이트)</label>
         <description><![CDATA[ 코드블럭 (라이트) ]]></description>
         <type>STRING</type>
         <default>xcode</default>
       </variable>
       <variable>
-        <name>code-block-dark</name>
+        <name>hljs-dark</name>
         <label>코드블럭 (다크)</label>
         <description><![CDATA[ 코드블럭 (다크) ]]></description>
         <type>STRING</type>

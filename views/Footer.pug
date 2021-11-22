@@ -21,8 +21,8 @@ script.
   $(document).ready(() => {
     $('#__footer .theme-btn').click(() => {
       // Switch Theme 'Light' <-> Dark'
-      h.Theme.switch()
+      h.switchTheme()
       // Highlight.js
-      h.Theme.hljs(H.skinOptions.codeBlockLight, H.skinOptions.codeBlockDark)
+      h.hljs(H.skinOptions.hljsLight, H.skinOptions.hljsDark)
     })
   })

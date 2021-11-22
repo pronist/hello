@@ -1,4 +1,4 @@
-import './plugins/fontawesome'
-import './plugins/hljs'
-import './plugins/lazysizes'
-import './plugins/uikit'
+import hljs from 'highlight.js'
+import 'lazysizes'
+
+hljs.highlightAll()

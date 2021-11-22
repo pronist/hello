@@ -12,20 +12,6 @@
   * after import assets it will be contained in app.js
   */
 
-import Layout from './js/layout'
-import List from './js/list'
-import Permalink from './js/permalink'
-import Sidebar from './js/sidebar'
-import Theme from './js/theme'
-import TistoryLayer from './js/tistory-layer'
-import Utils from './js/utils'
+import hEELO from './js/h'
 
-window.h = {
-  Layout,
-  List,
-  Permalink,
-  Sidebar,
-  Theme,
-  TistoryLayer,
-  Utils
-}
+window.h = hEELO

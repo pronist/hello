@@ -10,35 +10,35 @@ script.
   /* Permalink */
   $(document).ready(() => {
     // Add 'a' tag into headings
-    h.Permalink.anchorHeadings('.permalink .contents_style', '> h2, > h3, > h4')
+    h.anchorHeadings('.permalink .contents_style', '> h2, > h3, > h4')
     // Scrollspy
-    h.Permalink.scrollspy({
+    h.scrollspy({
       context: '.permalink .contents_style',
       spy: '#__spy ul',
       headings: '> h2, > h3'
     })
     // Media contents alignment
-    h.Permalink.alignImageCenter({
+    h.alignImageCenter({
       imageSlideBlock: true,
       imageBlock: true,
       imageGridBlock: true
     })
     // Highlight.js
-    h.Theme.hljs(H.skinOptions.codeBlockLight, H.skinOptions.codeBlockDark)
+    h.hljs(H.skinOptions.hljsLight, H.skinOptions.hljsDark)
     // Remove ',' text in Tags
-    h.Utils.removeTextNode('.permalink .tags')
+    h.removeTextNode('.permalink .tags')
   })
 
 script.
   $(document).ready(() => {
     // Set styled heading
-    h.Layout.styledHeading('.permalink','header > .img', H.skinOptions.articleMode, {
+    h.styledHeading('.permalink','header > .img', H.skinOptions.articleMode, {
       controllable: true,
       modeHandsControlElement: '.permalink .contents_style > div.h[data-mode]'
     })
-    // Set sticky nav
+    // Set sticky
     window.addEventListener(
       'scroll',
-      h.Layout.sticky('#__nav', '.permalink .contents_style')
+      h.sticky('#__nav', '.permalink .contents_style', 'sticky')
     )
   })
