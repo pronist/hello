@@ -8,30 +8,13 @@ $BUTTON_SIZE = 35px
   bottom 20px
   font-size .92rem
   z-index 9996
-  .designed-by,
   .toTop,
   .theme-btn
-    background-color var(--h-button-background)
-    color var(--h-button-color)
-    box-shadow 0 0 0 1px var(--h-color-blurriest), 0 2px 5px var(--h-color-blurriest)
-    border-radius 25px
-    border none
-    cursor pointer
-    transition-duration .1s
-    width $BUTTON_SIZE
-    height $BUTTON_SIZE
-    line-height $BUTTON_SIZE
-    text-align center
-    border-radius 50%
-    font-size 0 !important
+    Button($BUTTON_SIZE, $BUTTON_SIZE, 50%, var(--h-button-background), var(--h-button-color))
     i
       font-size .9rem !important
-      line-height $BUTTON_SIZE
-    &:hover
-      background-color var(--h-button-color-hover-background)
-      color var(--h-button-color-hover)
   .toTop
-    margin-left 12px
+    margin-left 10px
   @media screen and (max-width: 1600px)
     bottom 15px
     padding 0 15px

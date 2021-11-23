@@ -2,16 +2,10 @@
   .right
     div[class=btn_tool]
       .btn_menu_toolbar.btn_subscription
-        background-color var(--h-button-color-hover-background)
-        color var(--h-button-color-hover)
-        cursor pointer
-        border none
-        line-height 1em
-        text-align center
-        border-radius 50%
-        transition-duration .1s
+        Button($BUTTON_SIZE, $BUTTON_SIZE, 50%, var(--h-button-color-hover-background), var(--h-button-color-hover))
         *
           display none
         &::before
           FontAwesome('\f005')
           font-weight 600
+          font-size $BUTTON_FONT-SIZE

@@ -1,3 +1,25 @@
+Button(width, height, borderRadius, backgroundColor, color)
+  background none
+  display inline-block !important
+  border 1px solid alpha(black, .1)
+  box-shadow none
+  cursor pointer
+  transition-duration .1s
+  text-align center
+  border-radius borderRadius
+  width width
+  height height
+  line-height 1.5 !important
+  background-color backgroundColor
+  color color
+  font-weight 500
+  font-size 0 !important
+  padding 0
+  &:hover
+    border-color var(--h-button-color-hover-background)
+    background-color var(--h-button-color-hover-background)
+    color var(--h-button-color-hover) !important
+
 FontAwesome(content = false, kind = 'Free')
   font-family 'Font Awesome 5 ' + kind
   if content
