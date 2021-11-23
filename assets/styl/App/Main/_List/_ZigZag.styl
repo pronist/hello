@@ -3,6 +3,7 @@
     display flex
     margin 80px 0
     position relative
+    padding 40px 0
     &::before
       background-color var(--h-color-blurriest)
       content ''
@@ -38,6 +39,8 @@
     &:last-child
       &::before
         display none !important
+    @media screen and (max-width: 1200px)
+      padding 25px 0
     @media screen and (min-width: 960px) and (max-width: 1200px)
       margin 60px 0
       &::before
@@ -56,6 +59,9 @@
     @media screen and (max-width: 960px)
       margin 30px 0
       display block
+      &:first-child
+        margin-top 0
+        padding-top 0
       &::before
         height 50px
         top calc(100% - 10px)
