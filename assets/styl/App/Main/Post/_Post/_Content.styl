@@ -7,14 +7,6 @@
       position relative
       z-index 1
       div[data-ke-type=moreLess], >
-        :not(pre) > code
-          position relative
-          top -1px
-          padding 2px 8px
-          border-radius 5px
-          white-space normal
-          background-color var(--h-color-background-level-2)
-          color var(--h-color)
         p
         blockquote[data-ke-style=style2],
         blockquote[data-ke-style=style3]
@@ -25,6 +17,14 @@
           a
             color var(--h-color-theme)
             font-weight 500
+          code
+            position relative
+            top -1px
+            padding 2px 8px
+            border-radius 5px
+            white-space normal
+            background-color var(--h-color-background-level-2)
+            color var(--h-color)
         div[data-ke-type=moreLess],
         ul, ol, table, h2, h3, h4
           margin 20px 0
