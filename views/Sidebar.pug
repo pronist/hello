@@ -1,37 +1,38 @@
 aside#__sidebar
-  .overlay(uk-toggle="target: #__sidebar; cls: opened")
   .__
-    s_sidebar
-      s_sidebar_element
-        // 프로필
-        include Sidebar/Profile
-      s_sidebar_element
-        // 방문자 수
-        include Sidebar/Counter
-      s_sidebar_element
-        // 검색
-        include Sidebar/Search
-      s_sidebar_element
-        // 카테고리
-        include Sidebar/Category
-      s_sidebar_element
-        // 블로그 메뉴
-        include Sidebar/BlogMenu
-      s_sidebar_element
-        // 공지사항
-        include Sidebar/Notice
-      s_sidebar_element
-        // 인기 글
-        include Sidebar/PopularPosts
-      s_sidebar_element
-        // 태그
-        include Sidebar/Tags
-      s_sidebar_element
-        // 최근 댓글
-        include Sidebar/RecentComments
-      s_sidebar_element
-        // 최근 글
-        include Sidebar/RecentPosts
-      s_sidebar_element
-        // 티스토리
-        include Sidebar/TistoryToolbar
+    .___
+      s_sidebar
+        s_sidebar_element
+          // 프로필
+          include Sidebar/Profile
+        s_sidebar_element
+          // 방문자 수
+          include Sidebar/Counter
+        s_sidebar_element
+          // 검색
+          include Sidebar/Search
+        s_sidebar_element
+          // 카테고리
+          include Sidebar/Category
+        s_sidebar_element
+          // 블로그 메뉴
+          include Sidebar/BlogMenu
+        s_sidebar_element
+          // 공지사항
+          include Sidebar/Notice
+        s_sidebar_element
+          // 인기 글
+          include Sidebar/PopularPosts
+        s_sidebar_element
+          // 태그
+          include Sidebar/Tags
+        s_sidebar_element
+          // 최근 댓글
+          include Sidebar/RecentComments
+        s_sidebar_element
+          // 최근 글
+          include Sidebar/RecentPosts
+        s_sidebar_element
+          // 티스토리
+          include Sidebar/TistoryToolbar
+  .overlay(uk-toggle='target: #__sidebar; cls: opened')

@@ -7,16 +7,17 @@ module.exports = class {
    * @param {string} cls
    */
   static sticky (target, context, cls) {
+    const $target = $(target)
     const $context = $(context)
 
     if ($context.length) {
       const contextOffsetTop = $context.offset().top
-      const $target = $(target)
 
       return () => window.pageYOffset >= contextOffsetTop
         ? $target.addClass(cls)
         : $target.removeClass(cls)
     }
+    $target.addClass(cls)
 
     return () => {}
   }
