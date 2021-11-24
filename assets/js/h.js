@@ -93,7 +93,7 @@ module.exports = class {
       case 'gallery':
       case 'grid':
         $list.attr('class', 'uk-child-width-1-2@s uk-child-width-1-3@m')
-        UIkit.grid('.list'.concat(target))
+        UIkit.grid(container.concat(target))
     }
   }
 
