@@ -17,6 +17,7 @@ module.exports = class {
         ? $target.addClass(cls)
         : $target.removeClass(cls)
     }
+
     $target.addClass(cls)
 
     return () => {}
@@ -190,8 +191,8 @@ module.exports = class {
    * Notification
    *
    * @param {string} notify
-   * @param {string} pos
    * @param {string} img
+   * @param {string} pos
    * @param {number} timeout
    */
   static notification (notify, img, pos, timeout) {
@@ -214,12 +215,12 @@ module.exports = class {
    *
    * @param {Object} messages
    */
-  static tooltip (messages, isPermalink) {
+  static tooltip (messages) {
     const $layerTooltip = $('.layer_tooltip')
     const $tooltip = $layerTooltip.children('.inner_layer_tooltip')
     const $reaction = $('.container_postbtn .postbtn_like .wrap_btn[id^=reaction-]')
 
-    if (isPermalink && $reaction.length) {
+    if ($reaction.length) {
       setTimeout(() => {
         $layerTooltip.children('.inner_layer_tooltip').text(messages.Request)
         $layerTooltip.fadeIn(500)
@@ -256,23 +257,26 @@ module.exports = class {
    * Set foldable category
    */
   static foldableCategory () {
-    UIkit.accordion('.tt_category .category_list', {
-      content: '> .sub_category_list',
-      targets: '> .foldable',
-      toggle: '> .link_item',
-      multiple: true
-    })
-
     const $subCategory = $('.tt_category .sub_category_list')
 
     if ($subCategory.length) {
       $subCategory.prev('.link_item').append('<i class="fas fa-chevron-down"></i>')
       $subCategory.parent().addClass('foldable')
     }
+
+    UIkit.accordion('.tt_category .category_list', {
+      content: '> .sub_category_list',
+      targets: '> .foldable',
+      toggle: '> .link_item',
+      multiple: true
+    })
   }
 
   /**
    * Switch Skin Theme 'Light' <-> 'Dark'
+   *
+   * @param {string} el
+   * @param {string} attr
    */
   static switchTheme (el = 'html', attr = 'data-theme') {
     const TTDARK = $(el).attr(attr) === 'dark' ? 'Y' : 'N'
@@ -286,6 +290,8 @@ module.exports = class {
    *
    * @param {string} light
    * @param {string} dark
+   * @param {string} el
+   * @param {string} attr
    */
   static hljs (light, dark, el = 'html', attr = 'data-theme') {
     const hljs = $(el).attr(attr) === 'dark' ? dark : light
