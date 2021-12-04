@@ -3,13 +3,18 @@
     .img
       .thumbnail
         width 100%
-        margin-bottom 15px
         border-radius 5px
         background-color white
     .description
+      .category
+        margin-bottom 5px
+        a
+          color var(--h-color-blur) !important
+          font-size .9rem
+          font-weight 500
       .title
         margin-top 0px
-        margin-bottom 15px
+        margin-bottom 3px
         line-height 1.5em
         font-size 1.3rem
         font-weight 500
@@ -17,30 +22,17 @@
           color var(--h-color) !important
           img
             display none
-      .category
-        margin-bottom 5px
-        a
-          color var(--h-color-blur) !important
-          font-size .9rem
-          font-weight 500
-      .summary
-        color var(--h-color-blur)
-        display -webkit-box
-        display -ms-flexbox
-        display box
-        -webkit-box-orient vertical
-        -webkit-line-clamp 3
-        line-height 1.8em
-        overflow hidden
-        max-height 80px
-        margin-top 1px
-        vertical-align top
-        word-break break-all
       .date
-        color var(--h-color-blur)
+        color var(--h-color-blurrier)
         font-size .87rem
-        > span
-          margin-left 7px
+        margin-bottom 15px
+      .summary
+        overflow hidden
+        color var(--h-color-blur)
+        line-height 1.8em
+        max-height 5.4em
+        margin-top 1px
+        margin-bottom 0
     @media screen and (max-width: 1200px)
       .title
         font-size 1.3rem

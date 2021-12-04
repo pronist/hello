@@ -13,10 +13,9 @@ mixin coverDescriptionIfContent(isFeatured=false)
     .category: a(href='[##_cover_item_category_url_##]') [##_cover_item_category_##]
     h2.title: a(href='[##_cover_item_url_##]') [##_cover_item_title_##]
     unless isFeatured
+      .date
+        time [##_cover_item_simple_date_##]
       p.summary [##_cover_item_summary_##]
-      time.date
-        | →
-        span [##_cover_item_simple_date_##]
 
 mixin coverDescriptionIfNotContent(isFeatured=false)
   .description&attributes(attributes)

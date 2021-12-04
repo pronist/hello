@@ -7,7 +7,6 @@
     if hasCategory
       .category: a(href=`[##_${type}_rep_category_link_##]`) #{`[##_${type}_rep_category_##]`}
     h1.title: a(href=`[##_${type}_rep_link_##]`) #{`[##_${type}_rep_title_##]`}
+    .date
+      time #{`[##_${type}_rep_${type === 'list' ? 'regdate' : 'date'}_##]`}
     p.summary #{`[##_${type}_rep_summary_##]`}
-    time.date
-      | →
-      span #{`[##_${type}_rep_${type === 'list' ? 'regdate' : 'date'}_##]`}
