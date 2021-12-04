@@ -1,13 +1,11 @@
 footer#__footer(class='uk-navbar-container uk-navbar-transparent' uk-navbar)
   div(class='uk-navbar-right')
-    s_if_var_switch-theme
-      button.theme-btn
-        | 테마 바꾸기
-        i(aria-hidden='true' class='fa fa-moon')
-    s_if_var_to-top
-      button.toTop(uk-scroll='target: #__hELLO')
-        | 제일 위로
-        i(class='fa fa-chevron-up')
+    button.theme-btn
+      | 테마 바꾸기
+      i(aria-hidden='true' class='fa fa-moon')
+    button.toTop(uk-scroll='target: #__hELLO')
+      | 제일 위로
+      i(class='fa fa-chevron-up')
 
 script.
   /* Footer */

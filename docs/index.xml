@@ -190,22 +190,6 @@
         <default>default</default>
       </variable>
     </variablegroup>
-    <variablegroup name="공통">
-      <variable>
-        <name>switch-theme</name>
-        <label>수동 테마 변경</label>
-        <description><![CDATA[ 수동 테마 변경 ]]></description>
-        <type>BOOL</type>
-        <default>true</default>
-      </variable>
-      <variable>
-        <name>to-top</name>
-        <label>제일 위로</label>
-        <description><![CDATA[ 제일 위로 ]]></description>
-        <type>BOOL</type>
-        <default>true</default>
-      </variable>
-    </variablegroup>
     <variablegroup name="사이드바">
       <variable>
         <name>sidebar</name>
