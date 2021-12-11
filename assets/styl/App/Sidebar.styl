@@ -15,6 +15,7 @@
     background-color var(--h-color-background-level-2)
     position fixed
     top 0
+    left '-%s' % ($SIDEBAR_WIDTH)
     width $SIDEBAR_WIDTH
     height 100%
     overflow hidden
@@ -23,7 +24,7 @@
     transition-property left
     padding 0 !important
     @media screen and (max-width: 1400px)
-      left -270px
+      left '-%s' % ($SIDEBAR_WIDTH)
     .___
       overflow-x hidden
       overflow-y scroll
@@ -48,7 +49,6 @@
         color var(--h-color)
         font-size .9rem
         font-weight 600
-
 @media screen and (min-width: 1400px)
   body[data-sidebar-default='1']
     #__sidebar
