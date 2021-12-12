@@ -12,7 +12,7 @@ script.
   $(document).ready(() => {
     $('#__footer .theme-btn').click(() => {
       // Switch Theme 'Light' <-> 'Dark'
-      h.switchTheme(H.skinOptions.theme)
+      h.switchTheme(H.skinOptions.lightTheme, H.skinOptions.darkTheme)
       // Highlight.js
       h.hljs(H.skinOptions.hljsLight, H.skinOptions.hljsDark)
     })

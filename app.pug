@@ -1,6 +1,6 @@
 doctype html
 
-html#__hELLO(lang='ko' data-theme='[##_var_theme_##]')
+html#__hELLO(lang='ko' data-theme='[##_var_main-theme_##]')
   head
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width')
@@ -21,8 +21,8 @@ html#__hELLO(lang='ko' data-theme='[##_var_theme_##]')
     link(rel='stylesheet' href='//cdn.jsdelivr.net/npm/uikit@3.5.7/dist/css/uikit.min.css')
     link(rel='stylesheet' href='//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-ligature-full.css' media='print' onload=`this.media='all'`)
 
-    link(rel='stylesheet' href='//cdn.jsdelivr.net/gh/pronist/hELLO/themes/dark.min.css')
-    link(rel='stylesheet' href='//cdn.jsdelivr.net/gh/pronist/hELLO/themes/[##_var_theme_##].min.css')
+    link(rel='stylesheet' href='//cdn.jsdelivr.net/gh/pronist/hELLO/themes/[##_var_light-theme_##].min.css')
+    link(rel='stylesheet' href='//cdn.jsdelivr.net/gh/pronist/hELLO/themes/[##_var_dark-theme_##].min.css')
 
     link#__hljs(rel='stylesheet' href='#')
 
@@ -45,7 +45,8 @@ html#__hELLO(lang='ko' data-theme='[##_var_theme_##]')
         articleWidth: '[##_var_article-width_##]',
         guestbookWidth: '[##_var_guestbook-width_##]',
         tagCloudWidth: '[##_var_tagcloud-width_##]',
-        theme: '[##_var_theme_##]',
+        lightTheme: '[##_var_light-theme_##]',
+        darkTheme: '[##_var_dark-theme_##]',
         hljsLight: '[##_var_hljs-light_##]',
         hljsDark: '[##_var_hljs-dark_##]',
         noticeListMode: '[##_var_notice-image-mode_##]',
@@ -69,8 +70,8 @@ html#__hELLO(lang='ko' data-theme='[##_var_theme_##]')
       }
     script(scoped).
       $('html').attr('data-theme', localStorage.TTDARK
-        ? localStorage.TTDARK === 'Y' ? 'dark' : H.skinOptions.theme
-        : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : H.skinOptions.theme
+        ? localStorage.TTDARK === 'Y' ? H.skinOptions.darkTheme : H.skinOptions.lightTheme
+        : window.matchMedia('(prefers-color-scheme: dark)').matches ? H.skinOptions.darkTheme : H.skinOptions.lightTheme
       )
 
   body(id='[##_body_id_##]' data-sidebar-default='[##_var_sidebar_##]')

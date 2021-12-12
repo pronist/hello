@@ -117,9 +117,9 @@
     </variablegroup>
     <variablegroup name="테마">
       <variable>
-        <name>theme</name>
-        <label>테마</label>
-        <description><![CDATA[ 테마 ]]></description>
+        <name>light-theme</name>
+        <label>테마(라이트)</label>
+        <description><![CDATA[ 테마(라이트) ]]></description>
         <type>SELECT</type>
         <option><![CDATA[
           [
@@ -129,16 +129,28 @@
         <default>light</default>
       </variable>
       <variable>
+        <name>dark-theme</name>
+        <label>테마(다크)</label>
+        <description><![CDATA[ 테마(다크) ]]></description>
+        <type>SELECT</type>
+        <option><![CDATA[
+          [
+            { "name": "dark", "label": "다크", "value": "dark" }
+          ]
+        ]]></option>
+        <default>dark</default>
+      </variable>
+      <variable>
         <name>hljs-light</name>
-        <label>코드블럭</label>
-        <description><![CDATA[ 코드블럭 ]]></description>
+        <label>코드블럭(라이트)</label>
+        <description><![CDATA[ 코드블럭(라이트) ]]></description>
         <type>STRING</type>
         <default>xcode</default>
       </variable>
       <variable>
         <name>hljs-dark</name>
-        <label>코드블럭 (다크)</label>
-        <description><![CDATA[ 코드블럭 (다크) ]]></description>
+        <label>코드블럭(다크)</label>
+        <description><![CDATA[ 코드블럭(다크) ]]></description>
         <type>STRING</type>
         <default>vs2015</default>
       </variable>
