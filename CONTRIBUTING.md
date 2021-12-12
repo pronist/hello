@@ -46,16 +46,16 @@ html[data-theme='light'] {
 
 * `--h-color`: 텍스트 (span, p, h1, h2)
 * `--h-color-blur`: 흐린 텍스트 (list:description, post:header, post:tags, tistorytoolbar:a, scollspy, notification, sidebar:counter)
-* `--h-color-blurrier`: 더 흐린 텍스트 (nav, paging:next, prev, sidebar, post:figcaption, post:blockquote)
+* `--h-color-blurrier`: 더 흐린 텍스트 (navigation, paging:next, prev, sidebar, post:figcaption, post:blockquote)
 * `--h-color-blurriest`: 가장 흐린 텍스트 (*:border)
 * `--h-color-background-level-1`: 메인 배경 (html, loader)
 * `--h-color-background-level-2`: 서브 배경 (sidebar, post:tags, tagcloud, comment:form, post:related, post:tistorylayer)
 * `--h-color-background-level-3`: 검색 배경 (search:input)
-* `--h-color-background-level-4`: 흐린 배경 (nav)
+* `--h-color-background-level-4`: 흐린 배경 (navigation:sticky)
 * `--h-color-theme`: 앵커 (post:a)
 * `--h-button-color`: 버튼 텍스트 (post:button, subscription:button, footer:button)
 * `--h-button-background`: 버튼 배경 (post:button, footer:button)
-* `--h-button-color-hover`: 버튼 Hover 텍스트 (button:hover, paging:selected, subscription:button, post:like. post:more_less)
+* `--h-button-color-hover`: 버튼 Hover 텍스트 (button:hover, paging:selected, navigation:subscription, post:like. post:more_less)
 * `--h-button-color-hover-background`: 버튼 Hover 배경 (button:hover, paging:selected, subscription:button, post:like. post:more_less)
 
 변수 이외에 다른 추가적인 커스텀을 하고 싶을 때는 `views/*.pug` 를 비롯한 `assets/styl/**/*.styl` 을 참고하여 스킨에 사용된 선택자를 알 수 있습니다. 테마에 변수 설정 이외에 추가적인 커스텀을 설정한 예로는 `dark` 테마가 있으며, `assets/themes/dark/**/*.styl` 에서 살펴볼 수 있습니다.
