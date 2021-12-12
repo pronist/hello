@@ -6,7 +6,7 @@ hELLO 에 기여하려면 테마를 제작하여 스킨 사용자에게 다양�
 
 ## 네이밍 컨벤션
 
-CSS 파일 이름은 테마 하나당 `*.css, *.min.css` 가 각각 제공되어야 합니다. 예를 들어 `dark` 테마는 `dark.css`, `dark.min.css` 가 요구됩니다. 스킨에는 기본적으로는 `*.min.css` 만 포함되게 하겠지만, 사용자가 자체적으로 커스텀을 하기 용이하도록 `*.css` 도 포함하도록 합니다. 스킨에는 아래와 같이 포함될 것입니다.
+CSS 파일 이름은 테마 하나당 `*.css, *.min.css` 가 각각 제공되어야 합니다. 예를 들어 `dark` 테마는 `dark.css`, `dark.min.css` 가 요구됩니다. 스킨에는 기본적으로 단일 라인으로 처리된 파일인 `*.min.css` 만 포함되게 하겠지만, 사용자가 자체적으로 커스텀을 하기 용이하도록 `*.css` 도 포함하도록 합니다. 스킨에는 아래와 같이 포함될 것입니다.
 
 ```html
 <link rel='stylesheet' href='//cdn.jsdelivr.net/gh/pronist/hELLO/themes/dark.min.css'>
@@ -20,7 +20,7 @@ CSS 파일 이름은 테마 하나당 `*.css, *.min.css` 가 각각 제공되어
 
 ## 변수
 
-스킨에서 사용하는 CSS 변수는 많이 없습니다. 다만, 이것들이 어디서 사용되는지 알면 테마를 제작하는 것에 있어 더욱 수월할 수 있습니다. 아래의 예는 `light` 테마의 값 구성입니다.
+스킨에서 사용하는 CSS 변수는 많이 없습니다. 다만, 이것들이 어디서 사용되는지 알면 테마를 제작하는 것에 있어 더욱 수월할 수 있습니다. 아래의 예는 `light` 테마의 값 구성입니다. 테마를 선언할 때는 반드시 지역화를 해주어야 합니다. `html[data-theme='light']` 내부에 정의된 변수는 오직 `light` 테마 일 때만 적용됩니다. 이 부분을 빼면 충돌이 발생합니다.
 
 ```css
 html[data-theme='light'] {
@@ -74,4 +74,3 @@ html[data-theme='light'] {
 style
   inlcude:stylus assets/themes/dark.styl
 ```
-
