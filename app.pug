@@ -21,7 +21,20 @@ html#__hELLO(lang='ko' data-theme='[##_var_theme_##]')
     link(rel='stylesheet' href='//cdn.jsdelivr.net/npm/uikit@3.5.7/dist/css/uikit.min.css')
     link(rel='stylesheet' href='//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-ligature-full.css' media='print' onload=`this.media='all'`)
 
+    link(rel='stylesheet' href='//rawcdn.githack.com/pronist/hELLO/3.6.0/themes/dark.min.css')
+    link(rel='stylesheet' href='//rawcdn.githack.com/pronist/hELLO/3.6.0/themes/[##_var_theme_##].min.css')
+
     link#__hljs(rel='stylesheet' href='#')
+
+    style(scoped)
+      :stylus
+        :root
+          --h-article-width unquote('[##_var_article-width_##]' + 'px')
+          --h-index-width unquote('[##_var_index-width_##]' + 'px')
+          --h-guestbook-width unquote('[##_var_guestbook-width_##]' + 'px')
+          --h-tagcloud-width unquote('[##_var_tagcloud-width_##]' + 'px')
+    style
+      include:stylus @/styl/App.styl
 
     script(scoped).
       const $ = tjQuery
@@ -56,20 +69,9 @@ html#__hELLO(lang='ko' data-theme='[##_var_theme_##]')
       }
     script(scoped).
       $('html').attr('data-theme', localStorage.TTDARK
-        ? localStorage.TTDARK === 'Y' ? 'dark' : 'light'
-        : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : $('html').attr('data-theme')
+        ? localStorage.TTDARK === 'Y' ? 'dark' : H.skinOptions.theme
+        : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : H.skinOptions.theme
       )
-
-    style(scoped)
-      :stylus
-        :root
-          --h-article-width unquote('[##_var_article-width_##]' + 'px')
-          --h-index-width unquote('[##_var_index-width_##]' + 'px')
-          --h-guestbook-width unquote('[##_var_guestbook-width_##]' + 'px')
-          --h-tagcloud-width unquote('[##_var_tagcloud-width_##]' + 'px')
-    style
-      include:stylus @/styl/App.styl
-      include:stylus @/styl/Themes.styl
 
   body(id='[##_body_id_##]' data-sidebar-default='[##_var_sidebar_##]')
     block TIDORY

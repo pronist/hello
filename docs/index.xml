@@ -2,9 +2,9 @@
 <skin>
    <information>
       <name>hELLO</name>
-      <version>3.5.5</version>
+      <version>3.6.0</version>
       <description>
-         <![CDATA[ⓒ 2020-2021. SangWoo Jeong.]]>
+         <![CDATA[ⓒ 2020-2021. Sangwoo Jeong.]]>
       </description>
       <license>
          <![CDATA[MIT]]>
@@ -119,20 +119,19 @@
       <variable>
         <name>theme</name>
         <label>테마</label>
-        <description><![CDATA[ 블로그 테마 ]]></description>
+        <description><![CDATA[ 테마 ]]></description>
         <type>SELECT</type>
         <option><![CDATA[
           [
-            { "name": "light", "label": "라이트 모드", "value": "light" },
-            { "name": "dark", "label": "다크 모드", "value": "dark" }
+            { "name": "light", "label": "라이트", "value": "light" }
           ]
         ]]></option>
         <default>light</default>
       </variable>
       <variable>
         <name>hljs-light</name>
-        <label>코드블럭 (라이트)</label>
-        <description><![CDATA[ 코드블럭 (라이트) ]]></description>
+        <label>코드블럭</label>
+        <description><![CDATA[ 코드블럭 ]]></description>
         <type>STRING</type>
         <default>xcode</default>
       </variable>

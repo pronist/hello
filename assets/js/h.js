@@ -278,11 +278,11 @@ module.exports = class {
    * @param {string} el
    * @param {string} attr
    */
-  static switchTheme (el = 'html', attr = 'data-theme') {
+  static switchTheme (theme, el = 'html', attr = 'data-theme') {
     const TTDARK = $(el).attr(attr) === 'dark' ? 'Y' : 'N'
 
     localStorage.TTDARK = TTDARK === 'Y' ? 'N' : 'Y'
-    $('html').attr('data-theme', TTDARK === 'Y' ? 'light' : 'dark')
+    $('html').attr('data-theme', TTDARK === 'Y' ? theme : 'dark')
   }
 
   /**

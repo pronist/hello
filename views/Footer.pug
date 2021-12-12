@@ -11,8 +11,8 @@ script.
   /* Footer */
   $(document).ready(() => {
     $('#__footer .theme-btn').click(() => {
-      // Switch Theme 'Light' <-> Dark'
-      h.switchTheme()
+      // Switch Theme 'Light' <-> 'Dark'
+      h.switchTheme(H.skinOptions.theme)
       // Highlight.js
       h.hljs(H.skinOptions.hljsLight, H.skinOptions.hljsDark)
     })
