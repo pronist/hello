@@ -58,9 +58,11 @@ html[data-theme='light'] {
 * `--h-button-color-hover`: 버튼 Hover 텍스트 (button:hover, paging:selected, subscription:button, post:like. post:more_less)
 * `--h-button-color-hover-background`: 버튼 Hover 배경 (button:hover, paging:selected, subscription:button, post:like. post:more_less)
 
+변수 이외에 다른 추가적인 커스텀을 하고 싶을 때는 `views/*.pug` 를 비롯한 `assets/styl/**/*.styl` 을 참고하여 스킨에 사용된 선택자를 알 수 있습니다. 테마에 변수 설정 이외에 추가적인 커스텀을 설정한 예로는 `dark` 테마가 있으며, `assets/themes/dark/**/*.styl` 에서 살펴볼 수 있습니다.
+
 ## 테스트
 
-티도리 프레임워크에서 테마를 테스트하기 위해서는 다음과 같이 link 태그를 만들 수 있습니다. 예를 들어 테마의 이름이 `dark` 인 경우 아래와 같이 포함할 수 있습니다. 이 경우 테마는 `themes` 디렉토리에 위치합니다.
+티도리 프레임워크에서 테마를 테스트하기 위해서는 다음과 같이 `link` 를 만들 수 있습니다. 예를 들어 테마의 이름이 `dark` 인 경우 아래와 같이 포함할 수 있습니다. 이 경우 테마는 `themes` 디렉토리에 위치합니다.
 
 ```html
 <link rel='stylesheet' href='/themes/dark.min.css'>
