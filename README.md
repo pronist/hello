@@ -1,12 +1,10 @@
 # hELLO
 
-[hELLO](https://pronist.tistory.com/5) 는 [티도리 프레임워크](http://www.tidory.com)로 작성된 티스토리 스킨입니다.
-
-<div align=center>
 <a href="https://github.com/pronist/hELLO/graphs/contributors"><img src="https://opencollective.com/tistory-skin-hello/contributors.svg"></a>
-</div>
 
 ## 시작하기
+
+[hELLO](https://pronist.tistory.com/5) 는 [티도리 프레임워크](http://www.tidory.com)로 작성된 티스토리 스킨입니다. 따라서 별도의 개발 방식이 요구됩니다. 먼저, 프로젝트를 복사합니다.
 
 ```bash
 git clone https://github.com/pronist/hELLO
