@@ -1,8 +1,8 @@
 # 기여하기
 
-hELLO 에 기여하려면 테마를 제작하여 스킨 사용자에게 다양한 테마를 제공할 수 있습니다. 스킨에서 제공하는 기본 테마는 `dark`, `light` 이며 `themes` 디렉토리에 위치하고 있습니다. 테마는 기본적으로 `css` 로 제공되며 less, scss, stylus 등 어떠한 전처리기를 사용해도 상관없습니다. 그저 결과가 `css` 이기만 하면 됩니다.
+hELLO 에 기여하는 방법은 커스텀 테마를 제작하여 스킨 사용자에게 다양한 테마를 제공하는 것입니다. 스킨에서 제공하는 기본 테마는 `dark`, `light` 이며 `themes` 디렉토리에 위치하고 있습니다. 테마는 기본적으로 `css` 로 제공되고, less, scss, stylus 등 어떠한 전처리기를 사용해도 상관없습니다. 그저 결과가 `css` 이기만 하면 됩니다.
 
-새로 작성한 테마의 파일이 포함된 PR(Pull Request)를 보내주시면 테마의 검토를 거쳐 `index.xml` 에 스킨옵션으로 추가되고 사용자에게 테마를 제공할 수 있습니다.
+새로 작성한 테마의 파일이 포함된 PR(Pull Request)를 보내주시면 검토를 거쳐 스킨에 테마가 추가됩니다.
 
 ## 네이밍 컨벤션
 
@@ -12,7 +12,7 @@ CSS 파일 이름은 테마 하나당 `*.css, *.min.css` 가 각각 제공되어
 <link rel='stylesheet' href='//cdn.jsdelivr.net/gh/pronist/hELLO/themes/dark.min.css'>
 ```
 
-그러나 사용자가 이 테마를 직접 스킨편집에서 코드를 수정하여 추가할 필요가 없습니다. 커스텀 테마의 경우 검토를 거쳐 `index.xml` 에 스킨옵션으로 추가될 예정이므로 사용자는 테마만 선택하여 포함할 수 있습니다.
+그러나 사용자가 이 테마를 직접 스킨편집에서 코드를 수정하여 추가할 필요가 없습니다. 스킨옵션을 사용할 것이기 때문에 사용자는 테마만 선택하여 포함할 수 있습니다.
 
 ```html
 <link rel='stylesheet' href='//cdn.jsdelivr.net/gh/pronist/hELLO/themes/[##_var_light-theme_##].min.css'>
@@ -20,7 +20,7 @@ CSS 파일 이름은 테마 하나당 `*.css, *.min.css` 가 각각 제공되어
 
 ## 변수
 
-스킨에서 사용하는 CSS 변수는 많이 없습니다. 다만, 이것들이 어디서 사용되는지 알면 테마를 제작하는 것에 있어 더욱 수월할 수 있습니다. 아래의 예는 `light` 테마의 값 구성입니다. 테마를 선언할 때는 반드시 지역화를 해주어야 합니다. `html[data-theme='light']` 내부에 정의된 변수는 오직 `light` 테마 일 때만 적용됩니다. 이 부분을 빼면 충돌이 발생합니다.
+스킨에서 사용하는 CSS 변수는 많이 없습니다. 다만, 이것들이 어디서 사용되는지 알면 테마를 제작하는 것이 더욱 수월해질 수 있습니다. 아래의 예는 `light` 테마의 값 구성입니다. 테마를 선언할 때는 반드시 지역화를 해주어야 합니다. `html[data-theme='light']` 내부에 정의된 변수는 오직 `light` 테마 일 때만 적용됩니다. 이 부분을 빼면 충돌이 발생합니다.
 
 ```css
 html[data-theme='light'] {
@@ -40,7 +40,7 @@ html[data-theme='light'] {
 }
 ```
 
-괄호에 들어가는 것은 스킨에서 해당 변수가 사용되는 태그 또는 이름을 의미합니다. 예를 들어 `list:description` 은 이름으로써 선택자로 표현하자면 `'.list > .item > .description` 을 의미합니다. `html` 은 그 자체로 태그를 의미합니다.
+괄호에 들어가는 것은 해당 변수가 사용되는 태그 또는 이름을 의미합니다. 예를 들어 `list:description` 은 이름으로써 선택자로 표현하자면 `'.list > .item > .description` 을 의미합니다. `html` 은 그 자체로 태그를 의미합니다.
 
 사용처에 대해 일부 생략이 있습니다. 변수가 사용되는 곳을 자세히 알고싶다면 해당 변수의 이름으로 에디터에서 검색을 할 수 있습니다.
 
@@ -68,7 +68,7 @@ html[data-theme='light'] {
 <link rel='stylesheet' href='/themes/dark.min.css'>
 ```
 
-또는 stylus 등 전처리기를 사용하여, [Pug Filter](https://pugjs.org/language/filters.html) 로 사용할 수 있다면 아래와 같이 포함할 수도 있습니다. 이 경우 테마는 `assets/themes` 에 위치해 있는 것으로 가정합니다. 어디에 있어도 상관없습니다. hELLO 에 stylus 를 위한 필터는 이미 설치되어 있습니다.
+또는 전처리기가 [Pug Filter](https://pugjs.org/language/filters.html) 로 사용할 수 있다면 아래와 같이 포함하여 테스트할 수도 있습니다. 이 경우 테마는 `assets/themes` 에 위치해 있는 것으로 가정합니다. 사실 어디에 있어도 상관없습니다. hELLO 에는 이미 stylus 를 위한 필터는 설치되어 있고, 스킨의 기본 스타일 및 `light`, `dark` 테마는 stylus 로 구성되어 있습니다. 테스트를 위해 아래와 같이 포함할 수 있습니다.
 
 ```pug
 style
