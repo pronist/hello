@@ -30,10 +30,10 @@ html[data-theme='light'] {
   --h-color-background-level-1: #fff;
   --h-color-background-level-2: #f8f8f8;
   --h-color-background-level-3: #e9e9e9;
-  --h-color-background-level-4: rgba(0,0,0,0.6);
+  --h-color-background-level-4: rgba(255,255,255,0.6);
   --h-color-theme: #f0506e;
   --h-button-color: #000;
-  --h-button-background: #fff;
+  --h-button-color-background: #fff;
   --h-button-color-hover: #fff;
   --h-button-color-hover-background: #000;
 }
@@ -53,7 +53,7 @@ html[data-theme='light'] {
 * `--h-color-background-level-4`: 흐린 배경 (navigation:sticky)
 * `--h-color-theme`: 앵커 (post:a)
 * `--h-button-color`: 버튼 텍스트 (post:button, subscription:button, footer:button)
-* `--h-button-background`: 버튼 배경 (post:button, footer:button)
+* `--h-button-color-background`: 버튼 배경 (post:button, footer:button)
 * `--h-button-color-hover`: 버튼 Hover 텍스트 (button:hover, paging:selected, navigation:subscription, post:like. post:more_less)
 * `--h-button-color-hover-background`: 버튼 Hover 배경 (button:hover, paging:selected, subscription:button, post:like. post:more_less)
 

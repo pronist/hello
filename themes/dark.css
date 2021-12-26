@@ -38,17 +38,17 @@ html[data-theme='dark'] #tistoryCclLayer .bundle_ccl .txt_mark {
   border: none;
 }
 html[data-theme='dark'] {
-  --h-color: #fff;
-  --h-color-blur: rgba(255,255,255,0.9);
-  --h-color-blurrier: rgba(255,255,255,0.7);
-  --h-color-blurriest: rgba(255,255,255,0.5);
+  --h-color: rgba(255,255,255,0.9);
+  --h-color-blur: rgba(255,255,255,0.8);
+  --h-color-blurrier: rgba(255,255,255,0.6);
+  --h-color-blurriest: rgba(255,255,255,0.4);
   --h-color-background-level-1: #1e1f21;
   --h-color-background-level-2: #292a2d;
   --h-color-background-level-3: #353638;
   --h-color-background-level-4: rgba(30,31,33,0.6);
   --h-color-theme: #5db0d7;
-  --h-button-color: #fff;
-  --h-button-background: #353638;
-  --h-button-color-hover: #fff;
+  --h-button-color: rgba(255,255,255,0.9);
+  --h-button-color-background: #353638;
+  --h-button-color-hover: rgba(255,255,255,0.9);
   --h-button-color-hover-background: #353638;
 }
