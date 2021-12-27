@@ -3,22 +3,19 @@
  * https://tidory.com/docs/configuration/
  */
 module.exports = {
-  ts_session: null,
-  url: null,
+  ts_session: '',
+  url: '',
 
-  /**
-  * Preview
-  */
   preview: {
-    /**
-     * homeType
-     *
-     * NONE
-     * COVER
-     */
+   /**
+    * homeType
+    *
+    * NONE
+    * COVER
+    */
     homeType: 'NONE',
 
-    /**
+   /**
     * Preview Mode
     *
     * index
@@ -32,15 +29,12 @@ module.exports = {
     mode: 'index'
   },
 
-  /**
-   * Template aliases
-   */
   alias: {
     '@': 'assets',
     '~views': 'views'
   },
 
-  /**
+ /**
   * Webpack Configuration
   *
   * @param {object} webpackConfig
