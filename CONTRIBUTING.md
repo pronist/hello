@@ -4,7 +4,7 @@ hELLO 에 기여하는 방법은 커스텀 테마를 제작하여 사용자에�
 
 ## PRs
 
-새로 작성한 테마가 포함된 PR(Pull Request)을 보내주시면 검토를 거쳐 테마가 추가됩니다. PR 에는 `themes` 디렉토리에 `*.css` 에 해당하는 테마 파일을 추가한 것 이외에는 그 어떤 변경사항도 있어서는 안 됩니다. 새로운 테마를 만들기 위해 [코드 작성가이드](https://github.com/pronist/hELLO/blob/master/CODE_OF_CONDUCT.md)를 참고하여 테마를 작성하는 방법을 알아보시기 바랍니다.
+새로 작성한 테마가 포함된 PR(Pull Request)을 보내주시면 검토를 거쳐 테마가 추가됩니다. PR 에는 `themes` 디렉토리에 `*.css` 에 해당하는 테마 파일을 추가한 것 이외에는 그 어떤 변경사항도 있어서는 안 됩니다. 새로운 테마를 만들기 위해 **코드 작성가이드**를 참고하여 테마를 작성하는 방법을 알아보시기 바랍니다.
 
 ## 코드 작성가이드
 
@@ -12,7 +12,7 @@ hELLO 에 기여하는 방법은 커스텀 테마를 제작하여 사용자에�
 
 ### 네이밍 컨벤션
 
-CSS 파일 이름은 테마 하나당 `*.css` 가 제공되어야 합니다. 예를 들어 `dark` 테마는 `dark.css` 가 요구됩니다.
+테마는 각 이름에 해당하는 `*.css` 가 제공되어야 합니다. 예를 들어 `dark` 테마는 `dark.css` 가 요구됩니다.
 
 ```html
 <link rel='stylesheet' href='//cdn.jsdelivr.net/gh/pronist/hELLO@3.6.1/themes/dark.min.css'>
