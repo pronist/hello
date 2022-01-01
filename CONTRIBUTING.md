@@ -4,7 +4,7 @@ hELLO 에 기여하는 방법은 커스텀 테마를 제작하여 사용자에�
 
 ## PRs
 
-새로 작성한 테마가 포함된 PR(Pull Request)을 보내주시면 검토를 거쳐 테마가 추가됩니다. PR 에는 `themes` 디렉토리에 `*.css`, `*.min.css` 에 해당하는 테마 파일을 추가한 것 이외에는 그 어떤 변경사항도 있어서는 안 됩니다. 새로운 테마를 만들기 위해 [코드 작성가이드](https://github.com/pronist/hELLO/blob/master/CODE_OF_CONDUCT.md)를 참고하여 테마를 작성하는 방법을 알아보시기 바랍니다.
+새로 작성한 테마가 포함된 PR(Pull Request)을 보내주시면 검토를 거쳐 테마가 추가됩니다. PR 에는 `themes` 디렉토리에 `*.css` 에 해당하는 테마 파일을 추가한 것 이외에는 그 어떤 변경사항도 있어서는 안 됩니다. 새로운 테마를 만들기 위해 [코드 작성가이드](https://github.com/pronist/hELLO/blob/master/CODE_OF_CONDUCT.md)를 참고하여 테마를 작성하는 방법을 알아보시기 바랍니다.
 
 ## 코드 작성가이드
 
@@ -12,16 +12,16 @@ hELLO 에 기여하는 방법은 커스텀 테마를 제작하여 사용자에�
 
 ### 네이밍 컨벤션
 
-CSS 파일 이름은 테마 하나당 `*.css, *.min.css` 가 각각 제공되어야 합니다. 예를 들어 `dark` 테마는 `dark.css`, `dark.min.css` 가 요구됩니다. 스킨에는 기본적으로 단일 라인으로 처리된 파일인 `*.min.css` 만 포함되게 하겠지만, 사용자가 자체적으로 커스텀을 하기 용이하도록 `*.css` 도 포함하도록 합니다. 스킨에는 아래와 같이 포함될 것입니다.
+CSS 파일 이름은 테마 하나당 `*.css` 가 제공되어야 합니다. 예를 들어 `dark` 테마는 `dark.css` 가 요구됩니다.
 
 ```html
-<link rel='stylesheet' href='//cdn.jsdelivr.net/gh/pronist/hELLO/themes/dark.min.css'>
+<link rel='stylesheet' href='//cdn.jsdelivr.net/gh/pronist/hELLO@3.6.1/themes/dark.min.css'>
 ```
 
 그러나 사용자가 이 테마를 직접 스킨편집에서 코드를 수정하여 추가할 필요가 없습니다. 스킨옵션을 사용할 것이기 때문에 사용자는 테마만 선택하여 포함할 수 있습니다.
 
 ```html
-<link rel='stylesheet' href='//cdn.jsdelivr.net/gh/pronist/hELLO/themes/[##_var_light-theme_##].min.css'>
+<link rel='stylesheet' href='//cdn.jsdelivr.net/gh/pronist/hELLO@3.6.1/themes/[##_var_dark-theme_##].min.css'>
 ```
 
 ### 변수
@@ -71,7 +71,7 @@ html[data-theme='light'] {
 티도리 프레임워크에서 테마를 테스트하기 위해서는 다음과 같이 `link` 를 만들 수 있습니다. 예를 들어 테마의 이름이 `dark` 인 경우 아래와 같이 포함할 수 있습니다. 이 경우 테마는 `themes` 디렉토리에 위치합니다.
 
 ```pug
-link(rel='stylesheet' href='/themes/dark.min.css')
+link(rel='stylesheet' href='/themes/dark.css')
 ```
 
 또는 전처리기를 [Pug Filter](https://pugjs.org/language/filters.html) 와 함께 사용할 수 있다면 아래와 같이 포함하여 테스트할 수도 있습니다. 이 경우 테마는 `assets/themes` 에 위치해 있는 것으로 가정합니다. 사실 어디에 있어도 상관없습니다. 프로젝트에 원시코드는 포함하지 않을 것이기 때문입니다. hELLO 에는 이미 stylus 를 위한 필터는 설치되어 있고, 스킨의 기본 스타일 및 `light`, `dark` 테마는 stylus 로 구성되어 있습니다. 테스트를 위해 아래와 같이 포함할 수 있습니다.

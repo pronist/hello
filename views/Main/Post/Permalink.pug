@@ -9,36 +9,30 @@ mixin permalink(pageType, type, hasCategory=true)
 script.
   /* Permalink */
   $(document).ready(() => {
-    // Add 'a' tag into headings
-    h.anchorHeadings('.permalink .contents_style', '> h2, > h3, > h4')
-    // Scrollspy
+    h.anchorHeadings('.permalink .contents_style', '> h2, > h3, > h4') // Add 'a' tag into headings
+
     h.scrollspy({
       context: '.permalink .contents_style',
       spy: '#__spy ul',
       headings: '> h2, > h3'
-    })
-    // Media contents alignment
+    }) // Scrollspy
+
     h.alignImageCenter({
       imageSlideBlock: true,
       imageBlock: true,
       imageGridBlock: true
-    })
-    // Highlight.js
-    h.hljs(H.skinOptions.hljsLight, H.skinOptions.hljsDark)
-    // Remove ',' text in Tags
-    h.removeTextNode('.permalink .tags')
+    }) // Media contents alignment
+
+    h.hljs(H.skinOptions.hljsLight, H.skinOptions.hljsDark) // Highlight.js
+    h.removeTextNode('.permalink .tags') // Remove ',' text in Tags
   })
 
 script.
   $(document).ready(() => {
-    // Set styled heading
     h.styledHeading('.permalink','header > .img', H.skinOptions.articleMode, {
       controllable: true,
       modeHandsControlElement: '.permalink .contents_style > div.h[data-mode]'
-    })
-    // Set sticky
-    window.addEventListener(
-      'scroll',
-      h.sticky('#__nav', '.permalink .contents_style', 'sticky')
-    )
+    }) // Set styled heading
+
+    $(window).on('scroll', h.sticky('#__nav', '.permalink .contents_style', 'sticky')) // Set sticky
   })
