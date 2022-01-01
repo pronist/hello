@@ -6,6 +6,8 @@
 
   > [기여하기](https://github.com/pronist/hELLO/blob/master/CONTRIBUTING.md)를 통한 커스텀 테마가 제공될 수도 있기 때문에 조치된 사항입니다.
 
+-  highlight.js CDN 의 버전이 11.3.1 으로 변경되었습니다.
+
 ## 3.5.5
 
 - 스킨옵션 - 사이드바가 적용되지 않던 버그가 수정되었습니다.

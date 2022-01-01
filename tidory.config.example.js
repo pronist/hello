@@ -7,25 +7,25 @@ module.exports = {
   url: '',
 
   preview: {
-   /**
-    * homeType
-    *
-    * NONE
-    * COVER
-    */
+    /**
+     * homeType
+     *
+     * NONE
+     * COVER
+     */
     homeType: 'NONE',
 
-   /**
-    * Preview Mode
-    *
-    * index
-    * entry
-    * category
-    * tag,
-    * location
-    * media,
-    * guestbook
-    */
+    /**
+     * Preview Mode
+     *
+     * index
+     * entry
+     * category
+     * tag,
+     * location
+     * media,
+     * guestbook
+     */
     mode: 'index'
   },
 
@@ -34,11 +34,11 @@ module.exports = {
     '~views': 'views'
   },
 
- /**
-  * Webpack Configuration
-  *
-  * @param {object} webpackConfig
-  */
+  /**
+   * Webpack Configuration
+   *
+   * @param {object} webpackConfig
+   */
   extends (webpackConfig) {
     webpackConfig.module.rules = [
       {

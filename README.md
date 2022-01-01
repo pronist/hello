@@ -40,4 +40,4 @@ hELLO 에 기여하는 방법은 스킨의 **테마**를 제공하는 것입니�
 
 [MIT](https://github.com/pronist/hELLO/blob/master/LICENSE)
 
-Copyright 2020-2021. [SangWoo Jeong](https://github.com/pronist). All rights reserved.
+Copyright 2020-2022. [SangWoo Jeong](https://github.com/pronist). All rights reserved.

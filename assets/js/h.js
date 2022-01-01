@@ -298,7 +298,7 @@ module.exports = class {
 
     $('link#__hljs').attr(
       'href',
-      `//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/${hljs}.min.css`
+      `//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/${hljs}.min.css`
     )
   }
 
