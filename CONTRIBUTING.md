@@ -30,6 +30,7 @@ hELLO 에 기여하는 방법은 커스텀 테마를 제작하여 사용자에�
 
 ```css
 html[data-theme='light'] {
+  --h-color-theme: #f0506e;
   --h-color: #000;
   --h-color-blur: rgba(0,0,0,0.7);
   --h-color-blurrier: rgba(0,0,0,0.5);
@@ -38,7 +39,6 @@ html[data-theme='light'] {
   --h-color-background-level-2: #f8f8f8;
   --h-color-background-level-3: #e9e9e9;
   --h-color-background-level-4: rgba(255,255,255,0.6);
-  --h-color-theme: #f0506e;
   --h-button-color: #000;
   --h-button-color-background: #fff;
   --h-button-color-hover: #fff;
@@ -50,6 +50,7 @@ html[data-theme='light'] {
 
 사용처에 대해 일부 생략이 있습니다. 변수가 사용되는 곳을 자세히 알고싶다면 해당 변수의 이름으로 에디터에서 검색을 할 수 있습니다.
 
+* `--h-color-theme`: 링크 텍스트 (post:a)
 * `--h-color`: 텍스트 (span, p, h1, h2)
 * `--h-color-blur`: 흐린 텍스트 (list:description, post:header, post:tags, tistorytoolbar:a, scollspy, notification)
 * `--h-color-blurrier`: 더 흐린 텍스트 (navigation, paging:next, prev, sidebar, post:figcaption, post:blockquote)
@@ -58,7 +59,6 @@ html[data-theme='light'] {
 * `--h-color-background-level-2`: 서브 배경 (sidebar, tagcloud, post:tags, post:related, post:tistorylayer, comment:form)
 * `--h-color-background-level-3`: 검색 배경 (search:input)
 * `--h-color-background-level-4`: 흐린 배경 (navigation:sticky)
-* `--h-color-theme`: 앵커 (post:a)
 * `--h-button-color`: 버튼 텍스트 (post:button, subscription:button, footer:button)
 * `--h-button-color-background`: 버튼 배경 (post:button, footer:button)
 * `--h-button-color-hover`: 버튼 Hover 텍스트 (button:hover, paging:selected, navigation:subscription, post:like. post:more_less)
