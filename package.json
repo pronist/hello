@@ -6,7 +6,6 @@
     "production": "cross-env NODE_ENV=production tidory production",
     "deploy": "tidory deploy",
     "store": "tidory store",
-    "dist": "push-dir --dir=dist --branch=dist --cleanup",
     "lint": "eslint --ext .js --ignore-path .gitignore . && pug-lint ."
   },
   "license": "MIT",
