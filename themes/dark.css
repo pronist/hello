@@ -26,7 +26,7 @@ html[data-theme='dark'] .permalink > .content .contents_style figure.fileblock .
 html[data-theme='dark'] .permalink > .content .contents_style figure.fileblock a::after {
   filter: brightness(0) invert(1);
 }
-html[data-theme='dark'] .permalink > .content .contents_style figure[data-ke-type=opengraph] .og-text {
+html[data-theme='dark'] .permalink > .content .contents_style figure[data-ke-type=opengraph] {
   background: var(--h-color-background-level-2);
 }
 html[data-theme='dark'] #__sidebar .tistory .header_layer .img_common_tistory {
