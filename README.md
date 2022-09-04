@@ -1,13 +1,9 @@
 # hELLO
 
-<a href="https://github.com/pronist/hELLO/graphs/contributors"><img src="https://opencollective.com/tistory-skin-hello/contributors.svg"></a>
-
-## 시작하기
-
 [hELLO](https://pronist.tistory.com/5) 는 [티도리 프레임워크](http://www.tidory.com)로 작성된 티스토리 스킨입니다. 따라서 별도의 개발 방식이 요구됩니다. 먼저, 프로젝트를 복사합니다.
 
 ```bash
-git clone https://github.com/pronist/hELLO
+git clone https://github.com/tistory-projects/tistory-skin-hELLO
 ```
 
 프로젝트 폴더로 이동하여 `node_modules` 를 설치해줄 필요가 있습니다. 티도리 프레임워크는 **Node.js, Webpack** 을 기반으로 합니다. 따라서 **NPM(Node Package Manager)** 이 요구됩니다.
@@ -31,10 +27,6 @@ npm run preview
 ```bash
 npm run production && npm run deploy
 ```
-
-## 기여하기
-
-hELLO 에 기여하는 방법은 스킨의 **테마**를 제공하는 것입니다. hELLO 는 안정화 단계에 있기때문에 소스코드의 변화가 크게 발생하지 않습니다. 따라서 기여를 통해 사용자에게 보다 다양한 테마를 제공할 수 있는 길을 열어두기로 했습니다. 기여를 하려면 [CONTRIBUTING.md](https://github.com/pronist/hELLO/blob/master/CONTRIBUTING.md) 를 참고하여 할 수 있습니다.
 
 ## 저작권
 
