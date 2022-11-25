@@ -1,5 +1,20 @@
 module.exports = class {
   /**
+   * Sidebar
+   *
+   * @param {string} container
+   * @param {string} attr
+   * @param {string} is
+   */
+  static sidebar (container, is, attr = 'data-sidebar-default') {
+    const $container = $(container)
+
+    if (is) {
+      $container.attr(attr, '')
+    }
+  }
+
+  /**
    * Sticky
    *
    * @param {string} target

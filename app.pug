@@ -72,7 +72,14 @@ html#__hELLO(lang='ko' data-theme='#')
         : window.matchMedia('(prefers-color-scheme: dark)').matches ? H.skinOptions.darkTheme : H.skinOptions.lightTheme
       )
 
-  body(id='[##_body_id_##]' data-sidebar-default='[##_var_sidebar_##]')
+  body(id='[##_body_id_##]')
     include views/TistoryLayer
 
     block TIDORY
+
+    script.
+      $(document).ready(() => {
+        if (H.skinOptions.sidebar) {
+          h.sidebar('body', H.skinOptions.sidebar)
+        }
+      })
