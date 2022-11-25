@@ -1,8 +1,12 @@
 # Change Log
 
+## 3.6.5
+
+- 티스토리 개발팀의 스킨옵션 값 변경으로 인한 패치가 진행되었습니다. ([#149](https://github.com/tistory-projects/tistory-skin-hELLO/issues/149))
+
 ## 3.6.4
 
-- 새로 작성한 글에서 발생한 문제인 #143 가 해결되었습니다.
+- 새로 작성한 글에서 발생한 섬네일이 출력이 되지 않는 문제가 해결되었습니다. ([#143](https://github.com/tistory-projects/tistory-skin-hELLO/issues/143))
 
 ## 3.6.3
 
