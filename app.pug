@@ -26,7 +26,7 @@ html#__hELLO(lang='ko' data-theme='#')
 
     link#__hljs(rel='stylesheet' href='#')
 
-    style(scoped)
+    style(fixed)
       :stylus
         :root
           --h-article-width unquote('[##_var_article-width_##]' + 'px')
@@ -36,9 +36,9 @@ html#__hELLO(lang='ko' data-theme='#')
     style
       include:stylus @/styl/App.styl
 
-    script(scoped).
+    script(fixed).
       const $ = tjQuery
-    script(scoped).
+    script(fixed).
       window.H = {}
       window.H.skinOptions = {
         indexWidth: '[##_var_index-width_##]',
@@ -66,7 +66,7 @@ html#__hELLO(lang='ko' data-theme='#')
         messageUnsubscribe: '[##_var_message-unsubscribe_##]',
         messageUrl: '[##_var_message-url_##]'
       }
-    script(scoped).
+    script(fixed).
       $('html').attr('data-theme', localStorage.TTDARK
         ? localStorage.TTDARK === 'Y' ? H.skinOptions.darkTheme : H.skinOptions.lightTheme
         : window.matchMedia('(prefers-color-scheme: dark)').matches ? H.skinOptions.darkTheme : H.skinOptions.lightTheme
