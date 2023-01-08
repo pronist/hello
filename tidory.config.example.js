@@ -3,8 +3,8 @@
  * https://tidory.com/docs/configuration/
  */
 module.exports = {
-  ts_session: '',
-  url: '',
+  ts_session: '', // 세션 쿠키값 입력 필요
+  url: 'https://overist.tistory.com',
 
   preview: {
     /**
@@ -13,7 +13,7 @@ module.exports = {
      * NONE
      * COVER
      */
-    homeType: 'NONE',
+    homeType: 'COVER',
 
     /**
      * Preview Mode
@@ -26,12 +26,18 @@ module.exports = {
      * media,
      * guestbook
      */
-    mode: 'index'
+    mode: 'category'
   },
 
   alias: {
     '@': 'assets',
     '~views': 'views'
+  },
+  build: {
+    /**
+     * Assets public path
+     */
+    public_path: 'https://tistory1.daumcdn.net/tistory/5843071/skin/images/' // 배포중 번들파일 로딩 못할 시 업데이트 필요
   },
 
   /**

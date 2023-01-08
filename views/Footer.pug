@@ -1,8 +1,8 @@
 footer#__footer(class='uk-navbar-container uk-navbar-transparent' uk-navbar)
   div(class='uk-navbar-right')
-    button.theme-btn
-      | 테마 바꾸기
-      i(aria-hidden='true' class='fa fa-moon')
+    //- button.theme-btn
+    //-   | 테마 바꾸기
+    //-   i(aria-hidden='true' class='fa fa-moon')
     button.toTop(uk-scroll='target: #__hELLO')
       | 제일 위로
       i(class='fa fa-chevron-up')
@@ -11,7 +11,7 @@ script.
   /* Footer */
   $(document).ready(() => {
     $('#__footer .theme-btn').click(() => {
-      h.switchTheme(H.skinOptions.lightTheme, H.skinOptions.darkTheme) // Switch Theme 'Light' <-> 'Dark'
+      //- h.switchTheme(H.skinOptions.lightTheme, H.skinOptions.darkTheme) // Switch Theme 'Light' <-> 'Dark'
       h.hljs(H.skinOptions.hljsLight, H.skinOptions.hljsDark) // Highlight.js
     })
   })
