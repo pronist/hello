@@ -18,6 +18,8 @@ html#__hELLO(lang='ko' data-theme='#')
     link(rel='preconnect' href='//fonts.gstatic.com')
 
     link(rel='stylesheet' href='//fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700&display=swap')
+    link(rel='stylesheet' href='//fonts.googleapis.com/earlyaccess/jejugothic.css')
+    link(rel='stylesheet' href='//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css')
     link(rel='stylesheet' href='//cdn.jsdelivr.net/npm/uikit@3.5.7/dist/css/uikit.min.css')
     link(rel='stylesheet' href='//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-ligature-full.css' media='print' onload=`this.media='all'`)
 
@@ -26,7 +28,7 @@ html#__hELLO(lang='ko' data-theme='#')
 
     link#__hljs(rel='stylesheet' href='#')
 
-    style(fixed)
+    style(scoped)
       :stylus
         :root
           --h-article-width unquote('[##_var_article-width_##]' + 'px')
@@ -36,9 +38,9 @@ html#__hELLO(lang='ko' data-theme='#')
     style
       include:stylus @/styl/App.styl
 
-    script(fixed).
+    script(scoped).
       const $ = tjQuery
-    script(fixed).
+    script(scoped).
       window.H = {}
       window.H.skinOptions = {
         indexWidth: '[##_var_index-width_##]',
@@ -66,7 +68,7 @@ html#__hELLO(lang='ko' data-theme='#')
         messageUnsubscribe: '[##_var_message-unsubscribe_##]',
         messageUrl: '[##_var_message-url_##]'
       }
-    script(fixed).
+    script(scoped).
       $('html').attr('data-theme', localStorage.TTDARK
         ? localStorage.TTDARK === 'Y' ? H.skinOptions.darkTheme : H.skinOptions.lightTheme
         : window.matchMedia('(prefers-color-scheme: dark)').matches ? H.skinOptions.darkTheme : H.skinOptions.lightTheme

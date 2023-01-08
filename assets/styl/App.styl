@@ -6,7 +6,7 @@
   word-break break-all
 
 html, h1, h2, h3, h4, h5, :not(pre) > code, input, textarea
-  font-family 'Noto Sans KR', sans-serif
+  font-family 'Jeju Gothic', 'Noto Sans KR', sans-serif
 
 html
   color var(--h-color)
@@ -27,3 +27,22 @@ html
       transition-duration .2s
   a, button
     pointer-events: initial !important
+
+  #tt-body-page h2[data-ke-size], #tt-body-page h3[data-ke-size], #tt-body-page h4[data-ke-size]
+    font-weight bold
+
+  .tt_article_useless_p_margin p
+    padding 0.5rem 2px !important
+    margin 1px 0 !important
+
+  #tt-body-page blockquote[data-ke-style='style1']
+    background none !important
+    text-align left
+    border-left 4px solid #67bdfc !important
+    padding 0 1rem !important
+    font-size 1.1rem !important
+    font-style italic !important
+    font-family 'Jeju Gothic' !important
+
+  :not(pre)>code
+        color #f0506e !important
