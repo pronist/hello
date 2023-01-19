@@ -44,7 +44,7 @@ mixin coverList(mode, featured=false)
   section(
     data-mode=mode
     class='flex flex-col items-center px-4 lg:px-0 lg:w-[theme(screens.lg)] lg:mx-auto')
-    h1(class='text-3xl font-bold text-h-600 mb-0 dark:text-h-200 mb-10 lg:mb-20') [##_cover_title_##]
+    h1(class='text-3xl font-bold text-h-600 dark:text-h-200 my-10 empty:my-10 lg:my-20') [##_cover_title_##]
     .list
       +coverItem()
         +coverImage()
@@ -54,17 +54,17 @@ mixin coverSlideshow()
   section(
     data-mode='slideshow'
     class='flex flex-col items-center gap-y-10')
-    //- h1(class='text-2xl lg:text-3xl font-bold text-h-200') [##_cover_title_##]
     div(
-      x-init='new Swiper(".swiper", { loop: true, autoplay: { delay: 2500, disableOnInteraction: false }})'
       class='swiper w-full h-screen')
       .list(class='swiper-wrapper')
         +coverItem()(class='swiper-slide flex justify-center items-center before:absolute before:right-0 before:top-0 before:w-full before:h-screen before:bg-h-900/60 before:z-10')
           +coverImage()(class='w-screen h-screen object-cover')
-          +coverDescription(true)(class='text-h-200 absolute w-screen h-screen flex flex-col justify-center items-center gap-y-2 text-center z-20 [&_a]:text-h-200 [&_a]:text-4xl [&_a]:font-bold')
+          +coverDescription(true)(class='text-h-200 absolute w-screen h-screen flex flex-col justify-center items-center gap-y-2 text-center z-20 [&_h2]:px-4 [&_a]:text-h-200 [&_a]:text-4xl [&_a]:font-bold')
+      div(class='swiper-button-next')
+      div(class='swiper-button-prev')
 
 s_cover_group
-  div(class='flex flex-col gap-y-20')
+  div(class='flex flex-col')
     s_cover_rep
       s_cover(name='list')
         +coverList('list')
