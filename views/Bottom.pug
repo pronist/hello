@@ -2,11 +2,11 @@
   :class='{ "xl:w-[calc(100%-theme(spacing.64))]": sidebarDefault }'
   class='flex justify-end px-4 w-full box-border fixed text-sm z-30 bottom-3 xl:bottom-4')
   div(class='flex gap-x-3')
-    button.btn-bottom(
+    button(
       x-data='theme'
       @click='toggle')
       i(class='fa-solid fa-moon text-base')
-    a.btn-bottom(href='#hELLO')
+    a(href='#hELLO')
       i(class='fa-solid fa-chevron-up text-base')
 
 script.
@@ -21,3 +21,12 @@ script.
       this.$store.darkMode = ! this.$store.darkMode
     },
   })))
+
+style
+  :postcss
+    #bottom {
+      a,
+      button {
+        @apply flex justify-center items-center w-10 h-10 outline-0 rounded-full bg-h-200 text-h-500 hover:bg-h-300 dark:bg-h-600 dark:text-h-200 dark:hover:bg-h-500;
+      }
+    }

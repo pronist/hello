@@ -261,13 +261,13 @@ style(once='content')
         table[data-ke-align] {
           td,
           th {
-            @apply bg-transparent border-0 border-b border-solid border-h-400 px-3 py-4 box-border text-sm text-h-600 dark:text-h-200;
+            @apply bg-transparent border-0 border-b border-solid border-h-400 px-3 py-4 box-border text-sm leading-loose text-h-600 dark:text-h-200;
           }
         }
 
         figure {
           figcaption {
-            @apply text-h-400 text-center text-sm;
+            @apply text-h-400 text-center text-sm leading-loose;
           }
 
           img {
@@ -355,7 +355,7 @@ style(once='content')
           @apply font-[initial] my-4 text-h-600 dark:text-h-200 font-sans;
 
           &[data-ke-style=style1] {
-            @apply text-sm pt-7 lg:text-base;
+            @apply text-sm pt-7 leading-loose lg:text-base;
 
             p {
               @apply text-h-600 dark:text-h-200 font-medium;
@@ -363,11 +363,11 @@ style(once='content')
           }
 
           &[data-ke-style=style2] {
-            @apply border-l-2 border-solid border-h-300 dark:border-h-400 pl-3 pr-1 text-h-400 text-left text-sm;
+            @apply border-l-2 border-solid border-h-300 dark:border-h-400 pl-3 pr-1 text-h-400 text-left text-sm leading-loose;
           }
 
           &[data-ke-style=style3] {
-            @apply border-0 leading-8 text-h-400 bg-h-200 dark:bg-h-700 dark:text-h-400;
+            @apply border-0 text-h-400 bg-h-200 dark:bg-h-700 dark:text-h-400 leading-loose;
           }
         }
 
@@ -389,15 +389,16 @@ style(once='content-postbtn')
       .container_postbtn {
         @apply p-0 pt-9 text-h-600 dark:text-h-200;
 
+        .postbtn_like > .wrap_btn:not([id^=reaction-]) > button,
+        .btn_subscription {
+          @apply w-9 h-9 inline-block shadow-none outline-0 rounded-md cursor-pointer duration-200 leading-none text-[0] p-0 bg-h-200 hover:bg-h-300 before:text-h-500 dark:bg-h-700 dark:before:text-h-200 dark:hover:bg-h-600;
+        }
+
         .postbtn_like {
           @apply border-0 p-0 flex gap-x-2;
 
           .wrap_btn {
             @apply inline-block border-0;
-
-            &:not([id^=reaction-]) > button {
-              @apply btn-post w-9 h-9;
-            }
 
             button,
             button[data-entry-id],

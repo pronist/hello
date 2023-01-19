@@ -12,18 +12,6 @@ button {
 }
 
 @layer components {
-  .btn-post {
-    @apply inline-block shadow-none outline-0 rounded-md cursor-pointer duration-200 leading-none text-[0] p-0 bg-h-200 hover:bg-h-300 before:text-h-500 dark:bg-h-700 dark:before:text-h-200 dark:hover:bg-h-600;
-  }
-
-  .btn-top {
-    @apply flex justify-center items-center w-10 h-10 outline-0 rounded-full bg-h-600 text-h-200 hover:bg-h-500;
-  }
-
-  .btn-bottom {
-    @apply flex justify-center items-center w-10 h-10 outline-0 rounded-full bg-h-200 text-h-500 hover:bg-h-300 dark:bg-h-600 dark:text-h-200 dark:hover:bg-h-500;
-  }
-
   /* Swiper */
   .swiper-button-next,
   .swiper-button-prev {

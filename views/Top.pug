@@ -23,10 +23,10 @@ div(
   div
     div(class='m-0 text-sm font-bold h-5 text-overflow-hidden max-w-[calc(80vw-152px)] text-h-800 dark:text-h-200') [##_page_title_##]
   div
-    button.subscription.btn-top(
+    button.subscription(
       :data-blog-id="T.config.BLOG.id"
       :data-url="TistoryBlog.tistoryUrl"
-      class='btn_menu_toolbar btn_subscription #subscribe')
+      class='flex justify-center items-center w-10 h-10 outline-0 rounded-full bg-h-600 text-h-200 hover:bg-h-500 btn_menu_toolbar btn_subscription #subscribe')
       i(class='fa-solid fa-star font-bold text-sm')
 
 script.
