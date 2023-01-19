@@ -4,7 +4,7 @@ article#content(
   div(x-data='content')
     s_if_var_toc
       include Content/TOC
-    div
+    div(x-ref='article')
       | #{`[##_${type}_rep_desc_##]`}
       include Content/Subscription
     s_if_var_scrollspy
@@ -182,7 +182,7 @@ script(once='alpine-content-component').
      * @return {NodeListOf<HTMLElement>}
      */
     get $headings () {
-      return this.$refs.content.querySelectorAll(this.supportHeadings.join(','))
+      return this.$refs.article.querySelectorAll(this.supportHeadings.join(','))
     }
   })))
 

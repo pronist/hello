@@ -1,7 +1,14 @@
 template(x-if='$data.headings.length > 0')
   #scrollspy(
     x-data='scrollspy'
-    @scroll.window='spy'
+    @scroll.window='scrollspy'
+    x-transition:enter='transition ease-linear duration-200'
+    x-transition:enter-start='opacity-0'
+    x-transition:enter-end='opacity-100'
+    x-transition:leave='transition ease-linear duration-200'
+    x-transition:leave-start='opacity-100'
+    x-transition:leave-end='opacity-0'
+    x-show='show'
     class='2xl:absolute 2xl:top-0 2xl:h-full 2xl:ml-[calc(((1100px+var(--h-permalink-width))/2)+theme(spacing.5))]')
     div(class='2xl:sticky 2xl:top-20')
       button(
@@ -32,6 +39,13 @@ template(x-if='$data.headings.length > 0')
 script(once='alpine-scrollspy-component').
   document.addEventListener('alpine:init', () => Alpine.data('scrollspy', () => ({
     /**
+     * Show
+     *
+     * @property {boolean} show
+     */
+    show: false,
+
+    /**
      * On active Class
      *
      * @property {string} activeClass
@@ -44,6 +58,14 @@ script(once='alpine-scrollspy-component').
      * @property {boolean} open
      */
     open: false,
+
+    /**
+     * Scollspy
+     */
+    scrollspy () {
+      this.spy()
+      this.showInArticle()
+    },
 
     /**
      * Toggle
@@ -61,7 +83,7 @@ script(once='alpine-scrollspy-component').
       $headings.forEach(($heading, index) => {
         if (this.in($heading)) {
           this.reset()
-          this.on(index)
+          this.hit(index)
         }
       })
 
@@ -73,11 +95,18 @@ script(once='alpine-scrollspy-component').
     },
 
     /**
-     * On
+     * Show in the article
+     */
+    showInArticle () {
+      this.show = this.$refs.article.getBoundingClientRect().top < 0
+    },
+
+    /**
+     * Hit
      *
      * @param {number} index
      */
-    on (index) {
+    hit (index) {
       this.$data.headings[index].active = true
     },
 
