@@ -1,7 +1,10 @@
-.tags
-  a(href='/tag'): h2 태그
-  ul
-    s_random_tags
-      li
-        i(class='fa fa-hashtag' aria-hidden='true')
-        a(href='[##_tag_link_##]' class='[##_tag_class_##]') [##_tag_name_##]
+.sidebar-element
+  div
+    h2
+      a.link_tit(href='/tag') 태그
+    ul(class='flex flex-col gap-y-2')
+      s_random_tags
+        li(class='text-sm')
+          i(class='fa fa-hashtag mr-2')
+          a(href='[##_tag_link_##]'
+            class='[##_tag_class_##]') [##_tag_name_##]

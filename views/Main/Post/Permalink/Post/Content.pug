@@ -1,0 +1,495 @@
+article#content(
+  x-ref='content'
+  class='relative')
+  div(x-data='content')
+    s_if_var_toc
+      include Content/TOC
+    div
+      | #{`[##_${type}_rep_desc_##]`}
+      include Content/Subscription
+    s_if_var_scrollspy
+      include Content/Scrollspy
+
+script(once='alpine-content-component').
+  document.addEventListener('alpine:init', () => Alpine.data('content', () => ({
+    /**
+     * Support Headings
+     *
+     * @property {array} headings
+     */
+    supportHeadings: [
+      '.contents_style > h2',
+      '.contents_style > h3'
+    ],
+
+    /**
+     * Headings
+     *
+     * @property {array} headings
+     */
+    headings: [],
+
+    /**
+     * Init 'content' Component
+     */
+    init () {
+      this.imagesToCenter()
+      this.highlight()
+      this.appendAnchorToHeadings()
+      this.collectHeadings()
+    },
+
+    /**
+     * Syntax highlighting
+     */
+    highlight () {
+      hljs.highlightAll()
+    },
+
+    /**
+     * Align images(Single, Grid, Slide) to center
+     */
+    imagesToCenter () {
+      this.$imageSlideBlock.forEach(imageBlock => this.centerImage(imageBlock, imageBlock.querySelector('.image-wrap.selected > img').getAttribute('data-origin-width')))
+      this.$imageBlock.forEach(imageBlock => this.centerImage(imageBlock, imageBlock.getAttribute('data-origin-width') || imageBlock.getAttribute('width') || imageBlock.offsetWidth))
+      this.$imageGridBlock.forEach(imageBlock => this.centerImage(imageBlock, 1100))
+    },
+
+    /**
+     * Add css style for align image
+     *
+     * @param {HTMLElement} imageBlock
+     * @param {Number} originWidth
+     */
+    centerImage (imageBlock, originWidth) {
+      const width = originWidth > 1100 ? 1100 : originWidth
+
+      imageBlock.style.width = `${width}px`
+      imageBlock.style.marginLeft = `calc(50% - ${width / 2}px)`
+    },
+
+    /**
+     * Collect heading items
+     */
+    collectHeadings () {
+      this.$headings.forEach(this.addHeading.bind(this))
+    },
+
+    /**
+     * Collect heading item
+     */
+    addHeading ($heading) {
+      const heading = this.heading($heading)
+
+      this.headings.push(heading)
+    },
+
+    /**
+     * Get new Scrollspy item
+     *
+     * @param {HTMLElement} $heading
+     *
+     * @return {object}
+     */
+    heading ($heading) {
+      return {
+        tagName: $heading.tagName,
+        id: $heading.id,
+        href: `#${$heading.id}`,
+        text: $heading.textContent,
+        active: false
+      }
+    },
+
+    /**
+     * Set anchor to headings
+     */
+    appendAnchorToHeadings () {
+      this.$headings.forEach(this.appendAnchorToHeading.bind(this))
+    },
+
+    /**
+     * Set anchor to heading
+     *
+     * @param {HTMLElement} $heading
+     */
+    appendAnchorToHeading ($heading) {
+      const link = this.link($heading)
+      const $anchor = this.$anchor($heading, `#${link}`)
+
+      $heading.setAttribute('id', link)
+      $heading.innerHTML = $anchor.outerHTML
+    },
+
+    /**
+     * Get link for heading
+     *
+     * @param {HTMLElement} $heading
+     *
+     * @return {string}
+     */
+    link ($heading) {
+      return encodeURIComponent($heading.textContent)
+    },
+
+    /**
+     * Get new anchor
+     *
+     * @param {HTMLElement} $heading
+     * @param {string} link
+     *
+     * @return {HTMLElement}
+     */
+    $anchor ($heading, link) {
+      const $anchor = document.createElement('a')
+
+      $anchor.setAttribute('href', link)
+      $anchor.textContent = $heading.textContent
+
+      return $anchor
+    },
+
+    /**
+     * Get slide image blocks
+     *
+     * @return {HTMLCollection}
+     */
+    get $imageSlideBlock () {
+      return this.$el.querySelectorAll('figure.imageslideblock.alignCenter')
+    },
+
+    /**
+     * Get single image blocks
+     *
+     * @return {HTMLCollection}
+     */
+    get $imageBlock () {
+      return this.$el.querySelectorAll('figure.imageblock.alignCenter')
+    },
+
+    /**
+     * Get grid image blocks
+     *
+     * @return {HTMLCollection}
+     */
+    get $imageGridBlock () {
+      return this.$el.querySelectorAll('figure.imagegridblock')
+    },
+
+    /**
+     * Get headings in content
+     *
+     * @return {NodeListOf<HTMLElement>}
+     */
+    get $headings () {
+      return this.$refs.content.querySelectorAll(this.supportHeadings.join(','))
+    }
+  })))
+
+style(once='content')
+  :postcss
+    #content {
+      .contents_style {
+        @apply text-left p-0 leading-7 text-h-600 dark:text-h-200;
+
+        a {
+          @apply text-h-orange dark:text-h-blue decoration-0;
+        }
+
+        h2,
+        h3,
+        h4 {
+          @apply my-5 font-medium;
+
+          a {
+            @apply text-h-600 dark:text-h-200;
+          }
+        }
+
+        h2 {
+          @apply text-xl lg:text-2xl;
+        }
+
+        h3 {
+          @apply text-lg lg:text-xl;
+        }
+
+        h4 {
+          @apply text-base lg:text-lg;
+        }
+
+        p,
+        ol,
+        ul,
+        table[data-ke-align],
+        blockquote[data-ke-style=style2],
+        blockquote[data-ke-style=style3] {
+          @apply text-h-600 dark:text-h-300;
+
+          b,
+          strong {
+            @apply font-bold;
+          }
+
+          a {
+            @apply inline-block text-h-orange dark:text-h-blue;
+          }
+
+          code {
+            @apply relative -top-[1px] px-2 py-0.5 rounded-md whitespace-normal text-sm font-sans text-h-600 bg-h-200 dark:text-h-300 dark:bg-h-700;
+          }
+        }
+
+        ul,
+        ol,
+        figure,
+        pre,
+        table[data-ke-align],
+        [data-ke-type=moreLess] {
+          @apply my-5;
+        }
+
+        hr {
+          @apply dark:invert dark:brightness-0;
+        }
+
+        table[data-ke-align] {
+          td,
+          th {
+            @apply bg-transparent border-0 border-b border-solid border-h-400 px-3 py-4 box-border text-sm text-h-600 dark:text-h-200;
+          }
+        }
+
+        figure {
+          figcaption {
+            @apply text-h-400 text-center text-sm;
+          }
+
+          img {
+            @apply rounded-xl bg-h-100;
+          }
+
+          &.imageblock.alignCenter,
+          &.imagegridblock,
+          &.imageslideblock.alignCenter {
+            @apply max-w-none max-lg:w-full max-lg:mx-0 !important;
+          }
+
+          &.imageslideblock > .image-container {
+            @apply w-[inherit] h-[inherit] overflow-hidden bg-h-100 dark:bg-h-800 !important;
+          }
+
+          &[data-ke-type=opengraph] {
+            a {
+              @apply border-0;
+
+              .og-image {
+                @apply border-r-0 rounded-l-xl bg-h-200 dark:bg-h-700 overflow-hidden;
+              }
+            }
+
+            .og-text {
+              @apply bg-h-200 dark:bg-h-700 rounded-r-xl;
+
+              .og-title,
+              .og-desc,
+              .og-host {
+                @apply text-h-500 dark:text-h-200 font-sans;
+              }
+
+              .og-title {
+                @apply text-h-600 font-bold;
+              }
+            }
+          }
+
+          &.fileblock {
+            @apply rounded-xl border-0 bg-h-200 dark:bg-h-700;
+
+            .filename,
+            .size {
+              @apply dark:text-h-200;
+            }
+
+            .image,
+            a::after {
+              @apply dark:invert dark:brightness-0;
+            }
+          }
+        }
+
+        [data-ke-type=moreLess] {
+          @apply relative;
+
+          &::before {
+            @apply content-[''] absolute top-4 right-0 w-full h-0 w-[calc(100%-90px)] border-b border-dashed border-h-400 dark:border-h-200;
+          }
+
+          &.open::before {
+            @apply w-[calc(100%-75px)];
+          }
+
+          &.open > .btn-toggle-moreless::before {
+            @apply fa-circle-arrow-down;
+          }
+
+          .btn-toggle-moreless {
+            @apply bg-h-700 text-h-200 text-sm font-bold rounded-xl px-3 py-1 inline-block;
+
+            &::before {
+              @apply mr-1.5 fa-circle-arrow-right;
+            }
+          }
+
+          .moreless-content {
+            @apply mt-6;
+          }
+        }
+
+        blockquote {
+          @apply font-[initial] my-4 text-h-600 dark:text-h-200 font-sans;
+
+          &[data-ke-style=style1] {
+            @apply text-sm pt-7 lg:text-base;
+
+            p {
+              @apply text-h-600 dark:text-h-200 font-medium;
+            }
+          }
+
+          &[data-ke-style=style2] {
+            @apply border-l-2 border-solid border-h-300 dark:border-h-400 pl-3 pr-1 text-h-400 text-left text-sm;
+          }
+
+          &[data-ke-style=style3] {
+            @apply border-0 leading-8 text-h-400 bg-h-200 dark:bg-h-700 dark:text-h-400;
+          }
+        }
+
+        pre {
+          code {
+            @apply px-4;
+
+            &.hljs {
+              @apply bg-h-200 dark:bg-h-700;
+            }
+          }
+        }
+      }
+    }
+
+style(once='content-postbtn')
+  :postcss
+    #content {
+      .container_postbtn {
+        @apply p-0 pt-9 text-h-600 dark:text-h-200;
+
+        .postbtn_like {
+          @apply border-0 p-0 flex gap-x-2;
+
+          .wrap_btn {
+            @apply inline-block border-0;
+
+            &:not([id^=reaction-]) > button {
+              @apply btn-post w-9 h-9;
+            }
+
+            button,
+            button[data-entry-id],
+            .uoc-count {
+              &::before {
+                @apply font-bold text-sm;
+              }
+            }
+
+            &.wrap_btn_share,
+            &.wrap_btn_etc {
+              .btn_post > * {
+                @apply hidden;
+              }
+            }
+
+            &[id^=reaction-] button {
+              @apply w-16 h-9 rounded-md bg-h-700 hover:bg-h-600;
+
+              > .uoc-icon > .ico_like {
+                @apply hidden;
+              }
+
+              .uoc-icon {
+                @apply text-h-200;
+              }
+
+              .uoc-count {
+                @apply font-bold leading-none;
+
+                &::before {
+                  @apply text-sm mr-1.5 fa-heart;
+                }
+              }
+            }
+
+            &.wrap_btn_share .btn_share::before {
+              @apply fa-share-nodes;
+            }
+
+            button[data-entry-id] {
+              &::before {
+                @apply fa-chart-pie;
+              }
+
+              .ico_statistics {
+                @apply hidden;
+              }
+            }
+
+            &.wrap_btn_etc {
+              .btn_etc1::before {
+                @apply fa-wrench;
+              }
+
+              .btn_etc2::before {
+                @apply fa-ellipsis;
+              }
+            }
+          }
+        }
+      }
+    }
+
+style(once='content-tistory-ccl-layer')
+  :postcss
+    #tistoryCclLayer {
+      @apply shadow-none border-0 bg-h-200 text-h-400 dark:bg-h-700 dark:text-h-300 rounded-md;
+
+      span {
+        @apply text-h-400;
+      }
+
+      .ico_arrbt {
+        @apply hidden;
+      }
+    }
+
+style(once='content-tistory-layer')
+  :postcss
+    #tistorySnsLayer,
+    #tistoryEtcLayer {
+      @apply rounded-md shadow-none bg-h-200 dark:bg-h-700;
+
+      .btn_mark {
+        @apply text-h-400 dark:text-h-300;
+
+        &:hover {
+          @apply bg-h-300 dark:bg-h-600 dark:text-h-200;
+        }
+      }
+
+      .ico_arrbt {
+        @apply hidden;
+      }
+
+      .bundle_post a {
+        @apply text-h-400 dark:text-h-300 no-underline;
+      }
+    }

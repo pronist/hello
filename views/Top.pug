@@ -1,0 +1,51 @@
+div(
+  x-data='top'
+  @scroll.window='toggle'
+  x-show='open'
+  x-transition:enter='transition ease-linear duration-300'
+  x-transition:enter-start='opacity-0'
+  x-transition:enter-end='opacity-100'
+  x-transition:leave='transition ease-linear duration-300'
+  x-transition:leave-start='opacity-100'
+  x-transition:leave-end='opacity-0'
+  :class='{ "xl:w-[calc(100%-theme(spacing.64))]": sidebarDefault }'
+  class='w-full box-border px-4 h-14 top-0 fixed flex justify-between items-center z-30 backdrop-blur bg-h-100/50 dark:bg-h-800/80 xl:px-5')
+  div
+    img.lazyload(
+      @click='sidebar = ! sidebar'
+      :class='{ "xl:invisible": sidebarDefault }'
+      class='rounded-full w-9 h-9 cursor-pointer'
+      data-src='[##_image_##]'
+      data-sizes='auto'
+      alt='[##_blogger_##]'
+      width='36'
+      height='36')
+  div
+    div(class='m-0 text-sm font-bold h-5 text-overflow-hidden max-w-[calc(80vw-152px)] text-h-800 dark:text-h-200') [##_page_title_##]
+  div
+    button.subscription.btn-top(
+      :data-blog-id="T.config.BLOG.id"
+      :data-url="TistoryBlog.tistoryUrl"
+      class='btn_menu_toolbar btn_subscription #subscribe')
+      i(class='fa-solid fa-star font-bold text-sm')
+
+script.
+  document.addEventListener('alpine:init', () => Alpine.data('top', () => ({
+    /**
+     * @property {boolean} open
+     */
+    open: false,
+
+    /**
+     * Toggle
+     */
+    toggle () {
+      if (! document.body.contains(this.$refs.content)) {
+        this.open = true
+
+        return
+      }
+
+      this.open = this.$refs.content.getBoundingClientRect().top < 0
+    }
+  })))

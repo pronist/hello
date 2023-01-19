@@ -1,14 +1,13 @@
 extends app
 
 block TIDORY
-  include views/Loader
   s_t3
-    #__tidory
+    include views/ScrollIndicator
+    div(
+      x-data="{ sidebar: false, sidebarDefault: skinOptions.sidebar }"
+      :class='sidebarDefault && "xl:pl-64"'
+      class='pl-0 break-all')
+      include views/Top
       include views/Sidebar
-      include views/Navigation
       include views/Main
-      include views/Footer
-  include views/ScrollIndicator
-
-  style
-    include:stylus @/styl/Index.styl
+      include views/Bottom

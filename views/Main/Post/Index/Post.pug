@@ -1,11 +1,18 @@
-.item
-  a.img(href=`[##_${type}_rep_link_##]`)
-    #{`s_${type}_rep_thumbnail`}
-      img.thumbnail.lazyload(data-src=`[##_${type}_rep_thumbnail${type === 'list' ? '' : '_url'}_##]` data-sizes='auto')
-  .description
+.post
+  #{`s_${type}_rep_thumbnail`}
+    a(href=`[##_${type}_rep_link_##]`)
+      img.lazyload(
+        data-src=`[##_${type}_rep_thumbnail${type === 'list' ? '' : '_url'}_##]`
+        data-sizes='auto'
+        class='object-cover bg-h-100')
+  .description(class='flex flex-col')
     if hasCategory
-      .category: a(href=`[##_${type}_rep_category_link_##]`) #{`[##_${type}_rep_category_##]`}
-    h2.title: a(href=`[##_${type}_rep_link_##]`) #{`[##_${type}_rep_title_##]`}
-    .date
-      time #{`[##_${type}_rep_${type === 'list' ? 'regdate' : 'date'}_##]`}
-    p.summary #{`[##_${type}_rep_summary_##]`}
+      a(
+        href=`[##_${type}_rep_category_link_##]`
+        class='text-sm text-h-400') #{`[##_${type}_rep_category_##]`}
+    h2
+      a(
+        href=`[##_${type}_rep_link_##]`
+        class='text-h-800 dark:text-h-200') #{`[##_${type}_rep_title_##]`}
+    time(class='text-h-400 text-sm') #{`[##_${type}_rep_${type === 'list' ? 'regdate' : 'date'}_##]`}
+    p(class='relative overflow-hidden text-h-400 leading-7') #{`[##_${type}_rep_summary_##]`}

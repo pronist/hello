@@ -1,95 +1,76 @@
 mixin coverItem()
   s_cover_item
-    li.item
+    .post&attributes(attributes)
       block
 
 mixin coverImage()
-  a.img(href='[##_cover_item_url_##]')
-    s_cover_item_thumbnail
-      img.thumbnail.lazyload(data-src='[##_cover_item_thumbnail_##]' data-sizes='auto' alt='[##_cover_item_title_##]')&attributes(attributes)
+  s_cover_item_thumbnail
+    a(href='[##_cover_item_url_##]')
+      img.lazyload(
+        data-src='[##_cover_item_thumbnail_##]'
+        data-sizes='auto' alt='[##_cover_item_title_##]'
+        class='object-cover bg-h-100')&attributes(attributes)
 
-mixin coverDescriptionIfContent(isFeatured=false)
-  .description&attributes(attributes)
-    .category: a(href='[##_cover_item_category_url_##]') [##_cover_item_category_##]
-    h2.title: a(href='[##_cover_item_url_##]') [##_cover_item_title_##]
-    unless isFeatured
-      .date
-        time [##_cover_item_simple_date_##]
-      p.summary [##_cover_item_summary_##]
+mixin coverDescriptionIfContent(featured=false)
+  .description(class='flex flex-col')&attributes(attributes)
+    unless featured
+      a.category(
+        href='[##_cover_item_category_url_##]'
+        class='text-sm text-h-400') [##_cover_item_category_##]
+    h2
+      a(
+        href='[##_cover_item_url_##]'
+        class='text-h-800 dark:text-h-200') [##_cover_item_title_##]
+    unless featured
+      time(class='text-h-400 text-sm') [##_cover_item_simple_date_##]
+      p(class='relative overflow-hidden leading-7 text-h-500 dark:text-h-400') [##_cover_item_summary_##]
 
-mixin coverDescriptionIfNotContent(isFeatured=false)
-  .description&attributes(attributes)
-    h2.title: a(href='[##_cover_item_url_##]') [##_cover_item_title_##]
-    unless isFeatured
-      p.summary [##_cover_item_summary_##]
+mixin coverDescriptionIfNotContent(featured=false)
+  .description(class='flex flex-col')&attributes(attributes)
+    h2
+      a(
+        href='[##_cover_item_url_##]'
+        class='text-h-800 dark:text-h-200') [##_cover_item_title_##]
+    unless featured
+      p [##_cover_item_summary_##]
 
-mixin coverDescription(isFeatured=false)
+mixin coverDescription(featured=false)
   s_cover_item_article_info
-    +coverDescriptionIfContent(isFeatured)&attributes(attributes)
+    +coverDescriptionIfContent(featured)&attributes(attributes)
   s_cover_item_not_article_info
-    +coverDescriptionIfNotContent(isFeatured)&attributes(attributes)
+    +coverDescriptionIfNotContent(featured)&attributes(attributes)
 
-mixin slider(mode, isFullScreen=false)
-  section.slider.cover(data-mode=mode)
-    h1 [##_cover_title_##]
-    div(class='uk-position-relative uk-visible-toggle uk-light'
-      tabindex='-1'
-      uk-slider='finite: true; autoplay: true'
-      style=isFullScreen ? 'min-height: 100vh' : 'max-height: 520px; height: 520px')
-      ul&attributes(attributes)
-        +coverItem()
-          +coverImage()(style=isFullScreen ? 'min-height: 100vh' : 'max-height: 520px; height: 520px')
-          div(class='uk-overlay-primary uk-position-cover')
-          +coverDescription(true)(class='uk-position-center uk-panel')
-      a(class='uk-position-center-left uk-position-small uk-hidden-hover' href='#' uk-slidenav-previous uk-slider-item='previous')
-      a(class='uk-position-center-right uk-position-small uk-hidden-hover' href='#' uk-slidenav-next uk-slider-item='next')
+mixin coverList(mode, featured=false)
+  section(
+    data-mode=mode
+    class='flex flex-col items-center px-4 lg:px-0 lg:w-[theme(screens.lg)] lg:mx-auto')
+    h1(class='text-3xl font-bold text-h-600 mb-0 dark:text-h-200 mb-10 lg:mb-20') [##_cover_title_##]
+    .list
+      +coverItem()
+        +coverImage()
+        +coverDescription(featured)
 
-mixin cover(mode, isFeatured=false)
-  case mode
-    when 'default'
-    when 'list'
-    when 'grid'
-    when 'gallery'
-    when 'zigzag'
-      section.list.cover(data-mode=mode)
-        h1 [##_cover_title_##]
-        ul&attributes(attributes)
-          +coverItem()
-            +coverImage()
-            +coverDescription(isFeatured)
-    when 'slideshow'
-    when 'slideshow-screen'
-      section.slide.cover(data-mode=mode class='uk-position-relative uk-visible-toggle uk-light' tabindex='-1')&attributes(attributes)
-        h1 [##_cover_title_##]
-        ul(class='uk-slideshow-items')
-          +coverItem()
-            +coverImage()(uk-cover)
-            div(class='uk-overlay-primary uk-position-cover')
-            +coverDescription(true)(class='uk-position-center uk-position-small')
-        a(class='uk-position-center-left uk-position-small uk-hidden-hover' href='#' uk-slidenav-previous uk-slideshow-item='previous')
-        a(class='uk-position-center-right uk-position-small uk-hidden-hover' href='#' uk-slidenav-next uk-slideshow-item='next')
-    when 'slider'
-      +slider(mode)&attributes(attributes)
-    when 'slider-screen'
-      +slider(mode, true)&attributes(attributes)
+mixin coverSlideshow()
+  section(
+    data-mode='slideshow'
+    class='flex flex-col items-center gap-y-10')
+    //- h1(class='text-2xl lg:text-3xl font-bold text-h-200') [##_cover_title_##]
+    div(
+      x-init='new Swiper(".swiper", { loop: true, autoplay: { delay: 2500, disableOnInteraction: false }})'
+      class='swiper w-full h-screen')
+      .list(class='swiper-wrapper')
+        +coverItem()(class='swiper-slide flex justify-center items-center before:absolute before:right-0 before:top-0 before:w-full before:h-screen before:bg-h-900/60 before:z-10')
+          +coverImage()(class='w-screen h-screen object-cover')
+          +coverDescription(true)(class='text-h-200 absolute w-screen h-screen flex flex-col justify-center items-center gap-y-2 text-center z-20 [&_a]:text-h-200 [&_a]:text-4xl [&_a]:font-bold')
 
 s_cover_group
-  s_cover_rep
-    s_cover(name='default')
-      +cover('default')
-    s_cover(name='list')
-      +cover('list')
-    s_cover(name='grid')
-      +cover('grid')(class='uk-child-width-1-2@s uk-child-width-1-3@m' uk-grid)
-    s_cover(name='gallery')
-      +cover('gallery', true)(class='uk-child-width-1-2@s uk-child-width-1-3@m' uk-grid)
-    s_cover(name='zigzag')
-      +cover('zigzag')
-    s_cover(name='slideshow')
-      +cover('slideshow')(uk-slideshow='min-height: 280; max-height: 280; autoplay: true; animation: fade')
-    s_cover(name='slideshow-screen')
-      +cover('slideshow-screen')(uk-slideshow='autoplay: true; animation: fade')
-    s_cover(name='slider')
-      +cover('slider')(class='uk-slider-items uk-child-width-1-2@s uk-child-width-1-4@m')
-    s_cover(name='slider-screen')
-      +cover('slider-screen')(class='uk-slider-items uk-child-width-1-2@s uk-child-width-1-4@m')
+  div(class='flex flex-col gap-y-20')
+    s_cover_rep
+      s_cover(name='list')
+        +coverList('list')
+      s_cover(name='grid')
+        +coverList('grid')
+      s_cover(name='zigzag')
+        +coverList('zigzag')
+      s_cover(name='slideshow')
+        +coverSlideshow()

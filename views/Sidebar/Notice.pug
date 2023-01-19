@@ -1,7 +1,10 @@
-.notice
-  a(href='/notice'): h2 공지사항
-  s_rct_notice
-    ul
-      s_rct_notice_rep
-        li
-          a(href='[##_notice_rep_link_##]') [##_notice_rep_title_##]
+.sidebar-element
+  div
+    h2
+      a.link_tit(href='/notice') 공지사항
+    s_rct_notice
+      ul(class='flex flex-col gap-y-3')
+        s_rct_notice_rep
+          li(class='text-sm')
+            i(class='fa-regular fa-bell text-h-400 mr-2')
+            a(href='[##_notice_rep_link_##]') [##_notice_rep_title_##]

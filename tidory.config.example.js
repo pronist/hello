@@ -26,7 +26,31 @@ module.exports = {
      * media,
      * guestbook
      */
-    mode: 'index'
+    mode: 'index',
+
+    /**
+     * Skin Settings
+     */
+    skinSettings: {
+      liststyle: 'list'
+    },
+
+    /**
+     * Variables
+     */
+    variableSettings: {
+      theme: 'dark',
+      'permalink-width': '720',
+      sidebar: true,
+      'foldable-category': true,
+      'foldable-reply': true,
+      scrollspy: true,
+      toc: true,
+      hljs: 'xcode',
+      hljsDark: 'vs2015',
+      'related-article': true,
+      author: true
+    }
   },
 
   alias: {

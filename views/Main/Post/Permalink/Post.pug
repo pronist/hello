@@ -1,26 +1,4 @@
-div(class=`${type} permalink` data-mode='[##_var_article-image-mode_##]')
-  header.header
-    #{`s_${type}_rep_thumbnail`}
-      .img
-        .mask
-        img.thumbnail.lazyload(data-src=`[##_${type}_rep_thumbnail_url_##]` data-sizes='auto' alt=`[##_${type}_rep_title_##]`)
-    .heading
-      if hasCategory
-        a.category(href='[##_article_rep_category_link_##]') [##_article_rep_category_##]
-      h1.title #{`[##_${type}_rep_title_##]`}
-      .metainfo
-        time.date #{`[##_${type}_rep_date_##]`}
-        if hasCategory
-          include Post/Admin
-  article.content
-    | #{`[##_${type}_rep_desc_##]`}
-    include Post/Subscription
-    s_if_var_scrollspy
-      include Post/Scrollspy
-  footer.footer
-    if hasCategory
-      s_if_var_related
-        include Post/Related
-      include Post/Tag
-    s_if_var_author
-      include Post/Author
+include Post/Header
+div(class='px-4 w-full lg:max-w-screen-lg lg:w-[var(--h-permalink-width)] lg:px-0 lg:mx-auto')
+  include Post/Content
+  include Post/Footer

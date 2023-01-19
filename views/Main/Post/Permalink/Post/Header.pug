@@ -1,0 +1,27 @@
+header(
+  x-data='{ thumbnail: false }'
+  :class='thumbnail ? "h-64 lg:mb-16" : "h-32 mt-10 lg:mt-20"'
+  class='mb-10 flex justify-center items-center')
+  #{`s_${type}_rep_thumbnail`}
+    div(
+      x-init='thumbnail = true'
+      class='absolute right-0 top-0 w-full h-64 before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10')
+      img.lazyload(
+        data-src=`[##_${type}_rep_thumbnail_url_##]`
+        data-sizes='auto'
+        alt=`[##_${type}_rep_title_##]`
+        class='absolute right-0 top-0 w-full h-64 z-0 object-cover')
+  div(
+    :class='thumbnail ? "text-h-200" : "text-h-800 dark:text-h-200"'
+    class='flex flex-col items-center gap-y-2 z-20 relative mx-4 lg:mx-0')
+    unless hasCategory
+      case type
+        when 'notice'
+          a(class='/notice') 공지사항
+    else
+      a(href='[##_article_rep_category_link_##]') [##_article_rep_category_##]
+    h1(class='text-center font-bold text-2xl lg:text-3xl') #{`[##_${type}_rep_title_##]`}
+    div(class='flex gap-x-2')
+      time(class='text-sm') #{`[##_${type}_rep_date_##]`}
+      if hasCategory
+        include Header/Admin

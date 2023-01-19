@@ -3,12 +3,8 @@ env:
 
 extends: standard
 
-globals:
-  UIkit: readonly
-  $: readonly
-  hljs: readonly
-  H: readonly
-  h: readonly
-  T: readonly
-
 ignorePatterns: dist/
+
+rules:
+  import/first: off
+  space-unary-ops: off

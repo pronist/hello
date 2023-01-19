@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.menu_toolbar {
+  @apply hidden;
+}
+
+a,
+button {
+  @apply pointer-events-auto !important;
+}
+
+@layer components {
+  .btn-post {
+    @apply inline-block shadow-none outline-0 rounded-md cursor-pointer duration-200 leading-none text-[0] p-0 bg-h-200 hover:bg-h-300 before:text-h-500 dark:bg-h-700 dark:before:text-h-200 dark:hover:bg-h-600;
+  }
+
+  .btn-top {
+    @apply flex justify-center items-center w-10 h-10 outline-0 rounded-full bg-h-600 text-h-200 hover:bg-h-500;
+  }
+
+  .btn-bottom {
+    @apply flex justify-center items-center w-10 h-10 outline-0 rounded-full bg-h-200 text-h-500 hover:bg-h-300 dark:bg-h-600 dark:text-h-200 dark:hover:bg-h-500;
+  }
+}
+
+@layer utilities {
+  .text-overflow-hidden {
+    @apply overflow-hidden whitespace-nowrap text-ellipsis;
+  }
+
+  .font-awesome {
+    @apply font-['Font_Awesome_6_Free'] font-bold;
+  }
+
+  .fa-chevron-right {
+    @apply font-awesome content-['\f105'];
+  }
+
+  .fa-circle-arrow-right {
+    @apply font-awesome content-['\f0a9'];
+  }
+
+  .fa-circle-arrow-down {
+    @apply font-awesome content-['\f0ab'];
+  }
+
+  .fa-heart {
+    @apply font-awesome content-['\f004'];
+  }
+
+  .fa-share-nodes {
+    @apply font-awesome content-['\f1e0'];
+  }
+
+  .fa-chart-pie {
+    @apply font-awesome content-['\f200'];
+  }
+
+  .fa-wrench {
+    @apply font-awesome content-['\f0ad'];
+  }
+
+  .fa-ellipsis {
+    @apply font-awesome content-['\f141'];
+  }
+
+  .fa-star {
+    @apply font-awesome content-['\f005'];
+  }
+}

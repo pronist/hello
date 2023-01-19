@@ -1,0 +1,112 @@
+template(x-if='$data.headings.length > 0')
+  #scrollspy(
+    x-data='scrollspy'
+    @scroll.window='spy'
+    class='2xl:absolute 2xl:top-0 2xl:h-full 2xl:ml-[calc(((1100px+var(--h-permalink-width))/2)+theme(spacing.5))]')
+    div(class='2xl:sticky 2xl:top-20')
+      button(
+        x-show='! open'
+        @click='toggle'
+        class='fixed top-20 right-0 w-8 h-8 z-30 rounded-md bg-h-300 text-h-500 dark:bg-h-700 dark:text-h-200 2xl:hidden')
+        i(class='fa-solid fa-list-check')
+      div(
+        :class='open ? "max-2xl:right-4" : "max-2xl:-right-60"'
+        class='w-56 text-sm box-border max-2xl:transition-[right] max-2xl:duration-200 max-2xl:rounded-xl max-2xl:p-6 max-2xl:pr-8 max-2xl:fixed max-2xl:top-20 max-2xl:right-4 max-2xl:z-40 max-2xl:bg-h-200 max-2xl:dark:bg-h-700 2xl:px-6 2xl:block')
+        button(
+          @click='toggle'
+          class='absolute text-base top-2 right-4 text-h-500 dark:text-h-200 2xl:hidden')
+          i(class='fa-solid fa-xmark')
+        ul(
+          x-ref='spy'
+          class='flex flex-col gap-y-3')
+          template(x-for='heading in $data.headings' :key='heading.id')
+            li(
+              :class="{ 'pl-0': heading.tagName === 'H2', 'pl-4': heading.tagName === 'H3' }"
+              class='text-h-400')
+              a(
+                :href='heading.href'
+                x-text='heading.text'
+                :class='{ "text-h-600 dark:text-h-200": heading.active }'
+                class='duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200')
+
+script(once='alpine-scrollspy-component').
+  document.addEventListener('alpine:init', () => Alpine.data('scrollspy', () => ({
+    /**
+     * On active Class
+     *
+     * @property {string} activeClass
+     */
+    activeClass: 'active',
+
+    /**
+     * Open
+     *
+     * @property {boolean} open
+     */
+    open: false,
+
+    /**
+     * Toggle
+     */
+    toggle () {
+      this.open = ! this.open
+    },
+
+    /**
+     * Spy
+     */
+    spy () {
+      const $headings = this.$data.$headings
+
+      $headings.forEach(($heading, index) => {
+        if (this.in($heading)) {
+          this.reset()
+          this.on(index)
+        }
+      })
+
+      const $heading = $headings.item(0)
+
+      if (this.out($heading)) {
+        this.reset()
+      }
+    },
+
+    /**
+     * On
+     *
+     * @param {number} index
+     */
+    on (index) {
+      this.$data.headings[index].active = true
+    },
+
+    /**
+     * Reset
+     */
+    reset () {
+      this.$data.headings.forEach(spy => spy.active = false)
+    },
+
+    /**
+     * Scroll in heading
+     *
+     * @param {HTMLElement} $heading
+     *
+     * @returns {boolean}
+     */
+    in ($heading) {
+      return $heading.getBoundingClientRect().top < 0
+    },
+
+    /**
+     * Scroll out heading
+     *
+     * @param {HTMLElement} $heading
+     *
+     * @returns {boolean}
+     */
+    out ($heading) {
+      return $heading.getBoundingClientRect().top > 0
+    }
+  })))

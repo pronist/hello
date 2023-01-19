@@ -2,9 +2,9 @@
 <skin>
    <information>
       <name>hELLO</name>
-      <version>3.6.5</version>
+      <version>4.0.0</version>
       <description>
-         <![CDATA[ⓒ 2020-2022. Sangwoo Jeong.]]>
+         <![CDATA[ⓒ 2020-2023. Sangwoo Jeong.]]>
       </description>
       <license>
          <![CDATA[MIT]]>
@@ -17,10 +17,6 @@
    </author>
    <liststyle>
     <item>
-      <value>default</value>
-      <label>리스트 (오리지널)</label>
-    </item>
-    <item>
       <value>list</value>
       <label>리스트</label>
     </item>
@@ -29,20 +25,11 @@
       <label>그리드</label>
     </item>
     <item>
-      <value>gallery</value>
-      <label>갤러리</label>
-    </item>
-    <item>
       <value>zigzag</value>
       <label>지그재그</label>
     </item>
    </liststyle>
    <cover>
-    <item>
-      <name>default</name>
-      <label>리스트 (오리지널)</label>
-      <description>기본적으로 hELLO 스킨에서 제공하는 오리지널 리스트입니다</description>
-    </item>
     <item>
       <name>list</name>
       <label>리스트</label>
@@ -54,151 +41,40 @@
       <description>그리드 형태로 글을 보여줍니다.</description>
     </item>
     <item>
-      <name>gallery</name>
-      <label>갤러리</label>
-      <description>갤러리 형태로 글을 보여줍니다</description>
+      <name>zigzag</name>
+      <label>지그재그</label>
+      <description>지그재그 형태로 글을 보여줍니다.</description>
     </item>
     <item>
       <name>slideshow</name>
       <label>슬라이드쇼</label>
       <description>슬라이드쇼 형태로 글을 보여줍니다.</description>
     </item>
-    <item>
-      <name>slideshow-screen</name>
-      <label>슬라이드쇼 (스크린) </label>
-      <description>슬라이드쇼 (스크린) 형태로 글을 보여줍니다.</description>
-    </item>
-    <item>
-      <name>slider</name>
-      <label>슬라이더</label>
-      <description>슬라이더 형태로 글을 보여줍니다.</description>
-    </item>
-    <item>
-      <name>slider-screen</name>
-      <label>슬라이더 (스크린)</label>
-      <description>슬라이더 (스크린) 형태로 글을 보여줍니다.</description>
-    </item>
-    <item>
-      <name>zigzag</name>
-      <label>지그재그</label>
-      <description>지그재그 형태로 글을 보여줍니다.</description>
-    </item>
    </cover>
    <variables>
     <variablegroup name='컨텐츠 너비'>
       <variable>
-        <name>index-width</name>
-        <label>홈/글 목록</label>
-        <description><![CDATA[ 글 목록 ]]></description>
-        <type>STRING</type>
-        <default>1100</default>
-      </variable>
-      <variable>
-        <name>article-width</name>
+        <name>permalink-width</name>
         <label>글</label>
         <description><![CDATA[ 글 ]]></description>
         <type>STRING</type>
         <default>720</default>
       </variable>
-      <variable>
-        <name>guestbook-width</name>
-        <label>방명록</label>
-        <description><![CDATA[ 방명록 ]]></description>
-        <type>STRING</type>
-        <default>720</default>
-      </variable>
-      <variable>
-        <name>tagcloud-width</name>
-        <label>태그 클라우드</label>
-        <description><![CDATA[ 태그 클라우드 ]]></description>
-        <type>STRING</type>
-        <default>1100</default>
-      </variable>
     </variablegroup>
-    <variablegroup name="테마">
+    <variablegroup name="코드 하이라이팅 (v11.7.0)">
       <variable>
-        <name>light-theme</name>
-        <label>테마(라이트)</label>
-        <description><![CDATA[ 테마(라이트) ]]></description>
-        <type>SELECT</type>
-        <option><![CDATA[
-          [
-            { "name": "light", "label": "라이트", "value": "light" }
-          ]
-        ]]></option>
-        <default>light</default>
-      </variable>
-      <variable>
-        <name>dark-theme</name>
-        <label>테마(다크)</label>
-        <description><![CDATA[ 테마(다크) ]]></description>
-        <type>SELECT</type>
-        <option><![CDATA[
-          [
-            { "name": "dark", "label": "다크", "value": "dark" }
-          ]
-        ]]></option>
-        <default>dark</default>
-      </variable>
-      <variable>
-        <name>hljs-light</name>
-        <label>코드블럭(라이트)</label>
-        <description><![CDATA[ 코드블럭(라이트) ]]></description>
+        <name>hljs</name>
+        <label>라이트</label>
+        <description><![CDATA[ 라이트 ]]></description>
         <type>STRING</type>
         <default>xcode</default>
       </variable>
       <variable>
         <name>hljs-dark</name>
-        <label>코드블럭(다크)</label>
-        <description><![CDATA[ 코드블럭(다크) ]]></description>
+        <label>다크</label>
+        <description><![CDATA[ 다크 ]]></description>
         <type>STRING</type>
         <default>vs2015</default>
-      </variable>
-    </variablegroup>
-    <variablegroup name="모드">
-      <variable>
-        <name>list-image-mode</name>
-        <label>글 목록 이미지</label>
-        <description><![CDATA[ 카테고리, 태그 등에서 보여줄 글 목록 이미지 모드 ]]></description>
-        <type>SELECT</type>
-        <option><![CDATA[
-          [
-            { "name": "default", "label": "기본", "value": "default" },
-            { "name": "tape", "label": "테이프", "value": "tape" },
-            { "name": "screen", "label": "스크린", "value": "screen" }
-          ]
-        ]]></option>
-        <default>default</default>
-      </variable>
-      <variable>
-        <name>article-image-mode</name>
-        <label>글 읽기</label>
-        <description><![CDATA[ 글, 페이지, 공지사항 글 읽기 이미지 모드 ]]></description>
-        <type>SELECT</type>
-        <option><![CDATA[
-          [
-            { "name": "default", "label": "기본", "value": "default" },
-            { "name": "tape", "label": "테이프", "value": "tape" },
-            { "name": "screen", "label": "스크린", "value": "screen" }
-          ]
-        ]]></option>
-        <default>default</default>
-      </variable>
-      <variable>
-        <name>notice-list-mode</name>
-        <label>공지사항 글 목록</label>
-        <description><![CDATA[ 공지사항 글 목록 모드 ]]></description>
-        <type>SELECT</type>
-        <option><![CDATA[
-          [
-            { "name": "default", "label": "리스트 (오리지널)", "value": "default" },
-            { "name": "list", "label": "리스트", "value": "list" },
-            { "name": "grid", "label": "그리드", "value": "grid" },
-            { "name": "gallery", "label": "갤러리", "value": "gallery" },
-            { "name": "zigzag", "label": "지그재그", "value": "zigzag" }
-          ]
-        ]]></option>
-        <default>default</default>
       </variable>
     </variablegroup>
     <variablegroup name="사이드바">
@@ -220,6 +96,13 @@
     <variablegroup name="글">
       <variable>
         <name>scrollspy</name>
+        <label>스크롤스파이</label>
+        <description><![CDATA[ 스크롤스파이 ]]></description>
+        <type>BOOL</type>
+        <default>true</default>
+      </variable>
+      <variable>
+        <name>toc</name>
         <label>TOC(Table Of Contents)</label>
         <description><![CDATA[ TOC(Table Of Contents) ]]></description>
         <type>BOOL</type>
@@ -228,79 +111,28 @@
       <variable>
         <name>author</name>
         <label>작성자</label>
-        <description><![CDATA[ 글 하단 작성자 ]]></description>
+        <description><![CDATA[ 글 작성자 ]]></description>
         <type>BOOL</type>
         <default>true</default>
       </variable>
       <variable>
-        <name>related</name>
+        <name>related-article</name>
         <label>카테고리의 다른 글</label>
         <description><![CDATA[ 카테고리의 다른 글 ]]></description>
         <type>BOOL</type>
         <default>true</default>
       </variable>
       <variable>
-        <name>notify</name>
-        <label>이전 글/다음 글</label>
-        <description><![CDATA[ 이전 글/다음 글 ]]></description>
+        <name>foldable-reply</name>
+        <label>댓글 접기/펼치기</label>
+        <description><![CDATA[ 댓글 접기/펼치기 ]]></description>
         <type>BOOL</type>
         <default>true</default>
-      </variable>
-    </variablegroup>
-    <variablegroup name="상호작용 메시지">
-      <variable>
-        <name>message</name>
-        <label>상호작용 메시지</label>
-        <description><![CDATA[ 상호작용 메시지 ]]></description>
-        <type>BOOL</type>
-        <default>true</default>
-      </variable>
-      <variable>
-        <name>message-request</name>
-        <label>공감요청</label>
-        <description><![CDATA[ 공감요청 ]]></description>
-        <type>STRING</type>
-        <default><![CDATA[ 도움이 되셨다면 공감 부탁드립니다! ]]></default>
-      </variable>
-      <variable>
-        <name>message-heart</name>
-        <label>공감</label>
-        <description><![CDATA[ 공감 ]]></description>
-        <type>STRING</type>
-        <default><![CDATA[ 공감해주셔서 감사합니다. ]]></default>
-      </variable>
-      <variable>
-        <name>message-unheart</name>
-        <label>공감취소</label>
-        <description><![CDATA[ 공감취소 ]]></description>
-        <type>STRING</type>
-        <default><![CDATA[ 공감이 취소되었습니다. ]]></default>
-      </variable>
-      <variable>
-        <name>message-subscribe</name>
-        <label>구독</label>
-        <description><![CDATA[ 구독 ]]></description>
-        <type>STRING</type>
-        <default><![CDATA[ 구독 감사합니다. ]]></default>
-      </variable>
-      <variable>
-        <name>message-unsubscribe</name>
-        <label>구독취소</label>
-        <description><![CDATA[ 구독취소 ]]></description>
-        <type>STRING</type>
-        <default><![CDATA[ 구독이 취소되었습니다. ]]></default>
-      </variable>
-      <variable>
-        <name>message-url</name>
-        <label>URL 복사</label>
-        <description><![CDATA[ URL 복사 ]]></description>
-        <type>STRING</type>
-        <default><![CDATA[ 포스트 주소가 복사되었습니다. ]]></default>
       </variable>
     </variablegroup>
   </variables>
   <default>
-    <liststyle>default</liststyle>
+    <liststyle>list</liststyle>
     <recentEntries>5</recentEntries>
     <recentComments>5</recentComments>
     <lengthOfRecentNotice>32</lengthOfRecentNotice>

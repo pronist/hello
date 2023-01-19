@@ -1,0 +1,22 @@
+s_tag_label
+  #tags(
+    x-data
+    x-init='Array.from($el.childNodes).filter(tag => tag.nodeType === 3).forEach(textNode => textNode.remove())'
+    class='mt-2 flex flex-wrap gap-x-3')
+    | [##_tag_label_rep_##]
+
+style(once='tags')
+  :postcss
+    #tags {
+      a {
+        @apply text-sm text-sm rounded-md py-2 px-4 mt-3 bg-h-200 text-h-500 dark:text-h-200 dark:bg-h-700 ;
+
+        &:hover {
+          @apply bg-h-600 text-h-200;
+        }
+
+        &:first-of-type::before {
+          @apply mr-2 font-awesome content-['\f02b'] font-bold;
+        }
+      }
+    }

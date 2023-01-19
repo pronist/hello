@@ -1,5 +1,11 @@
 {
   "name": "hello",
+  "version": "4.0.0",
+  "author": {
+    "name": "Sangwoo Jeong",
+    "email": "pronist@naver.com",
+    "url": "https://github.com/pronist"
+  },
   "scripts": {
     "start": "cross-env NODE_ENV=development tidory start",
     "preview": "cross-env NODE_ENV=development tidory preview",
@@ -11,10 +17,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pronist/hELLO"
+    "url": "https://github.com/tistory-projects/tistory-skin-hELLO"
   },
   "devDependencies": {
-    "autoprefixer": "^6.7.7",
+    "autoprefixer": "^10.4.13",
     "cross-env": "^7.0.2",
     "eslint": "^7.27.0",
     "eslint-config-standard": "^14.1.1",
@@ -23,17 +29,14 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^5.0.0",
-    "jstransformer-stylus": "^1.5.0",
-    "pug-lint": "^2.6.0",
-    "push-dir": "^0.4.1",
-    "stylus": "^0.54.7",
-    "stylus-loader": "^3.0.2"
+    "pug-lint": "^2.6.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.4",
-    "highlight.js": "^11.3.1",
+    "alpinejs": "^3.10.5",
+    "highlight.js": "^11.7.0",
     "lazysizes": "^5.3.0",
-    "tidory": "^8.3.0",
-    "uikit": "^3.9.2"
+    "swiper": "^8.4.5",
+    "tailwindcss": "^3.2.4",
+    "tidory": "^8.3.2"
   }
 }

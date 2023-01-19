@@ -1,39 +1,67 @@
-aside#__sidebar
-  .__
-    .___
-      s_sidebar
-        s_sidebar_element
-          // 프로필
-          include Sidebar/Profile
-        s_sidebar_element
-          // 방문자 수
-          include Sidebar/Counter
-        s_sidebar_element
-          // 검색
-          include Sidebar/Search
-        s_sidebar_element
-          // 카테고리
-          include Sidebar/Category
-        s_sidebar_element
-          // 블로그 메뉴
-          include Sidebar/BlogMenu
-        s_sidebar_element
-          // 공지사항
-          include Sidebar/Notice
-        s_sidebar_element
-          // 인기 글
-          include Sidebar/PopularPosts
-        s_sidebar_element
-          // 태그
-          include Sidebar/Tags
-        s_sidebar_element
-          // 최근 댓글
-          include Sidebar/RecentComments
-        s_sidebar_element
-          // 최근 글
-          include Sidebar/RecentPosts
-        s_sidebar_element
-          // 티스토리
-          include Sidebar/TistoryToolbar
-      include Sidebar/Copyright
-  .overlay(uk-toggle='target: #__sidebar; cls: opened')
+aside#sidebar(
+  :class='[sidebar ? "left-0" : "-left-64", sidebarDefault && "xl:left-0"]'
+  class='h-full fixed top-0 w-64 overflow-hidden z-40 transition-[left] duration-200 p-0 bg-h-200 dark:bg-h-700' )
+  div(class='flex flex-col gap-y-6 overflow-x-hidden overflow-y-scroll h-full w-72 absolute py-6 border-box')
+    s_sidebar
+      s_sidebar_element
+        // 프로필
+        include Sidebar/Profile
+      s_sidebar_element
+        // 방문자 수
+        include Sidebar/Counter
+      s_sidebar_element
+        // 검색
+        include Sidebar/Search
+      s_sidebar_element
+        // 카테고리
+        include Sidebar/Category
+      s_sidebar_element
+        // 블로그 메뉴
+        include Sidebar/BlogMenu
+      s_sidebar_element
+        // 공지사항
+        include Sidebar/Notice
+      s_sidebar_element
+        // 인기 글
+        include Sidebar/PopularPosts
+      s_sidebar_element
+        // 태그
+        include Sidebar/Tags
+      s_sidebar_element
+        // 최근 댓글
+        include Sidebar/RecentComments
+      s_sidebar_element
+        // 최근 글
+        include Sidebar/RecentPosts
+    include Sidebar/Copyright
+  template(x-teleport='body')
+    div(
+      x-show='sidebar'
+      x-transition:enter='transition ease-linear duration-300'
+      x-transition:enter-start='opacity-0'
+      x-transition:enter-end='opacity-100'
+      x-transition:leave='transition ease-linear duration-300'
+      x-transition:leave-start='opacity-100'
+      x-transition:leave-end='opacity-0'
+      @click='sidebar = false'
+      class='fixed top-0 left-0 w-screen h-screen bg-h-900/50 backdrop-blur z-30 duration-200')
+
+style
+  :postcss
+    #sidebar {
+      .sidebar-element {
+        @apply w-64 px-5;
+
+        h2 {
+          @apply text-h-800 dark:text-h-200 mb-4 font-bold text-sm;
+        }
+
+        i {
+          @apply text-h-400;
+        }
+
+        a:not(.link_tit) {
+          @apply text-h-400 hover:text-h-800 dark:hover:text-h-200;
+        }
+      }
+    }

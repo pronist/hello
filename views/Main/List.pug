@@ -1,32 +1,155 @@
 s_list
-  section.list(data-mode='[##_list_style_##]' data-image-mode='[##_var_list-image-mode_##]')
-    header
-      s_list_image
-        .img
-          .mask
-          img.thumbnail.lazyload(data-src='[##_list_image_##]' data-sizes='auto' alt='[##_list_conform_##]')
-      .heading
-        h1.title [##_list_conform_##]
-    ul
+  section(data-mode='[##_list_style_##]')
+    header(
+      x-data='{ thumbnail: false }'
+      :class='thumbnail ? "h-64" : "h-32 mt-10 lg:mt-20"'
+      class='mb-10 lg:mb-16 flex justify-center items-center')
+      //s_list_image
+      //  div(
+      //    x-init='thumbnail = true'
+      //    class='absolute right-0 top-0 w-full h-64 before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/60 before:z-10')
+      //    img.lazyload(
+      //      data-src='[##_list_image_##]'
+      //      data-sizes='auto'
+      //      alt='[##_list_conform_##]'
+      //      class='absolute right-0 top-0 w-full h-64 z-0 object-cover')
+      div(
+        :class='thumbnail ? "text-h-200" : "text-h-800 dark:text-h-200"'
+        class='flex flex-col gap-y-3 items-center z-20 relative mx-4 lg:mx-0')
+        h1(class='text-center font-bold text-2xl lg:text-3xl') [##_list_conform_##]
+        span(class='font-bold') [##_list_description_##]
+    .list(class='px-4 lg:px-0 lg:w-[theme(screens.lg)] lg:mx-auto')
       s_list_rep
         +index('list')
 
-script.
-  /* List */
-  $(document).ready(() => {
-    const $title = $('.list > header .title')
+style
+  :postcss
+    [data-mode=list] {
+      .list {
+        @apply flex flex-col gap-y-6 sm:gap-y-0;
+      }
 
-    $title.text($title.text() === '전체 글'
-      ? T.config.BLOG.title
-      : $title.text()
-    )
+      .post {
+        @apply flex flex-col gap-y-4 sm:flex-row-reverse sm:items-center sm:justify-end sm:gap-x-6 sm:h-72 sm:border-t sm:border-solid sm:border-h-300 sm:dark:border-h-400;
 
-    h.liststyle('.list', '> ul')
-  })
+        img {
+          @apply w-full sm:w-64 sm:h-64 max-w-none;
+        }
 
-script.
-  $(document).ready(() => {
-    h.styledHeading('.list', 'header > .img', H.skinOptions.listImageMode, {
-      attr: 'data-image-mode'
-    })
-  })
+        .description {
+          @apply gap-y-2;
+
+          h2 {
+            @apply text-xl lg:text-2xl font-bold;
+          }
+
+          p {
+            @apply mt-3 max-h-[theme(spacing.20)];
+
+            &::after {
+              @apply top-[calc(theme(spacing.14)+theme(spacing.1))];
+            }
+          }
+        }
+      }
+    }
+
+style
+  :postcss
+    [data-mode=grid] {
+      .list {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12;
+      }
+
+      .post {
+        @apply flex flex-col gap-y-4;
+
+        img {
+          @apply w-full h-64;
+        }
+
+        .description {
+          .category {
+            @apply hidden;
+          }
+
+          h2 {
+            @apply text-xl font-bold;
+          }
+
+          time {
+            @apply hidden;
+          }
+
+          p {
+            @apply mt-2 max-h-14;
+
+            &::after {
+              @apply top-7;
+            }
+          }
+        }
+      }
+    }
+
+style
+  :postcss
+    [data-mode=zigzag] {
+      .list {
+        @apply flex flex-col gap-y-24 lg:gap-y-28;
+      }
+
+      .post {
+        @apply relative flex flex-col gap-y-4 lg:flex-row;
+
+        &:last-child::before {
+          @apply hidden;
+        }
+
+        &::before {
+          @apply content-[''] top-[calc(100%+theme(spacing.6))] left-[calc(100%/2)] lg:top-[calc(100%+theme(spacing.6))] lg:left-[calc(theme('screens.lg')/2)] absolute w-0.5 h-12 lg:h-16 bg-h-300 dark:bg-h-600;
+        }
+
+        img {
+          @apply relative z-10 object-cover w-full lg:w-[calc(theme(spacing.96)+theme(spacing.16))] lg:h-72 lg:max-w-none;
+        }
+
+        .description {
+          @apply gap-y-2 p-10 bg-h-200 dark:bg-h-700;
+
+          h2 {
+            @apply text-xl lg:text-2xl font-bold;
+          }
+
+          p {
+            @apply mt-3 max-h-[theme(spacing.20)];
+
+            &::after {
+              @apply top-[calc(theme(spacing.14)+theme(spacing.1))];
+            }
+          }
+        }
+
+        &:nth-child(2n+1) {
+          .description {
+            @apply lg:pl-16;
+          }
+
+          img {
+            @apply lg:-translate-y-6 lg:translate-x-6;
+          }
+        }
+
+        &:nth-child(2n) {
+          @apply lg:flex-row-reverse;
+
+          .description {
+            @apply lg:pr-16;
+          }
+
+          img {
+            @apply lg:-translate-y-6 lg:-translate-x-6;
+          }
+        }
+      }
+    }

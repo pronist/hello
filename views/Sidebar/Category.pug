@@ -1,10 +1,87 @@
-nav.category
-  | [##_category_list_##]
+.sidebar-element
+  #category(x-data='category')
+    | [##_category_list_##]
 
 script.
-  /* Category */
-  $(document).ready(() => {
-    if (H.skinOptions.foldableCategory) {
-      h.foldableCategory()
+  document.addEventListener('alpine:init', () => Alpine.data('category', () => ({
+    /**
+     * @var {Boolean} foldableCategory
+     */
+    foldableCategory: skinOptions.foldableCategory,
+
+    /**
+     * Init
+     */
+    init () {
+      if (this.foldableCategory) {
+        this.$subCategories.forEach(this.foldable.bind(this))
+      }
+    },
+
+    /**
+     * Foldable
+     *
+     * @param {HTMLElement} $subCategory
+     */
+    foldable ($subCategory) {
+      $subCategory.parentNode.setAttribute('x-data', '{ open: false }')
+      $subCategory.setAttribute('x-show', 'open')
+
+      const $icon = this.$icon
+
+      $icon.setAttribute('x-on:click', 'open = ! open')
+      $icon.setAttribute(':class', '{ "rotate-90 duration-200": open }')
+
+      $subCategory.parentNode.prepend($icon)
+    },
+
+    /**
+     * @var {HTMLCollection} $subCategories
+     */
+    get $subCategories () {
+      return this.$el.querySelectorAll('.sub_category_list')
+    },
+
+    /**
+     * @var {HTMLElement} $icon
+     */
+    get $icon () {
+      const icon = document.createElement('i')
+
+      icon.classList.add('fa-solid', 'fa-chevron-right')
+
+      return icon
     }
-  })
+  })))
+
+style
+  :postcss
+    #sidebar {
+      #category {
+        .link_tit {
+          @apply text-sm font-bold mb-6 inline-block text-h-900 dark:text-h-200;
+        }
+
+        ul {
+          @apply flex flex-col gap-y-4;
+        }
+
+        li {
+          @apply relative text-sm;
+
+          i {
+            @apply absolute right-0 text-sm cursor-pointer;
+          }
+        }
+
+        .sub_category_list {
+          @apply mt-4;
+
+          li {
+            .link_sub_item::before {
+              @apply mr-1 fa-chevron-right font-bold text-h-400 text-sm;
+            }
+          }
+        }
+      }
+    }

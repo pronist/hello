@@ -1,13 +1,36 @@
 s_paging
-  ul#__paging(class='uk-pagination uk-flex-center' uk-margin)
+  ul#paging(class='flex justify-center items-center mt-16 lg:mt-20')
     li
-      a([##_prev_page_##] class='[##_no_more_prev_##] prev')
-        span(uk-pagination-previous)
-        | 이전
+      a([##_prev_page_##] class='[##_no_more_prev_##]')
+        i(class='fa fa-angle-left')
     s_paging_rep
       li
         a([##_paging_rep_link_##]) [##_paging_rep_link_num_##]
     li
-      a([##_next_page_##] class='[##_no_more_next_##] next')
-        | 다음
-        span(uk-pagination-next)
+      a([##_next_page_##] class='[##_no_more_next_##]')
+        i(class='fa fa-angle-right')
+
+style
+  :postcss
+    #paging {
+      a {
+        @apply inline-block;
+      }
+
+      span {
+        @apply text-sm;
+      }
+
+      i,
+      span {
+        @apply w-8 h-8 leading-8 text-center mx-1 text-h-800 dark:text-h-300;
+      }
+
+      span:not(.selected) {
+        @apply hidden lg:inline-block;
+      }
+
+      .selected {
+        @apply rounded-full bg-h-600 inline-block text-h-200;
+      }
+    }

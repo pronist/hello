@@ -32,4 +32,4 @@ npm run production && npm run deploy
 
 [MIT](https://github.com/pronist/hELLO/blob/master/LICENSE)
 
-Copyright 2020-2022. [SangWoo Jeong](https://github.com/pronist). All rights reserved.
+Copyright 2020-2023. [SangWoo Jeong](https://github.com/pronist). All rights reserved.

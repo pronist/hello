@@ -1,10 +1,17 @@
-nav.popular-posts
-  h2 인기 글
-  ul
-    s_rctps_popular_rep
-      li
-        .metainfo
-          a.title(href='[##_rctps_rep_link_##]') [##_rctps_rep_title_##]
-          .date [##_rctps_rep_simple_date_##]
-        s_rctps_rep_thumbnail
-          img.thumbnail.lazyload(data-src='[##_rctps_rep_thumbnail_##]' data-sizes='auto' width='60' height='45' alt='[##_rctps_rep_title_##]')
+.sidebar-element
+  div
+    h2 인기 글
+    ul(class='flex flex-col gap-y-2')
+      s_rctps_popular_rep
+        li(class='flex justify-between text-h-400 text-sm')
+          div(class='text-overflow-hidden')
+            a(href='[##_rctps_rep_link_##]') [##_rctps_rep_title_##]
+            div(class='mt-1 text-xs') [##_rctps_rep_simple_date_##]
+          s_rctps_rep_thumbnail
+            img.thumbnail.lazyload(
+              class='w-16 h-11 object-cover ml-3 bg-h-100'
+              data-src='[##_rctps_rep_thumbnail_##]'
+              data-sizes='auto'
+              width='64'
+              height='44'
+              alt='[##_rctps_rep_title_##]')

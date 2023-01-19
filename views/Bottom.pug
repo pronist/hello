@@ -1,0 +1,23 @@
+#bottom(
+  :class='{ "xl:w-[calc(100%-theme(spacing.64))]": sidebarDefault }'
+  class='flex justify-end px-4 w-full box-border fixed text-sm z-30 bottom-3 xl:bottom-4')
+  div(class='flex gap-x-3')
+    button.btn-bottom(
+      x-data='theme'
+      @click='toggle')
+      i(class='fa-solid fa-moon text-base')
+    a.btn-bottom(href='#hELLO')
+      i(class='fa-solid fa-chevron-up text-base')
+
+script.
+  document.addEventListener('alpine:init', () => Alpine.data('theme', () => ({
+    /**
+     * Toggle Theme
+     */
+    toggle () {
+      localStorage.TTDARK = document.documentElement.classList.contains('dark') ? 'N' : 'Y'
+      document.documentElement.classList.toggle('dark')
+
+      this.$store.darkMode = ! this.$store.darkMode
+    },
+  })))

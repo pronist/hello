@@ -1,11 +1,24 @@
-#scroll-indicator
-  .progress-container
-    .progress-bar
+div(
+  x-data='indicator'
+  @scroll.window='indicate($refs.indicator)'
+  class='fixed top-0 w-screen z-50')
+  .progress-container(class='w-screen')
+    .progress-bar(
+      x-ref='indicator'
+      class='w-0 h-0.5 bg-h-900 rounded bg-h-800 dark:bg-h-200')
 
 script.
-  /* Scoll Indicator */
-  $(document).ready(() => {
-    $(window).on('scroll', () => {
-      h.scrollIndicator('#scroll-indicator .progress-bar')
-    })
-  })
+  document.addEventListener('alpine:init', () => Alpine.data('indicator', () => ({
+     /**
+      * Scroll indicate
+      *
+      * @param {HTMLElement} $indicator
+      */
+      indicate ($indicator) {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+        const scrolled = (winScroll / height) * 100
+
+        $indicator.style.width = scrolled + '%'
+      }
+  })))

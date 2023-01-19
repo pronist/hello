@@ -1,3 +1,18 @@
-nav.blogmenu
-  h2 블로그 메뉴
-  | [##_blog_menu_##]
+.sidebar-element
+  #blogmenu
+    h2 블로그 메뉴
+    | [##_blog_menu_##]
+
+style
+  :postcss
+    #sidebar {
+      #blogmenu {
+        ul {
+          @apply flex flex-col gap-y-2;
+
+          a {
+            @apply text-sm;
+          }
+        }
+      }
+    }

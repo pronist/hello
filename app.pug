@@ -1,6 +1,6 @@
 doctype html
 
-html#__hELLO(lang='ko' data-theme='#')
+html#hELLO(lang='ko' class='scroll-smooth')
   head
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width')
@@ -9,77 +9,54 @@ html#__hELLO(lang='ko' data-theme='#')
 
     link(rel='alternate' type='application/rss+xml' title='[##_title_##]' href='[##_rss_url_##]')
 
-    script(async src='//kit.fontawesome.com/65f7e05682.js')
-
-    script(defer src='//cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit.min.js')
-    script(defer src='//cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit-icons.min.js')
-
-    link(rel='preconnect' href='//ka-f.fontawesome.com')
-    link(rel='preconnect' href='//fonts.gstatic.com')
-
-    link(rel='stylesheet' href='//fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700&display=swap')
-    link(rel='stylesheet' href='//cdn.jsdelivr.net/npm/uikit@3.5.7/dist/css/uikit.min.css')
-    link(rel='stylesheet' href='//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-ligature-full.css' media='print' onload=`this.media='all'`)
-
-    link(rel='stylesheet' href='//cdn.jsdelivr.net/gh/pronist/hELLO@3.6.2/themes/[##_var_light-theme_##].min.css')
-    link(rel='stylesheet' href='//cdn.jsdelivr.net/gh/pronist/hELLO@3.6.2/themes/[##_var_dark-theme_##].min.css')
-
-    link#__hljs(rel='stylesheet' href='#')
-
-    style(fixed)
-      :stylus
-        :root
-          --h-article-width unquote('[##_var_article-width_##]' + 'px')
-          --h-index-width unquote('[##_var_index-width_##]' + 'px')
-          --h-guestbook-width unquote('[##_var_guestbook-width_##]' + 'px')
-          --h-tagcloud-width unquote('[##_var_tagcloud-width_##]' + 'px')
-    style
-      include:stylus @/styl/App.styl
+    style(fixed).
+      :root {
+        --h-permalink-width: [##_var_permalink-width_##]px;
+      }
 
     script(fixed).
-      const $ = tjQuery
-    script(fixed).
-      window.H = {}
-      window.H.skinOptions = {
-        indexWidth: '[##_var_index-width_##]',
-        articleWidth: '[##_var_article-width_##]',
-        guestbookWidth: '[##_var_guestbook-width_##]',
-        tagCloudWidth: '[##_var_tagcloud-width_##]',
-        lightTheme: '[##_var_light-theme_##]',
-        darkTheme: '[##_var_dark-theme_##]',
-        hljsLight: '[##_var_hljs-light_##]',
-        hljsDark: '[##_var_hljs-dark_##]',
-        noticeListMode: '[##_var_notice-list-mode_##]',
-        listImageMode: '[##_var_list-image-mode_##]',
-        articleImageMode: '[##_var_article-image-mode_##]',
+      window.skinOptions = {
+        theme: '[##_var_theme_##]',
+        permalinkWidth: '[##_var_permalink-width_##]',
         sidebar: '[##_var_sidebar_##]',
         foldableCategory: '[##_var_foldable-category_##]',
+        foldableReply: '[##_var_foldable-reply_##]',
         scrollspy: '[##_var_scrollspy_##]',
-        author: '[##_var_author_##]',
-        related: '[##_var_related_##]',
-        notify: '[##_var_notify_##]',
-        message: '[##_var_message_##]',
-        messageRequest: '[##_var_message-request_##]',
-        messageHeart: '[##_var_message-heart_##]',
-        messageUnheart: '[##_var_message-unheart_##]',
-        messageSubscribe: '[##_var_message-subscribe_##]',
-        messageUnsubscribe: '[##_var_message-unsubscribe_##]',
-        messageUrl: '[##_var_message-url_##]'
+        toc: '[##_var_toc_##]',
+        hljs: '[##_var_hljs_##]',
+        hljsDark: '[##_var_hljs-dark_##]',
+        relatedArticle: '[##_var_related-article_##]',
+        author: '[##_var_author_##]'
       }
-    script(fixed).
-      $('html').attr('data-theme', localStorage.TTDARK
-        ? localStorage.TTDARK === 'Y' ? H.skinOptions.darkTheme : H.skinOptions.lightTheme
-        : window.matchMedia('(prefers-color-scheme: dark)').matches ? H.skinOptions.darkTheme : H.skinOptions.lightTheme
-      )
 
-  body(id='[##_body_id_##]')
-    include views/TistoryLayer
+  script(fixed).
+    if (! ('TTDARK' in localStorage)) {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches || "[##_var_theme_##]" === "dark") {
+        localStorage.TTDARK = 'Y'
+      } else {
+        localStorage.TTDARK = 'N'
+      }
+    }
 
+    window.TTDARK = localStorage.TTDARK === 'Y'
+
+    document.documentElement.classList.toggle("dark", TTDARK)
+
+  script.
+    document.addEventListener('alpine:init', () => Alpine.store('darkMode', TTDARK))
+
+  link(rel='preload' as='style' href='//fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap' onload="this.rel='stylesheet'")
+  link(rel='preload' as='style' href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css' onload="this.rel='stylesheet'")
+
+  link(rel='stylesheet' x-data :href='`//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/${$store.darkMode ? skinOptions.hljsDark : skinOptions.hljs}.min.css`')
+
+  style
+    include:postcss @/app.css
+
+  body(
+    id='[##_body_id_##]'
+    class='min-w-xs overflow-x-hidden bg-h-100 text-h-900 dark:bg-h-800 dark:text-h-200')
     block TIDORY
 
     script.
-      $(document).ready(() => {
-        if (H.skinOptions.sidebar) {
-          h.sidebar('body', H.skinOptions.sidebar)
-        }
-      })
+      window.addEventListener('DOMContentLoaded', () => Alpine.start())
