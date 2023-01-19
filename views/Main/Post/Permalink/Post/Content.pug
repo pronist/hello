@@ -129,7 +129,7 @@ script(once='alpine-content-component').
      * @return {string}
      */
     link ($heading) {
-      return encodeURIComponent($heading.textContent)
+      return this.$id(encodeURIComponent($heading.textContent))
     },
 
     /**
