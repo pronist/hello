@@ -1,6 +1,10 @@
 doctype html
 
-html#hELLO(lang='ko' class='scroll-smooth')
+html#hELLO(
+  x-data='{ loading: true }'
+  x-init='setTimeout(() => loading = false, 100)'
+  lang='ko'
+  class='scroll-smooth')
   head
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width')
@@ -45,9 +49,9 @@ html#hELLO(lang='ko' class='scroll-smooth')
   script.
     document.addEventListener('alpine:init', () => Alpine.store('darkMode', TTDARK))
 
-  link(rel='preload' as='style' href='//fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap' onload="this.rel='stylesheet'")
-  link(rel='preload' as='style' href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css' onload="this.rel='stylesheet'")
-  link(rel='preload' as='style' href='//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-subset.css' onload="this.rel='stylesheet'")
+  link(rel='preload' as='style' href='//fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap' onload="this.rel='stylesheet';this.onload=null;")
+  link(rel='preload' as='style' href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css' onload="this.rel='stylesheet';this.onload=null;")
+  link(rel='preload' as='style' href='//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-subset.css' onload="this.rel='stylesheet';this.onload=null;")
 
   link(rel='stylesheet' x-data :href='`//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/${$store.darkMode ? skinOptions.hljsDark : skinOptions.hljs}.min.css`')
 
@@ -57,6 +61,8 @@ html#hELLO(lang='ko' class='scroll-smooth')
   body(
     id='[##_body_id_##]'
     class='min-w-xs overflow-x-hidden bg-h-100 text-h-900 dark:bg-h-800 dark:text-h-200')
+    include views/Loader
+
     block TIDORY
 
     script.
