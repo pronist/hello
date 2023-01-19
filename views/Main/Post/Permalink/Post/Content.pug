@@ -190,7 +190,7 @@ style(once='content')
   :postcss
     #content {
       .contents_style {
-        @apply text-left p-0 leading-7 text-h-600 dark:text-h-200;
+        @apply text-left p-0 leading-loose text-h-600 dark:text-h-200;
 
         a {
           @apply text-h-orange dark:text-h-blue decoration-0;
@@ -373,7 +373,7 @@ style(once='content')
 
         pre {
           code {
-            @apply px-4;
+            @apply px-4 leading-normal;
 
             &.hljs {
               @apply bg-h-200 dark:bg-h-700;

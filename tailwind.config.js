@@ -34,6 +34,10 @@ module.exports = {
         sans: [
           'Noto Sans KR',
           ...defaultTheme.fontFamily.sans
+        ],
+        mono: [
+          'D2Coding',
+          ...defaultTheme.fontFamily.mono
         ]
       }
     }
