@@ -30,6 +30,10 @@ module.exports = {
       }
     },
     extend: {
+      spacing: {
+        idx: '1100px',
+        pem: 'var(--h-permalink-width)'
+      },
       keyframes: {
         loading: {
           '0%': { transform: 'rotate(0deg)' },

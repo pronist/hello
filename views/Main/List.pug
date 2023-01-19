@@ -4,21 +4,21 @@ s_list
       x-data='{ thumbnail: false }'
       :class='thumbnail ? "h-64" : "h-32 mt-10 lg:mt-20"'
       class='mb-10 lg:mb-16 flex justify-center items-center')
-      //s_list_image
-      //  div(
-      //    x-init='thumbnail = true'
-      //    class='absolute right-0 top-0 w-full h-64 before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/60 before:z-10')
-      //    img.lazyload(
-      //      data-src='[##_list_image_##]'
-      //      data-sizes='auto'
-      //      alt='[##_list_conform_##]'
-      //      class='absolute right-0 top-0 w-full h-64 z-0 object-cover')
+      s_list_image
+        div(
+          x-init='thumbnail = true'
+          class='absolute right-0 top-0 w-full h-64 before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/60 before:z-10')
+          img.lazyload(
+            data-src='[##_list_image_##]'
+            data-sizes='auto'
+            alt='[##_list_conform_##]'
+            class='absolute right-0 top-0 w-full h-64 z-0 object-cover')
       div(
         :class='thumbnail ? "text-h-200" : "text-h-800 dark:text-h-200"'
-        class='flex flex-col gap-y-3 items-center z-20 relative mx-4 lg:mx-0')
-        h1(class='text-center font-bold text-2xl lg:text-3xl') [##_list_conform_##]
-        span(class='font-bold') [##_list_description_##]
-    .list(class='px-4 lg:px-0 lg:w-[theme(screens.lg)] lg:mx-auto')
+        class='flex flex-col items-center z-20 relative mx-4 text-center lg:mx-0')
+        h1(class='font-bold text-2xl lg:text-3xl') [##_list_conform_##]
+        span(class='font-bold mt-3 empty:mt-0') [##_list_description_##]
+    .list(class='px-4 lg:px-0 lg:w-idx lg:mx-auto')
       s_list_rep
         +index('list')
 
@@ -44,7 +44,7 @@ style
           }
 
           p {
-            @apply mt-3 max-h-[theme(spacing.20)];
+            @apply mt-3 max-h-20;
 
             &::after {
               @apply top-[calc(theme(spacing.14)+theme(spacing.1))];
@@ -122,7 +122,7 @@ style
           }
 
           p {
-            @apply mt-3 max-h-[theme(spacing.20)];
+            @apply mt-3 max-h-20;
 
             &::after {
               @apply top-[calc(theme(spacing.14)+theme(spacing.1))];
