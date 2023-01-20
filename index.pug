@@ -1,8 +1,9 @@
 extends app
 
 block TIDORY
+  include views/Loader
+  include views/ScrollIndicator
   s_t3
-    include views/ScrollIndicator
     div(
       x-data='{ sidebar: false, sidebarDefault: skinOptions.sidebar }'
       :class='sidebarDefault && "xl:pl-64"'

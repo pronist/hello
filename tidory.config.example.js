@@ -39,13 +39,12 @@ module.exports = {
      * Variables
      */
     variableSettings: {
-      theme: 'dark',
-      'permalink-width': '720',
       sidebar: true,
       'foldable-category': true,
       'foldable-reply': true,
-      scrollspy: true,
+      width: '720',
       toc: true,
+      scrollspy: true,
       hljs: 'xcode',
       hljsDark: 'vs2015',
       'related-article': true,

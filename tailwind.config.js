@@ -32,7 +32,7 @@ module.exports = {
     extend: {
       spacing: {
         idx: '1100px',
-        pem: 'var(--h-permalink-width)'
+        pem: 'var(--h-width)'
       },
       keyframes: {
         loading: {
