@@ -6,7 +6,7 @@ template(x-if='$data.headings.length > 0')
       i(class='fas fa-bars')
     ol(class='flex flex-col gap-y-3')
       template(x-for='heading in $data.headings' :key='heading.id')
-        li(:class="{ 'pl-0': heading.tagName === 'H2', 'pl-4': heading.tagName === 'H3' }")
+        li(:class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }')
           a(
             :href='heading.href'
             class='flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200')

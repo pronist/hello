@@ -24,12 +24,12 @@ mixin comment(type, replyable=true)
         template(x-if='skinOptions.foldableReply && children.length > 0')
           a.more(
             href='#'
-            @click.prevent="open = ! open"
-            x-html="`댓글보기(${children.length})`")
+            @click.prevent='open = ! open'
+            x-html='`댓글보기(${children.length})`')
 
 mixin list(type, rType, reverse=false)
   #{`s_${type}_container`}
-    div#comments
+    #comments
       ol(class='flex gap-y-5 mt-9' class=reverse ? 'flex-col-reverse' : 'flex-col')
         if process.env.NODE_ENV === 'development'
           li#ttMorePreviousCommentsFor5.tt_more_preview_comments_wrap(onclick='getEntryCommentsByPaging(5); return false;' style='text-align:center;cursor:pointer')
@@ -38,7 +38,7 @@ mixin list(type, rType, reverse=false)
             input#ttMorePreviousCommentsFirstIdFor5(type='hidden' value='13003145')
         #{`s_${type}_rep`}
           li(
-            x-data="{ open: ! skinOptions.foldableReply, children: [] }"
+            x-data='{ open: ! skinOptions.foldableReply, children: [] }'
             id=`[##_${type}_rep_id_##]`
             class='flex flex-col gap-y-5 border-b border-dotted border-h-400 pb-5')
             +comment(type)

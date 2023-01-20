@@ -28,7 +28,7 @@ template(x-if='$data.headings.length > 0')
           class='flex flex-col gap-y-3')
           template(x-for='heading in $data.headings' :key='heading.id')
             li(
-              :class="{ 'pl-0': heading.tagName === 'H2', 'pl-4': heading.tagName === 'H3' }"
+              :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'
               class='text-h-400')
               a(
                 :href='heading.href'
