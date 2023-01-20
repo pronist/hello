@@ -20,7 +20,7 @@ script.
       localStorage.TTDARK = document.documentElement.classList.contains('dark') ? 'N' : 'Y'
       document.documentElement.classList.toggle('dark')
 
-      this.$store.darkMode = ! this.$store.darkMode
+      this.$data.dark = ! this.$data.dark
     },
   })))
 

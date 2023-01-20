@@ -1,7 +1,7 @@
 doctype html
 
 html#hELLO(
-  x-data='{ loading: true }'
+  x-data='{ dark: TTDARK, loading: true }'
   x-init='setTimeout(() => loading = false, 100)'
   lang='ko'
   class='scroll-smooth')
@@ -18,7 +18,7 @@ html#hELLO(
     link(rel='stylesheet' :href='"//fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"')
     link(rel='stylesheet' :href='"//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"')
     link(rel='stylesheet' :href='"//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-subset.css"')
-    link(rel='stylesheet' :href='`//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/${$store.darkMode ? skinOptions.hljsDark : skinOptions.hljs}.min.css`')
+    link(rel='stylesheet' :href='`//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/${dark ? skinOptions.hljsDark : skinOptions.hljs}.min.css`')
 
     style(fixed).
       :root {
@@ -30,13 +30,10 @@ html#hELLO(
 
     script(fixed).
       window.skinOptions = {
-        theme: '[##_var_theme_##]',
-        permalinkWidth: '[##_var_permalink-width_##]',
         sidebar: '[##_var_sidebar_##]',
         foldableCategory: '[##_var_foldable-category_##]',
         foldableReply: '[##_var_foldable-reply_##]',
         scrollspy: '[##_var_scrollspy_##]',
-        toc: '[##_var_toc_##]',
         hljs: '[##_var_hljs_##]',
         hljsDark: '[##_var_hljs-dark_##]',
         relatedArticle: '[##_var_related-article_##]',
@@ -45,19 +42,12 @@ html#hELLO(
 
     script(fixed).
       if (! ('TTDARK' in localStorage)) {
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches || '[##_var_theme_##]' === 'dark') {
-          localStorage.TTDARK = 'Y'
-        } else {
-          localStorage.TTDARK = 'N'
-        }
+        localStorage.TTDARK = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Y' : 'N'
       }
 
       window.TTDARK = localStorage.TTDARK === 'Y'
 
       document.documentElement.classList.toggle('dark', TTDARK)
-
-    script.
-      document.addEventListener('alpine:init', () => Alpine.store('darkMode', TTDARK))
 
   body(
     id='[##_body_id_##]'
