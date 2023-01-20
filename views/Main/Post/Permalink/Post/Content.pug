@@ -155,7 +155,7 @@ script(once='alpine-content-component').
      * @return {HTMLCollection}
      */
     get $imageSlideBlock () {
-      return this.$el.querySelectorAll('figure.imageslideblock.alignCenter')
+      return this.$refs.article.querySelectorAll('figure.imageslideblock.alignCenter')
     },
 
     /**
@@ -164,7 +164,7 @@ script(once='alpine-content-component').
      * @return {HTMLCollection}
      */
     get $imageBlock () {
-      return this.$el.querySelectorAll('figure.imageblock.alignCenter')
+      return this.$refs.article.querySelectorAll('figure.imageblock.alignCenter')
     },
 
     /**
@@ -173,7 +173,7 @@ script(once='alpine-content-component').
      * @return {HTMLCollection}
      */
     get $imageGridBlock () {
-      return this.$el.querySelectorAll('figure.imagegridblock')
+      return this.$refs.article.querySelectorAll('figure.imagegridblock')
     },
 
     /**

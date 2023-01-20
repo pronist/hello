@@ -8,9 +8,9 @@ s_list
         div(
           x-init='thumbnail = true'
           class='absolute right-0 top-0 w-full h-64 before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/60 before:z-10')
-          img(
-            src='[##_list_image_##]'
-            alt='[##_list_conform_##]'
+          img.lazyload(
+            data-src='[##_list_image_##]'
+            data-sizes='auto'
             class='absolute right-0 top-0 w-full h-64 z-0 object-cover')
       div(
         :class='thumbnail ? "text-h-200" : "text-h-800 dark:text-h-200"'
