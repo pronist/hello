@@ -15,6 +15,7 @@ template(x-if='$data.headings.length > 0')
         x-show='! open'
         @click='toggle'
         class='fixed top-20 right-0 w-8 h-8 z-30 rounded-md bg-h-300 text-h-500 dark:bg-h-700 dark:text-h-200 2xl:hidden')
+        span(class='text-[0]') 목차
         i(class='fa-solid fa-list-check')
       div(
         :class='open ? "max-2xl:right-4" : "max-2xl:-right-60"'
@@ -22,6 +23,7 @@ template(x-if='$data.headings.length > 0')
         button(
           @click='toggle'
           class='absolute text-base top-2 right-4 text-h-500 dark:text-h-200 2xl:hidden')
+          span(class='text-[0]') 목차 닫기
           i(class='fa-solid fa-xmark')
         ul(
           x-ref='spy'
