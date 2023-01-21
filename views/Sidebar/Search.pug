@@ -1,10 +1,11 @@
 .sidebar-element
-  div(class='flex items-center gap-x-3 border-box px-4 py-3 rounded-md bg-h-300 text-h-400 dark:bg-h-600')
-    i(class='text-base fa-solid fa-magnifying-glass')
-    input#search(
-      type='text'
-      name='[##_search_name_##]'
-      value='[##_search_text_##]'
-      onkeypress='if (event.keyCode == 13) { [##_search_onclick_submit_##] }'
-      placeholder='[##_title_##]'
-      class='text-sm text-overflow-hidden border-none outline-none placeholder:text-h-400 bg-h-300 dark:bg-h-600')
+  s_search
+    div(class='flex items-center gap-x-3 border-box px-4 py-3 rounded-md bg-h-300 text-h-400 dark:bg-h-600')
+      i(class='text-base fa-solid fa-magnifying-glass')
+      input#search(
+        type='text'
+        name='[##_search_name_##]'
+        value='[##_search_text_##]'
+        onkeypress='if (event.keyCode == 13) { [##_search_onclick_submit_##] }'
+        placeholder='[##_title_##]'
+        class='text-sm text-overflow-hidden border-none outline-none placeholder:text-h-400 bg-h-300 dark:bg-h-600')
