@@ -48,8 +48,7 @@ mixin list(type, rType, reverse=false)
                 x-show='open'
                 x-init='children = $el.querySelectorAll("li")')
                 #{`s_${rType}_rep`}
-                  li(
-                    id=`[##_${type}_rep_id_##]`)
+                  li(id=`[##_${type}_rep_id_##]`)
                     +comment(type, false)
 
 style

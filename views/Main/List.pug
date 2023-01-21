@@ -31,8 +31,10 @@ style
       .post {
         @apply flex flex-col gap-y-4 sm:flex-row-reverse sm:items-center sm:justify-end sm:gap-x-6 sm:h-72 sm:border-t sm:border-solid sm:border-h-300 sm:dark:border-h-400;
 
-        img {
-          @apply w-full sm:w-64 sm:h-64 max-w-none;
+        .thumbnail {
+          img {
+            @apply w-full sm:w-64 sm:h-64 max-w-none;
+          }
         }
 
         .description {
@@ -63,8 +65,10 @@ style
       .post {
         @apply flex flex-col gap-y-4;
 
-        img {
-          @apply w-full h-64;
+        .thumbnail {
+          img {
+            @apply w-full h-64;
+          }
         }
 
         .description {
@@ -109,8 +113,10 @@ style
           @apply content-[''] top-[calc(100%+theme(spacing.6))] left-[calc(100%/2)] lg:top-[calc(100%+theme(spacing.6))] lg:left-[calc(theme('screens.lg')/2)] absolute w-0.5 h-12 lg:h-16 bg-h-300 dark:bg-h-600;
         }
 
-        img {
-          @apply relative z-10 object-cover w-full lg:w-[calc(theme(spacing.96)+theme(spacing.16))] lg:h-72 lg:max-w-none;
+        .thumbnail {
+          img {
+            @apply relative z-10 object-cover w-full lg:w-[calc(theme(spacing.96)+theme(spacing.16))] lg:h-72 lg:max-w-none;
+          }
         }
 
         .description {

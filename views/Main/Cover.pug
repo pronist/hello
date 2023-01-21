@@ -5,7 +5,7 @@ mixin coverItem()
 
 mixin coverImage()
   s_cover_item_thumbnail
-    a(href='[##_cover_item_url_##]')
+    .thumbnail(href='[##_cover_item_url_##]')
       img.lazyload(
         data-src='[##_cover_item_thumbnail_##]'
         data-sizes='auto' alt='[##_cover_item_title_##]'
