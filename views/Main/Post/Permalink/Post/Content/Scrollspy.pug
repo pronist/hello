@@ -65,8 +65,8 @@ script(once='alpine-scrollspy-component').
      * Scollspy
      */
     scrollspy () {
-      this.spy()
-      this.showInArticle()
+      this.track()
+      this.on()
     },
 
     /**
@@ -77,10 +77,10 @@ script(once='alpine-scrollspy-component').
     },
 
     /**
-     * Spy
+     * Track
      */
-    spy () {
-      const $headings = this.$data.$headings
+    track () {
+      const $headings = this.$headings
 
       $headings.forEach(($heading, index) => {
         if (this.in($heading)) {
@@ -97,10 +97,10 @@ script(once='alpine-scrollspy-component').
     },
 
     /**
-     * Show in the article
+     * On
      */
-    showInArticle () {
-      this.show = this.$refs.article.getBoundingClientRect().top < 0
+    on () {
+      this.show = this.$article.getBoundingClientRect().top < 0
     },
 
     /**
@@ -139,5 +139,23 @@ script(once='alpine-scrollspy-component').
      */
     out ($heading) {
       return $heading.getBoundingClientRect().top > 0
+    },
+
+    /**
+     * Article
+     *
+     * @returns {HTMLElement}
+     */
+    get $article () {
+      return this.$refs.article
+    },
+
+    /**
+     * Get headings in content
+     *
+     * @return {NodeListOf<HTMLElement>}
+     */
+    get $headings () {
+      return this.$article.querySelectorAll(this.$data.supportHeadings)
     }
   })))

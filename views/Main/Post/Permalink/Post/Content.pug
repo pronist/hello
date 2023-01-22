@@ -4,9 +4,12 @@ article#content(
   div(x-data='content')
     s_if_var_toc
       include Content/TOC
-    div(x-ref='article')
-      | #{`[##_${type}_rep_desc_##]`}
-      include Content/Subscription
+    #article(x-ref='article')
+      template(
+        x-ref='_article_'
+        x-teleport='#article')
+        | #{`[##_${type}_rep_desc_##]`}
+        include Content/Subscription
     s_if_var_scrollspy
       include Content/Scrollspy
 
@@ -17,10 +20,7 @@ script(once='alpine-content-component').
      *
      * @property {array} headings
      */
-    supportHeadings: [
-      '.contents_style > h2',
-      '.contents_style > h3'
-    ],
+    supportHeadings: '.contents_style > h2, .contents_style > h3',
 
     /**
      * Headings
@@ -36,52 +36,19 @@ script(once='alpine-content-component').
       this.imagesToCenter()
       this.highlight()
       this.appendAnchorToHeadings()
-      this.collectHeadings()
+      this.lazyLoad()
+      this.setHeadings()
     },
 
     /**
-     * Syntax highlighting
+     * Set headings
      */
-    highlight () {
-      hljs.highlightAll()
-    },
+    setHeadings () {
+      this.$headings.forEach($heading => {
+        const heading = this.heading($heading)
 
-    /**
-     * Align images(Single, Grid, Slide) to center
-     */
-    imagesToCenter () {
-      this.$imageSlideBlock.forEach(imageBlock => this.centerImage(imageBlock, imageBlock.querySelector('.image-wrap.selected > img').getAttribute('data-origin-width')))
-      this.$imageBlock.forEach(imageBlock => this.centerImage(imageBlock, imageBlock.getAttribute('data-origin-width') || imageBlock.getAttribute('width') || imageBlock.offsetWidth))
-      this.$imageGridBlock.forEach(imageBlock => this.centerImage(imageBlock, 1100))
-    },
-
-    /**
-     * Add css style for align image
-     *
-     * @param {HTMLElement} imageBlock
-     * @param {Number} originWidth
-     */
-    centerImage (imageBlock, originWidth) {
-      const width = originWidth > 1100 ? 1100 : originWidth
-
-      imageBlock.style.width = `${width}px`
-      imageBlock.style.marginLeft = `calc(50% - ${width / 2}px)`
-    },
-
-    /**
-     * Collect heading items
-     */
-    collectHeadings () {
-      this.$headings.forEach(this.addHeading.bind(this))
-    },
-
-    /**
-     * Collect heading item
-     */
-    addHeading ($heading) {
-      const heading = this.heading($heading)
-
-      this.headings.push(heading)
+        this.headings.push(heading)
+      })
     },
 
     /**
@@ -99,6 +66,61 @@ script(once='alpine-content-component').
         text: $heading.textContent,
         active: false
       }
+    },
+
+    /**
+     * Lazy load
+     */
+    lazyLoad () {
+      this.$article.querySelectorAll('figure span[data-url] > img').forEach(this.setLazyLoadToImage)
+    },
+
+    /**
+     * Set Lazy load to image
+     *
+     * @param {object} $image
+     */
+    setLazyLoadToImage ($image) {
+      $image.classList.add('lazyload')
+
+      $image.dataset.src = $image.getAttribute('src')
+      $image.dataset.srcset = $image.getAttribute('srcset')
+      $image.dataset.sizes = 'auto'
+
+      $image.removeAttribute('src')
+      $image.removeAttribute('srcset')
+
+      $image.removeAttribute('width')
+      $image.removeAttribute('height')
+    },
+
+    /**
+     * Syntax highlighting
+     */
+    highlight () {
+      this.$article.querySelectorAll('pre code').forEach(hljs.highlightElement)
+    },
+
+    /**
+     * Align images(Single, Grid, Slide) to center
+     */
+    imagesToCenter () {
+      this.$imageSlideBlock.forEach($imageBlock => this.centerImage($imageBlock, $imageBlock.querySelector('.image-wrap.selected > img').getAttribute('data-origin-width')))
+      this.$imageBlock.forEach($imageBlock => this.centerImage($imageBlock, $imageBlock.getAttribute('data-origin-width') || $imageBlock.getAttribute('width') || $imageBlock.offsetWidth))
+      this.$imageGridBlock.forEach($imageBlock => this.centerImage($imageBlock, 1100))
+    },
+
+    /**
+     * Add css style for align image
+     *
+     * @param {HTMLElement} $imageBlock
+     * @param {Number} originWidth
+     */
+    centerImage ($imageBlock, originWidth) {
+      const width = originWidth > 1100 ? 1100 : originWidth
+
+      $imageBlock.style.width = `${width}px`
+      $imageBlock.style.marginLeft = `calc(50% - ${width / 2}px)`
     },
 
     /**
@@ -152,28 +174,28 @@ script(once='alpine-content-component').
     /**
      * Get slide image blocks
      *
-     * @return {HTMLCollection}
+     * @return {NodeListOf<HTMLElement>}
      */
     get $imageSlideBlock () {
-      return this.$refs.article.querySelectorAll('figure.imageslideblock.alignCenter')
+      return this.$article.querySelectorAll('figure.imageslideblock.alignCenter')
     },
 
     /**
      * Get single image blocks
      *
-     * @return {HTMLCollection}
+     * @return {NodeListOf<HTMLElement>}
      */
     get $imageBlock () {
-      return this.$refs.article.querySelectorAll('figure.imageblock.alignCenter')
+      return this.$article.querySelectorAll('figure.imageblock.alignCenter')
     },
 
     /**
      * Get grid image blocks
      *
-     * @return {HTMLCollection}
+     * @return {NodeListOf<HTMLElement>}
      */
     get $imageGridBlock () {
-      return this.$refs.article.querySelectorAll('figure.imagegridblock')
+      return this.$article.querySelectorAll('figure.imagegridblock')
     },
 
     /**
@@ -182,8 +204,17 @@ script(once='alpine-content-component').
      * @return {NodeListOf<HTMLElement>}
      */
     get $headings () {
-      return this.$refs.article.querySelectorAll(this.supportHeadings.join(','))
-    }
+      return this.$article.querySelectorAll(this.supportHeadings)
+    },
+
+    /**
+     * Get article template content
+     *
+     * @return {HTMLElement}
+     */
+    get $article () {
+      return this.$refs._article_.content
+    },
   })))
 
 style(once='content')
@@ -274,7 +305,7 @@ style(once='content')
           }
 
           img {
-            @apply rounded-xl bg-h-100;
+            @apply rounded-xl;
           }
 
           &.imageblock.alignCenter,

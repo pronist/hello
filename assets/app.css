@@ -12,7 +12,21 @@ button {
 }
 
 @layer components {
-  /* Swiper */
+  /* https://github.com/aFarkas/lazysizes#css-api */
+  .lazyload,
+  .lazyloading {
+    @apply animate-pulse bg-h-300 dark:bg-h-700;
+  }
+
+  .lazyloaded {
+    @apply animate-none bg-h-100;
+  }
+
+  .lazyload:not([src]) {
+    visibility: hidden;
+  }
+
+  /* https://swiperjs.com/demos#navigation */
   .swiper-button-next,
   .swiper-button-prev {
     --swiper-navigation-size: 1.5rem;

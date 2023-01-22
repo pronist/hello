@@ -6,9 +6,8 @@ header(
     div(
       x-init='thumbnail = true'
       class='absolute right-0 top-0 w-full h-64 before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10')
-      img.lazyload(
-        data-src=`[##_${type}_rep_thumbnail_url_##]`
-        data-sizes='auto'
+      img(
+        src=`[##_${type}_rep_thumbnail_url_##]`
         alt=''
         class='absolute right-0 top-0 w-full h-64 z-0 object-cover')
   div(

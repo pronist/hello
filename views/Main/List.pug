@@ -8,9 +8,8 @@ s_list
         div(
           x-init='thumbnail = true'
           class='absolute right-0 top-0 w-full h-64 before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/60 before:z-10')
-          img.lazyload(
-            data-src='[##_list_image_##]'
-            data-sizes='auto'
+          img(
+            src='[##_list_image_##]'
             alt=''
             class='absolute right-0 top-0 w-full h-64 z-0 object-cover')
       div(
