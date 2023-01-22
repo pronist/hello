@@ -218,14 +218,19 @@ style(once='content')
           @apply text-base lg:text-lg;
         }
 
-        ol,
-        ul {
-          @apply flex flex-col gap-y-1 list-inside;
+        ol[data-ke-list-type],
+        ul[data-ke-list-type] {
+          @apply flex flex-col gap-y-1 list-inside my-5;
+
+          ol[data-ke-list-type],
+          ul[data-ke-list-type] {
+            @apply my-0 ml-4;
+          }
         }
 
         p,
-        ol,
-        ul,
+        ol[data-ke-list-type],
+        ul[data-ke-list-type],
         table[data-ke-align],
         blockquote[data-ke-style=style2],
         blockquote[data-ke-style=style3] {
@@ -245,8 +250,6 @@ style(once='content')
           }
         }
 
-        ul,
-        ol,
         figure,
         pre,
         table[data-ke-align],
