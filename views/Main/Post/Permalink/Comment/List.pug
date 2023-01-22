@@ -4,6 +4,7 @@ mixin comment(type, replyable=true)
     div
       div(class='flex items-center gap-x-4')
         img.lazyload(
+          alt=''
           data-src=`[##_${type}_rep_logo_##]`
           data-sizes='auto'
           width='48'

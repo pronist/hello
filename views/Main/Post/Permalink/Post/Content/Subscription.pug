@@ -17,7 +17,12 @@ style(once='content-subscription-button')
         .btn_subscription {
           @apply border-0 ml-2 mr-0;
 
-          * {
+          .txt_state {
+            @apply text-[0] bg-none !important;
+          }
+
+          .txt_tool_id,
+          .ico_check_type1 {
             @apply hidden;
           }
 

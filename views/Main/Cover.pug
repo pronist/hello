@@ -8,7 +8,8 @@ mixin coverImage()
     .thumbnail(href='[##_cover_item_url_##]')
       img.lazyload(
         data-src='[##_cover_item_thumbnail_##]'
-        data-sizes='auto' alt='[##_cover_item_title_##]'
+        data-sizes='auto'
+        alt=''
         class='object-cover bg-h-100')&attributes(attributes)
 
 mixin coverDescriptionIfContent(featured=false)
