@@ -36,13 +36,17 @@ script.
     },
 
     /**
-     * @var {HTMLCollection} $subCategories
+     * Get subcategories
+     *
+     * @var {NodeListOf<HTMLElement>} $subCategories
      */
     get $subCategories () {
       return this.$el.querySelectorAll('.sub_category_list')
     },
 
     /**
+     * Get a new icon
+     *
      * @var {HTMLElement} $icon
      */
     get $icon () {
