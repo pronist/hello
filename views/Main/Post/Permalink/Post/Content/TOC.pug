@@ -2,7 +2,7 @@ template(x-if='$data.headings.length > 0')
   #TOC(
     class='rounded-md p-5 mb-8 box-border bg-h-200 text-h-500 dark:bg-h-700 dark:text-h-200')
     strong(class='flex items-center justify-between text-overflow-hidden text-sm pb-2 mb-4 border-b border-solid border-h-400 dark:border-h-200')
-      div(class='text-base') 목차
+      span(class='text-base') 목차
       i(class='fas fa-bars')
     ol(class='flex flex-col gap-y-3')
       template(x-for='heading in $data.headings' :key='heading.id')

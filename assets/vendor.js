@@ -14,7 +14,6 @@ import 'swiper/css/navigation'
 
 const swiper = new Swiper('.swiper', {
   modules: [Navigation],
-  loop: true,
   autoplay: {
     delay: 3000
   },
