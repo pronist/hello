@@ -35,18 +35,45 @@ script.
     /**
      * @property {boolean} open
      */
-    open: false,
+    open: true,
+
+    /**
+     * Init
+     */
+    init () {
+      if (! this.hasScrollBar()) {
+        return
+      }
+
+      this.toggle()
+    },
 
     /**
      * Toggle
      */
     toggle () {
-      if (! document.body.contains(this.$refs.content)) {
-        this.open = true
+      this.$targets.forEach(el => {
+        if (document.body.contains(el)) {
+          this.open = el.getBoundingClientRect().top < 0
+        }
+      })
+    },
 
-        return
-      }
+    /**
+     * Has scroll bar
+     *
+     * @returns {boolean}
+     */
+    hasScrollBar () {
+      return document.body.scrollHeight > window.innerHeight
+    },
 
-      this.open = this.$refs.content.getBoundingClientRect().top < 0
+    /**
+     * targets
+     *
+     * @returns {Array<HTMLElement>}
+     */
+    get $targets () {
+      return [this.$refs.list, this.$refs.content]
     }
   })))

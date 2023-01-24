@@ -17,7 +17,9 @@ s_list
         class='flex flex-col items-center z-20 relative mx-4 text-center lg:mx-0')
         h1(class='font-bold text-2xl lg:text-3xl') [##_list_conform_##]
         span(class='font-bold mt-3 empty:mt-0') [##_list_description_##]
-    .list(class='px-4 lg:px-0 lg:w-idx lg:mx-auto')
+    .list(
+      x-ref='list'
+      class='px-4 lg:px-0 lg:w-idx lg:mx-auto')
       s_list_rep
         +index('list')
 
