@@ -60,12 +60,12 @@ script.
     },
 
     /**
-     * Has scroll bar
+     * Has scroll bar on html
      *
      * @returns {boolean}
      */
     hasScrollBar () {
-      return document.body.scrollHeight > window.innerHeight
+      return document.documentElement.scrollHeight > document.documentElement.clientHeight
     },
 
     /**
