@@ -14,6 +14,6 @@
     h2
       a(
         href=`[##_${type}_rep_link_##]`
-        class='text-h-800 dark:text-h-200') #{`[##_${type}_rep_title_##]`}
+        class='text-h-800 dark:text-h-200 [&_img]:hidden') #{`[##_${type}_rep_title_##]`}
     time(class='text-h-400 text-sm') #{`[##_${type}_rep_${type === 'list' ? 'regdate' : 'date'}_##]`}
     p(class='relative overflow-hidden text-h-400 leading-7') #{`[##_${type}_rep_summary_##]`}
