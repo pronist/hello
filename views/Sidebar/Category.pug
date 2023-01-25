@@ -62,28 +62,38 @@ style
   :postcss
     #sidebar {
       #category {
-        .link_tit {
-          @apply text-sm font-bold mb-6 inline-block text-h-900 dark:text-h-200;
-        }
-
-        ul {
-          @apply flex flex-col gap-y-4;
-        }
-
-        li {
-          @apply relative text-sm;
-
-          i {
-            @apply absolute right-0 text-sm cursor-pointer;
+        .tt_category {
+          .link_tit,
+          .link_item,
+          .link_sub_item {
+            img {
+              @apply hidden;
+            }
           }
-        }
 
-        .sub_category_list {
-          @apply mt-4;
+          .link_tit {
+            @apply text-sm font-bold mb-6 inline-block text-h-900 dark:text-h-200;
+          }
 
-          li {
-            .link_sub_item::before {
-              @apply mr-1 fa-chevron-right font-bold text-h-400 text-sm;
+          .category_list {
+            @apply flex flex-col gap-y-4;
+
+            li {
+              @apply relative text-sm;
+
+              i {
+                @apply absolute right-0 text-sm cursor-pointer;
+              }
+            }
+          }
+
+          .sub_category_list {
+            @apply mt-4;
+
+            li {
+              .link_sub_item::before {
+                @apply mr-1 fa-chevron-right font-bold text-h-400 text-sm;
+              }
             }
           }
         }
