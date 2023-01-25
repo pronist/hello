@@ -73,7 +73,7 @@ script(once='alpine-content-component').
      * Lazy load
      */
     lazyLoad () {
-      this.$article.querySelectorAll('figure span[data-url] > img').forEach(this.setLazyLoadToImage)
+      this.$article.querySelectorAll('figure[class^=image] img').forEach(this.setLazyLoadToImage)
     },
 
     /**
