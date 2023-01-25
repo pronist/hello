@@ -8,7 +8,8 @@ article#content(
       template(
         x-ref='_article_'
         x-teleport='#article')
-        | #{`[##_${type}_rep_desc_##]`}
+        div
+          | #{`[##_${type}_rep_desc_##]`}
         include Content/Subscription
     s_if_var_scrollspy
       include Content/Scrollspy
