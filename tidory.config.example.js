@@ -46,9 +46,7 @@ module.exports = {
       toc: true,
       scrollspy: true,
       hljs: 'xcode',
-      hljsDark: 'vs2015',
-      'related-article': true,
-      author: true
+      hljsDark: 'vs2015'
     }
   },
 

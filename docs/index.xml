@@ -105,20 +105,6 @@
          <default>vs2015</default>
        </variable>
        <variable>
-         <name>related-article</name>
-         <label>카테고리의 다른 글</label>
-         <description><![CDATA[ 카테고리의 다른 글 ]]></description>
-         <type>BOOL</type>
-         <default>true</default>
-       </variable>
-       <variable>
-         <name>author</name>
-         <label>작성자</label>
-         <description><![CDATA[ 작성자 ]]></description>
-         <type>BOOL</type>
-         <default>true</default>
-       </variable>
-       <variable>
          <name>foldable-reply</name>
          <label>댓글 접기/펼치기</label>
          <description><![CDATA[ 댓글 접기/펼치기 ]]></description>

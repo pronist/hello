@@ -1,7 +1,5 @@
 footer(class='mt-4')
   if hasCategory
-    s_if_var_related-article
-      include Footer/RelatedArticle
+    include Footer/RelatedArticle
     include Footer/Tag
-  s_if_var_author
-    include Footer/Author
+  include Footer/Author
