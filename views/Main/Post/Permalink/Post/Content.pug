@@ -10,7 +10,7 @@ article#content(
         x-teleport='#article')
         div
           | #{`[##_${type}_rep_desc_##]`}
-        include Content/Subscription
+          include Content/Subscription
     s_if_var_scrollspy
       include Content/Scrollspy
 
@@ -443,19 +443,15 @@ style(once='content-postbtn')
               }
             }
 
-            &.wrap_btn_share,
-            &.wrap_btn_etc {
-              .btn_post > * {
-                @apply hidden;
-              }
+            .ico_like,
+            .ico_share,
+            .ico_statistics,
+            .ico_etc {
+              @apply text-[0] w-0 h-0 bg-none;
             }
 
             &[id^=reaction-] button {
               @apply w-16 h-9 rounded-md bg-h-700 hover:bg-h-600;
-
-              > .uoc-icon > .ico_like {
-                @apply hidden;
-              }
 
               .uoc-icon {
                 @apply text-h-200;
@@ -477,10 +473,6 @@ style(once='content-postbtn')
             button[data-entry-id] {
               &::before {
                 @apply fa-chart-pie;
-              }
-
-              .ico_statistics {
-                @apply hidden;
               }
             }
 
