@@ -41,6 +41,7 @@ mixin list(type, rType, reverse=false)
           li(
             x-data='{ open: ! skinOptions.foldableReply, children: [] }'
             id=`[##_${type}_rep_id_##]`
+            :class='{ "[&>div]:before:hidden": children.length === 0 }'
             class='flex flex-col gap-y-5 border-b border-dotted border-h-400 pb-5')
             +comment(type)
             #{`s_${rType}_container`}
@@ -49,7 +50,9 @@ mixin list(type, rType, reverse=false)
                 x-show='open'
                 x-init='children = $el.querySelectorAll("li")')
                 #{`s_${rType}_rep`}
-                  li(id=`[##_${type}_rep_id_##]`)
+                  li(
+                    id=`[##_${type}_rep_id_##]`
+                    class='[&:last-child>div]:before:hidden')
                     +comment(type, false)
 
 style
