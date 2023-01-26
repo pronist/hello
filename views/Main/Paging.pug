@@ -1,16 +1,16 @@
 s_paging
   ul#paging(class='flex justify-center items-center mt-8 lg:mt-20')
     li
-      .prev([##_prev_page_##] class='[##_no_more_prev_##]')
-        span 이전
+      div([##_prev_page_##] class='[##_no_more_prev_##] text-[0]')
+        | 이전
         i(class='fa fa-angle-left')
     s_paging_rep
       li
         a([##_paging_rep_link_##]) [##_paging_rep_link_num_##]
     li
-      .next([##_next_page_##] class='[##_no_more_next_##]')
-        span 다음
+      div([##_next_page_##] class='[##_no_more_next_##] text-[0]')
         i(class='fa fa-angle-right')
+        | 다음
 
 style
   :postcss
@@ -25,18 +25,11 @@ style
 
       i,
       span {
-        @apply w-8 h-8 leading-8 text-center mx-1 text-h-800 dark:text-h-300;
+        @apply w-8 h-8 leading-8 text-center mx-1 text-base text-h-800 dark:text-h-300;
       }
 
       span:not(.selected) {
         @apply hidden lg:inline-block;
-      }
-
-      .prev,
-      .next {
-        span {
-          @apply text-[0] w-0 h-0;
-        }
       }
 
       .selected {
