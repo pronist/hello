@@ -27,7 +27,7 @@ mixin form(type)
           class='text-[0]') 댓글
         textarea#text(
           name=`${type === 'guest' ? '[##_guest_textarea_body_##]' : '[##_rp_input_comment_##]'}`
-          class='border-0 resize-none p-0 pr-5 h-full overflow-x-hidden overflow-y-scroll text-sm box-border outline-none w-[calc(100%+40px)] bg-h-200 dark:bg-h-700')
+          class='border-0 resize-none p-0 pr-5 h-full overflow-x-hidden overflow-y-scroll text-sm box-border outline-none w-[calc(100%+theme(spacing.10))] bg-h-200 dark:bg-h-700')
         div(class='flex items-end justify-end')
           if process.env.NODE_ENV === 'development'
             +formGuestControl(type)

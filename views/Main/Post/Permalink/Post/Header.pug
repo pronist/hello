@@ -1,18 +1,11 @@
-header(
-  x-data='{ thumbnail: false }'
-  :class='thumbnail ? "h-64 lg:mb-16" : "h-32 mt-10 lg:mt-20"'
-  class='mb-10 flex justify-center items-center')
+header(class='h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-300 dark:border-b-h-700 lg:mb-16')
   #{`s_${type}_rep_thumbnail`}
-    div(
-      x-init='thumbnail = true'
-      class='absolute right-0 top-0 w-full h-64 before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10')
+    .thumbnail(class='absolute right-0 top-0 w-full h-64 before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200')
       img(
         src=`[##_${type}_rep_thumbnail_url_##]`
         alt=''
         class='absolute right-0 top-0 w-full h-64 z-0 object-cover')
-  div(
-    :class='thumbnail ? "text-h-200" : "text-h-800 dark:text-h-200"'
-    class='flex flex-col items-center gap-y-2 z-20 relative mx-4 lg:mx-0')
+  .description(class='flex flex-col items-center gap-y-2 z-20 relative mx-4 text-h-800 dark:text-h-200 lg:mx-0')
     unless hasCategory
       case type
         when 'notice'

@@ -79,4 +79,8 @@ button {
   .fa-star {
     @apply font-awesome content-['\f005'];
   }
+
+  .fa-tag {
+    @apply font-awesome content-['\f02b'];
+  }
 }

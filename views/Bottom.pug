@@ -1,6 +1,4 @@
-#bottom(
-  :class='{ "xl:w-[calc(100%-theme(spacing.64))]": sidebarDefault }'
-  class='flex justify-end px-4 w-full box-border fixed text-sm z-30 bottom-3 xl:bottom-4')
+#bottom(class='flex justify-end px-4 w-full box-border fixed text-sm z-30 bottom-3 xl:bottom-4 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>')
   div(class='flex gap-x-3')
     button(
       x-data='theme'
@@ -21,7 +19,7 @@ script.
       document.documentElement.classList.toggle('dark')
 
       this.$data.dark = ! this.$data.dark
-    },
+    }
   })))
 
 style

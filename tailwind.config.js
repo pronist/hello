@@ -30,6 +30,10 @@ module.exports = {
       }
     },
     extend: {
+      width: {
+        sidebar: '16rem',
+        c: 'calc(100% - 16rem)'
+      },
       spacing: {
         idx: '1100px',
         pem: 'var(--h-width)'
