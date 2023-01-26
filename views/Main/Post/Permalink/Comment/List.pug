@@ -11,7 +11,7 @@ mixin comment(type, replyable=true)
           height='48'
           class='rounded-full')
         div
-          div(class='text-h-200 text-sm font-bold text-h-600 dark:text-h-200') #{`[##_${type}_rep_name_##]`}
+          div(class='text-sm font-bold text-h-600 dark:text-h-200') #{`[##_${type}_rep_name_##]`}
           time(class='text-h-400 text-xs') #{`[##_${type}_rep_date_##]`}
     div(class='pl-16 leading-7 text-sm text-h-500 dark:text-h-300') #{`[##_${type}_rep_desc_##]`}
     div(class='pl-16 flex gap-x-1 text-h-400 text-xs')
