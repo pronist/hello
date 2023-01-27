@@ -26,6 +26,7 @@ script.
     foldable ($subCategory) {
       $subCategory.parentNode.setAttribute('x-data', '{ open: false }')
       $subCategory.setAttribute('x-show', 'open')
+      $subCategory.setAttribute('x-collapse', '')
 
       const $icon = this.$icon
 
@@ -88,9 +89,9 @@ style
           }
 
           .sub_category_list {
-            @apply mt-4;
-
             li {
+              @apply first:mt-4;
+
               .link_sub_item::before {
                 @apply mr-1 fa-chevron-right font-bold text-h-400 text-sm;
               }

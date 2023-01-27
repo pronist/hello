@@ -32,6 +32,7 @@
     "pug-lint": "^2.6.0"
   },
   "dependencies": {
+    "@alpinejs/collapse": "^3.11.1",
     "@alpinejs/intersect": "^3.11.1",
     "alpinejs": "^3.10.5",
     "highlight.js": "^11.7.0",
