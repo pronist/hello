@@ -1,5 +1,10 @@
-footer(class='mt-4')
-  if hasCategory
-    include Footer/RelatedArticle
-    include Footer/Tag
-  include Footer/Author
+div(
+  x-data='{ show: false }'
+  x-intersect.once='show = true')
+  footer(
+    class='mt-4'
+    x-show='show')
+    if hasCategory
+      include Footer/RelatedArticle
+      include Footer/Tag
+    include Footer/Author

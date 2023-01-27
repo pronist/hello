@@ -14,5 +14,9 @@
 
 /** @see https://alpinejs.dev */
 import Alpine from 'alpinejs'
+/** @see https://alpinejs.dev/plugins/intersect */
+import intersect from '@alpinejs/intersect'
+
+Alpine.plugin(intersect)
 
 window.Alpine = Alpine

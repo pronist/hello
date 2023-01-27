@@ -1,3 +1,8 @@
 s_rp
-  +form('rp')
-  +list('rp', 'rp2', true)
+  div(
+    class='px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto'
+    x-data='{ show: false }'
+    x-intersect.once='show = true')
+    div(x-show='show')
+      +form('rp')
+      +list('rp', 'rp2', true)

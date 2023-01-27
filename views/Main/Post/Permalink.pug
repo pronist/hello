@@ -2,5 +2,4 @@ mixin permalink(pageType, type, hasCategory=true)
   div(id=pageType)
     include Permalink/Post
     if hasCategory
-      div(class='px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto')
-        include Permalink/Comment
+      include Permalink/Comment
