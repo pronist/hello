@@ -36,6 +36,10 @@ button {
 }
 
 @layer utilities {
+  .text-hidden {
+    @apply absolute w-px h-px -m-px overflow-hidden !important;
+  }
+
   .text-overflow-hidden {
     @apply overflow-hidden whitespace-nowrap text-ellipsis;
   }

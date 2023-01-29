@@ -24,7 +24,7 @@ mixin form(type)
       div(class='box-border flex flex-col justify-between h-full gap-y-3')
         label(
           for='text'
-          class='text-[0]') 댓글
+          class='text-hidden') 댓글
         textarea#text(
           name=`${type === 'guest' ? '[##_guest_textarea_body_##]' : '[##_rp_input_comment_##]'}`
           class='border-0 resize-none p-0 pr-5 h-full overflow-x-hidden overflow-y-scroll text-sm box-border outline-none w-[calc(100%+theme(spacing.10))] bg-h-200 dark:bg-h-700')
@@ -45,12 +45,12 @@ mixin form(type)
             label#secret-label(
               for='secret'
               @click='secret = ! secret')
-              span(class='text-[0]') 비밀글
+              span(class='text-hidden') 비밀글
               i(
                 class='fa-solid'
                 :class='{ "fa-lock": secret, "fa-unlock": ! secret }')
             a(
               href='#'
               onclick=`[##_${type}_onclick_submit_##]`)
-              span(class='text-[0]') 댓글쓰기
+              span(class='text-hidden') 댓글쓰기
               i(class='fa-solid fa-arrow-circle-down text-3xl leading-none text-h-900 dark:text-h-200')

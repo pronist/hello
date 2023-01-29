@@ -1,16 +1,16 @@
 s_paging
   ul#paging(class='flex justify-center items-center mt-8 lg:mt-20')
     li
-      div([##_prev_page_##] class='[##_no_more_prev_##] text-[0]')
-        | 이전
+      div([##_prev_page_##] class='[##_no_more_prev_##]')
+        span(class='text-hidden') 이전
         i(class='fa fa-angle-left')
     s_paging_rep
       li
         a([##_paging_rep_link_##]) [##_paging_rep_link_num_##]
     li
-      div([##_next_page_##] class='[##_no_more_next_##] text-[0]')
+      div([##_next_page_##] class='[##_no_more_next_##]')
         i(class='fa fa-angle-right')
-        | 다음
+        span(class='text-hidden') 다음
 
 style
   :postcss
