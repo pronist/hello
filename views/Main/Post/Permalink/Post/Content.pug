@@ -6,7 +6,7 @@ article#content(
       include Content/TOC
     #article(x-ref='article')
       template(
-        x-ref='_article_'
+        x-ref='articleTemplate'
         x-teleport='#article')
         div
           | #{`[##_${type}_rep_desc_##]`}
@@ -34,18 +34,27 @@ script(once='alpine-content-component').
      * Init 'content' Component
      */
     init () {
-      this.imagesToCenter()
-      this.highlight()
-      this.appendAnchorToHeadings()
-      this.lazyLoad()
-      this.setRatio()
-      this.setHeadings()
+      this.setAnchorToHeadings()
+      this.collectHeading()
+
+      this.centerImages()
+      this.setLazyLoadToImages()
+      this.setRatioToImages()
+
+      this.syntaxHighlighting()
     },
 
     /**
-     * Set headings
+     * Syntax highlighting code blocks in template
      */
-    setHeadings () {
+    syntaxHighlighting () {
+      this.$article.querySelectorAll('pre code').forEach(hljs.highlightElement)
+    },
+
+    /**
+     * Collect heading in template
+     */
+    collectHeading () {
       this.$headings.forEach($heading => {
         const heading = this.heading($heading)
 
@@ -71,14 +80,14 @@ script(once='alpine-content-component').
     },
 
     /**
-     * Lazy load
+     * Set lazy load to images in template
      */
-    lazyLoad () {
+    setLazyLoadToImages () {
       this.$article.querySelectorAll('figure[class^=image] img').forEach(this.setLazyLoadToImage)
     },
 
     /**
-     * Set Lazy load to image
+     * Set lazy load to image
      *
      * @param {object} $image
      */
@@ -94,24 +103,9 @@ script(once='alpine-content-component').
     },
 
     /**
-     * Align images(Single, Grid, Slide) to center
+     * set Ratio to images in template
      */
-    imagesToCenter () {
-      this.$article.querySelectorAll('figure.imageblock.alignCenter').forEach($imageBlock => this.centerImage($imageBlock, $imageBlock.dataset.originWidth || $imageBlock.getAttribute('width') || $imageBlock.offsetWidth))
-      this.$article.querySelectorAll('figure.imagegridblock').forEach($imageBlock => this.centerImage($imageBlock, 1100))
-    },
-
-    /**
-     * set Ratio to images
-     */
-    setRatio () {
-      this.$article.querySelectorAll('figure.imageslideblock').forEach($imageBlock => {
-        const $imageWrap = $imageBlock.querySelector('.image-container')
-        const $image = $imageWrap.querySelector('img')
-
-        $imageWrap.style.paddingBottom = `${$image.dataset.originHeight / $image.dataset.originWidth * 100}%`
-      })
-
+    setRatioToImages () {
       this.$article.querySelectorAll('figure.imageblock').forEach($imageBlock => {
         const $imageWrap = $imageBlock.querySelector('span, a')
         const $image = $imageWrap.querySelector('img')
@@ -126,8 +120,18 @@ script(once='alpine-content-component').
         const $imageWraps = $imageBlock.querySelectorAll('span, a')
 
         $imageWraps.forEach($imageWrap => {
-          $imageWrap.style.paddingBottom = `${$imageWrap.dataset.originHeight / ($imageWrap.dataset.originWidth * (100 / $imageWrap.dataset.widthpercent)) * 100}%`
+          const paddingBottom = $imageWrap.dataset.originHeight / ($imageWrap.dataset.originWidth * (100 / $imageWrap.dataset.widthpercent)) * 100
+
+          $imageWrap.style.paddingBottom = `${paddingBottom}%`
         })
+      })
+
+      this.$article.querySelectorAll('figure.imageslideblock').forEach($imageBlock => {
+        const $imageWrap = $imageBlock.querySelector('.image-container')
+        const $image = $imageWrap.querySelector('img')
+        const paddingBottom = $image.dataset.originHeight / $image.dataset.originWidth * 100
+
+        $imageWrap.style.paddingBottom = `${paddingBottom}%`
       })
     },
 
@@ -155,7 +159,7 @@ script(once='alpine-content-component').
      * Add center image css style
      *
      * @param {HTMLElement} $imageBlock
-     * @param {Number} originWidth
+     * @param {String|Number} originWidth
      */
     centerImage ($imageBlock, originWidth) {
       const width = originWidth > 1100 ? 1100 : originWidth
@@ -165,17 +169,10 @@ script(once='alpine-content-component').
     },
 
     /**
-     * Set anchor to headings
+     * Set anchor to headings in template
      */
-    appendAnchorToHeadings () {
-      this.$headings.forEach(this.appendAnchorToHeading.bind(this))
-    },
-
-    /**
-     * Syntax highlighting
-     */
-    highlight() {
-      this.$article.querySelectorAll('pre code').forEach(hljs.highlightElement)
+    setAnchorToHeadings () {
+      this.$headings.forEach(this.setAnchorToHeading.bind(this))
     },
 
     /**
@@ -183,7 +180,7 @@ script(once='alpine-content-component').
      *
      * @param {HTMLElement} $heading
      */
-    appendAnchorToHeading ($heading) {
+    setAnchorToHeading ($heading) {
       const link = this.link($heading)
       const $anchor = this.$anchor($heading, `#${link}`)
 
@@ -224,8 +221,8 @@ script(once='alpine-content-component').
      *
      * @return {HTMLElement}
      */
-    get $article () {
-      return this.$refs._article_.content
+    get $article() {
+      return this.$refs.articleTemplate.content
     },
 
     /**
