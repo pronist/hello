@@ -91,9 +91,6 @@ script(once='alpine-content-component').
 
       $image.removeAttribute('src')
       $image.removeAttribute('srcset')
-
-      $image.removeAttribute('width')
-      $image.removeAttribute('height')
     },
 
     /**
@@ -117,8 +114,12 @@ script(once='alpine-content-component').
 
       this.$article.querySelectorAll('figure.imageblock').forEach($imageBlock => {
         const $imageWrap = $imageBlock.querySelector('span, a')
+        const $image = $imageWrap.querySelector('img')
+        const width = $image.getAttribute('width') || $imageBlock.dataset.originWidth
+        const height = $image.getAttribute('height') || $imageBlock.dataset.originHeight
+        const paddingBottom = height / width * 100
 
-        $imageWrap.style.paddingBottom = `${$imageBlock.dataset.originHeight / $imageBlock.dataset.originWidth * 100}%`
+        $imageWrap.style.paddingBottom = `${paddingBottom}%`
       })
 
       this.$article.querySelectorAll('figure.imagegridblock').forEach($imageBlock => {
@@ -131,7 +132,27 @@ script(once='alpine-content-component').
     },
 
     /**
-     * Add css style for align image
+     * Center images in template
+     */
+    centerImages () {
+      this.$article.querySelectorAll('figure.imageblock.alignCenter').forEach($imageBlock => {
+        const $imageWrap = $imageBlock.querySelector('span, a')
+        const $image = $imageWrap.querySelector('img')
+
+        const width = $image.getAttribute('width') || $imageBlock.dataset.originWidth
+
+        this.centerImage($imageBlock, width)
+      })
+
+      this.$article.querySelectorAll('figure.imagegridblock').forEach($imageBlock => {
+        const width = 1100
+
+        this.centerImage($imageBlock, width)
+      })
+    },
+
+    /**
+     * Add center image css style
      *
      * @param {HTMLElement} $imageBlock
      * @param {Number} originWidth
