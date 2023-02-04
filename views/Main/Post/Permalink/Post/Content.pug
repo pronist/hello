@@ -106,53 +106,85 @@ script(once='alpine-content-component').
      * set Ratio to images in template
      */
     setRatioToImages () {
-      this.$article.querySelectorAll('figure.imageblock').forEach($imageBlock => {
-        const $imageWrap = $imageBlock.querySelector('span, a')
-        const $image = $imageWrap.querySelector('img')
-        const width = $image.getAttribute('width') || $imageBlock.dataset.originWidth
-        const height = $image.getAttribute('height') || $imageBlock.dataset.originHeight
-        const paddingBottom = height / width * 100
+      this.$article.querySelectorAll('figure.imageslideblock').forEach(this.setRatioToImageSlideBlock)
+      this.$article.querySelectorAll('figure.imageblock').forEach(this.setRatioToImageBlock)
+      this.$article.querySelectorAll('figure.imagegridblock').forEach(this.setRatioToImageGridBlock)
+    },
 
-        $imageWrap.style.paddingBottom = `${paddingBottom}%`
-      })
+    /**
+     * Set Ratio to image block
+     *
+     * @param {HTMLElement} $imageBlock
+     */
+    setRatioToImageBlock ($imageBlock) {
+      const $imageWrap = $imageBlock.querySelector('span, a')
+      const $image = $imageWrap.querySelector('img')
+      const width = $image.getAttribute('width') || $imageBlock.dataset.originWidth
+      const height = $image.getAttribute('height') || $imageBlock.dataset.originHeight
+      const paddingBottom = height / width * 100
 
-      this.$article.querySelectorAll('figure.imagegridblock').forEach($imageBlock => {
-        const $imageWraps = $imageBlock.querySelectorAll('span, a')
+      $imageWrap.style.paddingBottom = `${paddingBottom}%`
+    },
 
-        $imageWraps.forEach($imageWrap => {
-          const paddingBottom = $imageWrap.dataset.originHeight / ($imageWrap.dataset.originWidth * (100 / $imageWrap.dataset.widthpercent)) * 100
+    /**
+     * Set Ratio to image grid block
+     *
+     * @param {HTMLElement} $imageBlock
+     */
+    setRatioToImageGridBlock ($imageBlock) {
+      const $imageWraps = $imageBlock.querySelectorAll('span, a')
 
-          $imageWrap.style.paddingBottom = `${paddingBottom}%`
-        })
-      })
-
-      this.$article.querySelectorAll('figure.imageslideblock').forEach($imageBlock => {
-        const $imageWrap = $imageBlock.querySelector('.image-container')
-        const $image = $imageWrap.querySelector('img')
-        const paddingBottom = $image.dataset.originHeight / $image.dataset.originWidth * 100
+      $imageWraps.forEach($imageWrap => {
+        const paddingBottom = $imageWrap.dataset.originHeight / ($imageWrap.dataset.originWidth * (100 / $imageWrap.dataset.widthpercent)) * 100
 
         $imageWrap.style.paddingBottom = `${paddingBottom}%`
       })
     },
 
     /**
+     * Set Ratio to image slide block
+     *
+     * @param {HTMLElement} $imageBlock
+     */
+    setRatioToImageSlideBlock ($imageBlock) {
+      const $imageWrap = $imageBlock.querySelector('.image-container')
+      const $image = $imageWrap.querySelector('img')
+      const paddingBottom = $image.dataset.originHeight / $image.dataset.originWidth * 100
+
+      $imageWrap.style.paddingBottom = `${paddingBottom}%`
+    },
+
+    /**
      * Center images in template
      */
     centerImages () {
-      this.$article.querySelectorAll('figure.imageblock.alignCenter').forEach($imageBlock => {
-        const $imageWrap = $imageBlock.querySelector('span, a')
-        const $image = $imageWrap.querySelector('img')
+      this.$article.querySelectorAll('figure.imageblock.alignCenter').forEach(this.centerImageBlock.bind(this))
+      this.$article.querySelectorAll('figure.imagegridblock').forEach(this.centerImageGridBlock.bind(this))
+    },
 
-        const width = $image.getAttribute('width') || $imageBlock.dataset.originWidth
+    /**
+     * Center image block
+     *
+     * @param {HTMLElement} $imageBlock
+     */
+    centerImageBlock ($imageBlock) {
+      const $imageWrap = $imageBlock.querySelector('span, a')
+      const $image = $imageWrap.querySelector('img')
 
-        this.centerImage($imageBlock, width)
-      })
+      const width = $image.getAttribute('width') || $imageBlock.dataset.originWidth
 
-      this.$article.querySelectorAll('figure.imagegridblock').forEach($imageBlock => {
-        const width = 1100
+      this.centerImage($imageBlock, width)
+    },
 
-        this.centerImage($imageBlock, width)
-      })
+    /**
+     * Center image grid block
+     *
+     * @param {HTMLElement} $imageBlock
+     */
+    centerImageGridBlock ($imageBlock) {
+      const width = 1100
+
+      this.centerImage($imageBlock, width)
     },
 
     /**
