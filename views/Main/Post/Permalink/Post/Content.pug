@@ -440,7 +440,7 @@ style(once='content')
           @apply relative;
 
           &::before {
-            @apply content-[''] absolute top-4 right-0 w-full h-0 w-[calc(100%-90px)] border-b border-dashed border-h-400 dark:border-h-200;
+            @apply content-[''] absolute top-4 right-0 w-full h-0 w-full -z-[1] border-b border-dashed border-h-400;
           }
 
           &.open {
