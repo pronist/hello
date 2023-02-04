@@ -25,7 +25,7 @@ template(x-if='$data.headings.length > 0')
           class='absolute text-base top-2 right-4 text-h-500 dark:text-h-200 2xl:hidden')
           span(class='text-hidden') 목차 닫기
           i(class='fa-solid fa-xmark')
-        ul(
+        ol(
           x-ref='spy'
           class='flex flex-col gap-y-3')
           template(x-for='heading in $data.headings' :key='heading.id')
