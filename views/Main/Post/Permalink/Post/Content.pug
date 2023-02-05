@@ -118,10 +118,7 @@ script(once='alpine-content-component').
      */
     setRatioToImageBlock ($imageBlock) {
       const $imageWrap = $imageBlock.querySelector('span, a')
-      const $image = $imageWrap.querySelector('img')
-      const width = $image.getAttribute('width') || $imageBlock.dataset.originWidth
-      const height = $image.getAttribute('height') || $imageBlock.dataset.originHeight
-      const paddingBottom = height / width * 100
+      const paddingBottom = $imageBlock.dataset.originHeight / $imageBlock.dataset.originWidth * 100
 
       $imageWrap.style.paddingBottom = `${paddingBottom}%`
     },
