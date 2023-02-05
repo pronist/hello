@@ -106,9 +106,9 @@ script(once='alpine-content-component').
      * set Ratio to images in template
      */
     setRatioToImages () {
-      this.$article.querySelectorAll('figure.imageslideblock').forEach(this.setRatioToImageSlideBlock)
-      this.$article.querySelectorAll('figure.imageblock').forEach(this.setRatioToImageBlock)
-      this.$article.querySelectorAll('figure.imagegridblock').forEach(this.setRatioToImageGridBlock)
+      this.$article.querySelectorAll('figure.imageslideblock').forEach(this.setRatioToImageSlideBlock.bind(this))
+      this.$article.querySelectorAll('figure.imageblock').forEach(this.setRatioToImageBlock.bind(this))
+      this.$article.querySelectorAll('figure.imagegridblock').forEach(this.setRatioToImageGridBlock.bind(this))
     },
 
     /**
@@ -120,15 +120,7 @@ script(once='alpine-content-component').
       const $imageWrap = $imageBlock.querySelector('span, a')
       const $image = $imageWrap.querySelector('img')
 
-      let height = $imageBlock.dataset.originHeight
-      let width = $imageBlock.dataset.originWidth
-
-      if ($image.getAttribute('width') && $image.getAttribute('height')) {
-        width = $image.getAttribute('width')
-        height = $image.getAttribute('height')
-      }
-
-      const paddingBottom = height / width * 100
+      const paddingBottom = this.ratio($imageBlock, $image)
 
       $imageWrap.style.paddingBottom = `${paddingBottom}%`
     },
@@ -144,15 +136,7 @@ script(once='alpine-content-component').
       $imageWraps.forEach($imageWrap => {
         const $image = $imageWrap.querySelector('img')
 
-        let height = $imageWrap.dataset.originHeight
-        let width = $imageWrap.dataset.originWidth
-
-        if ($image.getAttribute('width') && $image.getAttribute('height')) {
-          width = $image.getAttribute('width')
-          height = $image.getAttribute('height')
-        }
-
-        const paddingBottom = height / (width * (100 / $imageWrap.dataset.widthpercent)) * 100
+        const paddingBottom = this.ratio($imageWrap, $image)
 
         $imageWrap.style.paddingBottom = `${paddingBottom}%`
       })
@@ -167,17 +151,33 @@ script(once='alpine-content-component').
       const $imageWrap = $imageBlock.querySelector('.image-container')
       const $image = $imageWrap.querySelector('img')
 
-      let height = $image.dataset.originHeight
-      let width = $image.dataset.originWidth
+      const paddingBottom = this.ratio($image, $image)
+
+      $imageWrap.style.paddingBottom = `${paddingBottom}%`
+    },
+
+    /**
+     * Get ratio
+     *
+     * @param {HTMLElement} $originBlock
+     * @param {HTMLElement} $image
+     *
+     * @return {number}
+     */
+    ratio ($originBlock, $image) {
+      let width = $originBlock.dataset.originWidth
+      let height = $originBlock.dataset.originHeight
 
       if ($image.getAttribute('width') && $image.getAttribute('height')) {
         width = $image.getAttribute('width')
         height = $image.getAttribute('height')
       }
 
-      const paddingBottom = height / width * 100
+      width = $originBlock.dataset.widthpercent
+        ? width * (100 / $originBlock.dataset.widthpercent)
+        : width
 
-      $imageWrap.style.paddingBottom = `${paddingBottom}%`
+      return height / width * 100
     },
 
     /**
