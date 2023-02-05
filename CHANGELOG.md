@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.1.1
+
+### 수정
+
+- 티스토리 에디터에서 이미지 크기를 조절했으나 적용되지 않던 문제가 해결되었습니다. ([#186](https://github.com/tistory-projects/tistory-skin-hELLO/issues/186))
+- 접은글 텍스트가 크면 데코레이션 라인이 영역을 침범하던 문제가 해결되었습니다. ([#189](https://github.com/tistory-projects/tistory-skin-hELLO/issues/189))
+- 화이트 모드에서 검색어 텍스트 컬러가 배경색과 일치하여 보이지 않던 문제가 해결되었습니다. ([#190](https://github.com/tistory-projects/tistory-skin-hELLO/issues/190))
+
 ## 4.1.0
 
 ### 추가
