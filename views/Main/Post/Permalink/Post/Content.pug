@@ -118,7 +118,17 @@ script(once='alpine-content-component').
      */
     setRatioToImageBlock ($imageBlock) {
       const $imageWrap = $imageBlock.querySelector('span, a')
-      const paddingBottom = $imageBlock.dataset.originHeight / $imageBlock.dataset.originWidth * 100
+      const $image = $imageWrap.querySelector('img')
+
+      let height = $imageBlock.dataset.originHeight
+      let width = $imageBlock.dataset.originWidth
+
+      if ($image.getAttribute('width') && $image.getAttribute('height')) {
+        width = $image.getAttribute('width')
+        height = $image.getAttribute('height')
+      }
+
+      const paddingBottom = height / width * 100
 
       $imageWrap.style.paddingBottom = `${paddingBottom}%`
     },
@@ -132,7 +142,17 @@ script(once='alpine-content-component').
       const $imageWraps = $imageBlock.querySelectorAll('span, a')
 
       $imageWraps.forEach($imageWrap => {
-        const paddingBottom = $imageWrap.dataset.originHeight / ($imageWrap.dataset.originWidth * (100 / $imageWrap.dataset.widthpercent)) * 100
+        const $image = $imageWrap.querySelector('img')
+
+        let height = $imageWrap.dataset.originHeight
+        let width = $imageWrap.dataset.originWidth
+
+        if ($image.getAttribute('width') && $image.getAttribute('height')) {
+          width = $image.getAttribute('width')
+          height = $image.getAttribute('height')
+        }
+
+        const paddingBottom = height / (width * (100 / $imageWrap.dataset.widthpercent)) * 100
 
         $imageWrap.style.paddingBottom = `${paddingBottom}%`
       })
@@ -146,7 +166,16 @@ script(once='alpine-content-component').
     setRatioToImageSlideBlock ($imageBlock) {
       const $imageWrap = $imageBlock.querySelector('.image-container')
       const $image = $imageWrap.querySelector('img')
-      const paddingBottom = $image.dataset.originHeight / $image.dataset.originWidth * 100
+
+      let height = $image.dataset.originHeight
+      let width = $image.dataset.originWidth
+
+      if ($image.getAttribute('width') && $image.getAttribute('height')) {
+        width = $image.getAttribute('width')
+        height = $image.getAttribute('height')
+      }
+
+      const paddingBottom = height / width * 100
 
       $imageWrap.style.paddingBottom = `${paddingBottom}%`
     },
