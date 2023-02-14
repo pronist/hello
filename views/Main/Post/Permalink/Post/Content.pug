@@ -450,6 +450,14 @@ style(once='content')
           &.fileblock {
             @apply rounded-xl border-0 bg-h-200 dark:bg-h-700;
 
+            .filename {
+              @apply mt-3;
+
+              .name {
+                @apply h-auto;
+              }
+            }
+
             .filename,
             .size {
               @apply dark:text-h-200;
