@@ -1,6 +1,6 @@
 .post
   #{`s_${type}_rep_thumbnail`}
-    .thumbnail(href=`[##_${type}_rep_link_##]`)
+    a.thumbnail(href=`[##_${type}_rep_link_##]`)
       img.lazyload(
         data-src=`[##_${type}_rep_thumbnail${type === 'list' ? '' : '_url'}_##]`
         data-sizes='auto'
