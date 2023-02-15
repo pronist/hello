@@ -168,7 +168,7 @@ script(once='alpine-content-component').
       let width = $originBlock.dataset.originWidth
       let height = $originBlock.dataset.originHeight
 
-      if ($image.getAttribute('width') && $image.getAttribute('height')) {
+      if ($image.hasAttribute('width') && $image.hasAttribute('height')) {
         width = $image.getAttribute('width')
         height = $image.getAttribute('height')
       }
