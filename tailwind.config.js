@@ -31,12 +31,10 @@ module.exports = {
     },
     extend: {
       width: {
-        sidebar: '16rem',
-        c: 'calc(100% - 16rem)'
-      },
-      spacing: {
         idx: '1100px',
-        pem: 'var(--h-width)'
+        pem: 'var(--h-width)',
+        s: '16rem', // sidebar
+        c: 'calc(100% - 16rem)' // 100% - width.sidebar
       },
       keyframes: {
         loading: {
