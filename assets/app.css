@@ -23,7 +23,7 @@ button {
   }
 
   .lazyload:not([src]) {
-    visibility: hidden;
+    @apply invisible;
   }
 
   /* https://swiperjs.com/demos#navigation */

@@ -41,13 +41,13 @@ script(once='alpine-content-component').
       this.setLazyLoadToImages()
       this.setRatioToImages()
 
-      this.syntaxHighlighting()
+      this.highlightCodeBlocks()
     },
 
     /**
      * Syntax highlighting code blocks in template
      */
-    syntaxHighlighting () {
+    highlightCodeBlocks () {
       this.$article.querySelectorAll('pre code').forEach(hljs.highlightElement)
     },
 
