@@ -45,7 +45,7 @@ mixin coverList(mode, featured=false)
   section(
     data-mode=mode
     class='flex flex-col items-center px-4 lg:px-0 lg:w-idx lg:mx-auto')
-    h1(class='text-3xl font-bold text-h-600 dark:text-h-200 my-10 empty:my-10 lg:my-20') [##_cover_title_##]
+    div(class='text-3xl font-bold text-h-600 dark:text-h-200 my-10 empty:my-10 lg:my-20') [##_cover_title_##]
     .list
       +coverItem()
         +coverImage()
