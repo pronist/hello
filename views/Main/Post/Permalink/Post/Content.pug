@@ -37,9 +37,9 @@ script(once='alpine-content-component').
       this.setAnchorToHeadings()
       this.collectHeading()
 
-      this.centerImages()
       this.setLazyLoadToImages()
       this.setRatioToImages()
+      this.setPositionToImages()
 
       this.highlightCodeBlocks()
     },
@@ -181,11 +181,42 @@ script(once='alpine-content-component').
     },
 
     /**
-     * Center images in template
+     * Set position to images
      */
-    centerImages () {
-      this.$article.querySelectorAll('figure.imageblock.alignCenter').forEach(this.centerImageBlock.bind(this))
-      this.$article.querySelectorAll('figure.imagegridblock').forEach(this.centerImageGridBlock.bind(this))
+    setPositionToImages () {
+      this.$article.querySelectorAll('figure.imageblock').forEach(this.setImageBlockPosition.bind(this))
+      this.$article.querySelectorAll('figure.imagegridblock').forEach(this.setImageGridBlockPosition.bind(this))
+    },
+
+    /**
+     * Set image block position
+     *
+     * @param {HTMLElement} $imageBlock
+     */
+    setImageBlockPosition ($imageBlock) {
+      const width = this.imageBlockWidth($imageBlock)
+
+      if ($imageBlock.classList.contains('alignCenter')) {
+        this.setImageBlockToCenter($imageBlock, width)
+      }
+
+      if ($imageBlock.classList.contains('widthContent')) {
+        return
+      }
+
+      this.setImageBlockWidth($imageBlock, width)
+    },
+
+    /**
+     * Set image grid block position
+     *
+     * @param {HTMLElement} $imageBlock
+     */
+    setImageGridBlockPosition ($imageBlock) {
+      const width = this.imageGridBlockWidth()
+
+      this.setImageBlockToCenter($imageBlock, width)
+      this.setImageBlockWidth($imageBlock, width)
     },
 
     /**
@@ -193,36 +224,38 @@ script(once='alpine-content-component').
      *
      * @param {HTMLElement} $imageBlock
      */
-    centerImageBlock ($imageBlock) {
+    imageBlockWidth ($imageBlock) {
       const $imageWrap = $imageBlock.querySelector('span, a')
       const $image = $imageWrap.querySelector('img')
-
       const width = $image.getAttribute('width') || $imageBlock.dataset.originWidth
 
-      this.centerImage($imageBlock, width)
+      return width > 1100 ? 1100 : width
     },
 
     /**
      * Center image grid block
-     *
-     * @param {HTMLElement} $imageBlock
      */
-    centerImageGridBlock ($imageBlock) {
-      const width = 1100
-
-      this.centerImage($imageBlock, width)
+    imageGridBlockWidth () {
+      return 1100
     },
 
     /**
-     * Add center image css style
+     * set Image Width
      *
      * @param {HTMLElement} $imageBlock
-     * @param {String|Number} originWidth
+     * @param {String|Number} width
      */
-    centerImage ($imageBlock, originWidth) {
-      const width = originWidth > 1100 ? 1100 : originWidth
-
+    setImageBlockWidth ($imageBlock, width) {
       $imageBlock.style.width = `${width}px`
+    },
+
+    /**
+     * set Image block to center
+     *
+     * @param {HTMLElement} $imageBlock
+     * @param {String|Number} width
+     */
+    setImageBlockToCenter ($imageBlock, width) {
       $imageBlock.style.marginLeft = `calc(50% - ${width / 2}px)`
     },
 
