@@ -42,47 +42,48 @@ button {
     @apply overflow-hidden whitespace-nowrap text-ellipsis;
   }
 
+
   .font-awesome {
-    @apply font-['Font_Awesome_6_Free'] font-bold;
+    @apply font-['Font_Awesome_6_Free'];
   }
 
   .fa-chevron-right {
-    @apply font-awesome content-['\f105'];
+    @apply font-awesome font-bold content-['\f105'];
   }
 
   .fa-circle-arrow-right {
-    @apply font-awesome content-['\f0a9'];
+    @apply font-awesome font-bold content-['\f0a9'];
   }
 
   .fa-circle-arrow-down {
-    @apply font-awesome content-['\f0ab'];
+    @apply font-awesome font-bold content-['\f0ab'];
   }
 
   .fa-heart {
-    @apply font-awesome content-['\f004'];
+    @apply font-awesome font-bold content-['\f004'];
   }
 
   .fa-share-nodes {
-    @apply font-awesome content-['\f1e0'];
+    @apply font-awesome font-bold content-['\f1e0'];
   }
 
   .fa-chart-pie {
-    @apply font-awesome content-['\f200'];
+    @apply font-awesome font-bold content-['\f200'];
   }
 
   .fa-wrench {
-    @apply font-awesome content-['\f0ad'];
+    @apply font-awesome font-bold content-['\f0ad'];
   }
 
   .fa-ellipsis {
-    @apply font-awesome content-['\f141'];
+    @apply font-awesome font-bold content-['\f141'];
+  }
+
+  .fa-tag {
+    @apply font-awesome font-bold content-['\f02b'];
   }
 
   .fa-star {
     @apply font-awesome content-['\f005'];
-  }
-
-  .fa-tag {
-    @apply font-awesome content-['\f02b'];
   }
 }
