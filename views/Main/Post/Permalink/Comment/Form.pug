@@ -28,7 +28,7 @@ mixin form(type)
           class='text-hidden') 댓글
         textarea#text(
           x-data='{ disabled: /^(?!.*tistory\\.com).*$/.test(location.hostname) && T.config.NEED_COMMENT_LOGIN }'
-          :placeholder='disabled && "이 블로그는 2차 도메인을 사용 중입니다. 댓글을 작성하려면 "+TistoryBlog.tistoryUrl+" 로 이동해주세요."'
+          :placeholder='disabled && "이 블로그는 2차 도메인을 사용 중입니다. 댓글을 작성하려면 "+TistoryBlog.tistoryUrl+" 으로 이동해주세요."'
           :disabled='disabled'
           name=`${type === 'guest' ? '[##_guest_textarea_body_##]' : '[##_rp_input_comment_##]'}`
           class='border-0 resize-none p-0 pr-5 h-full overflow-x-hidden overflow-y-scroll text-sm box-border outline-none w-[calc(100%+theme(spacing.10))] bg-h-200 dark:bg-h-700')
