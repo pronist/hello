@@ -20,7 +20,10 @@ mixin formGuestControl(type)
 
 mixin form(type)
   #{`s_${type}_input_form`}
-    div(class='p-5 w-full overflow-hidden mt-9 rounded-lg box-border h-32 lg:h-48 relative bg-h-200 dark:bg-h-700')
+    div(
+      x-data
+      x-show='/tistory\\.com$/.test(location.hostname)'
+      class='p-5 w-full overflow-hidden mt-9 rounded-lg box-border h-32 lg:h-48 relative bg-h-200 dark:bg-h-700')
       div(class='box-border flex flex-col justify-between h-full gap-y-3')
         label(
           for='text'
