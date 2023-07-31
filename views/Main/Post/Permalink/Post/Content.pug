@@ -386,7 +386,7 @@ style(once='content')
           }
 
           code {
-            @apply relative -top-[1px] px-2 py-0.5 rounded-md whitespace-normal text-sm font-sans text-h-600 bg-h-200 dark:text-h-300 dark:bg-h-700;
+            @apply relative -top-[1px] px-2 py-0.5 whitespace-normal text-sm font-sans text-h-600 bg-h-200 dark:text-h-300 dark:bg-h-700;
           }
         }
 
@@ -411,10 +411,6 @@ style(once='content')
         figure {
           figcaption {
             @apply text-h-400 text-center text-sm leading-loose;
-          }
-
-          img {
-            @apply rounded-xl;
           }
 
           &.imageblock.alignCenter,
@@ -461,12 +457,12 @@ style(once='content')
               @apply border-0;
 
               .og-image {
-                @apply border-r-0 rounded-l-xl overflow-hidden;
+                @apply border-r-0 overflow-hidden;
               }
             }
 
             .og-text {
-              @apply bg-h-200 dark:bg-h-700 rounded-r-xl;
+              @apply bg-h-200 dark:bg-h-700;
 
               .og-title,
               .og-desc,
@@ -481,7 +477,7 @@ style(once='content')
           }
 
           &.fileblock {
-            @apply rounded-xl border-0 bg-h-200 dark:bg-h-700;
+            @apply border-0 bg-h-200 dark:bg-h-700;
 
             .filename {
               @apply mt-3;
@@ -541,13 +537,13 @@ style(once='content')
           }
 
           &[data-ke-style=style3] {
-            @apply border-0 text-h-400 bg-h-200 dark:bg-h-700 dark:text-h-400 leading-loose rounded-xl;
+            @apply border-0 text-h-400 bg-h-200 dark:bg-h-700 dark:text-h-400 leading-loose;
           }
         }
 
         pre {
           code {
-            @apply px-4 leading-normal rounded-xl;
+            @apply px-4 leading-normal;
 
             &.hljs {
               @apply bg-h-200 dark:bg-h-700;
