@@ -1,10 +1,12 @@
 .sidebar-element
   div
     h2 최근 댓글
-    ul(class='flex flex-col gap-y-2')
+    ul(class='flex flex-col gap-y-4')
       s_rctrp_rep
-        li(class='text-sm text-h-400')
-          div(class='text-overflow-hidden')
+        li(class='text-h-400')
+          div(class='text-overflow-hidden text-sm')
             i(class='fa-regular fa-comment-dots font-normal mr-2')
             a(href='[##_rctrp_rep_link_##]') [##_rctrp_rep_desc_##]
-          div(class='mt-1 text-h-400') [##_rctrp_rep_name_##]
+          div(class='mt-1 text-h-400 text-xs flex gap-x-1')
+            div [##_rctrp_rep_name_##]
+            div · [##_rctrp_rep_time_##]

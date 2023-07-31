@@ -1,15 +1,15 @@
 .sidebar-element
   div
     h2 인기 글
-    ul(class='flex flex-col gap-y-2')
+    ul(class='flex flex-col gap-y-4 text-sm')
       s_rctps_popular_rep
-        li(class='flex justify-between text-h-400 text-sm')
-          div(class='text-overflow-hidden')
+        li(class='flex justify-between')
+          div(class='text-overflow-hidden text-h-400')
             a(href='[##_rctps_rep_link_##]') [##_rctps_rep_title_##]
-            div(class='text-h-400 mt-1 text-xs') [##_rctps_rep_simple_date_##]
+            div(class='mt-1 text-xs') [##_rctps_rep_simple_date_##]
           s_rctps_rep_thumbnail
             img.lazyload(
-              class='w-16 h-11 object-cover ml-3 bg-h-100'
+              class='object-cover ml-3 bg-h-100'
               data-src='[##_rctps_rep_thumbnail_##]'
               data-sizes='auto'
               alt=''
