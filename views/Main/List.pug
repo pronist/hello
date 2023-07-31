@@ -2,14 +2,14 @@ s_list
   section(data-mode='[##_list_style_##]')
     header(class='h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16')
       s_list_image
-        .thumbnail(class='absolute right-0 top-0 w-full h-64 before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200')
+        .thumbnail(class='absolute right-0 top-0 w-full h-64 before:backdrop-blur-xl before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200')
           img(
             src='[##_list_image_##]'
             alt=''
             class='absolute right-0 top-0 w-full h-64 z-0 object-cover')
       .description(class='flex flex-col items-center z-20 relative mx-4 text-center text-h-800 dark:text-h-200 lg:mx-0')
-        h1(class='font-bold text-2xl lg:text-3xl') [##_list_conform_##]
-        span(class='font-bold mt-3 empty:mt-0') [##_list_description_##]
+        h1(class='font-semibold text-2xl lg:text-3xl') [##_list_conform_##]
+        span(class='mt-3 empty:mt-0') [##_list_description_##]
     .list(
       x-ref='list'
       class='px-4 lg:px-0 lg:w-idx lg:mx-auto')
@@ -35,12 +35,12 @@ style
         .description {
           @apply gap-y-2 sm:grow;
 
-          h2 {
+          .title {
             @apply text-xl lg:text-2xl font-bold;
           }
 
-          p {
-            @apply mt-3 max-h-20;
+          .summary {
+            @apply mt-1 max-h-20;
 
             &::after {
               @apply top-[calc(theme(spacing.14)+theme(spacing.1))];
@@ -67,20 +67,14 @@ style
         }
 
         .description {
-          .category {
-            @apply hidden;
-          }
+          @apply gap-y-2;
 
-          h2 {
+          .title {
             @apply text-xl font-bold;
           }
 
-          time {
-            @apply hidden;
-          }
-
-          p {
-            @apply mt-2 max-h-14;
+          .summary {
+            @apply mt-1 max-h-14;
 
             &::after {
               @apply top-7;
@@ -115,14 +109,14 @@ style
         }
 
         .description {
-          @apply bg-h-200 gap-y-2 p-10 lg:p-16 dark:bg-h-700;
+          @apply bg-h-200 gap-y-2 p-10 justify-center lg:p-16 dark:bg-h-700;
 
-          h2 {
+          .title {
             @apply text-xl lg:text-2xl font-bold;
           }
 
-          p {
-            @apply mt-3 max-h-20;
+          .summary {
+            @apply mt-1 max-h-20;
 
             &::after {
               @apply top-[calc(theme(spacing.14)+theme(spacing.1))];
@@ -141,6 +135,43 @@ style
 
           img {
             @apply lg:-translate-y-6 lg:-translate-x-6;
+          }
+        }
+      }
+    }
+
+style
+  :postcss
+    [data-mode=slideshow] {
+      .post {
+        @apply flex justify-center items-center before:absolute before:right-0 before:top-0 before:w-full before:h-screen before:bg-h-900/20 before:z-10;
+
+        .thumbnail {
+          img {
+            @apply w-screen h-screen object-cover;
+          }
+        }
+
+        .description {
+          @apply absolute w-screen h-screen flex flex-col justify-center items-center gap-y-2 text-center z-20;
+
+          .title {
+            @apply px-4;
+
+            a {
+              @apply text-h-200 text-3xl font-bold;
+            }
+          }
+
+          .metainfo {
+            a,
+            time {
+              @apply text-h-200;
+            }
+          }
+
+          .summary {
+            @apply hidden;
           }
         }
       }

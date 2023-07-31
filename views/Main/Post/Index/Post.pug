@@ -7,13 +7,14 @@
         alt=''
         class='object-cover bg-h-100')
   .description(class='flex flex-col')
-    if hasCategory
-      a(
-        href=`[##_${type}_rep_category_link_##]`
-        class='text-sm text-h-400') #{`[##_${type}_rep_category_##]`}
-    h2
+    .title
       a(
         href=`[##_${type}_rep_link_##]`
         class='text-h-800 dark:text-h-200 [&_img]:hidden') #{`[##_${type}_rep_title_##]`}
-    time(class='text-h-400 text-sm') #{`[##_${type}_rep_${type === 'list' ? 'regdate' : 'date'}_##]`}
-    p(class='relative overflow-hidden text-h-400 leading-7') #{`[##_${type}_rep_summary_##]`}
+    .metainfo(class='flex gap-x-1 text-sm')
+      time(class='text-h-400') #{`[##_${type}_rep_${type === 'list' ? 'regdate' : 'date'}_##]`}
+      if hasCategory
+        a(
+          href=`[##_${type}_rep_category_link_##]`
+          class='text-h-400') · #{`[##_${type}_rep_category_##]`}
+    .summary(class='relative overflow-hidden text-h-400 leading-7 text-sm') #{`[##_${type}_rep_summary_##]`}
