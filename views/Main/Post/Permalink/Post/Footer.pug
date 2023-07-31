@@ -1,9 +1,7 @@
 div(
   x-data='{ shown: false }'
   x-intersect.once='shown = true')
-  footer(
-    class='mt-4'
-    x-show='shown')
+  footer(x-show='shown')
     if hasCategory
       include Footer/RelatedArticle
       include Footer/Tag
