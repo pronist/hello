@@ -47,7 +47,7 @@ module.exports = {
       },
       fontFamily: {
         sans: [
-          'Noto Sans KR',
+          'SUIT',
           ...defaultTheme.fontFamily.sans
         ],
         mono: [
