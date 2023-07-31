@@ -42,9 +42,8 @@ button {
     @apply overflow-hidden whitespace-nowrap text-ellipsis;
   }
 
-
   .font-awesome {
-    @apply font-['Font_Awesome_6_Free'];
+    @apply font-['Font_Awesome_6_Free'] leading-none not-italic inline-block;
   }
 
   .fa-chevron-right {
