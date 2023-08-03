@@ -16,7 +16,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tistory-projects/tistory-skin-hELLO"
+    "url": "https://github.com/tidory/hello"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
