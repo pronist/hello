@@ -197,7 +197,7 @@ script(once='alpine-content-component').
       const width = this.imageBlockWidth($imageBlock)
 
       if ($imageBlock.classList.contains('alignCenter')) {
-        this.setImageBlockToCenter($imageBlock, width)
+        this.setImageBlockToCenter($imageBlock)
       }
 
       if ($imageBlock.classList.contains('widthContent')) {
@@ -215,7 +215,7 @@ script(once='alpine-content-component').
     setImageGridBlockPosition ($imageBlock) {
       const width = this.imageGridBlockWidth()
 
-      this.setImageBlockToCenter($imageBlock, width)
+      this.setImageBlockToCenter($imageBlock)
       this.setImageBlockWidth($imageBlock, width)
     },
 
@@ -247,16 +247,17 @@ script(once='alpine-content-component').
      */
     setImageBlockWidth ($imageBlock, width) {
       $imageBlock.style.width = `${width}px`
+      $imageBlock.style.maxWidth = `${width}px`
     },
 
     /**
      * set Image block to center
      *
      * @param {HTMLElement} $imageBlock
-     * @param {String|Number} width
      */
-    setImageBlockToCenter ($imageBlock, width) {
-      $imageBlock.style.marginLeft = `calc(50% - ${width / 2}px)`
+    setImageBlockToCenter ($imageBlock) {
+      $imageBlock.style.marginLeft = '50%'
+      $imageBlock.style.transform = 'translateX(-50%)'
     },
 
     /**
@@ -415,7 +416,7 @@ style(once='content')
 
           &.imageblock.alignCenter,
           &.imagegridblock {
-            @apply max-w-none max-lg:w-full max-lg:mx-0 !important;
+            @apply max-lg:w-full !important;
           }
 
           &.imageblock,
