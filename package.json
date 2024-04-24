@@ -13,11 +13,6 @@
     "store": "tidory store",
     "lint": "eslint --ext .js --ignore-path .gitignore . && pug-lint ."
   },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tidory/hello"
-  },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
     "cross-env": "^7.0.2",
