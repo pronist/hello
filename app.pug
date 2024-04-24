@@ -30,6 +30,17 @@ html#hELLO(
       include:postcss @/app.css
 
     script(fixed).
+      /**
+       * Console Issues
+       *
+       * Uncaught TypeError: Cannot read properties of null (reading 'click')
+       * Uncaught TypeError: a is not a function
+       * jQuery.Deferred exception: lightbox is not defined ReferenceError: lightbox is not defined
+       * Uncaught ReferenceError: lightbox is not defined
+       */
+      window.jQuery = $ = tjQuery
+
+    script(fixed).
       window.skinOptions = {
         sidebar: '[##_var_sidebar_##]',
         foldableCategory: '[##_var_foldable-category_##]',
