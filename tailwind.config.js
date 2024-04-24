@@ -51,7 +51,7 @@ module.exports = {
           ...defaultTheme.fontFamily.sans
         ],
         mono: [
-          'D2Coding',
+          '"Source Code Pro"',
           ...defaultTheme.fontFamily.mono
         ]
       }
