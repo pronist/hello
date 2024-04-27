@@ -1,6 +1,6 @@
 /**
  * Tidory Configuration
- * https://tidory.com/docs/configuration/
+ * @see https://tidory.github.io/docs/configuration/
  */
 module.exports = {
   ts_session: '',
@@ -21,18 +21,23 @@ module.exports = {
      * index
      * entry
      * category
-     * tag,
-     * location
-     * media,
+     * tag
      * guestbook
      */
     mode: 'index',
 
     /**
      * Skin Settings
+     *
+     * @see https://tistory.github.io/document-tistory-skin/common/index.xml.html
      */
     skinSettings: {
-      liststyle: 'list'
+      liststyle: 'list',
+      recentEntries: 5,
+      recentComments: 5,
+      lengthOfRecentNotice: 32,
+      lengthOfRecentEntry: 32,
+      lengthOfRecentComment: 32
     },
 
     /**
