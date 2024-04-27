@@ -8,6 +8,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development tidory start",
     "preview": "cross-env NODE_ENV=development tidory preview",
+    "preview:old": "cross-env NODE_ENV=development tidory preview --old",
     "production": "cross-env NODE_ENV=production tidory production",
     "deploy": "tidory deploy",
     "store": "tidory store",
@@ -33,6 +34,6 @@
     "lazysizes": "^5.3.0",
     "swiper": "^8.4.5",
     "tailwindcss": "^3.2.4",
-    "tidory": "^8.3.3"
+    "tidory": "^8.4.0"
   }
 }
