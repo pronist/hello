@@ -24,7 +24,7 @@ style
       }
 
       .post {
-        @apply flex flex-col gap-y-4 sm:flex-row-reverse sm:items-center sm:justify-end sm:gap-x-6 sm:h-72 sm:border-t sm:border-solid sm:border-h-300 sm:dark:border-h-400;
+        @apply flex flex-col gap-y-4 sm:flex-row-reverse sm:items-center sm:justify-end sm:gap-x-6 sm:h-72 sm:border-t sm:border-solid sm:border-h-300 sm:dark:border-h-400 sm:first:border-t-0;
 
         .thumbnail {
           img {
@@ -41,10 +41,6 @@ style
 
           .summary {
             @apply mt-1 max-h-20;
-
-            &::after {
-              @apply top-[calc(theme(spacing.14)+theme(spacing.1))];
-            }
           }
         }
       }
@@ -54,15 +50,17 @@ style
   :postcss
     [data-mode=grid] {
       .list {
-        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12;
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-x-8 md:gap-y-12;
       }
 
       .post {
         @apply flex flex-col gap-y-4;
 
         .thumbnail {
+          @apply pt-[66.66%] relative;
+
           img {
-            @apply w-full h-64;
+            @apply absolute top-0 left-0 w-full h-full;
           }
         }
 
@@ -75,10 +73,6 @@ style
 
           .summary {
             @apply mt-1 max-h-14;
-
-            &::after {
-              @apply top-7;
-            }
           }
         }
       }
@@ -117,10 +111,6 @@ style
 
           .summary {
             @apply mt-1 max-h-20;
-
-            &::after {
-              @apply top-[calc(theme(spacing.14)+theme(spacing.1))];
-            }
           }
         }
 
