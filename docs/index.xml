@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <skin>
-   <information>
-      <name>hELLO</name>
-      <version>4.3.0</version>
-      <description>
-         <![CDATA[ⓒ 2020-2024. Sangwoo Jeong.]]>
-      </description>
-      <license>
-         <![CDATA[MIT]]>
-      </license>
-   </information>
-   <author>
-      <name>SangWoo Jeong</name>
-      <homepage>http://pronist.tistory.com</homepage>
-      <email>pronist@naver.com</email>
-   </author>
-   <liststyle>
+  <information>
+    <name>hELLO</name>
+    <version>4.3.0</version>
+    <description>
+      <![CDATA[ⓒ 2020-2024. Sangwoo Jeong.]]>
+    </description>
+    <license>
+      <![CDATA[MIT]]>
+    </license>
+  </information>
+  <author>
+    <name>SangWoo Jeong</name>
+    <homepage>http://pronist.tistory.com</homepage>
+    <email>pronist@naver.com</email>
+  </author>
+  <liststyle>
     <item>
       <value>list</value>
       <label>리스트</label>
@@ -28,8 +28,8 @@
       <value>zigzag</value>
       <label>지그재그</label>
     </item>
-   </liststyle>
-   <cover>
+  </liststyle>
+  <cover>
     <item>
       <name>list</name>
       <label>리스트</label>
@@ -50,68 +50,68 @@
       <label>슬라이드쇼</label>
       <description>슬라이드쇼 형태로 글을 보여줍니다.</description>
     </item>
-   </cover>
-   <variables>
-     <variablegroup name="사이드바">
-       <variable>
-         <name>sidebar</name>
-         <label>사이드바</label>
-         <description><![CDATA[ 사이드바 ]]></description>
-         <type>BOOL</type>
-         <default>true</default>
-       </variable>
-       <variable>
-         <name>foldable-category</name>
-         <label>카테고리 접기/펼치기</label>
-         <description><![CDATA[ 카테고리 접기/펼치기 ]]></description>
-         <type>BOOL</type>
-         <default>true</default>
-       </variable>
-     </variablegroup>
-     <variablegroup name="글">
-       <variable>
-         <name>width</name>
-         <label>너비</label>
-         <description><![CDATA[ 너비 ]]></description>
-         <type>STRING</type>
-         <default>720</default>
-       </variable>
-       <variable>
-         <name>toc</name>
-         <label>목차(Table Of Contents)</label>
-         <description><![CDATA[ 목차(Table Of Contents) ]]></description>
-         <type>BOOL</type>
-         <default>true</default>
-       </variable>
-       <variable>
-         <name>scrollspy</name>
-         <label>목차(Scrollspy)</label>
-         <description><![CDATA[ 목차 (Scrollspy) ]]></description>
-         <type>BOOL</type>
-         <default>true</default>
-       </variable>
-       <variable>
-         <name>hljs</name>
-         <label>코드 하이라이팅(라이트)</label>
-         <description><![CDATA[ 코드 하이라이팅(라이트) ]]></description>
-         <type>STRING</type>
-         <default>xcode</default>
-       </variable>
-       <variable>
-         <name>hljs-dark</name>
-         <label>코드 하이라이팅(다크)</label>
-         <description><![CDATA[ 코드 하이라이팅(다크) ]]></description>
-         <type>STRING</type>
-         <default>vs2015</default>
-       </variable>
-       <variable>
-         <name>foldable-reply</name>
-         <label>댓글 접기/펼치기</label>
-         <description><![CDATA[ 댓글 접기/펼치기 ]]></description>
-         <type>BOOL</type>
-         <default>true</default>
-       </variable>
-     </variablegroup>
+  </cover>
+  <variables>
+    <variablegroup name="사이드바">
+      <variable>
+        <name>sidebar</name>
+        <label>사이드바</label>
+        <description><![CDATA[ 사이드바 ]]></description>
+        <type>BOOL</type>
+        <default>true</default>
+      </variable>
+      <variable>
+        <name>foldable-category</name>
+        <label>카테고리 접기/펼치기</label>
+        <description><![CDATA[ 카테고리 접기/펼치기 ]]></description>
+        <type>BOOL</type>
+        <default>true</default>
+      </variable>
+    </variablegroup>
+    <variablegroup name="글">
+      <variable>
+        <name>width</name>
+        <label>너비</label>
+        <description><![CDATA[ 너비 ]]></description>
+        <type>STRING</type>
+        <default>720</default>
+      </variable>
+      <variable>
+        <name>toc</name>
+        <label>목차(Table Of Contents)</label>
+        <description><![CDATA[ 목차(Table Of Contents) ]]></description>
+        <type>BOOL</type>
+        <default>true</default>
+      </variable>
+      <variable>
+        <name>scrollspy</name>
+        <label>목차(Scrollspy)</label>
+        <description><![CDATA[ 목차 (Scrollspy) ]]></description>
+        <type>BOOL</type>
+        <default>true</default>
+      </variable>
+      <variable>
+        <name>hljs</name>
+        <label>코드 하이라이팅(라이트)</label>
+        <description><![CDATA[ 코드 하이라이팅(라이트) ]]></description>
+        <type>STRING</type>
+        <default>xcode</default>
+      </variable>
+      <variable>
+        <name>hljs-dark</name>
+        <label>코드 하이라이팅(다크)</label>
+        <description><![CDATA[ 코드 하이라이팅(다크) ]]></description>
+        <type>STRING</type>
+        <default>vs2015</default>
+      </variable>
+      <variable>
+        <name>foldable-reply</name>
+        <label>댓글 접기/펼치기</label>
+        <description><![CDATA[ 댓글 접기/펼치기 ]]></description>
+        <type>BOOL</type>
+        <default>true</default>
+      </variable>
+    </variablegroup>
   </variables>
   <default>
     <liststyle>list</liststyle>
