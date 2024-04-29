@@ -1,0 +1,21 @@
+s_article_protected
+  s_permalink_article_rep
+    div(class='py-20 flex flex-col justify-center items-center')
+      header(class='flex flex-col items-center gap-y-2 mx-4 lg:mx-0')
+        a(href='[##_article_rep_category_link_##]') [##_article_rep_category_##]
+        h1(class='text-center font-bold text-2xl text-h-800 dark:text-h-200 lg:text-3xl') [##_article_rep_title_##]
+        div
+          time(class='text-h-400 text-sm') [##_article_rep_date_##]
+      div(class='flex flex-col items-center gap-y-4 px-4 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto')
+        p(class='text-center leading-7 mt-8 text-h-800 dark:text-h-200')
+          | 보호되어 있는 글입니다.
+          br
+          | 내용을 보시려면 비밀번호를 입력하세요.
+        input(
+          type='password'
+          maxlength='16'
+          id='[##_article_password_##]'
+          name='[##_article_password_##]'
+          onkeydown='if (event.keyCode == 13)[##_article_dissolve_##]'
+          placeholder='비밀번호'
+          class='inline-block h-10 border-0 text-sm px-3 w-48 outline-none bg-h-300 text-h-400 dark:bg-h-700 dark:text-h-200')
