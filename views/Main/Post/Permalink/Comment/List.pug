@@ -41,7 +41,7 @@ mixin list(type, rType, reverse=false)
           li.comment-wrap(
             x-data='{ open: ! skinOptions.foldableReply, children: [] }'
             id=`[##_${type}_rep_id_##]`
-            :class='{ "[&>div]:before:hidden": children.length === 0 }'
+            :class='{ "[&>.comment]:before:hidden": children.length === 0 }'
             class='flex flex-col gap-y-5 border-b border-dotted border-h-400 pb-5')
             +comment(type)
             #{`s_${rType}_container`}
