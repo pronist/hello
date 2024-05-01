@@ -1,5 +1,4 @@
-mixin permalink(pageType, type, hasCategory=true)
-  div(id=pageType)
-    include Permalink/Post
-    if hasCategory
-      include Permalink/Comment
+mixin permalink(type, hasCategory=true)
+  include Permalink/Post
+  if hasCategory
+    include Permalink/Comment

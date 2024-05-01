@@ -1,16 +1,16 @@
 mixin formGuestControl(type)
-  div(class='flex gap-x-2 mr-auto')
-    div(class='flex gap-x-2 text-xs text-h-500 dark:text-h-200')
-      label(for='name') 이름
-      input#name(
+  #guest(class='flex gap-x-2 mr-auto')
+    .name(class='flex gap-x-2 text-xs text-h-500 dark:text-h-200')
+      label.label(for='name') 이름
+      input#name.input(
         autocomplete='username'
         type='text'
         name=`[##_${type}_input_name_##]`
         value='[##_guest_name_##]'
         class='border-0 inline-block outline-none w-16 lg:w-32 bg-h-200 dark:bg-h-700')
-    div(class='flex gap-x-2 text-xs text-h-500 dark:text-h-200')
-      label(for='password') 암호
-      input#password(
+    .password(class='flex gap-x-2 text-xs text-h-500 dark:text-h-200')
+      label.label(for='password') 암호
+      input#password.input(
         autocomplete='current-password'
         type='password'
         maxlength='8'
@@ -20,41 +20,40 @@ mixin formGuestControl(type)
 
 mixin form(type)
   #{`s_${type}_input_form`}
-    div(
+    .form-wrap(
       class='p-5 w-full overflow-hidden mt-9 rounded-lg box-border h-32 lg:h-48 relative bg-h-200 dark:bg-h-700')
-      div(class='box-border flex flex-col justify-between h-full gap-y-3')
-        label(
+      #form(class='box-border flex flex-col justify-between h-full gap-y-3')
+        label.label(
           for='text'
           class='text-hidden') 댓글
-        textarea#text(
+        textarea#text.textarea(
           x-data='{ disabled: /^(?!.*tistory\\.com).*$/.test(location.hostname) && T.config.NEED_COMMENT_LOGIN }'
           :placeholder='disabled && "이 블로그는 2차 도메인을 사용 중입니다. 댓글을 작성하려면 "+TistoryBlog.tistoryUrl+" 으로 이동해주세요."'
           :disabled='disabled'
           name=`${type === 'guest' ? '[##_guest_textarea_body_##]' : '[##_rp_input_comment_##]'}`
           class='border-0 resize-none p-0 pr-5 h-full overflow-x-hidden overflow-y-scroll text-sm box-border outline-none w-[calc(100%+theme(spacing.10))] bg-h-200 dark:bg-h-700')
-        div(class='flex items-end justify-end')
+        .settings(class='flex items-end justify-end')
           if process.env.NODE_ENV === 'development'
             +formGuestControl(type)
           else
             #{`s_${type}_member`}
               #{type === 'guest' ? 's_guest_form' : 's_rp_guest'}
                 +formGuestControl(type)
-          div(
-            x-data='{ secret: false }'
-            class='flex items-end gap-x-4')
-            input#secret(
-              type='checkbox'
-              name=`[##_${type}_input_is_secret_##]`
-              class='hidden')
-            label#secret-label(
-              for='secret'
-              @click='secret = ! secret')
-              span(class='text-hidden') 비밀글
-              i(
-                class='fa-solid'
-                :class='{ "fa-lock": secret, "fa-unlock": ! secret }')
-            a(
+          #write(class='flex items-end gap-x-4')
+            .secret(x-data='{ secret: false }')
+              input#secret.input(
+                type='checkbox'
+                name=`[##_${type}_input_is_secret_##]`
+                class='hidden')
+              label#secret-label.label(
+                for='secret'
+                @click='secret = ! secret')
+                span.txt(class='text-hidden') 비밀글
+                i.ico(
+                  class='fa-solid'
+                  :class='{ "fa-lock": secret, "fa-unlock": ! secret }')
+            a.submit(
               href='#'
               onclick=`[##_${type}_onclick_submit_##]`)
-              span(class='text-hidden') 댓글쓰기
-              i(class='fa-solid fa-arrow-circle-down text-3xl leading-none text-h-900 dark:text-h-200')
+              span.txt(class='text-hidden') 댓글쓰기
+              i.ico(class='fa-solid fa-arrow-circle-down text-3xl leading-none text-h-900 dark:text-h-200')

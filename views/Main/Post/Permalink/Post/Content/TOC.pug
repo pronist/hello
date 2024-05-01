@@ -1,16 +1,16 @@
 template(x-if='$data.headings.length > 0')
-  #TOC(
+  #toc(
     class='rounded-md p-5 mb-8 box-border bg-h-200 text-h-500 dark:bg-h-700 dark:text-h-200')
-    strong(class='flex items-center justify-between text-overflow-hidden text-sm pb-2 mb-4 border-b border-solid border-h-400 dark:border-h-200')
-      span(class='text-base') 목차
-      i(class='fas fa-bars')
-    ol(class='flex flex-col gap-y-3')
+    .tit(class='flex items-center justify-between text-overflow-hidden text-sm pb-2 mb-4 border-b border-solid border-h-400 dark:border-h-200')
+      span.txt(class='text-base') 목차
+      i.ico(class='fas fa-bars')
+    ol.tits(class='flex flex-col gap-y-3')
       template(x-for='heading in $data.headings' :key='heading.id')
-        li(:class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }')
-          a(
+        li.tit(:class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }')
+          a.link(
             :href='heading.href'
             class='flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200')
-            div(
+            .txt(
               x-text='heading.text'
               class='text-overflow-hidden')
-            i(class='fas fa-arrow-right scale-75')
+            i.ico(class='fas fa-arrow-right scale-75')

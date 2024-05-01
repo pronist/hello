@@ -1,9 +1,9 @@
-div(
+#scroll-indicator(
   x-data='indicator'
   @scroll.window='indicate'
   class='fixed top-0 w-screen z-50')
-  div(class='w-screen')
-    div(
+  .bg(class='w-screen')
+    .bg-bar(
       x-ref='indicator'
       class='w-0 h-0.5 bg-h-900 rounded bg-h-800 dark:bg-h-200')
 

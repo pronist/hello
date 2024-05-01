@@ -1,13 +1,13 @@
-.sidebar-element
-  div(class='text-center flex flex-col items-center my-4')
-    img(
+.el
+  #profile(class='text-center flex flex-col items-center my-4')
+    img.thumb(
       src='[##_image_##]'
       width='100'
       height='100'
       alt='[##_blogger_##]'
       class='rounded-full')
-    div
-      a.link_tit(
+    .tit
+      a.link.to-list(
         href='[##_blog_link_##]'
-        class='inline-block pt-4 pb-1 font-medium') [##_title_##]
-    div(class='text-h-400 text-sm') [##_blogger_##]
+        class='text-h-800 dark:text-h-200 inline-block pt-4 pb-1 font-medium') [##_title_##]
+    .blogger(class='text-h-400 text-sm') [##_blogger_##]

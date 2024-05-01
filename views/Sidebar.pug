@@ -1,7 +1,7 @@
 aside#sidebar(
   :class='sidebar ? "left-0" : "-left-[calc(theme(width.s))]"'
   class='h-full fixed top-0 w-s overflow-hidden z-40 transition-[left] duration-200 p-0 bg-h-200 dark:bg-h-700 <s_if_var_sidebar>xl:left-0</s_if_var_sidebar>')
-  div(class='flex flex-col gap-y-6 overflow-x-hidden overflow-y-scroll h-full w-[calc(theme(width.s)+theme(spacing.8))] absolute py-6 border-box')
+  .els(class='flex flex-col gap-y-6 overflow-x-hidden overflow-y-scroll h-full w-[calc(theme(width.s)+theme(spacing.8))] absolute py-6 border-box')
     s_sidebar
       s_sidebar_element
         // 프로필
@@ -26,7 +26,7 @@ aside#sidebar(
         include Sidebar/PopularPosts
       s_sidebar_element
         // 태그
-        include Sidebar/Tags
+        include Sidebar/RandomTags
       s_sidebar_element
         // 최근 댓글
         include Sidebar/RecentComments
@@ -35,7 +35,7 @@ aside#sidebar(
         include Sidebar/RecentPosts
     include Sidebar/Copyright
   template(x-teleport='body')
-    div(
+    .sidebar-mask(
       x-show='sidebar'
       x-transition:enter='transition ease-linear duration-300'
       x-transition:enter-start='opacity-0'
@@ -49,7 +49,7 @@ aside#sidebar(
 style
   :postcss
     #sidebar {
-      .sidebar-element {
+      .el {
         @apply w-64 px-5;
 
         h2 {
@@ -60,7 +60,7 @@ style
           @apply text-h-400;
         }
 
-        a:not(.link_tit) {
+        a:not(.to-list) {
           @apply text-h-400 hover:text-h-800 dark:hover:text-h-200;
         }
       }

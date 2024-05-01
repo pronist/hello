@@ -1,20 +1,21 @@
 .post
   #{`s_${type}_rep_thumbnail`}
-    a.thumbnail(href=`[##_${type}_rep_link_##]`)
-      img.lazyload(
+    a.img(href=`[##_${type}_rep_link_##]`)
+      img.thumb(
         data-src=`[##_${type}_rep_thumbnail${type === 'list' ? '' : '_url'}_##]`
         data-sizes='auto'
         alt=''
-        class='object-cover bg-h-100')
-  .description(class='flex flex-col')
-    .title
-      a(
+        class='lazyload object-cover bg-h-100')
+  .info(class='flex flex-col')
+    .tit
+      a.link(
         href=`[##_${type}_rep_link_##]`
         class='text-h-800 dark:text-h-200 [&_img]:hidden') #{`[##_${type}_rep_title_##]`}
-    .metainfo(class='flex gap-x-1 text-sm')
-      time(class='text-h-400') #{`[##_${type}_rep_${type === 'list' ? 'regdate' : 'date'}_##]`}
+    .desc(class='flex gap-x-1 text-sm')
+      time.date(class='text-h-400') #{`[##_${type}_rep_${type === 'list' ? 'regdate' : 'date'}_##]`}
       if hasCategory
-        a(
+        a.category(
           href=`[##_${type}_rep_category_link_##]`
           class='text-h-400') · #{`[##_${type}_rep_category_##]`}
     .summary(class='relative overflow-hidden text-h-400 leading-7 text-sm') #{`[##_${type}_rep_summary_##]`}
+

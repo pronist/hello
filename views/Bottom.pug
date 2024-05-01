@@ -1,13 +1,13 @@
 #bottom(class='flex justify-end px-4 w-full box-border fixed text-sm z-30 bottom-3 xl:bottom-4 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>')
-  div(class='flex gap-x-3')
-    button(
+  .wrap(class='flex gap-x-3')
+    button.theme(
       x-data='theme'
       @click='toggle')
-      span(class='text-hidden') 테마
-      i(class='fa-solid fa-moon text-base')
-    a(href='#hELLO')
-      span(class='text-hidden') 상단으로
-      i(class='fa-solid fa-chevron-up text-base')
+      span.txt(class='text-hidden') 테마
+      i.ico(class='fa-solid fa-moon text-base')
+    a.top(href='#hELLO')
+      span.txt(class='text-hidden') 상단으로
+      i.ico(class='fa-solid fa-chevron-up text-base')
 
 script.
   document.addEventListener('alpine:init', () => Alpine.data('theme', () => ({
@@ -25,8 +25,8 @@ script.
 style
   :postcss
     #bottom {
-      a,
-      button {
+      .theme,
+      .top {
         @apply flex justify-center items-center w-10 h-10 outline-0 rounded-full bg-h-200 text-h-500 hover:bg-h-300 dark:bg-h-700 dark:text-h-200 dark:hover:bg-h-600;
       }
     }

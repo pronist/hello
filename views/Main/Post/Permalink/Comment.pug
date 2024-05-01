@@ -1,8 +1,8 @@
-div(
+#comment(
   class='px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto'
   x-data='{ shown: false }'
   x-intersect.once='shown = true')
   s_rp
-    div(x-show='shown')
+    .area(x-show='shown')
       +form('rp')
       +list('rp', 'rp2', true)

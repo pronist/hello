@@ -1,16 +1,22 @@
 s_list
-  section(data-mode='[##_list_style_##]')
-    header(class='h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16')
+  section#list.list(data-mode='[##_list_style_##]')
+    header.header(
+      x-data='{ thumb: false }'
+      class='h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16')
       s_list_image
-        .thumbnail(class='absolute right-0 top-0 w-full h-64 before:backdrop-blur before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200')
-          img(
+        .img(
+          x-init='thumb = true'
+          class='absolute right-0 top-0 w-full h-64 before:backdrop-blur before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10')
+          img.thumb(
             src='[##_list_image_##]'
             alt=''
             class='absolute right-0 top-0 w-full h-64 z-0 object-cover')
-      .description(class='flex flex-col items-center z-20 relative mx-4 text-center text-h-800 dark:text-h-200 lg:mx-0')
-        h1(class='font-semibold text-2xl lg:text-3xl') [##_list_conform_##]
-        span(class='mt-3 empty:mt-0') [##_list_description_##]
-    .list(
+      .info(
+        :class='{ "text-h-200": thumb }'
+        class='flex flex-col items-center z-20 relative mx-4 text-center text-h-800 dark:text-h-200 lg:mx-0')
+        h1.tit(class='font-semibold text-2xl lg:text-3xl') [##_list_conform_##]
+        span.desc(class='mt-3 empty:mt-0') [##_list_description_##]
+    .posts(
       x-ref='list'
       class='px-4 lg:px-0 lg:w-idx lg:mx-auto')
       s_list_rep
@@ -26,16 +32,16 @@ style
       .post {
         @apply flex flex-col gap-y-4 sm:flex-row-reverse sm:items-center sm:justify-end sm:gap-x-6 sm:h-72 sm:border-t sm:border-solid sm:border-h-300 sm:dark:border-h-400 sm:first:border-t-0;
 
-        .thumbnail {
-          img {
+        .img {
+          .thumb {
             @apply w-full sm:w-64 sm:h-64 max-w-none;
           }
         }
 
-        .description {
+        .info {
           @apply gap-y-2 sm:grow;
 
-          .title {
+          .tit {
             @apply text-xl lg:text-2xl font-bold;
           }
 
@@ -56,18 +62,18 @@ style
       .post {
         @apply flex flex-col gap-y-4;
 
-        .thumbnail {
+        .img {
           @apply pt-[66.66%] relative;
 
-          img {
+          .thumb {
             @apply absolute top-0 left-0 w-full h-full;
           }
         }
 
-        .description {
+        .info {
           @apply gap-y-2;
 
-          .title {
+          .tit {
             @apply text-xl font-bold;
           }
 
@@ -96,16 +102,16 @@ style
           @apply content-[''] top-[calc(100%+theme(spacing.6))] left-[calc(100%/2)] lg:top-[calc(100%+theme(spacing.6))] lg:left-[calc(theme('screens.lg')/2)] absolute w-0.5 h-12 lg:h-16 bg-h-300 dark:bg-h-600;
         }
 
-        .thumbnail {
-          img {
+        .img {
+          .thumb {
             @apply relative z-10 object-cover w-full lg:w-[calc(theme(spacing.96)+theme(spacing.20)+theme(spacing.3))] lg:h-[calc(theme(spacing.72)+theme(spacing.7))] lg:max-w-none;
           }
         }
 
-        .description {
+        .info {
           @apply bg-h-200 gap-y-2 p-10 justify-center lg:p-16 dark:bg-h-700;
 
-          .title {
+          .tit {
             @apply text-xl lg:text-2xl font-bold;
           }
 
@@ -115,7 +121,7 @@ style
         }
 
         &:nth-child(2n+1) {
-          img {
+          .img {
             @apply lg:-translate-y-6 lg:translate-x-6;
           }
         }
@@ -123,7 +129,7 @@ style
         &:nth-child(2n) {
           @apply lg:flex-row-reverse;
 
-          img {
+          .img {
             @apply lg:-translate-y-6 lg:-translate-x-6;
           }
         }
@@ -136,26 +142,27 @@ style
       .post {
         @apply flex justify-center items-center before:absolute before:right-0 before:top-0 before:w-full before:h-screen before:bg-h-900/20 before:z-10;
 
-        .thumbnail {
-          img {
+        .img {
+          .thumb {
             @apply w-screen h-screen object-cover;
           }
         }
 
-        .description {
+        .info {
           @apply absolute w-screen h-screen flex flex-col justify-center items-center gap-y-2 text-center z-20;
 
-          .title {
+          .tit {
             @apply px-4;
 
-            a {
+            .link {
               @apply text-h-200 text-3xl font-bold;
             }
           }
 
-          .metainfo {
-            a,
-            time {
+          .desc {
+            .link,
+            .category,
+            .date {
               @apply text-h-200;
             }
           }

@@ -1,14 +1,14 @@
-article#content(
+.content-wrap(
   x-ref='content'
   class='relative')
-  div(x-data='content')
+  #content(x-data='content')
     s_if_var_toc
       include Content/TOC
-    #article(x-ref='article')
+    article#article(x-ref='article')
       template(
         x-ref='articleTemplate'
         x-teleport='#article')
-        div
+        .desc
           | #{`[##_${type}_rep_desc_##]`}
           include Content/Subscription
     s_if_var_scrollspy
@@ -329,7 +329,7 @@ script(once='alpine-content-component').
 
 style(once='content')
   :postcss
-    #content {
+    #article {
       .contents_style {
         @apply text-left p-0 leading-loose text-h-600 dark:text-h-200;
 
@@ -556,7 +556,7 @@ style(once='content')
 
 style(once='content-postbtn')
   :postcss
-    #content {
+    #article {
       .container_postbtn {
         @apply p-0 pt-9 text-h-600 dark:text-h-200;
 

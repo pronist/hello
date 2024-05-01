@@ -5,30 +5,30 @@ mixin coverItem()
 
 mixin coverImage()
   s_cover_item_thumbnail
-    a.thumbnail(href='[##_cover_item_url_##]')
-      img.lazyload(
+    a.img(href='[##_cover_item_url_##]')
+      img.thumb(
         data-src='[##_cover_item_thumbnail_##]'
         data-sizes='auto'
         alt=''
-        class='object-cover bg-h-100')&attributes(attributes)
+        class='lazyload object-cover bg-h-100')&attributes(attributes)
 
 mixin coverDescriptionIfContent()
-  .description(class='flex flex-col')&attributes(attributes)
-    .title
-      a(
+  .info(class='flex flex-col')&attributes(attributes)
+    .tit
+      a.link(
         href='[##_cover_item_url_##]'
         class='text-h-800 dark:text-h-200') [##_cover_item_title_##]
-    .metainfo(class='flex gap-x-1 text-sm')
-      time(class='text-h-400') [##_cover_item_simple_date_##]
-      a(
+    .desc(class='flex gap-x-1 text-sm')
+      time.date(class='text-h-400') [##_cover_item_simple_date_##]
+      a.category(
         href='[##_cover_item_category_url_##]'
         class='text-sm text-h-400') · [##_cover_item_category_##]
     .summary(class='relative overflow-hidden leading-7 text-sm text-h-500 dark:text-h-400') [##_cover_item_summary_##]
 
 mixin coverDescriptionIfNotContent()
-  .description(class='flex flex-col')&attributes(attributes)
-    .title
-      a(
+  .info(class='flex flex-col')&attributes(attributes)
+    .tit
+      a.link(
         href='[##_cover_item_url_##]'
         class='text-h-800 dark:text-h-200') [##_cover_item_title_##]
     .summary [##_cover_item_summary_##]
@@ -40,30 +40,30 @@ mixin coverDescription()
     +coverDescriptionIfNotContent()&attributes(attributes)
 
 mixin coverList(mode)
-  section(
+  section.cover(
     data-mode=mode
     class='flex flex-col items-center px-4 lg:px-0 lg:w-idx lg:mx-auto')
-    div(class='text-3xl font-bold text-h-600 dark:text-h-200 my-10 empty:my-10 lg:my-20') [##_cover_title_##]
+    .tit(class='text-3xl font-bold text-h-600 dark:text-h-200 my-10 empty:my-10 lg:my-20') [##_cover_title_##]
     .list
       +coverItem()
         +coverImage()
         +coverDescription()
 
 mixin coverSlideshow()
-  section(
+  section.cover(
     data-mode='slideshow'
-    class='flex flex-col items-center gap-y-10')
-    div(
+    class='gap-y-10')
+    .slideshow(
       class='swiper w-full h-screen')
       .list(class='swiper-wrapper')
         +coverItem()(class='swiper-slide')
           +coverImage()
           +coverDescription()
-      div(class='swiper-button-next')
-      div(class='swiper-button-prev')
+      .next(class='swiper-button-next')
+      .prev(class='swiper-button-prev')
 
 s_cover_group
-  div(class='flex flex-col')
+  #covers(class='flex flex-col')
     s_cover_rep
       s_cover(name='list')
         +coverList('list')
