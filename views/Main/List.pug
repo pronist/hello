@@ -76,7 +76,9 @@ style
       }
 
       .post {
-        @apply flex flex-col gap-y-4 sm:flex-row-reverse sm:items-center sm:justify-end sm:gap-x-6 sm:h-72 sm:border-t sm:border-solid sm:border-h-300 sm:dark:border-h-400 sm:first:border-t-0;
+        @apply flex flex-col gap-y-4;
+        @apply sm:flex-row-reverse sm:items-center sm:justify-end sm:gap-x-6 sm:h-72;
+        @apply sm:border-t sm:border-solid sm:border-h-300 sm:dark:border-h-400 sm:first:border-t-0;
 
         .img {
           .thumb {
@@ -102,7 +104,8 @@ style
   :postcss
     [data-mode=grid] {
       .posts {
-        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-x-8 md:gap-y-12;
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+        @apply gap-6 md:gap-x-8 md:gap-y-12;
       }
 
       .post {
@@ -145,17 +148,19 @@ style
         }
 
         &::before {
-          @apply content-[''] top-[calc(100%+theme(spacing.6))] left-[calc(100%/2)] lg:top-[calc(100%+theme(spacing.6))] lg:left-[calc(theme('screens.lg')/2)] absolute w-0.5 h-12 lg:h-16 bg-h-300 dark:bg-h-600;
+          @apply content-[''] absolute w-0.5 h-12 lg:h-16 bg-h-300 dark:bg-h-600;
+          @apply top-[calc(100%+theme(spacing.6))] left-[calc(100%/2)] lg:top-[calc(100%+theme(spacing.6))] lg:left-[calc(theme('screens.lg')/2)];
         }
 
         .img {
           .thumb {
-            @apply relative z-10 object-cover w-full lg:w-[calc(theme(spacing.96)+theme(spacing.20)+theme(spacing.3))] lg:h-[calc(theme(spacing.72)+theme(spacing.7))] lg:max-w-none;
+            @apply relative z-10 object-cover w-full lg:max-w-none;
+            @apply lg:w-[calc(theme(spacing.96)+theme(spacing.20)+theme(spacing.3))] lg:h-[calc(theme(spacing.72)+theme(spacing.7))];
           }
         }
 
         .info {
-          @apply bg-h-200 gap-y-2 p-10 justify-center lg:p-16 dark:bg-h-700;
+          @apply gap-y-2 p-10 justify-center lg:p-16 bg-h-200 dark:bg-h-700;
 
           .tit {
             @apply text-xl lg:text-2xl font-bold;
@@ -186,7 +191,8 @@ style
   :postcss
     [data-mode=slideshow] {
       .post {
-        @apply flex justify-center items-center before:absolute before:right-0 before:top-0 before:w-full before:h-screen before:bg-h-900/30 before:z-10;
+        @apply before:absolute before:right-0 before:top-0 before:w-full before:h-screen before:bg-h-900/30 before:z-10;
+        @apply flex justify-center items-center;
 
         .img {
           .thumb {

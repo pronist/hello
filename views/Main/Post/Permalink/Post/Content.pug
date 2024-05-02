@@ -629,7 +629,8 @@ style(once='content-postbtn')
 style(once='content-tistory-ccl-layer')
   :postcss
     #tistoryCclLayer {
-      @apply shadow-none border-0 bg-h-200 text-h-400 dark:bg-h-700 dark:text-h-300 rounded-md;
+      @apply shadow-none border-0 bg-h-200 text-h-400 rounded-md;
+      @apply dark:bg-h-700 dark:text-h-300;
 
       span {
         @apply text-h-400;
@@ -644,7 +645,8 @@ style(once='content-tistory-layer')
   :postcss
     #tistorySnsLayer,
     #tistoryEtcLayer {
-      @apply rounded-md shadow-none bg-h-200 dark:bg-h-700;
+      @apply rounded-md shadow-none bg-h-200;
+      @apply dark:bg-h-700;
 
       .btn_mark {
         @apply text-h-400 dark:text-h-300;
