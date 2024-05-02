@@ -43,8 +43,9 @@ mixin coverList(mode)
   section.cover(
     data-mode=mode
     class='flex flex-col items-center px-4 lg:px-0 lg:w-idx lg:mx-auto')
-    .tit(class='text-3xl font-bold text-h-600 dark:text-h-200 my-10 empty:my-10 lg:my-20') [##_cover_title_##]
-    .list
+    header.header(class='my-10 empty:my-10 lg:my-20')
+      h1.tit(class='text-3xl font-bold text-h-600 dark:text-h-200') [##_cover_title_##]
+    .posts
       +coverItem()
         +coverImage()
         +coverDescription()
@@ -55,7 +56,7 @@ mixin coverSlideshow()
     class='gap-y-10')
     .slideshow(
       class='swiper w-full h-screen')
-      .list(class='swiper-wrapper')
+      .posts(class='swiper-wrapper')
         +coverItem()(class='swiper-slide')
           +coverImage()
           +coverDescription()
