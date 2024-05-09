@@ -387,7 +387,8 @@ style(once='content')
           }
 
           code {
-            @apply relative -top-[1px] px-2 py-0.5 whitespace-normal text-sm font-sans text-h-600 bg-h-200 dark:text-h-300 dark:bg-h-700;
+            @apply relative -top-[1px] px-2 py-0.5 whitespace-normal text-sm font-sans text-h-600 bg-h-200;
+            @apply dark:text-h-300 dark:bg-h-700;
           }
         }
 
@@ -405,7 +406,8 @@ style(once='content')
         table[data-ke-align] {
           td,
           th {
-            @apply bg-transparent border-0 border-b border-solid border-h-400 px-3 py-4 box-border text-sm leading-loose text-h-600 dark:text-h-200;
+            @apply bg-transparent border-0 border-b border-solid border-h-400 px-3 py-4 box-border text-sm leading-loose text-h-600;
+            @apply dark:text-h-200;
           }
         }
 
@@ -562,7 +564,10 @@ style(once='content-postbtn')
 
         .postbtn_like > .wrap_btn:not([id^=reaction-]) > button,
         .btn_subscription {
-          @apply w-9 h-9 inline-block shadow-none outline-0 rounded-md cursor-pointer duration-200 leading-none text-[0] p-0 bg-h-200 hover:bg-h-300 before:text-h-500 dark:bg-h-700 dark:before:text-h-200 dark:hover:bg-h-600;
+          @apply w-9 h-9 inline-block shadow-none outline-0 rounded-md cursor-pointer duration-200 leading-none text-[0] p-0 bg-h-200;
+          @apply hover:bg-h-300;
+          @apply before:text-h-500;
+          @apply dark:bg-h-700 dark:before:text-h-200 dark:hover:bg-h-600;
         }
 
         .postbtn_like {
