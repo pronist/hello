@@ -15,11 +15,12 @@ header#header(
     h1.tit(class='text-center font-bold text-2xl lg:text-3xl') #{`[##_${type}_rep_title_##]`}
     .desc(class='flex gap-x-1 text-sm')
       time.date #{`[##_${type}_rep_date_##]`}
+      span.delimiter ·
       unless hasCategory
         case type
           when 'notice'
-            a.category(class='/notice') · 공지사항
+            a.category(class='/notice') 공지사항
       else
-        a.category(href='[##_article_rep_category_link_##]') · [##_article_rep_category_##]
+        a.category(href='[##_article_rep_category_link_##]') [##_article_rep_category_##]
       if hasCategory
         include Header/Admin

@@ -14,7 +14,8 @@
     .desc(class='flex gap-x-1 text-sm')
       time.date(class='text-h-400') #{`[##_${type}_rep_${type === 'list' ? 'regdate' : 'date'}_##]`}
       if hasCategory
+        span.delimiter(class='text-h-400') ·
         a.category(
           href=`[##_${type}_rep_category_link_##]`
-          class='text-h-400') · #{`[##_${type}_rep_category_##]`}
+          class='text-h-400') #{`[##_${type}_rep_category_##]`}
     .summary(class='relative overflow-hidden text-h-400 leading-7 text-sm') #{`[##_${type}_rep_summary_##]`}

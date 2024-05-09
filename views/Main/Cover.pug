@@ -20,9 +20,10 @@ mixin coverDescriptionIfContent()
         class='text-h-800 dark:text-h-200') [##_cover_item_title_##]
     .desc(class='flex gap-x-1 text-sm')
       time.date(class='text-h-400') [##_cover_item_simple_date_##]
+      span.delimiter(class='text-h-400') ·
       a.category(
         href='[##_cover_item_category_url_##]'
-        class='text-sm text-h-400') · [##_cover_item_category_##]
+        class='text-sm text-h-400') [##_cover_item_category_##]
     .summary(class='relative overflow-hidden leading-7 text-sm text-h-500 dark:text-h-400') [##_cover_item_summary_##]
 
 mixin coverDescriptionIfNotContent()
