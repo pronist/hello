@@ -22,14 +22,12 @@
     .txt(class='m-0 text-overflow-hidden text-sm font-bold text-h-800 dark:text-h-200') [##_page_title_##]
   #menu-toolbar(class='menu_toolbar')
     button.subscribe(
-      x-data='{ subscribed: T.config.SUBSCRIPTION.isConnected }'
       x-show='T.config.ROLE !== "owner" && /^(.*tistory\\.com)$/.test(location.hostname)'
       :data-blog-id='T.config.BLOG.id'
       :data-url='TistoryBlog.tistoryUrl'
-      @click='subscribed = ! subscribed'
       class='btn_subscription')
       span.txt(class='text-hidden') 구독하기
-      i.ico(:class='subscribed ? "fa-solid" : "fa-regular"' class='fa-star')
+      i.ico(class='fa-solid fa-star')
 
 script.
   document.addEventListener('alpine:init', () => Alpine.data('top', () => ({
