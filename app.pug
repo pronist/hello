@@ -53,11 +53,13 @@ html#hELLO(
       }
 
     script(fixed).
-      if (! ('TTDARK' in localStorage)) {
-        localStorage.TTDARK = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Y' : 'N'
-      }
+      /**
+       * Set default theme
+       */
+      const os = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Y' : 'N'
+      const isDark = localStorage.getItem('TTDARK') || os
 
-      window.TTDARK = localStorage.TTDARK === 'Y'
+      window.TTDARK = isDark === 'Y'
 
       document.documentElement.classList.toggle('dark', TTDARK)
 
