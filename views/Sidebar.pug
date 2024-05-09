@@ -35,7 +35,7 @@ aside#sidebar(
         include Sidebar/RecentPosts
     include Sidebar/Copyright
   template(x-teleport='body')
-    .sidebar-mask(
+    #mask(
       x-show='sidebar'
       x-transition:enter='transition ease-linear duration-300'
       x-transition:enter-start='opacity-0'
