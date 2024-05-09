@@ -8,8 +8,8 @@
   x-transition:leave='transition ease-linear duration-300'
   x-transition:leave-start='opacity-100'
   x-transition:leave-end='opacity-0'
-  class='w-full box-border px-4 h-14 top-0 fixed flex justify-between items-center z-30 backdrop-blur bg-h-100/50 dark:bg-h-800/80 xl:px-5 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>')
-  .img(class='w-9 h-9')
+  class='w-full box-border px-4 h-14 top-0 fixed flex justify-between items-center z-30 backdrop-blur bg-h-100/50 dark:bg-h-800/80 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>')
+  .img
     img.thumb(
       @click='sidebar = ! sidebar'
       class='lazyload rounded-full w-9 h-9 cursor-pointer <s_if_var_sidebar>xl:invisible</s_if_var_sidebar>'
@@ -20,16 +20,16 @@
       height='36')
   .tit(class='max-w-[calc(80vw-152px)] h-5')
     .txt(class='m-0 text-overflow-hidden text-sm font-bold text-h-800 dark:text-h-200') [##_page_title_##]
-  .sub(class='w-9 h-9')
-    button.btn(
+  #menu-toolbar(class='menu_toolbar')
+    button.subscribe(
       x-data='{ subscribed: T.config.SUBSCRIPTION.isConnected }'
       x-show='T.config.ROLE !== "owner" && /^(.*tistory\\.com)$/.test(location.hostname)'
       :data-blog-id='T.config.BLOG.id'
       :data-url='TistoryBlog.tistoryUrl'
       @click='subscribed = ! subscribed'
-      class='subscription flex justify-center items-center w-9 h-9 outline-0 rounded-full bg-h-200 text-h-500 hover:bg-h-300 dark:text-h-200 dark:bg-h-700 dark:hover:bg-h-600 btn_menu_toolbar btn_subscription #subscribe')
+      class='btn_subscription')
       span.txt(class='text-hidden') 구독하기
-      i.ico(:class='subscribed ? "fa-solid" : "fa-regular"' class='fa-star text-sm')
+      i.ico(:class='subscribed ? "fa-solid" : "fa-regular"' class='fa-star')
 
 script.
   document.addEventListener('alpine:init', () => Alpine.data('top', () => ({
@@ -42,11 +42,8 @@ script.
      * Init
      */
     init () {
-      if (! this.hasScrollBar()) {
-        return
-      }
-
-      this.toggle()
+      this.setTistoryMenuToolbar()
+      this.hasScrollbar() && this.toggle()
     },
 
     /**
@@ -65,7 +62,7 @@ script.
      *
      * @returns {boolean}
      */
-    hasScrollBar () {
+    hasScrollbar () {
       return document.documentElement.scrollHeight > document.documentElement.clientHeight
     },
 
@@ -76,5 +73,98 @@ script.
      */
     get $targets () {
       return [this.$refs.list, this.$refs.content]
+    },
+
+    /**
+     * Set TISTORY menu toolbar
+     */
+    setTistoryMenuToolbar () {
+      const tistoryMenuToolbar = document.getElementById('menubar_wrapper')
+
+      tistoryMenuToolbar && this.$el.querySelector('#menu-toolbar').append(tistoryMenuToolbar)
     }
   })))
+
+style
+  :postcss
+    #top {
+      #menu-toolbar {
+        @apply static translate-x-0 translate-y-0 flex gap-x-3;
+
+        .subscribe {
+          .ico {
+            @apply font-awesome;
+          }
+        }
+
+        .subscribe,
+        .btn_menu_type2 {
+          @apply flex justify-center items-center w-9 h-9 p-0 rounded-full outline-0 bg-h-200 text-h-500 shadow-none;
+          @apply dark:text-h-200 dark:bg-h-700 dark:hover:bg-h-600;
+          @apply hover:bg-h-300;
+        }
+
+        #menubar_wrapper {
+          @apply m-0 z-0 relative;
+
+          .btn_menu_type2 {
+            @apply transition-none;
+
+            .ico_tistory_sign {
+              @apply opacity-70 dark:opacity-100 dark:invert;
+            }
+          }
+
+          .header_layer {
+            @apply absolute top-12 right-0 left-auto bottom-auto;
+            @apply translate-x-0 translate-y-0;
+            @apply z-0 shadow-none bg-h-200 dark:bg-h-700;
+
+            &::after {
+              @apply hidden;
+            }
+
+            a {
+              @apply no-underline;
+            }
+
+            .info_profile {
+              @apply border-b-h-300 dark:border-b-h-600;
+
+              .txt_id {
+                @apply text-h-500 dark:text-h-200;
+              }
+
+              .txt_email,
+              .link_setting_type2 {
+                @apply text-h-400 hover:text-h-800 dark:hover:text-h-200;
+              }
+            }
+
+            .list_toolbar {
+              li {
+                .link_list {
+                  @apply text-h-500 dark:text-h-200;
+                }
+
+                &:last-child {
+                  .link_list {
+                    @apply text-h-400 hover:text-h-800 dark:hover:text-h-200;
+                  }
+                }
+              }
+            }
+
+            .wrap_list {
+              .tit_list_type {
+                @apply text-h-400 hover:text-h-800 dark:hover:text-h-200;
+              }
+            }
+
+            .wrap_toolbar {
+              @apply border-t-h-300 dark:border-t-h-600;
+            }
+          }
+        }
+      }
+    }
