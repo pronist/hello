@@ -1,6 +1,7 @@
 .footer-wrap(
   x-data='{ shown: false }'
-  x-intersect.once='shown = true')
+  x-intersect.once='shown = true'
+  class='mb-9')
   footer#footer(x-show='shown')
     if hasCategory
       include Footer/RelatedArticle
