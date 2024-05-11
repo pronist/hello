@@ -1,10 +1,10 @@
 .el
   s_search
     #search(class='flex items-center gap-x-3 border-box px-4 py-3 bg-h-300 text-h-600 dark:bg-h-600 dark:text-h-300')
-      label.label(for='search')
+      label.label(for='keyword')
         span.txt(class='text-hidden') 검색
         i.ico(class='text-sm fa-solid fa-magnifying-glass')
-      input.input(
+      input#keyword.input(
         type='text'
         name='[##_search_name_##]'
         value='[##_search_text_##]'

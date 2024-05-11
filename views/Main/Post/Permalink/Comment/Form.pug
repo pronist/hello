@@ -45,7 +45,7 @@ mixin form(type)
                 type='checkbox'
                 name=`[##_${type}_input_is_secret_##]`
                 class='hidden')
-              label#secret-label.label(
+              label.label(
                 for='secret'
                 @click='secret = ! secret')
                 span.txt(class='text-hidden') 비밀글
