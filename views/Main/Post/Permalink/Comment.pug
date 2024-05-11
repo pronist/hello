@@ -4,5 +4,7 @@
   x-intersect.once='shown = true')
   s_rp
     .area(x-show='shown')
+      if process.env.NODE_ENV === 'development'
+        include Comment/Supporters
       +form('rp')
       +list('rp', 'rp2', true)
