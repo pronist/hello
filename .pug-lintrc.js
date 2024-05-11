@@ -12,8 +12,6 @@ module.exports = {
   'requireClassLiteralsBeforeAttributes': true,
   'requireIdLiteralsBeforeAttributes': true,
   'requireLineFeedAtFileEnd': true,
-  'requireLowerCaseAttributes': true,
-  'requireLowerCaseTags': true,
   'requireStrictEqualityOperators': true,
   'validateAttributeQuoteMarks': "'",
   'validateAttributeSeparator': {"separator": " ", "multiLineSeparator": "\n  "},
