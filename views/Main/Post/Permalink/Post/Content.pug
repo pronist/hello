@@ -10,7 +10,8 @@
         x-teleport='#article')
         .desc
           | #{`[##_${type}_rep_desc_##]`}
-          include Content/Subscription
+          if process.env.NODE_ENV === 'development'
+            include Content/Subscription
     s_if_var_scrollspy
       include Content/Scrollspy
 
