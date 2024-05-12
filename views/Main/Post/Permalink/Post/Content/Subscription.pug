@@ -1,13 +1,14 @@
-template(x-teleport='.contents_style > .container_postbtn')
-  button.btn_menu_toolbar.btn_subscription(
-    type='button'
-    class='#subscribe'
-    data-blog-id='3751118'
-    data-url='https://pronist.tistory.com/5'
-    data-device='web_pc')
-    em.txt_state 구독하기
-    strong.txt_tool_id hELLO.
-    span.img_common_tistory.ico_check_type1
+if process.env.NODE_ENV === 'development'
+  template(x-teleport='.contents_style > .container_postbtn')
+    button.btn_menu_toolbar.btn_subscription(
+      type='button'
+      class='#subscribe'
+      data-blog-id='3751118'
+      data-url='https://pronist.tistory.com/5'
+      data-device='web_pc')
+      em.txt_state 구독하기
+      strong.txt_tool_id hELLO.
+      span.img_common_tistory.ico_check_type1
 
 style(once='content-subscription-button')
   :postcss
