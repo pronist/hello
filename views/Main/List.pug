@@ -2,7 +2,7 @@ s_list
   section#list(data-mode='[##_list_style_##]')
     header.header(
       x-data='{ thumb: false }'
-      class='h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16')
+      class='h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-300 dark:border-b-h-600 lg:mb-16')
       s_list_image
         .img(
           x-init='thumb = true'
@@ -79,7 +79,7 @@ style
       .post {
         @apply flex flex-col gap-y-4;
         @apply sm:flex-row-reverse sm:items-center sm:justify-end sm:gap-x-6 sm:h-72;
-        @apply sm:border-t sm:border-solid sm:border-h-300 sm:dark:border-h-400 sm:first:border-t-0;
+        @apply sm:border-t sm:border-solid sm:border-h-300 sm:dark:border-h-600 sm:first:border-t-0;
 
         .img {
           .thumb {

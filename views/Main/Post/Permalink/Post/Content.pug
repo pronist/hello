@@ -406,8 +406,8 @@ style(once='content')
         table[data-ke-align] {
           td,
           th {
-            @apply bg-transparent border-0 border-b border-solid border-h-400 px-3 py-4 box-border text-sm leading-loose text-h-600;
-            @apply dark:text-h-200;
+            @apply bg-transparent border-0 border-b border-solid border-h-300 px-3 py-4 box-border text-sm leading-loose text-h-600;
+            @apply dark:text-h-200 dark:border-h-600;
           }
         }
 
@@ -506,7 +506,7 @@ style(once='content')
           @apply relative;
 
           &::before {
-            @apply content-[''] absolute top-4 right-0 w-full h-0 w-full -z-[1] border-b border-dashed border-h-400;
+            @apply content-[''] absolute top-4 right-0 w-full h-0 w-full -z-[1] border-b border-dashed border-h-300 dark:border-h-600;
           }
 
           &.open {
@@ -536,7 +536,7 @@ style(once='content')
           }
 
           &[data-ke-style=style2] {
-            @apply border-l-2 border-solid border-h-300 dark:border-h-400 pl-3 pr-1 text-h-400 text-left text-sm leading-loose;
+            @apply border-l-2 border-solid border-h-300 dark:border-h-600 pl-3 pr-1 text-h-400 text-left text-sm leading-loose;
           }
 
           &[data-ke-style=style3] {

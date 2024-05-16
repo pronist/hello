@@ -1,6 +1,6 @@
 mixin comment(type, replyable=true)
   .comment(
-    class=`[##_${type}_rep_class_##] flex flex-col gap-y-4 relative before:content-[''] before:absolute before:w-[1px] before:h-[calc(100%-65px)] before:left-[calc(theme(spacing.12)/2)] before:top-16 before:bg-h-300 dark:before:bg-h-400`)
+    class=`[##_${type}_rep_class_##] flex flex-col gap-y-4 relative before:content-[''] before:absolute before:w-[1px] before:h-[calc(100%-65px)] before:left-[calc(theme(spacing.12)/2)] before:top-16 before:bg-h-300 dark:before:bg-h-700`)
     .author
       .profile(class='flex items-center gap-x-4')
         img.thumb(
@@ -42,7 +42,7 @@ mixin list(type, rType, reverse=false)
             x-data='{ open: ! skinOptions.foldableReply, children: [] }'
             id=`[##_${type}_rep_id_##]`
             :class='{ "[&>.comment]:before:hidden": children.length === 0 }'
-            class='flex flex-col gap-y-5 border-b border-dotted border-h-400 pb-5')
+            class='flex flex-col gap-y-5 border-b border-h-300 dark:border-h-600 pb-5')
             +comment(type)
             #{`s_${rType}_container`}
               ol.comments2(
