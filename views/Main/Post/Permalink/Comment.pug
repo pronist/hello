@@ -3,7 +3,7 @@
   x-data='{ shown: false }'
   x-intersect.once='shown = true')
   s_rp
-    .area(x-show='shown')
+    .wrap(x-show='shown')
       include Comment/Supporters
       +form('rp')
       +list('rp', 'rp2', true)

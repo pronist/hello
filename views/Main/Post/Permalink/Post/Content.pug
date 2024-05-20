@@ -1,7 +1,7 @@
-.content-wrap(
+#content(
   x-ref='content'
   class='relative')
-  #content(x-data='content')
+  .wrap(x-data='content')
     s_if_var_toc
       include Content/TOC
     article#article(x-ref='article')

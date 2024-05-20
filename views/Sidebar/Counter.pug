@@ -1,15 +1,14 @@
-.el
-  #counter(class='overflow-hidden flex justify-between')
-    .total(class='text-left')
-      .tit 전체
-      .cnt [##_count_total_##]
-    .day(class='flex gap-x-2 text-right')
-      .today
-        .tit 오늘
-        .cnt [##_count_today_##]
-      .yesterday
-        .tit 어제
-        .cnt [##_count_yesterday_##]
+#counter.el(class='flex justify-between')
+  .total(class='text-left')
+    .tit 전체
+    .cnt [##_count_total_##]
+  .day(class='flex gap-x-2 text-right')
+    .today
+      .tit 오늘
+      .cnt [##_count_today_##]
+    .yesterday
+      .tit 어제
+      .cnt [##_count_yesterday_##]
 
 style
   :postcss

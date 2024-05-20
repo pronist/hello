@@ -1,6 +1,5 @@
-.el
-  #category(x-data='category')
-    | [##_category_list_##]
+#category.el(x-data='category')
+  | [##_category_list_##]
 
 script.
   document.addEventListener('alpine:init', () => Alpine.data('category', () => ({

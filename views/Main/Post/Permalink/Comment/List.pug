@@ -1,6 +1,5 @@
 mixin comment(type, replyable=true)
-  .comment(
-    class=`[##_${type}_rep_class_##] flex flex-col gap-y-4 relative before:content-[''] before:absolute before:w-[1px] before:h-[calc(100%-65px)] before:left-[calc(theme(spacing.12)/2)] before:top-16 before:bg-h-300 dark:before:bg-h-700`)
+  .wrap(class=`[##_${type}_rep_class_##] flex flex-col gap-y-4 relative before:content-[''] before:absolute before:w-[1px] before:h-[calc(100%-65px)] before:left-[calc(theme(spacing.12)/2)] before:top-16 before:bg-h-300 dark:before:bg-h-600`)
     .author
       .profile(class='flex items-center gap-x-4')
         img.thumb(
@@ -15,30 +14,25 @@ mixin comment(type, replyable=true)
           time.date(class='text-h-400 text-xs') #{`[##_${type}_rep_date_##]`}
     .desc(class='pl-16 leading-7 text-sm text-h-500 dark:text-h-300') #{`[##_${type}_rep_desc_##]`}
     .control(class='pl-16 flex gap-x-1 text-h-400 text-xs')
-      a.delete(
-        href='#'
-        onclick=`[##_${type}_rep_onclick_delete_##]`) 수정/삭제
+      button.delete(onclick=`[##_${type}_rep_onclick_delete_##]`) 수정/삭제
       if replyable
-        a.reply(
-          href='#'
-          onclick=`[##_${type}_rep_onclick_reply_##]`) 댓글쓰기
+        button.reply(onclick=`[##_${type}_rep_onclick_reply_##]`) 댓글쓰기
         template(x-if='skinOptions.foldableReply && children.length > 0')
-          a.more(
-            href='#'
+          button.more(
             @click.prevent='open = ! open'
             x-html='`댓글보기(${children.length})`')
 
 mixin list(type, rType, reverse=false)
   #{`s_${type}_container`}
-    .comments-wrap
-      ol#comments(class='flex gap-y-5 mt-9' class=reverse ? 'flex-col-reverse' : 'flex-col')
+    #comments
+      ol.comments(class='flex gap-y-5 mt-9' class=reverse ? 'flex-col-reverse' : 'flex-col')
         if process.env.NODE_ENV === 'development'
           li#ttMorePreviousCommentsFor5.tt_more_preview_comments_wrap(onclick='getEntryCommentsByPaging(5); return false;' style='text-align:center;cursor:pointer')
             span.tt_more_preview_comments_text 이전 댓글 더보기
             input#ttMorePreviousCommentsFirstWrittenFor5(type='hidden' value='1598944069')
             input#ttMorePreviousCommentsFirstIdFor5(type='hidden' value='13003145')
         #{`s_${type}_rep`}
-          li.comment-wrap(
+          li.comment(
             x-data='{ open: ! skinOptions.foldableReply, children: [] }'
             id=`[##_${type}_rep_id_##]`
             :class='{ "[&>.comment]:before:hidden": children.length === 0 }'
@@ -50,7 +44,7 @@ mixin list(type, rType, reverse=false)
                 x-show='open'
                 x-init='children = $el.querySelectorAll("li")')
                 #{`s_${rType}_rep`}
-                  li.comment2-wrap(
+                  li.comment2(
                     id=`[##_${type}_rep_id_##]`
                     class='[&:last-child>div]:before:hidden')
                     +comment(type, false)

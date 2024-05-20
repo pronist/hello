@@ -1,17 +1,16 @@
-.el
-  #recent-posts
-    h2.tit 최근 글
-    ul.posts(class='flex flex-col gap-y-4 text-sm')
-      s_rctps_rep
-        li.post(class='flex justify-between')
-          .tit(class='text-overflow-hidden text-h-400')
-            a.link(href='[##_rctps_rep_link_##]') [##_rctps_rep_title_##]
-            .date(class='mt-1 text-xs') [##_rctps_rep_simple_date_##]
-          s_rctps_rep_thumbnail
-            img.thumb(
-              class='lazyload object-cover ml-3 bg-h-100 w-16 h-11'
-              data-src='[##_rctps_rep_thumbnail_##]'
-              data-sizes='auto'
-              alt=''
-              width='64'
-              height='44')
+#recent-posts.el
+  h2.tit 최근 글
+  ul.posts(class='flex flex-col gap-y-4 text-sm')
+    s_rctps_rep
+      li.post(class='flex justify-between')
+        .tit(class='text-overflow-hidden text-h-400')
+          a.link(href='[##_rctps_rep_link_##]') [##_rctps_rep_title_##]
+          .date(class='mt-1 text-xs') [##_rctps_rep_simple_date_##]
+        s_rctps_rep_thumbnail
+          img.thumb(
+            class='lazyload object-cover ml-3 bg-h-100 w-16 h-11'
+            data-src='[##_rctps_rep_thumbnail_##]'
+            data-sizes='auto'
+            alt=''
+            width='64'
+            height='44')

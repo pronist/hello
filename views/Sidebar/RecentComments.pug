@@ -1,13 +1,12 @@
-.el
-  #recent-comments
-    h2.tit 최근 댓글
-    ul.comments(class='flex flex-col gap-y-4')
-      s_rctrp_rep
-        li.comment(class='text-h-400')
-          .txt(class='text-overflow-hidden text-sm')
-            i.ico(class='fa-regular fa-comment-dots font-normal mr-2')
-            a.link(href='[##_rctrp_rep_link_##]') [##_rctrp_rep_desc_##]
-          .author(class='mt-1 text-h-400 text-xs flex gap-x-0.5')
-            .name [##_rctrp_rep_name_##]
-            | ·
-            time.date [##_rctrp_rep_time_##]
+#recent-comments.el
+  h2.tit 최근 댓글
+  ul.comments(class='flex flex-col gap-y-4')
+    s_rctrp_rep
+      li.comment(class='text-h-400')
+        .txt(class='text-overflow-hidden text-sm')
+          i.ico(class='fa-regular fa-comment-dots font-normal mr-2')
+          a.link(href='[##_rctrp_rep_link_##]') [##_rctrp_rep_desc_##]
+        .author(class='mt-1 text-h-400 text-xs flex gap-x-0.5')
+          .name [##_rctrp_rep_name_##]
+          | ·
+          time.date [##_rctrp_rep_time_##]
