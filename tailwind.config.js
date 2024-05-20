@@ -30,11 +30,11 @@ module.exports = {
       }
     },
     extend: {
-      width: {
-        idx: '1100px',
-        pem: 'var(--h-width)',
-        s: '16rem', // sidebar
-        c: 'calc(100% - 16rem)' // 100% - width.sidebar
+      spacing: {
+        idx: 'var(h-idx)',
+        pem: 'var(--h-pem)',
+        s: 'var(--h-s)',
+        c: 'var(--h-c)'
       },
       keyframes: {
         loading: {

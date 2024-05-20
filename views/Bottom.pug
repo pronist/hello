@@ -1,11 +1,11 @@
 #bottom(class='flex justify-end px-4 w-full box-border fixed text-sm z-30 bottom-3 xl:bottom-4 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>')
   .wrap(class='flex gap-x-3')
-    button.theme(
+    button.theme.btn(
       x-data='theme'
       @click='toggle')
       span.txt(class='text-hidden') 테마
       i.ico(class='fa-solid fa-moon text-base')
-    a.top(href='#hELLO')
+    a.top.btn(href='#hELLO')
       span.txt(class='text-hidden') 상단으로
       i.ico(class='fa-solid fa-chevron-up text-base')
 
@@ -15,8 +15,7 @@ script.
      * Toggle Theme
      */
     toggle () {
-      localStorage.TTDARK = document.documentElement.classList.contains('dark') ? 'N' : 'Y'
-      document.documentElement.classList.toggle('dark')
+      theme.toggle()
 
       this.$data.dark = ! this.$data.dark
     }
@@ -25,8 +24,7 @@ script.
 style
   :postcss
     #bottom {
-      .theme,
-      .top {
+      .btn {
         @apply flex justify-center items-center w-10 h-10 outline-0 rounded-full bg-h-200 text-h-500;
         @apply dark:bg-h-700 dark:text-h-200 dark:hover:bg-h-600;
         @apply hover:bg-h-300;

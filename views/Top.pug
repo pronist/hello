@@ -45,6 +45,15 @@ script.
     },
 
     /**
+     * Set TISTORY menu toolbar
+     */
+    setTistoryMenuToolbar () {
+      const tistoryMenuToolbar = document.getElementById('menubar_wrapper')
+
+      tistoryMenuToolbar && this.$el.querySelector('#menu-toolbar').append(tistoryMenuToolbar)
+    },
+
+    /**
      * Toggle
      */
     toggle () {
@@ -71,15 +80,6 @@ script.
      */
     get $targets () {
       return [this.$refs.list, this.$refs.content]
-    },
-
-    /**
-     * Set TISTORY menu toolbar
-     */
-    setTistoryMenuToolbar () {
-      const tistoryMenuToolbar = document.getElementById('menubar_wrapper')
-
-      tistoryMenuToolbar && this.$el.querySelector('#menu-toolbar').append(tistoryMenuToolbar)
     }
   })))
 

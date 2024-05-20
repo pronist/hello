@@ -9,7 +9,7 @@ template(x-if='$data.headings.length > 0')
     x-transition:leave-start='opacity-100'
     x-transition:leave-end='opacity-0'
     x-show='show'
-    class='2xl:absolute 2xl:top-0 2xl:h-full 2xl:ml-[calc(((1100px+theme(width.pem))/2)+theme(spacing.5))]')
+    class='2xl:absolute 2xl:top-0 2xl:h-full 2xl:ml-[calc(((1100px+theme(spacing.pem))/2)+theme(spacing.5))]')
     .area(class='2xl:sticky 2xl:top-20')
       button.open(
         x-show='! open'

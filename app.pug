@@ -21,9 +21,14 @@ html#hELLO(
     link(rel='stylesheet' :href='"//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"')
     link(rel='stylesheet' :href='`//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/${dark ? skinOptions.hljsDark : skinOptions.hljs}.min.css`')
 
+    script(src='./images/bootstrap.js')
+
     style(fixed).
       :root {
-        --h-width: [##_var_width_##]px;
+        --h-idx: 1100px; /* index */
+        --h-pem: [##_var_width_##]px; /* permalink */
+        --h-s: 256px; /* sidebar */
+        --h-c: calc(100% - var(--h-s)); /* content */
       }
 
     style
@@ -31,20 +36,10 @@ html#hELLO(
 
     script(fixed).
       /**
-       * Console Issues
-       *
-       * Uncaught TypeError: Cannot read properties of null (reading 'click')
-       * Uncaught TypeError: a is not a function
-       * jQuery.Deferred exception: lightbox is not defined ReferenceError: lightbox is not defined
-       * Uncaught ReferenceError: lightbox is not defined
-       */
-      window.jQuery = $ = tjQuery
-
-    script(fixed).
-      /**
        * Set skin options
        *
-       * @see docs/index.xml -> variables
+       * @see https://tistory.github.io/document-tistory-skin/common/variable.html
+       * @see docs/index.xml
        */
       window.skinOptions = {
         sidebar: '[##_var_sidebar_##]',
@@ -56,17 +51,6 @@ html#hELLO(
         hljs: '[##_var_hljs_##]',
         hljsDark: '[##_var_hljs-dark_##]'
       }
-
-    script(fixed).
-      /**
-       * Set default theme
-       */
-      const os = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Y' : 'N'
-      const isDark = localStorage.getItem('TTDARK') || os
-
-      window.TTDARK = isDark === 'Y'
-
-      document.documentElement.classList.toggle('dark', TTDARK)
 
   body(
     id='[##_body_id_##]'
