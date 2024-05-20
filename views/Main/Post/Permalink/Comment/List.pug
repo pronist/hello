@@ -24,8 +24,8 @@ mixin comment(type, replyable=true)
 
 mixin list(type, rType, reverse=false)
   #{`s_${type}_container`}
-    #comments
-      ol.comments(class='flex gap-y-5 mt-9' class=reverse ? 'flex-col-reverse' : 'flex-col')
+    #comments(class='mt-9')
+      ol.comments(class='flex gap-y-5' class=reverse ? 'flex-col-reverse' : 'flex-col')
         if process.env.NODE_ENV === 'development'
           li#ttMorePreviousCommentsFor5.tt_more_preview_comments_wrap(onclick='getEntryCommentsByPaging(5); return false;' style='text-align:center;cursor:pointer')
             span.tt_more_preview_comments_text 이전 댓글 더보기
