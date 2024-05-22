@@ -387,8 +387,8 @@ style(once='content')
           }
 
           code {
-            @apply relative -top-[1px] px-2 py-0.5 whitespace-normal text-sm font-sans text-h-600 bg-h-200;
-            @apply dark:text-h-300 dark:bg-h-700;
+            @apply rounded-md relative -top-[1px] px-1.5 py-0.5 whitespace-normal text-sm font-sans text-h-orange bg-h-200;
+            @apply dark:text-h-blue dark:bg-h-700;
           }
         }
 
@@ -399,7 +399,7 @@ style(once='content')
           @apply my-5;
         }
 
-        hr {
+        hr[data-ke-style] {
           @apply dark:invert dark:brightness-0;
         }
 
@@ -540,13 +540,13 @@ style(once='content')
           }
 
           &[data-ke-style=style3] {
-            @apply border-0 text-h-400 bg-h-200 dark:bg-h-700 dark:text-h-400 leading-loose;
+            @apply p-5 rounded-md border-0 text-h-400 bg-h-200 dark:bg-h-700 dark:text-h-400 leading-loose;
           }
         }
 
         pre {
           code {
-            @apply px-4 text-sm leading-relaxed;
+            @apply rounded-md p-4 text-sm leading-relaxed;
 
             &.hljs {
               @apply bg-h-200 dark:bg-h-700;
