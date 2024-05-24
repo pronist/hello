@@ -85,4 +85,16 @@ button {
   .fa-star {
     @apply font-awesome content-['\f005'];
   }
+
+  .fa-paper-plane {
+    @apply font-awesome font-bold content-['\f1d8'];
+  }
+
+  .fa-lock {
+    @apply font-awesome font-bold content-['\f023'];
+  }
+
+  .fa-lock-open {
+    @apply font-awesome font-bold content-['\f3c1'];
+  }
 }

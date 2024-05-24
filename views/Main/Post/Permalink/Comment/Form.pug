@@ -1,58 +1,87 @@
-mixin formGuestControl(type)
-  #guest(class='flex gap-x-2 mr-auto')
-    .name(class='flex gap-x-2 text-xs text-h-500 dark:text-h-200')
-      label.label(for='name') 이름
-      input#name.input(
-        autocomplete='username'
-        type='text'
-        name=`[##_${type}_input_name_##]`
-        value='[##_guest_name_##]'
-        class='border-0 inline-block outline-none w-16 lg:w-32 bg-h-200 dark:bg-h-700')
-    .password(class='flex gap-x-2 text-xs text-h-500 dark:text-h-200')
-      label.label(for='password') 암호
-      input#password.input(
-        autocomplete='current-password'
-        type='password'
-        maxlength='8'
-        name=`[##_${type}_input_password_##]`
-        value='[##_guest_password_##]'
-        class='border-0 inline-block outline-none w-16 lg:w-32 bg-h-200 dark:bg-h-700')
+mixin guest(type)
+  .name(class='grow')
+    label.label(for='name') 이름
+    input#name.input(
+      autocomplete='username'
+      type='text'
+      placeholder='이름'
+      name=`[##_${type}_input_name_##]`
+      value='[##_guest_name_##]')
+  .password(class='grow')
+    label.label(for='password') 암호
+    input#password.input(
+      autocomplete='current-password'
+      type='password'
+      maxlength='8'
+      placeholder='비밀번호'
+      name=`[##_${type}_input_password_##]`
+      value='[##_guest_password_##]')
 
 mixin form(type)
   #{`s_${type}_input_form`}
-    #form(class='p-5 w-full overflow-hidden rounded-lg box-border h-32 lg:h-48 relative bg-h-200 dark:bg-h-700')
-      .wrap(class='box-border flex flex-col justify-between h-full gap-y-3')
-        label.label(
-          for='text'
-          class='text-hidden') 댓글
-        textarea#text.textarea(
-          x-data='{ disabled: /^(?!.*tistory\\.com).*$/.test(location.hostname) && T.config.NEED_COMMENT_LOGIN }'
-          :placeholder='disabled && "이 블로그는 2차 도메인을 사용 중입니다. 댓글을 작성하려면 "+TistoryBlog.tistoryUrl+" 으로 이동해주세요."'
-          :disabled='disabled'
-          name=`${type === 'guest' ? '[##_guest_textarea_body_##]' : '[##_rp_input_comment_##]'}`
-          class='border-0 resize-none p-0 pr-5 h-full overflow-x-hidden overflow-y-scroll text-sm box-border outline-none w-[calc(100%+theme(spacing.10))] bg-h-200 dark:bg-h-700')
-        .settings(class='flex items-end justify-end')
+    #form
+      .wrap(class='flex flex-col gap-y-2')
+        .write(class='p-5 w-full overflow-hidden rounded-lg box-border h-32 relative bg-h-200 dark:bg-h-700')
+          label.label(
+            for='text'
+            class='text-hidden') 댓글
+          textarea#text.textarea(
+            x-data='{ disabled: /^(?!.*tistory\\.com).*$/.test(location.hostname) && T.config.NEED_COMMENT_LOGIN }'
+            :placeholder='disabled && "이 블로그는 2차 도메인을 사용 중입니다. 댓글을 작성하려면 "+TistoryBlog.tistoryUrl+" 으로 이동해주세요."'
+            :disabled='disabled'
+            name=`${type === 'guest' ? '[##_guest_textarea_body_##]' : '[##_rp_input_comment_##]'}`
+            class='border-0 resize-none p-0 pr-5 h-full overflow-x-hidden overflow-y-scroll text-sm box-border outline-none w-[calc(100%+theme(spacing.10))] bg-h-200 dark:bg-h-700')
+        .controls(class='flex justify-end gap-x-2')
           if process.env.NODE_ENV === 'development'
-            +formGuestControl(type)
+            +guest(type)
           else
             #{`s_${type}_member`}
               #{type === 'guest' ? 's_guest_form' : 's_rp_guest'}
-                +formGuestControl(type)
-          #write(class='flex items-end gap-x-4')
-            .secret(x-data='{ secret: false }')
-              input#secret.input(
-                type='checkbox'
-                name=`[##_${type}_input_is_secret_##]`
-                class='hidden')
-              label.label(
-                for='secret'
-                @click='secret = ! secret')
-                span.txt(class='text-hidden') 비밀글
-                i.ico(
-                  class='fa-solid'
-                  :class='{ "fa-lock": secret, "fa-unlock": ! secret }')
-            button.submit(
-              type='submit'
-              onclick=`[##_${type}_onclick_submit_##]`)
-              span.txt(class='text-hidden') 댓글쓰기
-              i.ico(class='fa-solid fa-arrow-circle-down text-3xl leading-none text-h-900 dark:text-h-200')
+                +guest(type)
+          .secret(x-data='{ secret: false }')
+            input#secret.input(
+              type='checkbox'
+              name=`[##_${type}_input_is_secret_##]`
+              class='hidden')
+            label.label(
+              @click='secret = ! secret'
+              for='secret')
+              span.txt 비밀글
+              i.ico(:class='{ "fa-lock": secret, "fa-lock-open": ! secret }')
+          button.submit(
+            type='submit'
+            onclick=`[##_${type}_onclick_submit_##]`)
+            span.txt 댓글쓰기
+            i.ico(class='fa-paper-plane')
+
+style
+  :postcss
+    #form {
+      .controls {
+        .name,
+        .password {
+          .input {
+            @apply rounded-md px-3 border-0 inline-block outline-none h-10 w-full text-xs;
+            @apply text-h-500 bg-h-200 dark:text-h-200 dark:bg-h-700;
+          }
+
+          .label {
+            @apply text-hidden;
+          }
+        }
+
+        .secret > .label,
+        .submit {
+          @apply cursor-pointer m-0 p-0 w-10 h-10 min-w-max rounded-lg flex justify-center items-center text-[0] outline-0 border-0;
+          @apply bg-h-200 hover:bg-h-300 dark:bg-h-700 dark:hover:bg-h-600;
+
+          .ico {
+            @apply text-sm leading-none text-h-900 dark:text-h-200;
+          }
+        }
+
+        .txt {
+          @apply text-hidden;
+        }
+      }
+    }
