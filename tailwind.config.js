@@ -31,7 +31,7 @@ module.exports = {
     },
     extend: {
       spacing: {
-        idx: 'var(h-idx)',
+        idx: 'var(--h-idx)',
         pem: 'var(--h-pem)',
         s: 'var(--h-s)',
         c: 'var(--h-c)'
