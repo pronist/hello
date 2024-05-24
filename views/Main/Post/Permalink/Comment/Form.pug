@@ -18,8 +18,8 @@ mixin guest(type)
       value='[##_guest_password_##]')
 
 mixin form(type)
-  #{`s_${type}_input_form`}
-    #form
+  #form
+    #{`s_${type}_input_form`}
       .wrap(class='flex flex-col gap-y-2')
         .write(class='p-5 w-full overflow-hidden rounded-lg box-border h-32 relative bg-h-200 dark:bg-h-700')
           label.label(

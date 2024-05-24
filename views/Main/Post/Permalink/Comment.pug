@@ -1,9 +1,10 @@
-#comment(
-  class='px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto'
+section#comment(
   x-data='{ shown: false }'
-  x-intersect.once='shown = true')
-  s_rp
-    .wrap(x-show='shown')
-      include Comment/Supporters
+  x-intersect.once='shown = true'
+  class='px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto')
+  .wrap(x-show='shown')
+    include Comment/Supporters
+    s_rp
+      h1.tit(class='hidden') 댓글
       +form('rp')
       +list('rp', 'rp2', true)
