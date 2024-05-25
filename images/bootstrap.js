@@ -52,7 +52,7 @@ class DarkMode {
 const darkMode = new DarkMode()
 const preferredDarkMode = darkMode.preferred()
 
-preferredDarkMode && window.darkMode.on()
+preferredDarkMode && darkMode.on()
 
 /**
  * Console Issues
