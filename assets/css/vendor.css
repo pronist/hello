@@ -1,0 +1,21 @@
+/* https://github.com/aFarkas/lazysizes#css-api */
+.lazyload,
+.lazyloading {
+  @apply animate-pulse bg-h-300 dark:bg-h-700;
+}
+
+.lazyloaded {
+  @apply animate-none bg-h-100;
+}
+
+.lazyload:not([src]) {
+  @apply invisible;
+}
+
+/* https://swiperjs.com/demos#navigation */
+.swiper-button-next,
+.swiper-button-prev {
+  --swiper-navigation-size: 1.5rem;
+  --swiper-navigation-color: rgba(255, 255, 255, .6);
+  @apply max-lg:hidden !important;
+}
