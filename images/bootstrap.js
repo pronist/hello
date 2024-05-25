@@ -16,7 +16,7 @@ class DarkMode {
      *
      * @type {string}
      */
-    this.key = 'TTDARK'
+    this.key = 'theme'
   }
 
   /**
@@ -25,10 +25,10 @@ class DarkMode {
    * @return {boolean}
    */
   preferred () {
-    const os = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Y' : 'N'
-    const signal = localStorage.getItem(this.key) || os
+    const os = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    const theme = localStorage.getItem(this.key) || os
 
-    return signal === 'Y'
+    return theme === 'dark'
   }
 
   /**
@@ -42,17 +42,21 @@ class DarkMode {
    * Toggle
    */
   toggle () {
-    localStorage.setItem(this.key, document.documentElement.classList.contains(this.class) ? 'N' : 'Y')
+    const on = document.documentElement.classList.contains(this.class)
+
+    localStorage.setItem(this.key, on ? 'light' : 'dark')
     document.documentElement.classList.toggle(this.class)
   }
 }
 
-const darkMode = new DarkMode()
-const preferredDarkMode = darkMode.preferred()
+window.theme = (() => {
+  const darkMode = new DarkMode()
+  const preferredDarkMode = darkMode.preferred()
 
-preferredDarkMode && darkMode.on()
+  preferredDarkMode && darkMode.on()
 
-window.TTDARK = preferredDarkMode
+  return preferredDarkMode
+})()
 
 /**
  * Console Issues
