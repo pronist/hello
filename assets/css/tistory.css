@@ -11,6 +11,12 @@
 
   h2,
   h3,
+  th {
+    @apply font-bold;
+  }
+
+  h2,
+  h3,
   th,
   p {
     @apply text-h-600 dark:text-h-200 border-h-300 dark:border-h-600;
