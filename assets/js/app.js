@@ -1,15 +1,15 @@
-/** app.js
+/** app.css
  *
  * Entry for bundling by webpack.
  * for example, if you have your own script, or plguin,
  * you can import that.
  * ex) import "./bower_components/animate.css/animate.min.css"
  *
- * you are able to include js, css
+ * you are able to include css, css
  * if you want to contain other scripts like .ts, .less, .sass,
- * set the loaders in tidory.config.js
+ * set the loaders in tidory.config.css
  *
- * after import assets it will be contained in app.js
+ * after import assets it will be contained in app.css
  */
 
 /** @see https://alpinejs.dev */

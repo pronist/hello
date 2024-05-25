@@ -1,7 +1,7 @@
 doctype html
 
 html#hELLO(
-  x-data='{ dark: theme, loading: true }'
+  x-data='{ dark: preferredDarkMode, loading: true }'
   x-init='setTimeout(() => loading = false, 100)'
   lang='ko'
   class='scroll-smooth')
@@ -32,7 +32,9 @@ html#hELLO(
       }
 
     style
-      include:postcss @/app.css
+      include:postcss @/css/tistory.css
+      include:postcss @/css/app.css
+      include:postcss @/css/vendor.css
 
     script(fixed).
       /**

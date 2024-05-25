@@ -49,14 +49,10 @@ class DarkMode {
   }
 }
 
-window.theme = (() => {
-  const darkMode = new DarkMode()
-  const preferredDarkMode = darkMode.preferred()
+const darkMode = new DarkMode()
+const preferredDarkMode = darkMode.preferred()
 
-  preferredDarkMode && darkMode.on()
-
-  return preferredDarkMode
-})()
+preferredDarkMode && window.darkMode.on()
 
 /**
  * Console Issues

@@ -126,9 +126,9 @@ module.exports = {
       ...webpackConfig.module.rules
     ]
 
-    webpackConfig.entry = {
-      vendor: './assets/vendor.js',
-      ...webpackConfig.entry
-    }
+    webpackConfig.entry = Object.assign(webpackConfig.entry, {
+      app: './assets/js/app.js',
+      vendor: './assets/js/vendor.js'
+    })
   }
 }
