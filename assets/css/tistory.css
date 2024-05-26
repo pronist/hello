@@ -10,8 +10,7 @@
   }
 
   h2,
-  h3,
-  th {
+  h3 {
     @apply font-bold;
   }
 
