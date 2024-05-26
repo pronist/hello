@@ -30,7 +30,7 @@ mixin list(type, rType, reverse=false)
           li.comment(
             x-data='{ open: ! skinOptions.foldableReply, children: [] }'
             id=`[##_${type}_rep_id_##]`
-            :class='{ "[&>.comment]:before:hidden": children.length === 0 }'
+            :class='{ "[&>.wrap]:before:hidden": children.length === 0 }'
             class='flex flex-col gap-y-5 border-b border-h-300 dark:border-h-600 pb-5')
             +comment(type)
             #{`s_${rType}_container`}
