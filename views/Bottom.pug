@@ -2,41 +2,22 @@
   x-data='bottom'
   class='flex justify-end px-4 w-full box-border fixed text-sm z-30 bottom-3 xl:bottom-4 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>')
   .wrap(class='flex gap-x-3')
-    button.theme.btn(@click='toggle')
+    button.theme.btn(@click='toggleTheme')
       span.txt(class='text-hidden') 테마
       i.ico(class='fa-solid fa-moon text-base')
     a.top.btn(href='#hELLO')
       span.txt(class='text-hidden') 상단으로
       i.ico(class='fa-solid fa-chevron-up text-base')
-    button.shortcut.btn(@click='showShortcut')
-      span.txt(class='text-hidden') 단축키
-      i.ico(class='fa-regular fa-keyboard text-base')
 
 script.
   document.addEventListener('alpine:init', () => Alpine.data('bottom', () => ({
     /**
      * Toggle Theme
      */
-    toggle () {
+    toggleTheme () {
       darkMode.toggle()
 
       this.$data.dark = ! this.$data.dark
-    },
-
-    /**
-     * Display shortcut layer
-     */
-    showShortcut () {
-      this.$shortcutLayer.style.display = 'block'
-    },
-
-    /**
-     * Get shortcutLayer
-     *
-     * @return {HTMLElement}
-     */
-    get $shortcutLayer () {
-      return document.getElementById('shortcutLayer')
     }
   })))
 

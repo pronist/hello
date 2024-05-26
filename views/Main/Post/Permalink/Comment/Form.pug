@@ -23,9 +23,9 @@ mixin form(type)
       .wrap(class='flex flex-col gap-y-2')
         .write(class='p-5 w-full overflow-hidden rounded-lg box-border h-32 relative bg-h-200 dark:bg-h-700')
           label.label(
-            for='text'
+            for='comment'
             class='text-hidden') 댓글
-          textarea#text.textarea(
+          textarea#comment.textarea(
             x-data='{ disabled: /^(?!.*tistory\\.com).*$/.test(location.hostname) && T.config.NEED_COMMENT_LOGIN }'
             :placeholder='disabled && "이 블로그는 2차 도메인을 사용 중입니다. 댓글을 작성하려면 "+TistoryBlog.tistoryUrl+" 으로 이동해주세요."'
             :disabled='disabled'
