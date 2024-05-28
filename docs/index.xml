@@ -64,7 +64,7 @@
     <variablegroup name="사이드바">
       <variable>
         <name>sidebar</name>
-        <label>사이드바</label>
+        <label>사이드바 펼치기/접기</label>
         <description><![CDATA[ 사이드바 ]]></description>
         <type>BOOL</type>
         <default>true</default>
@@ -101,15 +101,15 @@
       </variable>
       <variable>
         <name>hljs</name>
-        <label>코드 하이라이팅(라이트)</label>
-        <description><![CDATA[ 코드 하이라이팅(라이트) ]]></description>
+        <label>코드 하이라이팅(Light)</label>
+        <description><![CDATA[ 코드 하이라이팅(Light) ]]></description>
         <type>STRING</type>
         <default>xcode</default>
       </variable>
       <variable>
         <name>hljs-dark</name>
-        <label>코드 하이라이팅(다크)</label>
-        <description><![CDATA[ 코드 하이라이팅(다크) ]]></description>
+        <label>코드 하이라이팅(Dark)</label>
+        <description><![CDATA[ 코드 하이라이팅(Dark) ]]></description>
         <type>STRING</type>
         <default>vs2015</default>
       </variable>
