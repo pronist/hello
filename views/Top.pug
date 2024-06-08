@@ -85,9 +85,15 @@ script.
 
 style
   :postcss
+    .menu_toolbar {
+      @apply hidden;
+    }
+
+style
+  :postcss
     #top {
       #menu-toolbar {
-        @apply static flex gap-x-3;
+        @apply static flex gap-x-2.5;
 
         .subscribe {
           .ico {
