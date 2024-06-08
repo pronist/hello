@@ -1,10 +1,11 @@
 #random-tags.el
   h2.tit
     a.link.to-list(href='/tag') 태그
-  ul.tags(class='flex flex-col gap-y-4 text-sm')
+  .tags(class='flex flex-wrap gap-1.5')
     s_random_tags
-      li.tag
-        .name
-          i.ico(class='fa fa-tag mr-2')
-          a.link(href='[##_tag_link_##]'
-            class='[##_tag_class_##]') [##_tag_name_##]
+      .tag
+        a.name(
+          href='[##_tag_link_##]'
+          class='inline-block text-xs px-3 py-2 rounded-lg bg-h-300 dark:bg-h-800')
+          i.ico(class='fa fa-tag mr-1.5')
+          span.link(class='[##_tag_class_##]') [##_tag_name_##]
