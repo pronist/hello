@@ -1,5 +1,5 @@
 if process.env.NODE_ENV === 'development'
-  template(x-teleport='.contents_style > .container_postbtn')
+  template(x-teleport='#article .container_postbtn')
     button.btn_menu_toolbar.btn_subscription(
       type='button'
       class='#subscribe'
@@ -12,10 +12,10 @@ if process.env.NODE_ENV === 'development'
 
 style(once='content-subscription-button')
   :postcss
-    #content {
+    #article {
       .container_postbtn {
         .btn_subscription {
-          @apply border-0 ml-2 mr-0;
+          @apply before:fa-star before:font-bold before:text-sm;
 
           .txt_state {
             @apply text-hidden;
@@ -24,10 +24,6 @@ style(once='content-subscription-button')
           .txt_tool_id,
           .ico_check_type1 {
             @apply hidden;
-          }
-
-          &::before {
-            @apply fa-star font-bold text-sm;
           }
         }
       }
