@@ -11,6 +11,7 @@
         .desc
           | #{`[##_${type}_rep_desc_##]`}
           include Content/Subscription
+          include Content/Support
     s_if_var_scrollspy
       include Content/Scrollspy
 
@@ -560,11 +561,12 @@ style(once='content-postbtn')
   :postcss
     #article {
       .container_postbtn {
-        @apply p-0 pt-9 text-h-600 dark:text-h-200;
+        @apply flex gap-x-2 p-0 pt-9 text-h-600 dark:text-h-200;
 
         .postbtn_like > .wrap_btn:not([id^=reaction-]) > button,
-        .btn_subscription {
-          @apply w-9 h-9 inline-block shadow-none outline-0 rounded-md cursor-pointer duration-200 leading-none text-[0] p-0 bg-h-200;
+        .btn_subscription,
+        .tt-btn-support {
+          @apply w-9 h-9 inline-block shadow-none outline-0 rounded-md cursor-pointer duration-200 leading-none text-[0] p-0 m-0 bg-h-200 border-0;
           @apply hover:bg-h-300;
           @apply before:text-h-500;
           @apply dark:bg-h-700 dark:before:text-h-200 dark:hover:bg-h-600;

@@ -1,0 +1,22 @@
+if process.env.NODE_ENV === 'development'
+  template(x-teleport='#article .container_postbtn')
+    //div(data-tistory-react-app='SupportButton')
+    div
+      button.tt-btn-support(type='button') 응원하기
+
+if process.env.NODE_ENV === 'development'
+  style(once='supportButton')
+    :postcss
+      div[data-tistory-react-app='SupportButton'] {
+        @apply hidden;
+      }
+
+style(once='content-support-button')
+  :postcss
+    #article {
+      .container_postbtn {
+        .tt-btn-support {
+          @apply before:fa-mug-saucer before:text-sm;
+        }
+      }
+    }

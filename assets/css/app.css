@@ -73,4 +73,8 @@
   .fa-lock-open {
     @apply font-awesome font-bold content-['\f3c1'];
   }
+
+  .fa-mug-saucer {
+    @apply font-awesome font-bold content-['\f0f4'];
+  }
 }

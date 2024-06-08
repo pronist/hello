@@ -335,28 +335,23 @@ if process.env.NODE_ENV === 'development'
 
 style
   :postcss
-    .tt_box_cheers {
-      @apply rounded-lg dark:border-h-600;
+    #replies {
+      .tt_box_cheers {
+        @apply border-0 m-0 p-0;
 
-      svg {
-        @apply inline align-baseline;
-      }
+        svg {
+          @apply inline align-baseline;
+        }
 
-      .tt_desc_cheers {
-        @apply font-sans dark:text-h-200;
-      }
+        .tt_btn_guide_cheers,
+        .tt_btn_cheers,
+        .tt_desc_cheers {
+          @apply hidden;
+        }
 
-      .tt_guide_cheers {
-        .tt_txt_guide_cheers {
-          @apply dark:text-h-200;
+        .tt_cheers_layer {
+          @apply backdrop-blur dark:bg-h-900/50;
         }
       }
-
-      .tt_btn_cheers {
-        @apply dark:bg-h-700 dark:hover:bg-h-600;
-      }
-
-      .tt_cheers_layer {
-        @apply backdrop-blur dark:bg-h-900/50;
-      }
     }
+
