@@ -1,12 +1,35 @@
 s_tag_label
-  #tags(class='flex flex-wrap gap-x-1 text-[0]')
+  #tags(
+    x-data='tag'
+    class='flex flex-wrap mt-1 gap-x-2 text-[0]')
     | [##_tag_label_rep_##]
+
+script.
+  document.addEventListener('alpine:init', () => Alpine.data('tag', () => ({
+    /**
+     * Init
+     */
+    init () {
+      this.removeAllCommas()
+    },
+
+    /**
+     * Remove all commas
+     */
+    removeAllCommas () {
+      for (const node of this.$el.childNodes) {
+        if (node.nodeType === 3) {
+          node.remove()
+        }
+      }
+    }
+  })))
 
 style(once='tags')
   :postcss
     #tags {
       a {
-        @apply text-sm text-sm rounded-md py-2 px-4 mt-3 bg-h-200 text-h-500;
+        @apply text-sm rounded-md py-2 px-4 mt-2 bg-h-200 text-h-500;
         @apply dark:text-h-200 dark:bg-h-700;
 
         &:hover {
