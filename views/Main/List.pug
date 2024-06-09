@@ -16,11 +16,27 @@ s_list
         class='flex flex-col items-center z-20 relative mx-4 text-center text-h-800 dark:text-h-200 lg:mx-0')
         h1.tit(class='font-semibold text-2xl lg:text-3xl') [##_list_conform_##]
         span.desc(class='mt-2 empty:mt-0') [##_list_description_##]
-    .posts(
-      x-ref='list'
-      class='w-full px-4 lg:px-0 lg:w-idx lg:mx-auto')
+    .posts(x-ref='list')
       s_list_rep
         +index('list')
+
+style
+  :postcss
+    [data-mode=gallery],
+    [data-mode=list],
+    [data-mode=grid],
+    [data-mode=zigzag] {
+      .posts {
+        @apply w-full px-4 lg:px-0 lg:w-idx lg:mx-auto;
+      }
+    }
+
+    [data-mode=slideshow] {
+      .posts {
+        @apply w-full h-screen;
+      }
+    }
+
 
 style
   :postcss

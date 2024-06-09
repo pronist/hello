@@ -10,28 +10,22 @@ mixin coverImage()
         data-src='[##_cover_item_thumbnail_##]'
         data-sizes='auto'
         alt=''
-        class='lazyload object-cover bg-h-100')&attributes(attributes)
+        class='lazyload')&attributes(attributes)
 
 mixin coverDescriptionIfContent()
-  .info(class='flex flex-col')&attributes(attributes)
+  .info&attributes(attributes)
     .tit
-      a.link(
-        href='[##_cover_item_url_##]'
-        class='text-h-800 dark:text-h-200') [##_cover_item_title_##]
-    .desc(class='flex gap-x-1 text-sm')
-      time.date(class='text-h-400') [##_cover_item_simple_date_##]
-      span.delimiter(class='text-h-400') ·
-      a.category(
-        href='[##_cover_item_category_url_##]'
-        class='text-sm text-h-400') [##_cover_item_category_##]
-    .summary(class='relative overflow-hidden leading-7 text-sm text-h-500 dark:text-h-400') [##_cover_item_summary_##]
+      a.link(href='[##_cover_item_url_##]') [##_cover_item_title_##]
+    .desc
+      time.date [##_cover_item_simple_date_##]
+      span.delimiter ·
+      a.category(href='[##_cover_item_category_url_##]') [##_cover_item_category_##]
+    .summary [##_cover_item_summary_##]
 
 mixin coverDescriptionIfNotContent()
-  .info(class='flex flex-col')&attributes(attributes)
+  .info&attributes(attributes)
     .tit
-      a.link(
-        href='[##_cover_item_url_##]'
-        class='text-h-800 dark:text-h-200') [##_cover_item_title_##]
+      a.link(href='[##_cover_item_url_##]') [##_cover_item_title_##]
     .summary [##_cover_item_summary_##]
 
 mixin coverDescription()
@@ -43,20 +37,17 @@ mixin coverDescription()
 mixin coverList(mode)
   section.cover(
     data-mode=mode
-    class='flex flex-col items-center [&>.header]:first:mt-24')
-    header.header(class='my-10 empty:my-10 lg:my-20')
-      h1.tit(class='text-3xl font-bold text-h-600 dark:text-h-200') [##_cover_title_##]
-    .posts(class='w-full px-4 lg:px-0 lg:w-idx lg:mx-auto')
+    class='flex flex-col items-center first:mt-7')
+    header.header(class='my-10 empty:my-10 lg:my-16')
+      h1.tit(class='font-semibold text-2xl lg:text-3xl text-h-600 dark:text-h-200') [##_cover_title_##]
+    .posts
       +coverItem()
         +coverImage()
         +coverDescription()
 
 mixin coverSlideshow()
-  section.cover(
-    data-mode='slideshow'
-    class='gap-y-10')
-    .slideshow(
-      class='swiper w-full h-screen')
+  section.cover(data-mode='slideshow')
+    .slideshow(class='swiper')
       .posts(class='swiper-wrapper')
         +coverItem()(class='swiper-slide')
           +coverImage()

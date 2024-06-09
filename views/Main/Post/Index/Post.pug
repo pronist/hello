@@ -5,17 +5,51 @@
         data-src=`[##_${type}_rep_thumbnail${type === 'list' ? '' : '_url'}_##]`
         data-sizes='auto'
         alt=''
-        class='lazyload object-cover bg-h-100')
-  .info(class='flex flex-col')
+        class='lazyload')
+  .info
     .tit
-      a.link(
-        href=`[##_${type}_rep_link_##]`
-        class='text-h-800 dark:text-h-200 [&_img]:hidden') #{`[##_${type}_rep_title_##]`}
-    .desc(class='flex gap-x-1 text-sm')
-      time.date(class='text-h-400') #{`[##_${type}_rep_${type === 'list' ? 'regdate' : 'date'}_##]`}
+      a.link(href=`[##_${type}_rep_link_##]`) #{`[##_${type}_rep_title_##]`}
+    .desc
+      time.date #{`[##_${type}_rep_${type === 'list' ? 'regdate' : 'date'}_##]`}
       if hasCategory
-        span.delimiter(class='text-h-400') ·
-        a.category(
-          href=`[##_${type}_rep_category_link_##]`
-          class='text-h-400') #{`[##_${type}_rep_category_##]`}
-    .summary(class='relative overflow-hidden text-h-400 leading-7 text-sm') #{`[##_${type}_rep_summary_##]`}
+        span.delimiter ·
+        a.category(href=`[##_${type}_rep_category_link_##]`) #{`[##_${type}_rep_category_##]`}
+    .summary #{`[##_${type}_rep_summary_##]`}
+
+style(once='post')
+  :postcss
+    .post {
+      .img {
+        .thumb {
+          @apply object-cover bg-h-100;
+        }
+      }
+
+      .info {
+        @apply flex flex-col;
+
+        .tit {
+          .link {
+           @apply text-h-800 dark:text-h-200;
+
+            img {
+              @apply hidden;
+            }
+          }
+        }
+
+        .desc {
+          @apply flex gap-x-1 text-sm;
+
+          .date,
+          .delimiter,
+          .category {
+            @apply text-h-400;
+          }
+        }
+
+        .summary {
+          @apply relative overflow-hidden leading-7 text-sm text-h-400;
+        }
+      }
+    }
