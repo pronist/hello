@@ -15,7 +15,8 @@ import 'swiper/css/navigation'
 const swiper = new Swiper('.swiper', {
   modules: [Navigation],
   autoplay: {
-    delay: 3000
+    delay: 3000,
+    disableOnInteraction: false
   },
   navigation: {
     nextEl: '.swiper-button-next',

@@ -18,4 +18,9 @@
   --swiper-navigation-size: 1.5rem;
   --swiper-navigation-color: rgba(255, 255, 255, .6);
   @apply max-lg:hidden !important;
+
+  &::before,
+  &::after {
+    @apply text-sm font-bold !important;
+  }
 }

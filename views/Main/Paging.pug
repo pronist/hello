@@ -2,7 +2,7 @@ s_paging
   ul#paging(class='flex justify-center items-center mt-12 lg:mt-20')
     li.prev
       a.link([##_prev_page_##] class='[##_no_more_prev_##]')
-        span.txt(class='text-hidden') 이전
+        span.txt 이전
         i.ico(class='fa fa-angle-left')
     s_paging_rep
       li.num
@@ -10,11 +10,18 @@ s_paging
     li.next
       a.link([##_next_page_##] class='[##_no_more_next_##]')
         i.ico(class='fa fa-angle-right')
-        span.txt(class='text-hidden') 다음
+        span.txt 다음
 
 style
   :postcss
     #paging {
+      .prev,
+      .next {
+        .txt {
+          @apply text-hidden;
+        }
+      }
+
       a {
         @apply inline-block;
       }

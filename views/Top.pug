@@ -20,7 +20,9 @@
       height='36')
   .tit(class='max-w-[calc(80vw-152px)] h-5')
     .txt(class='m-0 text-overflow-hidden text-sm font-bold text-h-800 dark:text-h-200') [##_page_title_##]
-  #menu-toolbar(class='menu_toolbar')
+  #menu-toolbar(
+    x-ref='toolbar'
+    class='menu_toolbar')
     button.subscribe(
       x-show='T.config.ROLE !== "owner" && /^(.*tistory\\.com)$/.test(location.hostname)'
       :data-blog-id='T.config.BLOG.id'
@@ -50,7 +52,7 @@ script.
     setTistoryMenuToolbar () {
       const tistoryMenuToolbar = document.getElementById('menubar_wrapper')
 
-      tistoryMenuToolbar && this.$el.querySelector('#menu-toolbar').append(tistoryMenuToolbar)
+      tistoryMenuToolbar && this.$refs.toolbar.append(tistoryMenuToolbar)
     },
 
     /**
@@ -103,71 +105,71 @@ style
 
         .subscribe,
         .btn_menu_type2 {
-          @apply flex justify-center items-center w-9 h-9 p-0 rounded-full outline-0 bg-h-200 text-h-500 shadow-none;
+          @apply flex justify-center items-center w-9 h-9 p-0 rounded-full outline-0 bg-h-200 text-h-500 shadow-none hover:bg-h-300;
           @apply dark:text-h-200 dark:bg-h-700 dark:hover:bg-h-600;
-          @apply hover:bg-h-300;
-        }
-
-        #menubar_wrapper {
-          @apply relative;
-
-          .btn_menu_type2 {
-            @apply transition-none;
-
-            .ico_tistory_sign {
-              @apply opacity-70 dark:opacity-100 dark:invert;
-            }
-          }
-
-          .header_layer {
-            @apply absolute top-12 right-0 left-auto bottom-auto;
-            @apply shadow-none bg-h-200 dark:bg-h-700;
-
-            &::after {
-              @apply hidden;
-            }
-
-            a {
-              @apply no-underline;
-            }
-
-            .info_profile {
-              @apply border-b-h-300 dark:border-b-h-600;
-
-              .txt_id {
-                @apply text-h-500 dark:text-h-200;
-              }
-
-              .txt_email,
-              .link_setting_type2 {
-                @apply text-h-400 hover:text-h-800 dark:hover:text-h-200;
-              }
-            }
-
-            .list_toolbar {
-              li {
-                .link_list {
-                  @apply text-h-500 dark:text-h-200;
-                }
-
-                &:last-child {
-                  .link_list {
-                    @apply text-h-400 hover:text-h-800 dark:hover:text-h-200;
-                  }
-                }
-              }
-            }
-
-            .wrap_list {
-              .tit_list_type {
-                @apply text-h-400 hover:text-h-800 dark:hover:text-h-200;
-              }
-            }
-
-            .wrap_toolbar {
-              @apply border-t-h-300 dark:border-t-h-600;
-            }
-          }
         }
       }
     }
+
+style
+  :postcss
+    #menubar_wrapper {
+      @apply relative;
+
+      .btn_menu_type2 {
+        .ico_tistory_sign {
+          @apply opacity-70 dark:opacity-100 dark:invert;
+        }
+      }
+
+      .header_layer {
+        @apply absolute top-12 right-0 left-auto bottom-auto;
+        @apply shadow-none bg-h-200 dark:bg-h-700;
+
+        &::after {
+          @apply hidden;
+        }
+
+        a {
+          @apply no-underline;
+        }
+
+        .info_profile {
+          @apply border-b-h-300 dark:border-b-h-600;
+
+          .txt_id {
+            @apply text-h-500 dark:text-h-200;
+          }
+
+          .txt_email,
+          .link_setting_type2 {
+            @apply text-h-400 hover:text-h-800 dark:hover:text-h-200;
+          }
+        }
+
+        .list_toolbar {
+          li {
+            .link_list {
+              @apply text-h-500 dark:text-h-200;
+            }
+
+            &:last-child {
+              .link_list {
+                @apply text-h-400 hover:text-h-800 dark:hover:text-h-200;
+              }
+            }
+          }
+        }
+
+        .wrap_list {
+          .tit_list_type {
+            @apply text-h-400 hover:text-h-800 dark:hover:text-h-200;
+          }
+        }
+
+        .wrap_toolbar {
+          @apply border-t-h-300 dark:border-t-h-600;
+        }
+      }
+    }
+

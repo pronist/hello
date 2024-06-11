@@ -2,41 +2,25 @@ s_list
   #list(data-mode='[##_list_style_##]')
     header.header(
       x-data='{ thumb: false }'
-      class='h-64 mb-12 flex justify-center items-center border-b border-b-solid border-b-h-300 lg:mb-16 dark:border-b-h-600')
+      class='relative h-64 mb-12 flex justify-center items-center border-b border-b-solid border-b-h-300 lg:mb-16 dark:border-b-h-600')
       s_list_image
         .img(
           x-init='thumb = true'
-          class='absolute right-0 top-0 w-full h-64 before:backdrop-blur before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10')
+          class='absolute right-0 top-0 w-full h-64 before:backdrop-blur before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/30 before:z-10')
           img.thumb(
             src='[##_list_image_##]'
             alt=''
             class='absolute right-0 top-0 w-full h-64 z-0 object-cover')
       .info(
-        :class='{ "text-h-200": thumb }'
-        class='flex flex-col items-center z-20 relative mx-4 text-center text-h-800 dark:text-h-200 lg:mx-0')
+        :class='thumb? "text-h-200" : "text-h-800"'
+        class='flex flex-col items-center z-20 relative mx-4 text-center dark:text-h-200 lg:mx-0')
         h1.tit(class='font-semibold text-2xl lg:text-3xl') [##_list_conform_##]
         span.desc(class='mt-2 empty:mt-0') [##_list_description_##]
-    .posts(x-ref='list')
+    .posts(
+      class='w-full px-4 lg:px-0 lg:w-idx lg:mx-auto'
+      x-ref='list')
       s_list_rep
         +index('list')
-
-style
-  :postcss
-    [data-mode=gallery],
-    [data-mode=list],
-    [data-mode=grid],
-    [data-mode=zigzag] {
-      .posts {
-        @apply w-full px-4 lg:px-0 lg:w-idx lg:mx-auto;
-      }
-    }
-
-    [data-mode=slideshow] {
-      .posts {
-        @apply w-full h-screen;
-      }
-    }
-
 
 style
   :postcss
@@ -208,7 +192,7 @@ style
   :postcss
     [data-mode=slideshow] {
       .post {
-        @apply before:absolute before:right-0 before:top-0 before:w-full before:h-screen before:bg-h-900/30 before:z-10;
+        @apply before:absolute before:right-0 before:top-0 before:w-full before:h-screen before:bg-h-900/20 before:z-10;
         @apply flex justify-center items-center;
 
         .img {

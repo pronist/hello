@@ -1,10 +1,12 @@
 #recent-posts.el
   h2.tit 최근 글
-  ul.posts(class='flex flex-col gap-y-4 text-sm')
+  ul.posts(class='flex flex-col gap-y-4')
     s_rctps_rep
       li.post(class='flex justify-between')
         .tit(class='text-overflow-hidden text-h-400')
-          a.link(href='[##_rctps_rep_link_##]') [##_rctps_rep_title_##]
+          a.link(
+            class='text-sm'
+            href='[##_rctps_rep_link_##]') [##_rctps_rep_title_##]
           .date(class='mt-1 text-xs') [##_rctps_rep_simple_date_##]
         s_rctps_rep_thumbnail
           img.thumb(
