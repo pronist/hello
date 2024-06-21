@@ -60,44 +60,42 @@ script.
 
 style
   :postcss
-    #sidebar {
-      #category {
-        .tt_category {
-          .link_tit,
-          .link_item,
-          .link_sub_item {
-            img {
-              @apply hidden;
-            }
-
-            .c_cnt {
-              @apply text-xs;
-            }
+    #category {
+      .tt_category {
+        .link_tit,
+        .link_item,
+        .link_sub_item {
+          img {
+            @apply hidden;
           }
 
-          .link_tit {
-            @apply text-sm font-bold mb-6 inline-block text-h-900 dark:text-h-200;
+          .c_cnt {
+            @apply text-xs;
           }
+        }
 
-          ul {
-            @apply flex flex-col gap-y-4 text-sm;
+        .link_tit {
+          @apply text-sm font-bold mb-6 inline-block text-h-900 dark:text-h-200;
+        }
 
-            li {
-              @apply relative;
+        ul {
+          @apply flex flex-col gap-y-4 text-sm;
 
-              i {
-                @apply absolute right-0 text-xs cursor-pointer leading-5;
-              }
+          li {
+            @apply relative;
+
+            i {
+              @apply absolute right-0 text-xs cursor-pointer leading-5;
             }
           }
+        }
 
-          .sub_category_list {
-            li {
-              @apply first:mt-4;
+        .sub_category_list {
+          li {
+            @apply first:mt-4;
 
-              .link_sub_item::before {
-                @apply mr-1 fa-chevron-right text-xs font-bold text-h-400;
-              }
+            .link_sub_item::before {
+              @apply mr-1 fa-chevron-right text-xs font-bold text-h-400;
             }
           }
         }
