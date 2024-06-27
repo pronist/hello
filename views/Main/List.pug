@@ -153,20 +153,11 @@ style
   :postcss
     [data-mode=zigzag] {
       .posts {
-        @apply flex flex-col gap-y-24 lg:gap-y-28;
+        @apply flex flex-col gap-y-6 lg:gap-y-8;
       }
 
       .post {
-        @apply relative flex flex-col gap-y-4 lg:flex-row mt-6;
-
-        &:last-child::before {
-          @apply hidden;
-        }
-
-        &::before {
-          @apply content-[''] absolute w-0.5 h-12 lg:h-16 bg-h-300 dark:bg-h-600;
-          @apply top-[calc(100%+theme(spacing.6))] left-[calc(100%/2)] lg:top-[calc(100%+theme(spacing.6))] lg:left-[calc(theme('screens.lg')/2)];
-        }
+        @apply relative flex flex-col gap-y-4 lg:flex-row;
 
         .img {
           .thumb {
@@ -176,7 +167,7 @@ style
         }
 
         .info {
-          @apply gap-y-1 p-10 justify-center lg:p-16 bg-h-200 dark:bg-h-700;
+          @apply gap-y-1 justify-center;
 
           .tit {
             @apply text-xl lg:text-2xl font-bold;
@@ -188,16 +179,16 @@ style
         }
 
         &:nth-child(2n+1) {
-          .img {
-            @apply lg:-translate-y-6 lg:translate-x-6;
+          .info {
+            @apply lg:ml-12;
           }
         }
 
         &:nth-child(2n) {
           @apply lg:flex-row-reverse;
 
-          .img {
-            @apply lg:-translate-y-6 lg:-translate-x-6;
+          .info {
+            @apply lg:mr-12;
           }
         }
       }
