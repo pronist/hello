@@ -36,6 +36,9 @@ module.exports = {
         s: 'var(--h-s)',
         c: 'var(--h-c)'
       },
+      fontSize: {
+        xxs: '0.625rem'
+      },
       keyframes: {
         loading: {
           '0%': { transform: 'rotate(0deg)' },
