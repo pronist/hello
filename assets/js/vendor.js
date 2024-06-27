@@ -7,13 +7,14 @@ import hljs from 'highlight.js'
 window.hljs = hljs
 
 /** @see https://swiperjs.com */
-import Swiper, { Navigation } from 'swiper'
+import Swiper from 'swiper'
+import { Autoplay, Navigation } from 'swiper/modules'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
 
 const swiper = new Swiper('.swiper', {
-  modules: [Navigation],
+  modules: [Autoplay, Navigation],
   autoplay: {
     delay: 3000,
     disableOnInteraction: false
