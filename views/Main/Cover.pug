@@ -37,9 +37,9 @@ mixin coverDescription()
 mixin coverList(mode)
   section.cover(
     data-mode=mode
-    class='flex flex-col items-center first:mt-7')
-    header.header(class='my-10 empty:my-10 lg:my-16')
-      h1.tit(class='font-semibold text-2xl lg:text-3xl text-h-600 dark:text-h-200') [##_cover_title_##]
+    class='flex flex-col items-center')
+    header.header
+      h1.tit(class='flex items-center h-64 empty:hidden font-semibold text-2xl lg:text-3xl text-h-600 dark:text-h-200') [##_cover_title_##]
     .posts
       +coverItem()
         +coverImage()
@@ -56,7 +56,7 @@ mixin coverSlideshow()
       .prev(class='swiper-button-prev')
 
 s_cover_group
-  #covers(class='flex flex-col')
+  #covers(class='flex flex-col gap-y-16')
     s_cover_rep
       s_cover(name='gallery')
         +coverList('gallery')

@@ -15,7 +15,7 @@ s_list
         :class='thumb? "text-h-200" : "text-h-800"'
         class='flex flex-col items-center z-20 relative mx-4 text-center dark:text-h-200 lg:mx-0')
         h1.tit(class='font-semibold text-2xl lg:text-3xl') [##_list_conform_##]
-        span.desc(class='mt-2 empty:mt-0') [##_list_description_##]
+        span.desc(class='leading-relaxed max-w-[80%] mt-2 empty:mt-0') [##_list_description_##]
     .posts(x-ref='list')
       s_list_rep
         +index('list')
@@ -157,7 +157,7 @@ style
       }
 
       .post {
-        @apply relative flex flex-col gap-y-4 lg:flex-row;
+        @apply relative flex flex-col gap-y-4 lg:flex-row mt-6;
 
         &:last-child::before {
           @apply hidden;
