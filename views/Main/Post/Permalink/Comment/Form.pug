@@ -18,45 +18,59 @@ mixin guest(type)
       value='[##_guest_password_##]')
 
 mixin form(type)
-  #form
-    #{`s_${type}_input_form`}
-      .wrap(class='flex flex-col gap-y-2')
-        .write(class='p-5 w-full overflow-hidden rounded-lg box-border h-32 relative bg-h-200 dark:bg-h-700')
-          label.label(
-            for='comment'
-            class='text-hidden') 댓글
-          textarea#comment.textarea(
-            x-data='{ disabled: /^(?!.*tistory\\.com).*$/.test(location.hostname) && T.config.NEED_COMMENT_LOGIN }'
-            :placeholder='disabled && "이 블로그는 2차 도메인을 사용 중입니다. 댓글을 작성하려면 "+TistoryBlog.tistoryUrl+" 으로 이동해주세요."'
-            :disabled='disabled'
-            name=`${type === 'guest' ? '[##_guest_textarea_body_##]' : '[##_rp_input_comment_##]'}`
-            class='border-0 resize-none p-0 pr-5 h-full overflow-x-hidden overflow-y-scroll text-sm box-border outline-none w-[calc(100%+theme(spacing.10))] bg-h-200 text-h-500 dark:text-h-200 dark:bg-h-700')
-        .controls(class='flex justify-end gap-x-2')
-          if process.env.NODE_ENV === 'development'
-            +guest(type)
-          else
-            #{`s_${type}_member`}
-              #{type === 'guest' ? 's_guest_form' : 's_rp_guest'}
-                +guest(type)
-          .secret(x-data='{ secret: false }')
-            input#secret.input(
-              type='checkbox'
-              name=`[##_${type}_input_is_secret_##]`
-              class='hidden')
+  #form(x-data='{ primary: /^(.*tistory\\.com)$/.test(location.hostname) }')
+    template(x-if='T.config.NEED_COMMENT_LOGIN && (! T.config.IS_LOGIN)')
+      a.warning(:href='"https://www.tistory.com/auth/login/?redirectUrl="+ location.href')
+        i.ico
+        span.txt 이 블로그는 로그인한 사용자에게만 댓글을 허용했습니다.
+    template(x-if='! primary')
+      a.warning(:href='TistoryBlog.tistoryUrl')
+        i.ico
+        span.txt 이 블로그는 2차 도메인을 사용 중입니다. 댓글을 작성하려면 1차 도메인으로 이동해주세요.
+    template(x-if='primary && ((! T.config.NEED_COMMENT_LOGIN) || (T.config.NEED_COMMENT_LOGIN && T.config.IS_LOGIN))')
+      #{`s_${type}_input_form`}
+        .wrap(class='flex flex-col gap-y-2')
+          .write(class='p-5 w-full overflow-hidden rounded-lg box-border h-32 relative bg-h-200 dark:bg-h-700')
             label.label(
-              @click='secret = ! secret'
-              for='secret')
-              span.txt 비밀글
-              i.ico(:class='{ "fa-lock": secret, "fa-lock-open": ! secret }')
-          button.submit(
-            type='submit'
-            onclick=`[##_${type}_onclick_submit_##]`)
-            span.txt 댓글쓰기
-            i.ico(class='fa-paper-plane')
+              for='comment'
+              class='text-hidden') 댓글
+            textarea#comment.textarea(
+              name=`${type === 'guest' ? '[##_guest_textarea_body_##]' : '[##_rp_input_comment_##]'}`
+              class='border-0 resize-none p-0 pr-5 h-full overflow-x-hidden overflow-y-scroll text-sm box-border outline-none w-[calc(100%+theme(spacing.10))] bg-h-200 text-h-500 dark:text-h-200 dark:bg-h-700')
+          .controls(class='flex justify-end gap-x-2')
+            if process.env.NODE_ENV === 'development'
+              +guest(type)
+            else
+              #{`s_${type}_member`}
+                #{type === 'guest' ? 's_guest_form' : 's_rp_guest'}
+                  +guest(type)
+            .secret(x-data='{ secret: false }')
+              input#secret.input(
+                type='checkbox'
+                name=`[##_${type}_input_is_secret_##]`
+                class='hidden')
+              label.label(
+                @click='secret = ! secret'
+                for='secret')
+                span.txt 비밀글
+                i.ico(:class='{ "fa-lock": secret, "fa-lock-open": ! secret }')
+            button.submit(
+              type='submit'
+              onclick=`[##_${type}_onclick_submit_##]`)
+              span.txt 댓글쓰기
+              i.ico(class='fa-paper-plane')
 
 style
   :postcss
     #form {
+      .warning {
+        @apply block text-sm p-4 mb-2 w-full rounded-lg box-border relative bg-h-200 text-h-500 dark:text-h-200 dark:bg-h-700;
+
+        .ico {
+          @apply before:fa-triangle-exclamation mr-2;
+        }
+      }
+
       .controls {
         .name,
         .password {

@@ -77,4 +77,8 @@
   .fa-mug-saucer {
     @apply font-awesome font-bold content-['\f0f4'];
   }
+
+  .fa-triangle-exclamation {
+    @apply font-awesome font-bold content-['\f071'];
+  }
 }
