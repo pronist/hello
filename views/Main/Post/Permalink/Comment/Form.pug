@@ -20,11 +20,11 @@ mixin guest(type)
 mixin form(type)
   #form(x-data='{ primary: /^(.*tistory\\.com)$/.test(location.hostname) }')
     template(x-if='! primary')
-      a.warning(:href='TistoryBlog.tistoryUrl')
+      a.warning(:href='TistoryBlog.tistoryUrl+tiara.entry.plink')
         i.ico
         span.txt 이 블로그는 2차 도메인을 사용 중입니다. 댓글을 작성하려면 1차 도메인으로 이동해주세요.
     template(x-if='primary && T.config.NEED_COMMENT_LOGIN && (! T.config.IS_LOGIN)')
-      a.warning(:href='"https://www.tistory.com/auth/login/?redirectUrl="+location.href')
+      a.warning(:href='T.config.LOGIN_URL')
         i.ico
         span.txt 이 블로그는 로그인한 사용자에게만 댓글을 허용했습니다.
     template(x-if='primary && ((! T.config.NEED_COMMENT_LOGIN) || (T.config.NEED_COMMENT_LOGIN && T.config.IS_LOGIN))')
