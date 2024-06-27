@@ -42,7 +42,19 @@ script(once='alpine-content-component').
       this.setRatioToImages()
       this.setPositionToImages()
 
+      this.disablePhocus()
+
       this.highlightCodeBlocks()
+    },
+
+    /**
+     * Disable Phocus
+     */
+    disablePhocus () {
+      this.$article.querySelectorAll('[data-phocus], [data-phocus-index]').forEach($element => {
+        $element.removeAttribute('data-phocus')
+        $element.removeAttribute('data-phocus-index')
+      })
     },
 
     /**
