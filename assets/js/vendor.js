@@ -1,5 +1,7 @@
 /** @see https://github.com/aFarkas/lazysizes */
-import 'lazysizes'
+import lazySizes from 'lazysizes'
+
+lazySizes.cfg.preloadAfterLoad = true
 
 /** @see https://highlightjs.org */
 import hljs from 'highlight.js'
