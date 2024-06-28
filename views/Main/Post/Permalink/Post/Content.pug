@@ -131,9 +131,8 @@ script(once='alpine-content-component').
      * Disable Phocus
      */
     disablePhocus () {
-      this.$article.querySelectorAll('[data-phocus], [data-phocus-index]').forEach($element => {
-        $element.removeAttribute('data-phocus')
-        $element.removeAttribute('data-phocus-index')
+      this.$article.querySelectorAll('[data-phocus]').forEach($el => {
+        delete $el.dataset.phocus
       })
     },
 
