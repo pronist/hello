@@ -43,8 +43,88 @@ script(once='alpine-content-component').
       this.setPositionToImages()
 
       this.disablePhocus()
+      this.setPhotoSwipeToImages()
 
       this.highlightCodeBlocks()
+    },
+
+    /**
+     * Set PhotoSwipe to images
+     */
+    setPhotoSwipeToImages () {
+      this.$article.querySelectorAll('figure.imageslideblock').forEach(this.setPhotoSwipeToImageSlideBlock.bind(this))
+      this.$article.querySelectorAll('figure.imageblock').forEach(this.setPhotoSwipeToImageBlock.bind(this))
+      this.$article.querySelectorAll('figure.imagegridblock').forEach(this.setPhotoSwipeToImageGridBlock.bind(this))
+
+      lightbox.init()
+    },
+
+    /**
+     * Set PhotoSwipe to image block
+     *
+     * @param {HTMLElement} $imageBlock
+     */
+    setPhotoSwipeToImageBlock ($imageBlock) {
+      const $imageWrap = $imageBlock.querySelector('span, a')
+      const $image = $imageWrap.querySelector('img')
+
+      const $pswp = this.$photoSwipe($imageBlock, $image)
+
+      $imageWrap.appendChild($pswp)
+    },
+
+    /**
+     * Set PhotoSwipe to image grid block
+     *
+     * @param {HTMLElement} $imageBlock
+     */
+    setPhotoSwipeToImageGridBlock ($imageBlock) {
+      const $imageWraps = $imageBlock.querySelectorAll('span, a')
+
+      $imageWraps.forEach($imageWrap => {
+        const $image = $imageWrap.querySelector('img')
+
+        const $pswp = this.$photoSwipe($imageWrap, $image)
+
+        $imageWrap.appendChild($pswp)
+      })
+    },
+
+    /**
+     * Set PhotoSwipe to image slide block
+     *
+     * @param {HTMLElement} $imageBlock
+     */
+    setPhotoSwipeToImageSlideBlock ($imageBlock) {
+      const $imageWraps = $imageBlock.querySelectorAll('.image-wrap')
+
+      $imageWraps.forEach($imageWrap => {
+        const $image = $imageWrap.querySelector('img')
+
+        const $pswp = this.$photoSwipe($image, $image)
+
+        $imageWrap.appendChild($pswp)
+      })
+    },
+
+    /**
+     * Get photoSwipe
+     *
+     * @param {HTMLElement} $originBlock
+     * @param {HTMLElement} $image
+     */
+    $photoSwipe ($originBlock, $image) {
+      const $pswp = document.createElement('a')
+
+      $pswp.setAttribute('href', '#')
+
+      $pswp.dataset.pswpWidth = $originBlock.dataset.originWidth
+      $pswp.dataset.pswpHeight = $originBlock.dataset.originHeight
+      $pswp.dataset.pswpSrc = $image.dataset.src
+
+      $pswp.appendChild($image)
+
+      return $pswp
     },
 
     /**
@@ -93,7 +173,7 @@ script(once='alpine-content-component').
     },
 
     /**
-     * Set lazy load to images in template
+     * Set lazy load to images
      */
     setLazyLoadToImages () {
       this.$article.querySelectorAll('figure[class^=image] img').forEach(this.setLazyLoadToImage)
@@ -161,12 +241,12 @@ script(once='alpine-content-component').
      * @param {HTMLElement} $imageBlock
      */
     setRatioToImageSlideBlock ($imageBlock) {
-      const $imageWrap = $imageBlock.querySelector('.image-container')
-      const $image = $imageWrap.querySelector('img')
+      const $imageContainer = $imageBlock.querySelector('.image-container')
+      const $image = $imageContainer.querySelector('img')
 
       const paddingBottom = this.ratio($image, $image)
 
-      $imageWrap.style.paddingBottom = `${paddingBottom}%`
+      $imageContainer.style.paddingBottom = `${paddingBottom}%`
     },
 
     /**
@@ -437,7 +517,7 @@ style(once='content')
           &.imageblock,
           &.imagegridblock {
             span,
-            a {
+            a:not([data-pswp-src]) {
               @apply block relative max-w-full max-h-full w-auto h-auto;
 
               &::after {

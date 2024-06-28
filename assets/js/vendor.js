@@ -28,3 +28,15 @@ const swiper = new Swiper('.swiper', {
 })
 
 window.swiper = swiper
+
+/** @see https://photoswipe.com */
+import PhotoSwipeLightbox from 'photoswipe/lightbox'
+import 'photoswipe/style.css'
+
+const lightbox = new PhotoSwipeLightbox({
+  gallery: '#article',
+  children: 'a[data-pswp-src]',
+  pswpModule: () => import('photoswipe')
+})
+
+window.lightbox = lightbox
