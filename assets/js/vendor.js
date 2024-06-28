@@ -36,7 +36,8 @@ import 'photoswipe/style.css'
 const lightbox = new PhotoSwipeLightbox({
   gallery: '#article',
   children: 'a[data-pswp-src]',
-  pswpModule: () => import('photoswipe')
+  pswpModule: () => import('photoswipe'),
+  wheelToZoom: true
 })
 
 window.lightbox = lightbox
