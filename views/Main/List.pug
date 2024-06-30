@@ -153,21 +153,22 @@ style
   :postcss
     [data-mode=zigzag] {
       .posts {
-        @apply flex flex-col gap-y-6 lg:gap-y-12;
+        @apply flex flex-col gap-y-6 lg:gap-y-0;
       }
 
       .post {
-        @apply relative flex flex-col gap-y-4 lg:gap-x-8 lg:flex-row;
+        @apply relative flex flex-col gap-y-4 lg:flex-row;
 
         .img {
+          @apply lg:w-1/2;
+
           .thumb {
             @apply relative z-10 object-cover w-full lg:max-w-none;
-            @apply lg:w-96 lg:h-72;
           }
         }
 
         .info {
-          @apply gap-y-1 justify-center;
+          @apply gap-y-1 justify-center lg:w-1/2;
 
           .tit {
             @apply text-xl lg:text-2xl font-bold;
@@ -178,8 +179,18 @@ style
           }
         }
 
+        &:nth-child(2n+1) {
+          .info {
+            @apply lg:pl-12;
+          }
+        }
+
         &:nth-child(2n) {
           @apply lg:flex-row-reverse;
+
+          .info {
+            @apply lg:pr-12;
+          }
         }
       }
     }
