@@ -58,7 +58,7 @@ style
         }
 
         .info {
-          @apply opacity-0 absolute w-full h-full flex flex-col justify-end items-center gap-y-6 text-center z-20 pb-6;
+          @apply opacity-0 absolute w-full h-full flex flex-col justify-end items-center text-center z-20 pb-6 gap-y-8 sm:gap-y-6 md:gap-y-10;
           @apply hover:opacity-100 hover:duration-300;
 
           .tit {
@@ -93,11 +93,7 @@ style
         }
 
         .info {
-          .tit {
-            .link {
-              @apply text-xl sm:text-lg md:text-2xl;
-            }
-          }
+          @apply gap-y-12 sm:gap-10 md:gap-y-14;
         }
       }
     }
