@@ -26,11 +26,13 @@
     }
   }
 
-  .pswp__button--arrow {
-    @apply h-32;
+  .pswp {
+    .pswp__button--arrow {
+      @apply h-32;
 
-    .pswp__icn {
-      @apply w-8 h-8;
+      .pswp__icn {
+        @apply w-8 h-8;
+      }
     }
   }
 }
