@@ -55,6 +55,11 @@
       <description>슬라이드쇼 형태로 글을 보여줍니다.</description>
     </item>
     <item>
+      <name>slider</name>
+      <label>슬라이더</label>
+      <description>슬라이더 형태로 글을 보여줍니다.</description>
+    </item>
+    <item>
       <name>gallery</name>
       <label>갤러리</label>
       <description>갤러리 형태로 글을 보여줍니다.</description>
