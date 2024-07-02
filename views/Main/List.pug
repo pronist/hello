@@ -31,12 +31,6 @@ style
       }
     }
 
-    [data-mode=slideshow] {
-      .posts {
-        @apply w-full h-screen;
-      }
-    }
-
 style
   :postcss
     [data-mode*=gallery] {
@@ -47,7 +41,7 @@ style
       .post {
         @apply before:opacity-0 before:absolute before:right-0 before:top-0 before:w-full before:h-full before:z-10 before:bg-gradient-to-b before:from-transparent before:to-h-700/60;
         @apply hover:before:opacity-100 hover:before:duration-300;
-        @apply relative w-full flex;
+        @apply relative w-full flex items-end;
 
         .img {
           @apply pt-[100%] relative w-full h-full;
@@ -58,7 +52,7 @@ style
         }
 
         .info {
-          @apply opacity-0 absolute w-full h-full flex flex-col justify-end items-center text-center z-20 pb-6 gap-y-8 sm:gap-y-6 md:gap-y-10;
+          @apply opacity-0 absolute w-full h-full flex flex-col justify-end items-center text-center z-20 pb-6 gap-y-7 sm:gap-y-5 md:gap-y-9;
           @apply hover:opacity-100 hover:duration-300;
 
           .tit {
@@ -73,10 +67,13 @@ style
             .date {
               @apply text-xs text-h-200;
             }
+
+            .delimiter,
+            .category {
+              @apply hidden;
+            }
           }
 
-          .delimiter,
-          .category,
           .summary {
             @apply hidden;
           }
@@ -134,8 +131,8 @@ style
   :postcss
     [data-mode=grid] {
       .posts {
-        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
-        @apply gap-6 md:gap-x-8 md:gap-y-12;
+        @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3;
+        @apply gap-4 lg:gap-8;
       }
 
       .post {
@@ -156,8 +153,12 @@ style
             @apply text-xl font-bold;
           }
 
+          .desc {
+            @apply hidden;
+          }
+
           .summary {
-            @apply mt-2 max-h-14;
+            @apply max-h-14;
           }
         }
       }
@@ -167,22 +168,22 @@ style
   :postcss
     [data-mode=zigzag] {
       .posts {
-        @apply flex flex-col gap-y-6 lg:gap-y-0;
+        @apply flex flex-col gap-y-6 sm:gap-y-0;
       }
 
       .post {
-        @apply relative flex flex-col gap-y-4 lg:flex-row;
+        @apply relative flex flex-col gap-y-4 sm:flex-row;
 
         .img {
-          @apply lg:w-1/2;
+          @apply sm:w-1/2;
 
           .thumb {
-            @apply relative z-10 object-cover w-full lg:max-w-none;
+            @apply relative z-10 object-cover w-full sm:max-w-none;
           }
         }
 
         .info {
-          @apply gap-y-1 justify-center lg:w-1/2;
+          @apply gap-y-1 justify-center sm:w-1/2;
 
           .tit {
             @apply text-xl lg:text-2xl font-bold;
@@ -195,15 +196,15 @@ style
 
         &:nth-child(2n+1) {
           .info {
-            @apply lg:pl-12;
+            @apply sm:pl-6 lg:pl-10;
           }
         }
 
         &:nth-child(2n) {
-          @apply lg:flex-row-reverse;
+          @apply sm:flex-row-reverse;
 
           .info {
-            @apply lg:pr-12;
+            @apply sm:pr-6 lg:pr-10;
           }
         }
       }
@@ -211,25 +212,31 @@ style
 
 style
   :postcss
-    [data-mode=slideshow] {
+    [data-mode*=slideshow] {
+      .slideshow {
+        @apply w-full h-screen;
+      }
+
       .post {
-        @apply before:absolute before:right-0 before:top-0 before:w-full before:h-screen before:bg-h-900/20 before:z-10;
         @apply flex justify-center items-center;
 
         .img {
+          @apply before:absolute before:left-0 before:top-0 before:w-full before:h-screen before:bg-h-900/20 before:z-10;
+          @apply w-full h-full;
+
           .thumb {
-            @apply w-screen h-screen object-cover;
+            @apply w-full h-full object-cover;
           }
         }
 
         .info {
-          @apply absolute w-screen h-screen flex flex-col justify-center items-center gap-y-1 text-center z-20;
+          @apply absolute flex flex-col justify-center items-center gap-y-1 text-center z-20;
 
           .tit {
             @apply px-4;
 
             .link {
-              @apply text-h-200 text-3xl font-bold;
+              @apply text-h-200 font-bold text-2xl md:text-3xl;
             }
           }
 

@@ -1,3 +1,7 @@
+mixin coverHeader()
+  header.header
+    h1.tit(class='flex items-center empty:hidden font-semibold h-48 lg:h-64 text-2xl lg:text-3xl text-h-600 dark:text-h-200') [##_cover_title_##]
+
 mixin coverItem()
   s_cover_item
     .post&attributes(attributes)
@@ -34,19 +38,23 @@ mixin coverDescription()
   s_cover_item_not_article_info
     +coverDescriptionIfNotContent()&attributes(attributes)
 
-mixin coverList(mode)
+mixin cover(mode)
   section.cover(
     data-mode=mode
     class='flex flex-col items-center')
-    header.header
-      h1.tit(class='flex items-center empty:hidden font-semibold h-48 lg:h-64 text-2xl lg:text-3xl text-h-600 dark:text-h-200') [##_cover_title_##]
+    block
+
+mixin coverList(mode)
+  +cover(mode)
+    +coverHeader()
     .posts
       +coverItem()
         +coverImage()
         +coverDescription()
 
-mixin coverSlideshow()
-  section.cover(data-mode='slideshow')
+mixin coverSlideshow(mode)
+  +cover(mode)
+    +coverHeader()
     .slideshow(class='swiper')
       .posts(class='swiper-wrapper')
         +coverItem()(class='swiper-slide')
@@ -70,3 +78,4 @@ s_cover_group
         +coverList('zigzag')
       s_cover(name='slideshow')
         +coverSlideshow()
+        +coverSlideshow('slideshow')
