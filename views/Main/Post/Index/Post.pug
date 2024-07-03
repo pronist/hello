@@ -1,55 +1,62 @@
 .post
-  #{`s_${type}_rep_thumbnail`}
-    a.img(href=`[##_${type}_rep_link_##]`)
-      img.thumb(
-        data-src=`[##_${type}_rep_thumbnail${type === 'list' ? '' : '_url'}_##]`
-        data-sizes='auto'
-        alt=''
-        class='lazyload')
-  .info
-    .tit
-      a.link(href=`[##_${type}_rep_link_##]`) #{`[##_${type}_rep_title_##]`}
-    .desc
-      time.date #{`[##_${type}_rep_${type === 'list' ? 'regdate' : 'date'}_##]`}
-      if hasCategory
-        span.delimiter ·
-        a.category(href=`[##_${type}_rep_category_link_##]`) #{`[##_${type}_rep_category_##]`}
-    .summary #{`[##_${type}_rep_summary_##]`}
+  a.link(href=`[##_${type}_rep_link_##]`)
+  .content
+    #{`s_${type}_rep_thumbnail`}
+      .img
+        img.thumb(
+          data-src=`[##_${type}_rep_thumbnail${type === 'list' ? '' : '_url'}_##]`
+          data-sizes='auto'
+          alt=''
+          class='lazyload')
+    .info
+      .tit #{`[##_${type}_rep_title_##]`}
+      .desc
+        time.date #{`[##_${type}_rep_${type === 'list' ? 'regdate' : 'date'}_##]`}
+        if hasCategory
+          span.delimiter ·
+          a.category #{`[##_${type}_rep_category_##]`}
+      .summary #{`[##_${type}_rep_summary_##]`}
 
 style(once='post')
   :postcss
     .post {
-      .img {
-        .thumb {
-          @apply object-cover bg-h-100;
-        }
+      @apply relative;
+
+      .link {
+        @apply absolute w-full h-full z-30;
       }
 
-      .info {
-        @apply flex flex-col;
+      .content {
+        .img {
+          .thumb {
+            @apply object-cover bg-h-100;
+          }
+        }
 
-        .tit {
-          .link {
-           @apply text-h-800 dark:text-h-200;
+        .info {
+          @apply flex flex-col;
+
+          .tit {
+            @apply text-h-800 dark:text-h-200;
 
             img {
               @apply hidden;
             }
           }
-        }
 
-        .desc {
-          @apply flex gap-x-1 text-sm;
+          .desc {
+            @apply flex gap-x-1 text-sm;
 
-          .date,
-          .delimiter,
-          .category {
-            @apply text-h-400;
+            .date,
+            .delimiter,
+            .category {
+              @apply text-h-400;
+            }
           }
-        }
 
-        .summary {
-          @apply relative overflow-hidden leading-7 text-sm text-h-400;
+          .summary {
+            @apply relative overflow-hidden leading-7 text-sm text-h-400;
+          }
         }
       }
     }

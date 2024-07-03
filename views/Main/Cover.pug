@@ -3,13 +3,11 @@ mixin coverHeader()
     h1.tit(class='flex items-center empty:hidden font-semibold h-48 lg:h-64 text-2xl lg:text-3xl text-h-600 dark:text-h-200') [##_cover_title_##]
 
 mixin coverLink()
-  a.link(
-    href='[##_cover_item_url_##]'
-    class='absolute w-full h-full z-30')
+  a.link(href='[##_cover_item_url_##]')
 
 mixin coverItem()
   s_cover_item
-    .post(class='relative')&attributes(attributes)
+    .post&attributes(attributes)
       block
 
 mixin coverImage()
@@ -23,8 +21,7 @@ mixin coverImage()
 
 mixin coverDescriptionIfContent()
   .info&attributes(attributes)
-    .tit
-      a.link(href='[##_cover_item_url_##]') [##_cover_item_title_##]
+    .tit [##_cover_item_title_##]
     .desc
       time.date [##_cover_item_simple_date_##]
       span.delimiter ·
@@ -33,8 +30,7 @@ mixin coverDescriptionIfContent()
 
 mixin coverDescriptionIfNotContent()
   .info&attributes(attributes)
-    .tit
-      a.link(href='[##_cover_item_url_##]') [##_cover_item_title_##]
+    .tit [##_cover_item_title_##]
     .summary [##_cover_item_summary_##]
 
 mixin coverDescription()

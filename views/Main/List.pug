@@ -66,11 +66,7 @@ style
               @apply pb-6 max-md:pb-8 gap-y-7 sm:gap-y-5 md:gap-y-9;
 
               .tit {
-                @apply px-6;
-
-                .link {
-                  @apply text-h-200 text-xl sm:text-lg md:text-2xl font-semibold;
-                }
+                @apply px-6 text-h-200 text-xl sm:text-lg md:text-2xl font-semibold;
               }
 
               .desc {
@@ -132,11 +128,7 @@ style
                 @apply absolute flex flex-col justify-center items-center gap-y-1 text-center z-20;
 
                 .tit {
-                  @apply px-4;
-
-                  .link {
-                    @apply text-h-200 font-bold text-2xl md:text-3xl;
-                  }
+                  @apply px-4 text-h-200 font-bold text-2xl md:text-3xl;
                 }
 
                 .desc {
@@ -278,14 +270,18 @@ style
                 @apply mt-2 max-h-20;
               }
             }
+          }
 
-            &:nth-child(2n+1) {
+          &:nth-child(2n+1) {
+            .content {
               .info {
                 @apply sm:pl-6 lg:pl-10;
               }
             }
+          }
 
-            &:nth-child(2n) {
+          &:nth-child(2n) {
+            .content {
               @apply sm:flex-row-reverse;
 
               .info {
