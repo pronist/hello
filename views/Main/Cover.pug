@@ -2,14 +2,19 @@ mixin coverHeader()
   header.header
     h1.tit(class='flex items-center empty:hidden font-semibold h-48 lg:h-64 text-2xl lg:text-3xl text-h-600 dark:text-h-200') [##_cover_title_##]
 
+mixin coverLink()
+  a.link(
+    href='[##_cover_item_url_##]'
+    class='absolute w-full h-full z-30')
+
 mixin coverItem()
   s_cover_item
-    .post&attributes(attributes)
+    .post(class='relative')&attributes(attributes)
       block
 
 mixin coverImage()
   s_cover_item_thumbnail
-    a.img(href='[##_cover_item_url_##]')
+    .img
       img.thumb(
         data-src='[##_cover_item_thumbnail_##]'
         data-sizes='auto'
@@ -23,7 +28,7 @@ mixin coverDescriptionIfContent()
     .desc
       time.date [##_cover_item_simple_date_##]
       span.delimiter ·
-      a.category(href='[##_cover_item_category_url_##]') [##_cover_item_category_##]
+      .category [##_cover_item_category_##]
     .summary [##_cover_item_summary_##]
 
 mixin coverDescriptionIfNotContent()
@@ -42,24 +47,28 @@ mixin cover(mode)
   section.cover(
     data-mode=mode
     class='flex flex-col items-center')
+    +coverHeader()
     block
+
+mixin coverContent()
+  .content
+    +coverImage()
+    +coverDescription()
 
 mixin coverList(mode)
   +cover(mode)
-    +coverHeader()
     .posts
       +coverItem()
-        +coverImage()
-        +coverDescription()
+        +coverLink()
+        +coverContent()
 
 mixin coverSlideshow(mode)
   +cover(mode)
-    +coverHeader()
     .slideshow(class='swiper')
       .posts(class='swiper-wrapper')
         +coverItem()(class='swiper-slide')
-          +coverImage()
-          +coverDescription()
+          +coverLink()
+          +coverContent()
       .next(class='swiper-button-next')
       .prev(class='swiper-button-prev')
 
