@@ -25,12 +25,12 @@
       <label>그리드</label>
     </item>
     <item>
-      <value>zigzag</value>
-      <label>지그재그</label>
-    </item>
-    <item>
       <value>gallery</value>
       <label>갤러리</label>
+    </item>
+    <item>
+      <value>gallery-poster</value>
+      <label>포스터</label>
     </item>
   </liststyle>
   <cover>
