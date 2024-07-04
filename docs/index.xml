@@ -46,9 +46,9 @@
       <description>지그재그 형태로 글을 보여줍니다.</description>
     </item>
     <item>
-      <name>slideshow</name>
-      <label>슬라이드쇼</label>
-      <description>슬라이드쇼 형태로 글을 보여줍니다.</description>
+      <name>slider</name>
+      <label>슬라이더</label>
+      <description>슬라이더 형태로 글을 보여줍니다.</description>
     </item>
     <item>
       <name>gallery</name>
