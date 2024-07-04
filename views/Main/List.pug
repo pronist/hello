@@ -22,7 +22,7 @@ s_list
 
 style
   :postcss
-    [data-mode*=gallery],
+    [data-mode=gallery],
     [data-mode=list],
     [data-mode=grid],
     [data-mode=zigzag] {
@@ -33,7 +33,7 @@ style
 
 style
   :postcss
-    [data-mode*=gallery] {
+    [data-mode=gallery] {
       .posts {
         @apply grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3;
 
@@ -88,25 +88,7 @@ style
 
 style
   :postcss
-    [data-mode*=poster] {
-      .posts {
-        .post {
-          .content {
-            .img {
-              @apply pt-[150%];
-            }
-
-            .info {
-              @apply max-md:pb-12 gap-y-12 sm:gap-10 md:gap-y-14;
-            }
-          }
-        }
-      }
-    }
-
-style
-  :postcss
-    [data-mode*=slideshow] {
+    [data-mode=slideshow] {
       .slideshow {
         @apply w-full h-screen;
 
@@ -142,24 +124,6 @@ style
                 .summary {
                   @apply hidden;
                 }
-              }
-            }
-          }
-        }
-      }
-    }
-
-style
-  :postcss
-    [data-mode*=slider] {
-      .slideshow {
-        @apply h-72 px-4 lg:px-0 lg:w-idx lg:mx-auto;
-
-        .posts {
-          .post {
-            .content {
-              .img {
-                @apply before:h-72;
               }
             }
           }
@@ -233,7 +197,7 @@ style
               }
 
               .summary {
-                @apply max-h-14;
+                @apply mt-2 max-h-14;
               }
             }
           }

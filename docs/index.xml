@@ -28,10 +28,6 @@
       <value>gallery</value>
       <label>갤러리</label>
     </item>
-    <item>
-      <value>gallery-poster</value>
-      <label>포스터</label>
-    </item>
   </liststyle>
   <cover>
     <item>
@@ -55,19 +51,9 @@
       <description>슬라이드쇼 형태로 글을 보여줍니다.</description>
     </item>
     <item>
-      <name>slider</name>
-      <label>슬라이더</label>
-      <description>슬라이더 형태로 글을 보여줍니다.</description>
-    </item>
-    <item>
       <name>gallery</name>
       <label>갤러리</label>
       <description>갤러리 형태로 글을 보여줍니다.</description>
-    </item>
-    <item>
-      <name>poster</name>
-      <label>포스터</label>
-      <description>포스터 형태로 글을 보여줍니다.</description>
     </item>
   </cover>
   <variables>
