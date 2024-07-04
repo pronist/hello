@@ -36,7 +36,7 @@ import 'photoswipe/style.css'
 const lightbox = new PhotoSwipeLightbox({
   gallery: '#article',
   children: 'figure[class^=image] a[data-pswp-src]',
-  showHideAnimationType: 'fade',
+  showHideAnimationType: 'none',
   bgOpacity: 1,
   wheelToZoom: true,
   pswpModule: () => import('photoswipe')
