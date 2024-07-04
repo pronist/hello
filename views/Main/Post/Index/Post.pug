@@ -19,44 +19,46 @@
 
 style(once='post')
   :postcss
-    .posts {
-      .post {
-        @apply relative;
+    [data-mode] {
+      .posts {
+        .post {
+          @apply relative;
 
-        .link {
-          @apply absolute w-full h-full z-30;
-        }
-
-        .content {
-          .img {
-            .thumb {
-              @apply object-cover bg-h-100;
-            }
+          .link {
+            @apply absolute w-full h-full z-30;
           }
 
-          .info {
-            @apply flex flex-col;
-
-            .tit {
-              @apply text-h-800 dark:text-h-200;
-
-              img {
-                @apply hidden;
+          .content {
+            .img {
+              .thumb {
+                @apply object-cover bg-h-100;
               }
             }
 
-            .desc {
-              @apply flex gap-x-1 text-sm;
+            .info {
+              @apply flex flex-col;
 
-              .date,
-              .delimiter,
-              .category {
-                @apply text-h-400;
+              .tit {
+                @apply text-h-800 dark:text-h-200;
+
+                img {
+                  @apply hidden;
+                }
               }
-            }
 
-            .summary {
-              @apply relative overflow-hidden leading-7 text-sm text-h-400;
+              .desc {
+                @apply flex gap-x-1 text-sm;
+
+                .date,
+                .delimiter,
+                .category {
+                  @apply text-h-400;
+                }
+              }
+
+              .summary {
+                @apply relative overflow-hidden leading-7 text-sm text-h-400;
+              }
             }
           }
         }
