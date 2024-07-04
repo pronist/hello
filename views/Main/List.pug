@@ -2,14 +2,14 @@ s_list
   #list(data-mode='[##_list_style_##]')
     header.header(
       x-data='{ home: location.pathname === "/" }'
-      class='relative flex justify-center items-center border-b border-b-solid border-b-h-300 h-48 mb-12 lg:h-64 lg:mb-16 dark:border-b-h-600')
-      .info(class='max-w-[80%] flex flex-col items-center z-20 relative text-center text-h-800 dark:text-h-200')
+      class='flex justify-center items-center border-b border-b-solid border-b-h-300 mb-10 lg:mb-16 h-64 dark:border-b-h-600')
+      .info(class='flex flex-col gap-y-1 items-center text-center text-h-800 dark:text-h-200')
         h1.tit(
           x-html='home ? "[##_title_##]" : "[##_list_conform_##]"'
           class='font-bold text-2xl lg:text-3xl')
         span.desc(
           x-html='home ? "" : "[##_title_##]"'
-          class='leading-relaxed mt-2 empty:mt-0')
+          class='font-bold text-sm')
     .posts(x-ref='list')
       s_list_rep
         +index('list')
