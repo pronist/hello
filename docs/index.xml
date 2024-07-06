@@ -79,6 +79,20 @@
     </variablegroup>
     <variablegroup name="글">
       <variable>
+        <name>mode</name>
+        <label>헤더 스타일</label>
+        <description><![CDATA[ 헤더 스타일 ]]></description>
+        <type>SELECT</type>
+        <option><![CDATA[
+          [
+            {"name":"simple", "label":"심플", "value":"simple"},
+            {"name":"thumbnail", "label":"섬네일", "value":"thumbnail"},
+            {"name":"screen", "label":"스크린", "value":"screen"}
+          ]
+        ]]></option>
+        <default>thumbnail</default>
+      </variable>
+      <variable>
         <name>width</name>
         <label>너비</label>
         <description><![CDATA[ 너비 ]]></description>
@@ -119,20 +133,6 @@
         <description><![CDATA[ 댓글 접기/펼치기 ]]></description>
         <type>BOOL</type>
         <default>true</default>
-      </variable>
-      <variable>
-        <name>mode</name>
-        <label>헤더 스타일</label>
-        <description><![CDATA[ 헤더 스타일 ]]></description>
-        <type>SELECT</type>
-        <option><![CDATA[
-          [
-            {"name":"simple", "label":"심플", "value":"simple"},
-            {"name":"thumbnail", "label":"섬네일", "value":"thumbnail"},
-            {"name":"screen", "label":"스크린", "value":"screen"}
-          ]
-        ]]></option>
-        <default>thumbnail</default>
       </variable>
     </variablegroup>
   </variables>
