@@ -121,7 +121,7 @@
         <default>true</default>
       </variable>
       <variable>
-        <name>header-mode</name>
+        <name>mode</name>
         <label>헤더 스타일</label>
         <description><![CDATA[ 헤더 스타일 ]]></description>
         <type>SELECT</type>
