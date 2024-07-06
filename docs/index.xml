@@ -28,6 +28,10 @@
       <value>gallery</value>
       <label>갤러리</label>
     </item>
+    <item>
+      <value>zigzag</value>
+      <label>지그재그</label>
+    </item>
   </liststyle>
   <cover>
     <item>
@@ -115,6 +119,20 @@
         <description><![CDATA[ 댓글 접기/펼치기 ]]></description>
         <type>BOOL</type>
         <default>true</default>
+      </variable>
+      <variable>
+        <name>header-mode</name>
+        <label>헤더 스타일</label>
+        <description><![CDATA[ 헤더 스타일 ]]></description>
+        <type>SELECT</type>
+        <option><![CDATA[
+          [
+            {"name":"simple", "label":"심플", "value":"simple"},
+            {"name":"thumbnail", "label":"섬네일", "value":"thumbnail"},
+            {"name":"screen", "label":"스크린", "value":"screen"}
+          ]
+        ]]></option>
+        <default>thumbnail</default>
       </variable>
     </variablegroup>
   </variables>
