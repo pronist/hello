@@ -281,18 +281,18 @@ style
 
           &:nth-child(2n+1) {
             .content {
+              @apply sm:flex-row-reverse;
+
               .info {
-                @apply sm:pl-6 lg:pl-10;
+                @apply sm:pr-10 lg:pr-20;
               }
             }
           }
 
           &:nth-child(2n) {
             .content {
-              @apply sm:flex-row-reverse;
-
               .info {
-                @apply sm:pr-6 lg:pr-10;
+                @apply sm:pl-10 lg:pl-20;
               }
             }
           }
