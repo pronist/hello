@@ -1,14 +1,8 @@
 #top(
   x-data='top'
   @scroll.window='toggle'
-  x-show='open'
-  x-transition:enter='transition ease-linear duration-300'
-  x-transition:enter-start='opacity-0'
-  x-transition:enter-end='opacity-100'
-  x-transition:leave='transition ease-linear duration-300'
-  x-transition:leave-start='opacity-100'
-  x-transition:leave-end='opacity-0'
-  class='w-full box-border px-4 h-14 top-0 fixed flex justify-between items-center z-30 backdrop-blur bg-h-100/50 dark:bg-h-800/80 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>')
+  :class='open ? "backdrop-blur bg-h-100/50 dark:bg-h-800/80" : "bg-transparent"'
+  class='w-full box-border px-4 h-14 top-0 fixed flex justify-between items-center z-30 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>')
   .img
     img.thumb(
       @click='sidebar = ! sidebar'
@@ -18,7 +12,15 @@
       alt='[##_blogger_##]'
       width='36'
       height='36')
-  .tit(class='max-w-[calc(80vw-152px)] h-5')
+  .tit(
+    x-show='open'
+    x-transition:enter='transition ease-linear duration-100'
+    x-transition:enter-start='opacity-0'
+    x-transition:enter-end='opacity-100'
+    x-transition:leave='transition ease-linear duration-100'
+    x-transition:leave-start='opacity-100'
+    x-transition:leave-end='opacity-0'
+    class='max-w-[calc(80vw-152px)] h-5')
     .txt(class='m-0 text-overflow-hidden text-sm font-bold text-h-800 dark:text-h-200') [##_page_title_##]
   #menu-toolbar(
     x-ref='toolbar'
@@ -43,7 +45,7 @@ script.
      */
     init () {
       this.setTistoryMenuToolbar()
-      this.hasScrollbar() && this.toggle()
+      this.toggle()
     },
 
     /**
@@ -67,21 +69,17 @@ script.
     },
 
     /**
-     * Has scroll bar on html
-     *
-     * @returns {boolean}
-     */
-    hasScrollbar () {
-      return document.documentElement.scrollHeight > document.documentElement.clientHeight
-    },
-
-    /**
      * targets
      *
      * @returns {Array<HTMLElement>}
      */
     get $targets () {
-      return [this.$refs.list, this.$refs.content]
+      return [
+        this.$refs.tagCloud,
+        this.$refs.list,
+        this.$refs.guestbook,
+        this.$refs.content
+      ]
     }
   })))
 
