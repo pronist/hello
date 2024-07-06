@@ -1,4 +1,4 @@
-header#header(class='flex justify-center items-center border-b border-b-solid border-b-h-300 dark:border-b-h-600')
+header#header(class='flex justify-center items-center border-b border-b-solid border-b-h-300 mb-10 lg:mb-16 dark:border-b-h-600')
   #{`s_${type}_rep_thumbnail`}
     .img(class='absolute right-0 top-0 w-full before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:bg-h-900/20 before:z-10')
       img.thumb(
@@ -30,7 +30,7 @@ style(once='header-simple')
         }
 
         .info {
-          @apply text-h-200 dark:text-h-200;
+          @apply text-h-800 dark:text-h-200;
         }
       }
     }
@@ -55,7 +55,7 @@ style(once='header-screen')
   :postcss
     [data-mode=screen] {
       #header {
-        @apply fixed top-0 right-0 w-c h-screen before:h-screen;
+        @apply h-screen before:h-screen;
 
         .img {
           @apply h-screen before:h-screen;
