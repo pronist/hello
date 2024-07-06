@@ -95,16 +95,20 @@ style
       .menu_toolbar {
         @apply static flex gap-x-2.5;
 
-        .subscribe {
-          .ico {
-            @apply font-awesome;
-          }
+        #menubar_wrapper {
+          @apply max-lg:hidden;
         }
 
         .subscribe,
         .btn_menu_type2 {
           @apply flex justify-center items-center w-9 h-9 p-0 rounded-full outline-0 bg-h-200 text-h-500 shadow-none hover:bg-h-300;
           @apply dark:text-h-200 dark:bg-h-700 dark:hover:bg-h-600;
+        }
+
+        .subscribe {
+          .ico {
+            @apply font-awesome;
+          }
         }
       }
     }
