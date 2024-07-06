@@ -25,14 +25,4 @@
       @apply text-sm font-bold;
     }
   }
-
-  .pswp {
-    .pswp__button--arrow {
-      @apply h-32;
-
-      .pswp__icn {
-        @apply w-8 h-8;
-      }
-    }
-  }
 }
