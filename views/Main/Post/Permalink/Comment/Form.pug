@@ -18,16 +18,16 @@ mixin guest(type)
       value='[##_guest_password_##]')
 
 mixin form(type)
-  #form(x-data='{ primary: /^(.*tistory\\.com)$/.test(location.hostname) }')
-    template(x-if='! primary')
+  #form(x-data='form')
+    template(x-if='code ===codes.INVALID_HOST')
       a.warning(:href='TistoryBlog.tistoryUrl+tiara.entry.plink')
         i.ico
         span.txt 이 블로그는 2차 도메인을 사용 중입니다. 댓글을 작성하려면 1차 도메인으로 이동해주세요.
-    template(x-if='primary && T.config.NEED_COMMENT_LOGIN && (! T.config.IS_LOGIN)')
+    template(x-if='code === codes.NEEDS_LOGIN')
       a.warning(:href='T.config.LOGIN_URL')
         i.ico
         span.txt 이 블로그는 로그인한 사용자에게만 댓글을 허용했습니다.
-    template(x-if='primary && ((! T.config.NEED_COMMENT_LOGIN) || (T.config.NEED_COMMENT_LOGIN && T.config.IS_LOGIN))')
+    template(x-if='code === codes.OK')
       #{`s_${type}_input_form`}
         .wrap(class='flex flex-col gap-y-2')
           .write(class='p-5 w-full overflow-hidden rounded-lg box-border h-32 relative bg-h-200 dark:bg-h-700')
@@ -59,6 +59,51 @@ mixin form(type)
               onclick=`[##_${type}_onclick_submit_##]`)
               span.txt 댓글쓰기
               i.ico(class='fa-paper-plane')
+
+script.
+  document.addEventListener('alpine:init', () => Alpine.data('form', () => ({
+    /**
+     * @var {object} codes
+     */
+    codes: {
+      OK: '000',
+      INVALID_HOST: '001',
+      NEEDS_LOGIN: '002'
+    },
+
+    /**
+     * @var {string} code
+     */
+    code: '',
+
+    /**
+     * Init
+     */
+    init () {
+      this.code = this.canWriteComment()
+    },
+
+    /**
+     * Can write comment?
+     *
+     * @return {string}
+     */
+    canWriteComment () {
+      if (! /^(.*\.tistory\.com)$/.test(location.hostname)) {
+        return this.codes.INVALID_HOST
+      }
+
+      if (! T.config.NEED_COMMENT_LOGIN) {
+        return this.codes.OK
+      }
+
+      if (! T.config.IS_LOGIN) {
+        return this.codes.NEEDS_LOGIN
+      }
+
+      return this.codes.OK
+    }
+  })))
 
 style
   :postcss
