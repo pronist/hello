@@ -25,13 +25,13 @@
   #menu-toolbar(
     x-ref='toolbar'
     class='menu_toolbar')
-    button.subscribe(
-      x-show='T.config.ROLE !== "owner" && /^(.*tistory\\.com)$/.test(location.hostname)'
-      :data-blog-id='T.config.BLOG.id'
-      :data-url='TistoryBlog.tistoryUrl'
-      class='btn_subscription')
-      span.txt(class='text-hidden') 구독하기
-      i.ico(class='fa-solid fa-star')
+    template(x-if='canSubscribe')
+      button.subscribe(
+        :data-blog-id='T.config.BLOG.id'
+        :data-url='TistoryBlog.tistoryUrl'
+        class='btn_subscription')
+        span.txt(class='text-hidden') 구독하기
+        i.ico(class='fa-solid fa-star')
 
 script.
   document.addEventListener('alpine:init', () => Alpine.data('top', () => ({
@@ -46,6 +46,13 @@ script.
     init () {
       this.setTistoryMenuToolbar()
       this.toggle()
+    },
+
+    /**
+     * can subscribe?
+     */
+    canSubscribe () {
+      return T.config.ROLE !== "owner" && /^(.*\.tistory\.com)$/.test(location.hostname)
     },
 
     /**
