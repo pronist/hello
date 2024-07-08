@@ -1,70 +1,25 @@
-mixin cover(mode)
-  section.cover(
-    data-mode=mode
-    class='flex flex-col items-center')
-    +coverHeader()
+mixin cover()
+  section.cover(class='flex flex-col items-center')
+    header.header
+      h1.tit(class='h-h min-h-[theme(spacing.h)] flex items-center font-bold text-3xl text-h-800 dark:text-h-200 empty:hidden') [##_cover_title_##]
     block
-
-mixin coverHeader()
-  header.header
-    h1.tit(class='h-h min-h-[theme(spacing.h)] flex items-center font-bold text-3xl text-h-800 dark:text-h-200 empty:hidden') [##_cover_title_##]
 
 mixin coverItem()
   s_cover_item
-    .post&attributes(attributes)
-      block
-
-mixin coverLink()
-  a.link(href='[##_cover_item_url_##]')
-
-mixin coverContent()
-  .content
-    +coverImage()
-    +coverDescription()
-
-mixin coverImage()
-  s_cover_item_thumbnail
-    .img
-      img.thumb(
-        data-src='[##_cover_item_thumbnail_##]'
-        data-sizes='auto'
-        alt=''
-        class='lazyload')&attributes(attributes)
-
-mixin coverDescription()
-  s_cover_item_article_info
-    +coverDescriptionIfContent()&attributes(attributes)
-  s_cover_item_not_article_info
-    +coverDescriptionIfNotContent()&attributes(attributes)
-
-mixin coverDescriptionIfContent()
-  .info&attributes(attributes)
-    .tit [##_cover_item_title_##]
-    .desc
-      time.date [##_cover_item_simple_date_##]
-      span.delimiter ·
-      .category [##_cover_item_category_##]
-    .summary [##_cover_item_summary_##]
-
-mixin coverDescriptionIfNotContent()
-  .info&attributes(attributes)
-    .tit [##_cover_item_title_##]
-    .summary [##_cover_item_summary_##]
+    +index('cover_item')&attributes(attributes)
 
 mixin coverList(mode)
-  +cover(mode)
-    .posts
+  +cover()
+    .posts(data-mode=mode)
       +coverItem()
-        +coverLink()
-        +coverContent()
 
 mixin coverSlider(mode)
-  +cover(mode)
-    .slider(class='swiper')
-      .posts(class='swiper-wrapper')
+  +cover()
+    .posts(
+      data-mode=mode
+      class='swiper')
+      .wrap(class='swiper-wrapper')
         +coverItem()(class='swiper-slide')
-          +coverLink()
-          +coverContent()
       .next(class='swiper-button-next')
       .prev(class='swiper-button-prev')
 

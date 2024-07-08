@@ -1,7 +1,9 @@
 s_list
-  #list(data-mode='[##_list_style_##]')
+  #list
     +header('[##_list_conform_##]')
-    .posts(x-ref='list')
+    .posts(
+      data-mode='[##_list_style_##]'
+      x-ref='list')
       s_list_rep
         +index('list')
 
@@ -11,291 +13,36 @@ style
     [data-mode=list],
     [data-mode=grid],
     [data-mode=zigzag] {
-      .posts {
-        @apply w-full px-4 lg:px-0 lg:mx-auto lg:w-idx;
-      }
-    }
-
-style
-  :postcss
-    [data-mode=gallery] {
-      .posts {
-        @apply grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3;
-
-        .post {
-          @apply relative;
-
-          .link {
-            @apply absolute w-full h-full z-30;
-
-            &:hover + .content {
-              @apply before:opacity-100 before:duration-300;
-
-              .info {
-                @apply opacity-100 duration-300;
-              }
-            }
-          }
-
-          .content {
-            @apply before:opacity-0 before:absolute before:right-0 before:top-0 before:w-full before:h-full;
-            @apply before:z-10 before:bg-gradient-to-b before:from-transparent before:to-h-700/50;
-            @apply relative flex items-end z-20;
-
-            .img {
-              @apply pt-[100%] relative w-full h-full;
-
-              .thumb {
-                @apply absolute top-0 left-0 w-full h-full object-cover bg-h-100;
-              }
-            }
-
-            .info {
-              @apply opacity-0 absolute flex flex-col justify-end items-center w-full text-center z-20;
-              @apply pb-6 max-md:pb-8 gap-y-7 sm:gap-y-5 md:gap-y-9;
-
-              .tit {
-                @apply px-6 text-h-200 text-xl sm:text-lg md:text-2xl font-semibold;
-
-                img {
-                  @apply hidden;
-                }
-              }
-
-              .desc {
-                @apply flex gap-x-1 text-sm max-md:hidden;
-
-                * {
-                  @apply text-h-200;
-                }
-              }
-
-              .summary {
-                @apply hidden;
-              }
-            }
-          }
-        }
-      }
-    }
-
-style
-  :postcss
-    [data-mode=slider] {
-      .slider {
-        @apply w-full h-screen;
-
-        .posts {
-          .post {
-            @apply relative;
-
-            .link {
-              @apply absolute w-full h-full z-30;
-            }
-
-            .content {
-              @apply before:absolute before:left-0 before:top-0 before:w-full before:h-screen before:bg-h-900/20 before:z-10;
-              @apply w-full h-full flex justify-center items-center;
-
-              .img {
-                @apply w-full h-full;
-
-                .thumb {
-                  @apply w-full h-full object-cover bg-h-100;
-                }
-              }
-
-              .info {
-                @apply absolute flex flex-col justify-center items-center gap-y-1 text-center z-20;
-
-                .tit {
-                  @apply px-4 text-h-200 font-bold text-2xl md:text-3xl;
-                }
-
-                .desc {
-                  @apply flex gap-x-1 text-sm;
-
-                  * {
-                    @apply text-h-200;
-                  }
-                }
-
-                .summary {
-                  @apply hidden;
-                }
-              }
-            }
-          }
-        }
-      }
+      @apply w-full px-4 lg:px-0 lg:mx-auto lg:w-idx;
     }
 
 style
   :postcss
     [data-mode=list] {
-      .posts {
-        @apply flex flex-col gap-y-6 sm:gap-y-0;
-
-        .post {
-          @apply relative sm:border-t sm:border-solid sm:border-h-300 sm:dark:border-h-600 sm:first:border-t-0;
-
-          .link {
-            @apply absolute w-full h-full z-10;
-          }
-
-          .content {
-            @apply flex flex-col gap-y-4;
-            @apply sm:flex-row-reverse sm:items-center sm:justify-end sm:gap-x-8 sm:h-72;
-
-            .img {
-              .thumb {
-                @apply w-full sm:w-64 sm:h-64 max-w-none object-cover bg-h-100;
-              }
-            }
-
-            .info {
-              @apply flex flex-col gap-y-1 sm:grow;
-
-              .tit {
-                @apply text-xl lg:text-2xl font-bold text-h-800 dark:text-h-200;
-
-                img {
-                  @apply hidden;
-                }
-              }
-
-              .desc {
-                @apply flex gap-x-1 text-sm;
-
-                * {
-                  @apply text-h-400;
-                }
-              }
-
-              .summary {
-                @apply mt-2 max-h-20 overflow-hidden leading-7 text-sm text-h-400;
-              }
-            }
-          }
-        }
-      }
+      @apply flex flex-col gap-y-6 sm:gap-y-0;
     }
 
 style
   :postcss
     [data-mode=grid] {
-      .posts {
-        @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3;
-        @apply gap-4 lg:gap-8;
-
-        .post {
-          @apply relative;
-
-          .link {
-            @apply absolute w-full h-full z-10;
-          }
-
-          .content {
-            @apply flex flex-col gap-y-4;
-
-            .img {
-              @apply pt-[66.66%] relative;
-
-              .thumb {
-                @apply absolute top-0 left-0 w-full h-full object-cover bg-h-100;
-              }
-            }
-
-            .info {
-              @apply gap-y-1 flex flex-col;
-
-              .tit {
-                @apply text-xl font-bold text-h-800 dark:text-h-200;
-              }
-
-              .desc {
-                @apply flex gap-x-1 text-sm max-md:hidden;
-
-                * {
-                  @apply text-h-400;
-                }
-              }
-
-              .summary {
-                @apply mt-2 max-h-14 overflow-hidden leading-7 text-sm text-h-400;
-              }
-            }
-          }
-        }
-      }
+      @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3;
+      @apply gap-4 lg:gap-8;
     }
 
 style
   :postcss
     [data-mode=zigzag] {
-      .posts {
-        @apply flex flex-col gap-y-6 sm:gap-y-0;
+      @apply flex flex-col gap-y-6 sm:gap-y-0;
+    }
 
-        .post {
-          @apply relative;
+style
+  :postcss
+    [data-mode=slider] {
+      @apply w-full h-screen;
+    }
 
-          .link {
-            @apply absolute w-full h-full z-20;
-          }
-
-          .content {
-            @apply relative flex flex-col gap-y-4 sm:flex-row;
-
-            .img {
-              @apply sm:w-1/2;
-
-              .thumb {
-                @apply relative z-10 object-cover w-full bg-h-100 sm:max-w-none;
-              }
-            }
-
-            .info {
-              @apply flex flex-col gap-y-1 justify-center sm:w-1/2;
-
-              .tit {
-                @apply text-xl lg:text-2xl font-bold text-h-800 dark:text-h-200;
-
-                img {
-                  @apply hidden;
-                }
-              }
-
-              .desc {
-                @apply flex gap-x-1 text-sm;
-
-                * {
-                  @apply text-h-400;
-                }
-              }
-
-              .summary {
-                @apply mt-2 max-h-20 overflow-hidden leading-7 text-sm text-h-400;
-              }
-            }
-          }
-
-          &:nth-child(2n+1) {
-            .content {
-              @apply sm:flex-row-reverse;
-
-              .info {
-                @apply sm:pr-10 lg:pr-20;
-              }
-            }
-          }
-
-          &:nth-child(2n) {
-            .content {
-              .info {
-                @apply sm:pl-10 lg:pl-20;
-              }
-            }
-          }
-        }
-      }
+style
+  :postcss
+    [data-mode=gallery] {
+      @apply grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3;
     }
