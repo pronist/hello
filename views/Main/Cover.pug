@@ -1,14 +1,26 @@
+mixin cover(mode)
+  section.cover(
+    data-mode=mode
+    class='flex flex-col items-center')
+    +coverHeader()
+    block
+
 mixin coverHeader()
   header.header
     h1.tit(class='flex items-center font-bold h-64 text-3xl text-h-800 dark:text-h-200 empty:hidden') [##_cover_title_##]
-
-mixin coverLink()
-  a.link(href='[##_cover_item_url_##]')
 
 mixin coverItem()
   s_cover_item
     .post&attributes(attributes)
       block
+
+mixin coverLink()
+  a.link(href='[##_cover_item_url_##]')
+
+mixin coverContent()
+  .content
+    +coverImage()
+    +coverDescription()
 
 mixin coverImage()
   s_cover_item_thumbnail
@@ -18,6 +30,12 @@ mixin coverImage()
         data-sizes='auto'
         alt=''
         class='lazyload')&attributes(attributes)
+
+mixin coverDescription()
+  s_cover_item_article_info
+    +coverDescriptionIfContent()&attributes(attributes)
+  s_cover_item_not_article_info
+    +coverDescriptionIfNotContent()&attributes(attributes)
 
 mixin coverDescriptionIfContent()
   .info&attributes(attributes)
@@ -32,24 +50,6 @@ mixin coverDescriptionIfNotContent()
   .info&attributes(attributes)
     .tit [##_cover_item_title_##]
     .summary [##_cover_item_summary_##]
-
-mixin coverDescription()
-  s_cover_item_article_info
-    +coverDescriptionIfContent()&attributes(attributes)
-  s_cover_item_not_article_info
-    +coverDescriptionIfNotContent()&attributes(attributes)
-
-mixin cover(mode)
-  section.cover(
-    data-mode=mode
-    class='flex flex-col items-center')
-    +coverHeader()
-    block
-
-mixin coverContent()
-  .content
-    +coverImage()
-    +coverDescription()
 
 mixin coverList(mode)
   +cover(mode)
