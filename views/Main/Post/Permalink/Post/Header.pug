@@ -1,16 +1,13 @@
 header#header(
-  x-data='{ mode: "simple" }'
-  :data-mode='mode'
-  class='flex justify-center items-center border-b border-b-solid border-b-h-300 mb-10 lg:mb-16 dark:border-b-h-600')
+  data-mode='[##_var_mode_##]'
+  class='border-b border-b-solid border-b-h-300 mb-10 lg:mb-16 dark:border-b-h-600')
   #{`s_${type}_rep_thumbnail`}
-    .img(
-      x-init='mode = skinOptions.mode'
-      class='absolute right-0 top-0 w-full before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:bg-h-900/20 before:z-10')
+    .img(class='absolute right-0 top-0 w-full before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:bg-h-900/20 before:z-10')
       img.thumb(
         src=`[##_${type}_rep_thumbnail_url_##]`
         alt=''
         class='absolute right-0 top-0 w-full h-full z-0 object-cover')
-  .info(class='flex flex-col items-center gap-y-1 mx-4 relative z-20 lg:mx-0')
+  .info(class='min-h-[theme(spacing.h)] flex flex-col justify-center items-center gap-y-1 mx-4 relative z-20 text-h-800 dark:text-h-200 lg:mx-0')
     h1.tit(class='text-center font-bold text-3xl') #{`[##_${type}_rep_title_##]`}
     .desc(class='flex gap-x-1 text-sm')
       time.date #{`[##_${type}_rep_date_##]`}
@@ -27,41 +24,39 @@ header#header(
 style(once='header-simple')
   :postcss
     #header[data-mode=simple] {
-      @apply h-64 before:h-64;
-
       .img {
         @apply hidden;
       }
 
       .info {
-        @apply text-h-800 dark:text-h-200;
+        @apply h-h;
       }
     }
 
 style(once='header-thumbnail')
   :postcss
     #header[data-mode=thumbnail] {
-      @apply relative h-64 before:h-64;
+      @apply relative;
 
       .img {
-        @apply h-64 before:h-64;
-      }
+        @apply h-h before:h-h;
 
-      .info {
-        @apply text-h-200;
+        &+.info {
+          @apply h-h text-h-200;
+        }
       }
     }
 
 style(once='header-screen')
   :postcss
     #header[data-mode=screen] {
-      @apply h-screen before:h-screen;
+      @apply relative;
 
       .img {
         @apply h-screen before:h-screen;
-      }
 
-      .info {
-        @apply text-h-200;
+        &+.info {
+          @apply h-screen text-h-200;
+        }
       }
     }

@@ -1,5 +1,5 @@
 mixin header(title)
-  header.header(class='flex justify-center items-center border-b border-b-solid border-b-h-300 mb-10 lg:mb-16 h-64 dark:border-b-h-600')
-    .info(class='flex flex-col gap-y-1 items-center text-center text-h-800 dark:text-h-200')
+  header.header(class='border-b border-b-solid border-b-h-300 mb-10 lg:mb-16 dark:border-b-h-600')
+    .info(class='h-h min-h-[theme(spacing.h)] flex flex-col justify-center items-center text-center gap-y-1 text-h-800 dark:text-h-200')
       h1.tit(class='font-bold text-3xl')=title
       span.desc(class='font-bold text-sm') [##_title_##]

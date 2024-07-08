@@ -34,7 +34,8 @@ module.exports = {
         idx: 'var(--h-idx)',
         pem: 'var(--h-pem)',
         s: 'var(--h-s)',
-        c: 'var(--h-c)'
+        c: 'var(--h-c)',
+        h: 'var(--h-h)'
       },
       fontSize: {
         xxs: '0.625rem'
