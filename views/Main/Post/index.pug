@@ -30,12 +30,14 @@ style
   :postcss
     [data-mode] {
       .post {
-        .fallback {
-          @apply border border-h-300 dark:border-h-600 border-dotted;
+        .img {
+          &+.fallback {
+            @apply hidden;
+          }
         }
 
-        .img+.fallback {
-          @apply hidden;
+        .fallback {
+          @apply border border-h-300 dark:border-h-600 border-dotted;
         }
       }
     }
@@ -176,7 +178,7 @@ style
           }
 
           .fallback {
-            @apply max-sm:pt-[50%]
+            @apply max-sm:pt-[66.66%];
           }
 
           .info {
@@ -278,7 +280,7 @@ style
           }
 
           .fallback {
-            @apply pt-[50%]
+            @apply pt-[66.66%] sm:pt-[33.33%];
           }
 
           .info {
