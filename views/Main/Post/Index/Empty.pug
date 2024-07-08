@@ -1,0 +1,20 @@
+mixin empty()
+  .post.empty&attributes(attributes)
+    .content
+      .fallback
+      .info
+        .tit(class='w-80 h-7 lg:h-8')
+        .desc(class='w-40 h-5')
+        .summary(class='w-full h-14')
+
+style
+  :postcss
+    [data-mode] {
+      .post.empty {
+        .info {
+          * {
+            @apply rounded-sm bg-h-200 dark:bg-h-700;
+          }
+        }
+      }
+    }
