@@ -1,11 +1,11 @@
-mixin index(type)
+mixin index(type, hasCategory=true)
   .post&attributes(attributes)
-    a.link(href=`[##_${type}_${type === 'list_rep' ? 'link' : 'url'}_##]`)
+    a.link(href=`[##_${type}_${type === 'list_rep' || type === 'notice_rep' ? 'link' : 'url'}_##]`)
     .content
       #{`s_${type}_thumbnail`}
         .img
           img.thumb(
-            data-src=`[##_${type}_thumbnail_##]`
+            data-src=`[##_${type}_thumbnail${type === 'notice_rep' ? '_url' : '' }_##]`
             data-sizes='auto'
             alt=''
             class='lazyload')
@@ -13,196 +13,102 @@ mixin index(type)
       .info
         .tit #{`[##_${type}_title_##]`}
         case type
+          when 'notice_rep'
           when 'list_rep'
-            +description(type)
+            +description(type, hasCategory)
           when 'cover_item'
             s_cover_item_article_info
-              +description(type)
+              +description(type, hasCategory)
         .summary #{`[##_${type}_summary_##]`}
 
-mixin description(type)
+mixin description(type, hasCategory)
   .desc
     time.date #{`[##_${type}_${type === 'list_rep' ? 'regdate' : 'simple_date'}_##]`}
-    span.delimiter ·
-    .category #{`[##_${type}_category_##]`}
+    if hasCategory
+      span.delimiter ·
+      .category #{`[##_${type}_category_##]`}
 
 style
   :postcss
-    [data-mode] {
-      .post {
-        .img {
-          &+.fallback {
-            @apply hidden;
-          }
-        }
-
-        .fallback {
-          @apply border border-h-300 dark:border-h-600 border-dotted;
-        }
-      }
-    }
-
-style
-  :postcss
-    [data-mode=gallery] {
-      .post {
-        @apply relative;
-
-        .link {
-          @apply absolute w-full h-full z-30;
-
-          &:hover+.content {
-            @apply before:opacity-100 before:duration-300;
-
-            .info {
-              @apply opacity-100 duration-300;
-            }
-          }
-        }
-
-        .content {
-          @apply before:opacity-0 before:absolute before:right-0 before:top-0 before:w-full before:h-full;
-          @apply before:z-10 before:bg-gradient-to-b before:from-transparent before:to-h-700/50;
-          @apply relative flex items-end z-20;
-
-          .img,
-          .fallback {
-            @apply pt-[100%] relative w-full h-full;
-          }
-
+    #tt-body-index,
+    #tt-body-category,
+    #tt-body-search {
+      [data-mode] {
+        .post {
           .img {
-            .thumb {
-              @apply absolute top-0 left-0 w-full h-full object-cover bg-h-100;
-            }
-          }
-
-          .info {
-            @apply opacity-0 absolute flex flex-col justify-end items-center w-full text-center z-20;
-            @apply pb-6 max-md:pb-8 gap-y-7 sm:gap-y-5 md:gap-y-9;
-
-            .tit {
-              @apply px-6 text-h-200 text-xl sm:text-lg md:text-2xl font-semibold;
-
-              img {
-                @apply hidden;
-              }
-            }
-
-            .desc {
-              @apply flex gap-x-1 text-sm max-md:hidden;
-
-              * {
-                @apply text-h-200;
-              }
-            }
-
-            .summary {
+            & + .fallback {
               @apply hidden;
             }
           }
+
+          .fallback {
+            @apply border border-h-300 dark:border-h-600 border-dotted;
+          }
         }
       }
     }
 
 style
   :postcss
-    [data-mode=slider] {
-      .post {
-        @apply relative;
+    #tt-body-index,
+    #tt-body-category,
+    #tt-body-search {
+      [data-mode=gallery] {
+        .post {
+          @apply relative;
 
-        .link {
-          @apply absolute w-full h-full z-30;
-        }
+          .link {
+            @apply absolute w-full h-full z-30;
 
-        .content {
-          @apply before:absolute before:left-0 before:top-0 before:w-full before:h-screen before:bg-h-900/20 before:z-10;
-          @apply w-full h-full flex justify-center items-center;
+            &:hover + .content {
+              @apply before:opacity-100 before:duration-300;
 
-          .img,
-          .fallback {
-            @apply w-full h-full;
-          }
-
-          .img {
-            .thumb {
-              @apply w-full h-full object-cover bg-h-100;
+              .info {
+                @apply opacity-100 duration-300;
+              }
             }
           }
 
-          .info {
-            @apply absolute flex flex-col justify-center items-center gap-y-1 text-center z-20;
+          .content {
+            @apply before:opacity-0 before:absolute before:right-0 before:top-0 before:w-full before:h-full;
+            @apply before:z-10 before:bg-gradient-to-b before:from-transparent before:to-h-700/50;
+            @apply relative flex items-end z-20;
 
-            .tit {
-              @apply px-4 text-h-200 font-bold text-2xl md:text-3xl;
+            .img,
+            .fallback {
+              @apply pt-[100%] relative w-full h-full;
             }
 
-            .desc {
-              @apply flex gap-x-1 text-sm;
-
-              * {
-                @apply text-h-200;
+            .img {
+              .thumb {
+                @apply absolute top-0 left-0 w-full h-full object-cover bg-h-100;
               }
             }
 
-            .summary {
-              @apply hidden;
-            }
-          }
-        }
-      }
-    }
+            .info {
+              @apply opacity-0 absolute flex flex-col justify-end items-center w-full text-center z-20;
+              @apply pb-6 max-md:pb-8 gap-y-7 sm:gap-y-5 md:gap-y-9;
 
-style
-  :postcss
-    [data-mode=list] {
-      .post {
-        @apply relative sm:border-t sm:border-solid sm:border-h-300 sm:dark:border-h-600 sm:first:border-t-0;
+              .tit {
+                @apply px-6 text-h-200 text-xl sm:text-lg md:text-2xl font-semibold;
 
-        .link {
-          @apply absolute w-full h-full z-10;
-        }
+                img {
+                  @apply hidden;
+                }
+              }
 
-        .content {
-          @apply flex flex-col gap-y-4;
-          @apply sm:flex-row-reverse sm:items-center sm:justify-end sm:gap-x-8 sm:h-72;
+              .desc {
+                @apply flex gap-x-1 text-sm max-md:hidden;
 
-          .img,
-          .fallback {
-            @apply w-full sm:w-64 sm:h-64;
-          }
+                * {
+                  @apply text-h-200;
+                }
+              }
 
-          .img {
-            .thumb {
-              @apply w-full sm:w-64 sm:h-64 max-w-none object-cover bg-h-100;
-            }
-          }
-
-          .fallback {
-            @apply max-sm:pt-[66.66%];
-          }
-
-          .info {
-            @apply flex flex-col gap-y-1 sm:grow;
-
-            .tit {
-              @apply text-xl lg:text-2xl font-bold text-h-800 dark:text-h-200;
-
-              img {
+              .summary {
                 @apply hidden;
               }
             }
-
-            .desc {
-              @apply flex gap-x-1 text-sm;
-
-              * {
-                @apply text-h-400;
-              }
-            }
-
-            .summary {
-              @apply mt-2 max-h-20 overflow-hidden leading-7 text-sm text-h-400;
-            }
           }
         }
       }
@@ -210,120 +116,241 @@ style
 
 style
   :postcss
-    [data-mode=grid] {
-      .post {
-        @apply relative;
+    #tt-body-index,
+    #tt-body-category,
+    #tt-body-search {
+      [data-mode=slider] {
+        .post {
+          @apply relative;
 
-        .link {
-          @apply absolute w-full h-full z-10;
-        }
-
-        .content {
-          @apply flex flex-col gap-y-4;
-
-          .img,
-          .fallback {
-            @apply pt-[66.66%] relative;
+          .link {
+            @apply absolute w-full h-full z-30;
           }
 
-          .img {
-            .thumb {
-              @apply absolute top-0 left-0 w-full h-full object-cover bg-h-100;
-            }
-          }
+          .content {
+            @apply before:absolute before:left-0 before:top-0 before:w-full before:h-screen before:bg-h-900/20 before:z-10;
+            @apply w-full h-full flex justify-center items-center;
 
-          .info {
-            @apply gap-y-1 flex flex-col;
-
-            .tit {
-              @apply text-xl font-bold text-h-800 dark:text-h-200;
+            .img,
+            .fallback {
+              @apply w-full h-full;
             }
 
-            .desc {
-              @apply flex gap-x-1 text-sm max-md:hidden;
-
-              * {
-                @apply text-h-400;
+            .img {
+              .thumb {
+                @apply w-full h-full object-cover bg-h-100;
               }
             }
 
-            .summary {
-              @apply mt-2 max-h-14 overflow-hidden leading-7 text-sm text-h-400;
-            }
-          }
-        }
-      }
-    }
+            .info {
+              @apply absolute flex flex-col justify-center items-center gap-y-1 text-center z-20;
 
-style
-  :postcss
-    [data-mode=zigzag] {
-      .post {
-        @apply relative;
+              .tit {
+                @apply px-4 text-h-200 font-bold text-2xl md:text-3xl;
+              }
 
-        .link {
-          @apply absolute w-full h-full z-20;
-        }
+              .desc {
+                @apply flex gap-x-1 text-sm;
 
-        .content {
-          @apply relative flex flex-col gap-y-4 sm:flex-row;
+                * {
+                  @apply text-h-200;
+                }
+              }
 
-          .img,
-          .fallback {
-            @apply sm:w-1/2;
-          }
-
-          .img {
-            .thumb {
-              @apply relative z-10 object-cover w-full bg-h-100 sm:max-w-none;
-            }
-          }
-
-          .fallback {
-            @apply pt-[66.66%] sm:pt-[33.33%];
-          }
-
-          .info {
-            @apply flex flex-col gap-y-1 justify-center sm:w-1/2;
-
-            .tit {
-              @apply text-xl lg:text-2xl font-bold text-h-800 dark:text-h-200;
-
-              img {
+              .summary {
                 @apply hidden;
               }
             }
+          }
+        }
+      }
+    }
 
-            .desc {
-              @apply flex gap-x-1 text-sm;
+style
+  :postcss
+    #tt-body-index,
+    #tt-body-category,
+    #tt-body-search {
+      [data-mode=list] {
+        .post {
+          @apply relative sm:border-t sm:border-solid sm:border-h-300 sm:dark:border-h-600 sm:first:border-t-0;
 
-              * {
-                @apply text-h-400;
+          .link {
+            @apply absolute w-full h-full z-10;
+          }
+
+          .content {
+            @apply flex flex-col gap-y-4;
+            @apply sm:flex-row-reverse sm:items-center sm:justify-end sm:gap-x-8 sm:h-72;
+
+            .img,
+            .fallback {
+              @apply w-full sm:w-64 sm:h-64;
+            }
+
+            .img {
+              .thumb {
+                @apply w-full sm:w-64 sm:h-64 max-w-none object-cover bg-h-100;
               }
             }
 
-            .summary {
-              @apply mt-2 max-h-20 overflow-hidden leading-7 text-sm text-h-400;
+            .fallback {
+              @apply max-sm:pt-[66.66%];
             }
-          }
-        }
-
-        &:nth-child(2n+1) {
-          .content {
-            @apply sm:flex-row-reverse;
 
             .info {
-              @apply sm:pr-10 lg:pr-20;
-            }
-          }
-        }
+              @apply flex flex-col gap-y-1 sm:grow;
 
-        &:nth-child(2n) {
-          .content {
-            .info {
-              @apply sm:pl-10 lg:pl-20;
+              .tit {
+                @apply text-xl lg:text-2xl font-bold text-h-800 dark:text-h-200;
+
+                img {
+                  @apply hidden;
+                }
+              }
+
+              .desc {
+                @apply flex gap-x-1 text-sm;
+
+                * {
+                  @apply text-h-400;
+                }
+              }
+
+              .summary {
+                @apply mt-2 max-h-20 overflow-hidden leading-7 text-sm text-h-400;
+              }
             }
           }
         }
       }
     }
+
+style
+  :postcss
+    #tt-body-index,
+    #tt-body-category,
+    #tt-body-search {
+      [data-mode=grid] {
+        .post {
+          @apply relative;
+
+          .link {
+            @apply absolute w-full h-full z-10;
+          }
+
+          .content {
+            @apply flex flex-col gap-y-4;
+
+            .img,
+            .fallback {
+              @apply pt-[66.66%] relative;
+            }
+
+            .img {
+              .thumb {
+                @apply absolute top-0 left-0 w-full h-full object-cover bg-h-100;
+              }
+            }
+
+            .info {
+              @apply gap-y-1 flex flex-col;
+
+              .tit {
+                @apply text-xl font-bold text-h-800 dark:text-h-200;
+              }
+
+              .desc {
+                @apply flex gap-x-1 text-sm max-md:hidden;
+
+                * {
+                  @apply text-h-400;
+                }
+              }
+
+              .summary {
+                @apply mt-2 max-h-14 overflow-hidden leading-7 text-sm text-h-400;
+              }
+            }
+          }
+        }
+      }
+    }
+
+style
+  :postcss
+    #tt-body-index,
+    #tt-body-category,
+    #tt-body-search {
+      [data-mode=zigzag] {
+        .post {
+          @apply relative;
+
+          .link {
+            @apply absolute w-full h-full z-20;
+          }
+
+          .content {
+            @apply relative flex flex-col gap-y-4 sm:flex-row;
+
+            .img,
+            .fallback {
+              @apply sm:w-1/2;
+            }
+
+            .img {
+              .thumb {
+                @apply relative z-10 object-cover w-full bg-h-100 sm:max-w-none;
+              }
+            }
+
+            .fallback {
+              @apply pt-[66.66%] sm:pt-[33.33%];
+            }
+
+            .info {
+              @apply flex flex-col gap-y-1 justify-center sm:w-1/2;
+
+              .tit {
+                @apply text-xl lg:text-2xl font-bold text-h-800 dark:text-h-200;
+
+                img {
+                  @apply hidden;
+                }
+              }
+
+              .desc {
+                @apply flex gap-x-1 text-sm;
+
+                * {
+                  @apply text-h-400;
+                }
+              }
+
+              .summary {
+                @apply mt-2 max-h-20 overflow-hidden leading-7 text-sm text-h-400;
+              }
+            }
+          }
+
+          &:nth-child(2n+1) {
+            .content {
+              @apply sm:flex-row-reverse;
+
+              .info {
+                @apply sm:pr-10 lg:pr-20;
+              }
+            }
+          }
+
+          &:nth-child(2n) {
+            .content {
+              .info {
+                @apply sm:pl-10 lg:pl-20;
+              }
+            }
+          }
+        }
+      }
+    }
+
