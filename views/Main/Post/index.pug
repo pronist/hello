@@ -24,8 +24,12 @@ mixin index(type, hasCategory=true)
 mixin description(type, hasCategory)
   .desc
     time.date #{`[##_${type}_${type === 'list_rep' ? 'regdate' : 'simple_date'}_##]`}
-    if hasCategory
-      span.delimiter ·
+    span.delimiter ·
+    unless hasCategory
+      case type
+        when 'notice_rep'
+          .category 공지사항
+    else
       .category #{`[##_${type}_category_##]`}
 
 style
