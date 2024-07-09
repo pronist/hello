@@ -22,7 +22,7 @@ mixin comment(type, replyable=true)
             @click.prevent='open = ! open'
             x-html='`댓글보기(${children.length})`')
 
-mixin list(type, rType, reverse=false)
+mixin commentList(type, rType, reverse=false)
   #{`s_${type}_container`}
     #comments(class='mt-9')
       ol.comments(class='flex gap-y-5' class=reverse ? 'flex-col-reverse' : 'flex-col')

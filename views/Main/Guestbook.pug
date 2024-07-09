@@ -4,5 +4,5 @@ s_guest
     .wrap(
       x-ref='guestbook'
       class='w-full px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto')
-      +form('guest')
-      +list('guest', 'guest_reply')
+      +commentForm('guest')
+      +commentList('guest', 'guest_reply')

@@ -17,7 +17,7 @@ mixin guest(type)
       name=`[##_${type}_input_password_##]`
       value='[##_guest_password_##]')
 
-mixin form(type)
+mixin commentForm(type)
   #form(x-data='form')
     template(x-if='code ===codes.INVALID_HOST')
       a.warning(:href='TistoryBlog.tistoryUrl+tiara.entry.plink')
