@@ -1,0 +1,19 @@
+template(
+  x-data='empty'
+  x-if='empty')
+  #empty
+    +header('[##_page_title_##]')
+    .wrap(
+      data-mode='list'
+      x-ref='empty')
+      +indexEmpty()
+
+script.
+  document.addEventListener('alpine:init', () => Alpine.data('empty', () => ({
+    /**
+     * Main is empty?
+     */
+    empty () {
+      return this.$refs.main.textContent.replace(/\s+/g, "") === ""
+    }
+  })))
