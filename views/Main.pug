@@ -5,7 +5,10 @@ include Main/Post/Permalink
 include Main/Post/Permalink/Comment/Form
 include Main/Post/Permalink/Comment/List
 
-main#main(class='pb-14 lg:pb-18')
+main#main(
+  x-ref='main'
+  class='pb-14 lg:pb-18')
+  include Main/Empty
   include Main/Cover
   include Main/Guestbook
   include Main/Post

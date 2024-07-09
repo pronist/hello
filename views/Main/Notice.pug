@@ -1,7 +1,9 @@
 s_notice_rep
-  #notice(x-ref='notice')
+  #notice
     +header('공지사항')(class='g_tit')
-    .wrap(data-mode='list')
+    .wrap(
+      data-mode='list'
+      x-ref='notice')
       s_index_article_rep
         +index('notice_rep', false)
       s_permalink_article_rep
