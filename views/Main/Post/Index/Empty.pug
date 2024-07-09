@@ -3,8 +3,8 @@ mixin indexEmpty()
     .content
       .fallback
       .info
-        .tit(class='w-80 h-7 lg:h-8')
-        .desc(class='w-40 h-5')
+        .tit(class='h-7 lg:h-8')
+        .desc(class='h-5')
         .summary(class='w-full h-14')
 
 style
@@ -16,10 +16,69 @@ style
         .post.empty {
           .info {
             * {
-              @apply rounded-sm bg-h-200 dark:bg-h-700;
+              @apply animate-pulse rounded-sm bg-h-200 dark:bg-h-700;
             }
           }
         }
       }
     }
 
+style
+  :postcss
+    #tt-body-index,
+    #tt-body-category,
+    #tt-body-search {
+      [data-mode=list] {
+        .post.empty {
+          .info {
+            .tit {
+              @apply w-6/12;
+            }
+
+            .desc {
+              @apply w-3/12;
+            }
+          }
+        }
+      }
+    }
+
+style
+  :postcss
+    #tt-body-index,
+    #tt-body-category,
+    #tt-body-search {
+      [data-mode=grid] {
+        .post.empty {
+          .info {
+            .tit {
+              @apply w-9/12;
+            }
+
+            .desc {
+              @apply w-6/12;
+            }
+          }
+        }
+      }
+    }
+
+style
+  :postcss
+    #tt-body-index,
+    #tt-body-category,
+    #tt-body-search {
+      [data-mode=zigzag] {
+        .post.empty {
+          .info {
+            .tit {
+              @apply w-9/12;
+            }
+
+            .desc {
+              @apply w-6/12;
+            }
+          }
+        }
+      }
+    }
