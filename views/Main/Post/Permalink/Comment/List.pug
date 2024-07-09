@@ -24,7 +24,7 @@ mixin comment(type, replyable=true)
 
 mixin commentList(type, rType, reverse=false)
   #{`s_${type}_container`}
-    #comments(class='mt-9')
+    #comments(class='mt-12')
       ol.comments(class='flex gap-y-5' class=reverse ? 'flex-col-reverse' : 'flex-col')
         #{`s_${type}_rep`}
           li.comment(
