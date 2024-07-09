@@ -32,13 +32,12 @@ template(x-if='$data.headings.length > 0')
             class='flex flex-col gap-y-3 max-2xl:p-6 max-2xl:pt-8 max-2xl:pr-14 2xl:px-8')
             template(x-for='heading in $data.headings' :key='heading.id')
               li.tit(
-                :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'
-                class='text-h-400')
+                :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }')
                 a.link(
                   :href='heading.href'
                   x-text='heading.text'
-                  :class='{ "text-h-600 dark:text-h-200": heading.active }'
-                  class='duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200')
+                  :class='heading.active ? "text-h-600 dark:text-h-200" : "text-h-400 hover:text-h-600 dark:hover:text-h-200"'
+                  class='duration-200')
 
 script(once='alpine-scrollspy-component').
   document.addEventListener('alpine:init', () => Alpine.data('scrollspy', () => ({
