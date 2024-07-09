@@ -7,16 +7,21 @@ if process.env.NODE_ENV === 'development'
 if process.env.NODE_ENV === 'development'
   style(once='supportButton')
     :postcss
-      div[data-tistory-react-app='SupportButton'] {
-        @apply hidden;
+      #tt-body-page {
+        div[data-tistory-react-app='SupportButton'] {
+          @apply hidden;
+        }
       }
 
 style(once='content-support-button')
   :postcss
-    #article {
-      .container_postbtn {
-        .tt-btn-support {
-          @apply before:fa-mug-saucer before:text-sm;
+    #tt-body-page {
+      #article {
+        .container_postbtn {
+          .tt-btn-support {
+            @apply before:fa-mug-saucer before:text-sm;
+          }
         }
       }
     }
+

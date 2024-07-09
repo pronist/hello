@@ -1,4 +1,4 @@
-mixin empty()
+mixin indexEmpty()
   .post.empty&attributes(attributes)
     .content
       .fallback
@@ -9,12 +9,17 @@ mixin empty()
 
 style
   :postcss
-    [data-mode] {
-      .post.empty {
-        .info {
-          * {
-            @apply rounded-sm bg-h-200 dark:bg-h-700;
+    #tt-body-index,
+    #tt-body-category,
+    #tt-body-search {
+      [data-mode] {
+        .post.empty {
+          .info {
+            * {
+              @apply rounded-sm bg-h-200 dark:bg-h-700;
+            }
           }
         }
       }
     }
+

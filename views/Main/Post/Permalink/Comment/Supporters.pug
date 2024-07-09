@@ -335,22 +335,25 @@ if process.env.NODE_ENV === 'development'
 
 style
   :postcss
-    #replies {
-      .tt_box_cheers {
-        @apply border-0 m-0 p-0;
+    #tt-body-page {
+      #replies {
+        .tt_box_cheers {
+          @apply border-0 m-0 p-0;
 
-        svg {
-          @apply inline align-baseline;
-        }
+          svg {
+            @apply inline align-baseline;
+          }
 
-        .tt_btn_guide_cheers,
-        .tt_btn_cheers,
-        .tt_desc_cheers {
-          @apply hidden;
-        }
+          .tt_btn_guide_cheers,
+          .tt_btn_cheers,
+          .tt_desc_cheers {
+            @apply hidden;
+          }
 
-        .tt_cheers_layer {
-          @apply backdrop-blur dark:bg-h-900/50;
+          .tt_cheers_layer {
+            @apply backdrop-blur dark:bg-h-900/50;
+          }
         }
       }
     }
+

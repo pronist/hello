@@ -23,40 +23,47 @@ header#header(
 
 style(once='header-simple')
   :postcss
-    #header[data-mode=simple] {
-      .img {
-        @apply hidden;
-      }
+    #tt-body-page {
+      #header[data-mode=simple] {
+        .img {
+          @apply hidden;
+        }
 
-      .info {
-        @apply h-h;
+        .info {
+          @apply h-h;
+        }
       }
     }
 
 style(once='header-thumbnail')
   :postcss
-    #header[data-mode=thumbnail] {
-      @apply relative;
+    #tt-body-page {
+      #header[data-mode=thumbnail] {
+        @apply relative;
 
-      .img {
-        @apply h-h before:h-h;
+        .img {
+          @apply h-h before:h-h;
 
-        &+.info {
-          @apply h-h text-h-200;
+          & + .info {
+            @apply h-h text-h-200;
+          }
         }
       }
     }
 
 style(once='header-screen')
   :postcss
-    #header[data-mode=screen] {
-      @apply relative;
+    #tt-body-page {
+      #header[data-mode=screen] {
+        @apply relative;
 
-      .img {
-        @apply h-screen before:h-screen;
+        .img {
+          @apply h-screen before:h-screen;
 
-        &+.info {
-          @apply h-screen text-h-200;
+          & + .info {
+            @apply h-screen text-h-200;
+          }
         }
       }
     }
+

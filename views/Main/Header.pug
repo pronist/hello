@@ -6,7 +6,9 @@ mixin header(title, empty='')
 
 style
   :postcss
-    #list {
+    #tt-body-index,
+    #tt-body-category,
+    #tt-body-search {
       #header {
         .tit {
           @apply empty:before:content-[attr(data-empty)];
