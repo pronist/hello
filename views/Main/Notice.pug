@@ -1,9 +1,18 @@
 s_notice_rep
-  s_index_article_rep
-    .notice-index(
-      data-mode='list'
-      class='mt-6 px-4 first:mt-20 lg:first:mt-40 lg:mt-0 lg:px-0 lg:mx-auto lg:w-idx sm:border-t sm:border-solid sm:border-h-300 sm:dark:border-h-600 sm:first:border-t-0')
-      +index('notice', false)
-  s_permalink_article_rep
-    #notice-permalink.permalink
-      +permalink('notice', false)
+  #notice
+    +header('공지사항')(class='g_tit')
+    .wrap(data-mode='list')
+      s_index_article_rep
+        +index('notice_rep', false)
+      s_permalink_article_rep
+        +permalink('notice', false)
+
+style
+  :postcss
+    #tt-body-page {
+      #notice {
+        .g_tit {
+          @apply hidden;
+        }
+      }
+    }
