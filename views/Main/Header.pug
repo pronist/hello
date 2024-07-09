@@ -1,6 +1,6 @@
 mixin header(title, empty='')
-  header#header(class='border-b border-b-solid border-b-h-300 mb-10 lg:mb-16 dark:border-b-h-600')&attributes(attributes)
-    .info(class='h-h min-h-[theme(spacing.h)] flex flex-col justify-center items-center text-center gap-y-1 text-h-800 dark:text-h-200')
+  header#header(class='mb-10 lg:mb-16')&attributes(attributes)
+    .info(class='border-b border-solid border-b-h-300 dark:border-b-h-600 h-h min-h-[theme(spacing.h)] flex flex-col justify-center items-center text-center gap-y-1 text-h-800 dark:text-h-200')
       h1.tit(class='font-bold text-3xl' data-empty=empty)=title
       span.desc(class='font-bold text-sm') [##_title_##]
 
