@@ -70,7 +70,7 @@ script.
     toggle () {
       this.$targets.forEach(el => {
         if (document.body.contains(el)) {
-          this.open = el.getBoundingClientRect().top < 0
+          this.open = el.getBoundingClientRect().bottom < 0
         }
       })
     },
@@ -82,12 +82,8 @@ script.
      */
     get $targets () {
       return [
-        this.$refs.notice,
-        this.$refs.empty,
-        this.$refs.tagCloud,
-        this.$refs.list,
-        this.$refs.guestbook,
-        this.$refs.content
+        this.$refs.header,
+        this.$refs.globalHeader
       ]
     }
   })))

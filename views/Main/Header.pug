@@ -1,5 +1,7 @@
 template(x-if='$store.header.show')
-  header#global-header(class='mb-10 lg:mb-16')
+  header#global-header(
+    x-ref='globalHeader'
+    class='mb-10 lg:mb-16')
     .info(class='border-b border-solid border-b-h-300 dark:border-b-h-600 h-h min-h-[theme(spacing.h)] flex flex-col justify-center items-center text-center gap-y-1 text-h-800 dark:text-h-200')
       h1.tit(
         data-empty='검색어가 없어요 :('
