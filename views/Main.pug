@@ -1,20 +1,17 @@
-include Main/Header
 include Main/Post/index
 include Main/Post/index/Empty
 include Main/Post/Permalink
 include Main/Post/Permalink/Comment/Form
 include Main/Post/Permalink/Comment/List
 
-main#main(
-  x-ref='main'
-  class='pb-14 lg:pb-18')
-  include Main/Empty
-  include Main/Cover
+main#main(class='pb-14 lg:pb-18')
+  include Main/Header
+  include Main/Tag
+  include Main/Notice
   include Main/Guestbook
+  include Main/List
+  include Main/Cover
   include Main/Post
   include Main/Protected
   include Main/Page
-  include Main/Notice
-  include Main/Tag
-  include Main/List
   include Main/Paging

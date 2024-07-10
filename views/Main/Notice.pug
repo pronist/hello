@@ -1,20 +1,5 @@
 s_notice_rep
-  #notice
-    +header('공지사항')(class='g_tit')
-    .wrap(
-      data-mode='list'
-      x-ref='notice')
-      s_index_article_rep
-        +index('notice_rep', false)
-      s_permalink_article_rep
-        +permalink('notice', false)
-
-style
-  :postcss
-    #tt-body-page {
-      #notice {
-        .g_tit {
-          @apply hidden;
-        }
-      }
-    }
+  s_index_article_rep
+    +index('notice_rep', false)
+  s_permalink_article_rep
+    +permalink('notice', false)

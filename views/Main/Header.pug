@@ -1,19 +1,31 @@
-mixin header(title, empty='')
-  header#header(class='mb-10 lg:mb-16')&attributes(attributes)
+template(x-if='$store.header.show')
+  header#global-header(class='mb-10 lg:mb-16')
     .info(class='border-b border-solid border-b-h-300 dark:border-b-h-600 h-h min-h-[theme(spacing.h)] flex flex-col justify-center items-center text-center gap-y-1 text-h-800 dark:text-h-200')
       h1.tit(
-        class='font-bold text-3xl'
-        data-empty=empty)=title
+        data-empty='검색어가 없어요 :('
+        x-init='$store.header.title = `[##_page_title_##]`'
+        x-text='$store.header.title'
+        class='font-bold text-3xl')
       span.desc(class='font-bold text-sm') [##_title_##]
+
+script.
+  document.addEventListener('alpine:init', () => Alpine.store('header', {
+    title: '',
+    show: true
+  }))
 
 style
   :postcss
-    #tt-body-index,
-    #tt-body-category,
     #tt-body-search {
-      #header {
+      #global-header {
         .tit {
           @apply empty:before:content-[attr(data-empty)];
         }
+      }
+    }
+
+    #tt-body-page {
+      #global-header {
+        @apply hidden;
       }
     }

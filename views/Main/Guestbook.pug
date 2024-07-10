@@ -1,8 +1,7 @@
 s_guest
-  #guestbook
-    +header('방명록')
-    .wrap(
-      x-ref='guestbook'
-      class='w-full px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto')
-      +commentForm('guest')
-      +commentList('guest', 'guest_reply')
+  #guestbook(
+    x-init='$store.header.title = "방명록"'
+    x-ref='guestbook'
+    class='w-full px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto')
+    +commentForm('guest')
+    +commentList('guest', 'guest_reply')
