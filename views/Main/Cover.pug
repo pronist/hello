@@ -8,15 +8,15 @@ mixin coverItem()
   s_cover_item
     +index('cover_item')&attributes(attributes)
 
-mixin coverList(mode)
+mixin coverList(style)
   +cover()
-    .posts(data-mode=mode)
+    .posts(data-list-style=style)
       +coverItem()
 
-mixin coverSlider(mode)
+mixin coverSlider(style)
   +cover()
     .posts(
-      data-mode=mode
+      data-list-style=style
       class='swiper')
       .wrap(class='swiper-wrapper')
         +coverItem()(class='swiper-slide')
