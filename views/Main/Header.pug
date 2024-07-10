@@ -12,7 +12,14 @@ template(x-if='$store.header.show')
 
 script.
   document.addEventListener('alpine:init', () => Alpine.store('header', {
+    /**
+     * @type {string}
+     */
     title: '',
+
+    /**
+     * @type {boolean}
+     */
     show: true
   }))
 
