@@ -24,7 +24,9 @@ mixin coverSlider(style)
       .prev(class='swiper-button-prev')
 
 s_cover_group
-  #covers(class='flex flex-col gap-y-8 lg:gap-y-12')
+  #cover(
+    x-init='$store.header.show = false'
+    class='flex flex-col gap-y-8 lg:gap-y-12')
     s_cover_rep
       s_cover(name='gallery')
         +coverList('gallery')
