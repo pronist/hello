@@ -1,14 +1,7 @@
 s_article_protected
   s_permalink_article_rep
-    #protected
-      header.header(class='px-4 mb-10 lg:px-0 lg:mb-16')
-        .info(class='border-b border-solid border-b-h-300 dark:border-b-h-600 h-h min-h-[theme(spacing.h)] flex flex-col justify-center items-center gap-y-1 text-h-800 dark:text-h-200')
-          h1.tit(class='text-center font-bold text-3xl') [##_article_rep_title_##]
-          .desc(class='flex gap-x-1 text-sm')
-            time.date [##_article_rep_date_##]
-            span.delimiter ·
-            a.category(href='[##_article_rep_category_link_##]') [##_article_rep_category_##]
-      .body(class='flex flex-col items-center gap-y-4 w-full px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto')
+    #protected(x-init='$store.header.title = "[##_article_rep_title_##]"')
+      .wrap(class='flex flex-col items-center gap-y-4 w-full px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto')
         p.tit(class='text-center leading-7 text-h-800 dark:text-h-200')
           | 보호되어 있는 글입니다.
           br
