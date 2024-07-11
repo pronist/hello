@@ -70,12 +70,13 @@ style
           @apply flex flex-col gap-y-4;
           @apply sm:flex-row-reverse sm:items-center sm:justify-end sm:gap-x-8 sm:h-72;
 
-          .img,
           .fallback {
-            @apply w-full sm:w-64 sm:h-64 sm:shrink-0;
+            @apply hidden;
           }
 
           .img {
+            @apply w-full sm:w-64 sm:h-64 sm:shrink-0;
+
             .thumb {
               @apply w-full sm:w-64 sm:h-64 max-w-none object-cover bg-h-100;
             }
