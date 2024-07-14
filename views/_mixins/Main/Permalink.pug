@@ -1,0 +1,5 @@
+mixin permalink(type, hasCategory=true)
+  section#post(x-init='$store.header.show = false')
+    include Permalink/Header
+    include Permalink/Content
+    include Permalink/Footer
