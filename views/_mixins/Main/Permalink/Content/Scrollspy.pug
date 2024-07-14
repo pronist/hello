@@ -27,9 +27,7 @@ template(x-if='$data.headings.length > 0')
             class='absolute text-base top-2 right-4 text-h-500 dark:text-h-200 2xl:hidden')
             span.txt(class='text-hidden') 목차 닫기
             i.ico(class='fa-solid fa-xmark')
-          ol.tits(
-            x-ref='spy'
-            class='flex flex-col gap-y-3 max-2xl:p-6 max-2xl:pt-8 max-2xl:pr-14 2xl:px-8')
+          ol.tits(class='flex flex-col gap-y-3 max-2xl:p-6 max-2xl:pt-8 max-2xl:pr-14 2xl:px-8')
             template(x-for='heading in $data.headings' :key='heading.id')
               li.tit(
                 :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }')
