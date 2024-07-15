@@ -2,9 +2,8 @@ section#replies(
   x-data='{ shown: false }'
   x-intersect.once='shown = true'
   class='w-full px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto')
-  .wrap(x-show='shown')
-    include Replies/Supporters
-    s_rp
-      h1.tit(class='text-hidden') 댓글
+  include Replies/Supporters
+  s_rp
+    .wrap(x-show='shown')
       +replyForm('rp')
       +replyList('rp', 'rp2', true)
