@@ -30,6 +30,4 @@ npm run production && npm run deploy
 
 ## 저작권
 
-[MIT](https://github.com/tidory/hello/blob/master/LICENSE)
-
 Copyright 2020-2024. [SangWoo Jeong](https://github.com/pronist). All rights reserved.
