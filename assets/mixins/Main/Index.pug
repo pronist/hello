@@ -40,14 +40,24 @@ style
     #tt-body-search {
       #global-header ~ .post,
       [data-list-style] .post {
-        .img {
-          & + .fallback {
-            @apply hidden;
+        .content {
+          .img {
+            & + .fallback {
+              @apply hidden;
+            }
           }
-        }
 
-        .fallback {
-          @apply animate-pulse bg-h-200 dark:bg-h-700;
+          .fallback {
+            @apply animate-pulse bg-h-200 dark:bg-h-700;
+          }
+
+          .info {
+            .tit {
+              img {
+                @apply hidden;
+              }
+            }
+          }
         }
       }
     }
@@ -87,10 +97,6 @@ style
 
             .tit {
               @apply text-xl lg:text-2xl font-bold text-h-800 dark:text-h-200;
-
-              img {
-                @apply hidden;
-              }
             }
 
             .desc {
@@ -198,10 +204,6 @@ style
 
               .tit {
                 @apply text-xl lg:text-2xl font-bold text-h-800 dark:text-h-200;
-
-                img {
-                  @apply hidden;
-                }
               }
 
               .desc {
@@ -283,10 +285,6 @@ style
 
               .tit {
                 @apply px-6 text-h-200 text-xl sm:text-lg md:text-2xl font-semibold;
-
-                img {
-                  @apply hidden;
-                }
               }
 
               .desc {
