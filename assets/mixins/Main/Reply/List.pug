@@ -29,19 +29,16 @@ mixin replyList(type, rType, reverse=false)
         #{`s_${type}_rep`}
           li.comment(
             x-data='{ open: ! skinOptions.foldableReply, children: [] }'
-            id=`[##_${type}_rep_id_##]`
             :class='{ "[&>.wrap]:before:hidden": children.length === 0 }'
             class='flex flex-col gap-y-5 border-b border-h-300 dark:border-h-600 pb-5')
             +comment(type)
             #{`s_${rType}_container`}
               ol.comments2(
-                class='flex flex-col gap-y-5'
                 x-show='open'
-                x-init='children = $el.querySelectorAll("li")')
+                x-init='children = $el.querySelectorAll(".comment2")'
+                class='flex flex-col gap-y-5')
                 #{`s_${rType}_rep`}
-                  li.comment2(
-                    id=`[##_${type}_rep_id_##]`
-                    class='[&:last-child>div]:before:hidden')
+                  li.comment2(class='[&:last-child>div]:before:hidden')
                     +comment(type, false)
 
 style

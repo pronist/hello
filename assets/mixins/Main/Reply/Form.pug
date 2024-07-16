@@ -22,7 +22,7 @@ mixin replyForm(type)
     template(x-if='code === codes.INVALID_HOST')
       a.warning(:href='TistoryBlog.tistoryUrl+tiara.entry.plink')
         i.ico
-        span.txt 이 블로그는 2차 도메인을 사용 중입니다. 댓글을 작성하려면 1차 도메인으로 이동해주세요.
+        span.txt 이 블로그는 개인 도메인을 사용 중입니다. 댓글을 작성하려면 티스토리로 이동해주세요.
     template(x-if='code === codes.NEEDS_LOGIN')
       a.warning(:href='T.config.LOGIN_URL')
         i.ico
