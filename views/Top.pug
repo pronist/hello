@@ -44,7 +44,10 @@ script.
      * Init
      */
     init () {
-      this.setTistoryMenuToolbar()
+      if (/^(.*\.tistory\.com)$/.test(location.hostname)) {
+        this.setTistoryMenuToolbar()
+      }
+
       this.toggle()
     },
 
