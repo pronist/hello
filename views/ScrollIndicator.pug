@@ -1,22 +1,25 @@
 #scroll-indicator(
-  x-data='indicator'
-  @scroll.window='indicate'
-  class='fixed top-0 w-screen z-50')
+  @scroll.window='$store.indicator.indicate'
+  class='fixed top-0 w-screen z-20')
   .bg(class='w-screen')
     .bg-bar(
-      x-ref='indicator'
+      :style='{ width: $store.indicator.scrolled + "%" }'
       class='w-0 h-0.5 rounded bg-h-800 dark:bg-h-200')
 
 script.
-  document.addEventListener('alpine:init', () => Alpine.data('indicator', () => ({
-     /**
-      * Scroll indicate
-      */
-      indicate () {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
-        const scrolled = (winScroll / height) * 100
+  document.addEventListener('alpine:init', () => Alpine.store('indicator', {
+    /**
+     * Scrolled
+     */
+    scrolled: 0,
 
-        this.$refs.indicator.style.width = scrolled + '%'
-      }
-  })))
+    /**
+     * Scroll indicate
+     */
+    indicate () {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+
+      this.$store.indicator.scrolled = (winScroll / height) * 100
+    }
+  }))
