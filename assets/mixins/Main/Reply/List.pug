@@ -33,12 +33,12 @@ mixin replyList(type, rType, reverse=false)
             class='flex flex-col gap-y-5 border-b border-h-300 dark:border-h-600 pb-5')
             +comment(type)
             #{`s_${rType}_container`}
-              ol.comments2(
+              ol.replies(
                 x-show='open'
-                x-init='children = $el.querySelectorAll(".comment2")'
+                x-init='children = $el.querySelectorAll(".reply")'
                 class='flex flex-col gap-y-5')
                 #{`s_${rType}_rep`}
-                  li.comment2(class='[&:last-child>div]:before:hidden')
+                  li.reply(class='[&:last-child>div]:before:hidden')
                     +comment(type, false)
 
 style

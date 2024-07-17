@@ -2,7 +2,7 @@
   x-data='top'
   @scroll.window='toggle'
   :class='open ? "backdrop-blur bg-h-100/50 dark:bg-h-800/80" : "bg-transparent"'
-  class='w-full box-border px-4 h-14 top-0 fixed flex justify-between items-center z-30 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>')
+  class='w-full box-border px-4 h-14 top-0 fixed flex justify-between items-center z-10 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>')
   .img
     img.thumb(
       @click='sidebar = ! sidebar'
