@@ -34,6 +34,16 @@ script(once='alpine-article-component').
       this.setPositionToImages()
 
       this.highlightCodeBlocks()
+      this.addBlankHashToMoreLesses()
+    },
+
+    /**
+     * Add blank hash To morelesses
+     */
+    addBlankHashToMoreLesses () {
+      this.$article.querySelectorAll('a.btn-toggle-moreless').forEach($moreless => {
+        $moreless.setAttribute('href', '#')
+      })
     },
 
     /**

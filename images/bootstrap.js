@@ -32,27 +32,29 @@ class DarkMode {
   }
 
   /**
-   * On
-   */
-  on () {
-    document.documentElement.classList.add(this.class)
-  }
-
-  /**
    * Toggle
    */
   toggle () {
-    const on = document.documentElement.classList.contains(this.class)
-
-    localStorage.setItem(this.key, on ? 'light' : 'dark')
+    localStorage.setItem(this.key, this.on ? 'light' : 'dark')
     document.documentElement.classList.toggle(this.class)
+  }
+
+  /**
+   * On?
+   *
+   * @return {boolean}
+   */
+  get on () {
+    return document.documentElement.classList.contains(this.class)
   }
 }
 
+/**
+ * Set dark Mode
+ */
 const darkMode = new DarkMode()
-const preferredDarkMode = darkMode.preferred()
 
-preferredDarkMode && darkMode.on()
+darkMode.preferred() && darkMode.toggle()
 
 /**
  * Console Issues

@@ -1,8 +1,7 @@
 doctype html
 
 html#hELLO(
-  x-data='{ dark: preferredDarkMode, loading: true }'
-  x-init='setTimeout(() => loading = false, 100)'
+  x-data='app'
   lang='ko'
   class='scroll-smooth')
   head
@@ -59,6 +58,43 @@ html#hELLO(
     id='[##_body_id_##]'
     class='overflow-x-hidden bg-h-100 dark:bg-h-800')
     block TIDORY
+
+    script.
+      document.addEventListener('alpine:init', () => Alpine.data('app', () => ({
+        /**
+         * @type {boolean}
+         */
+        dark: darkMode.on,
+
+        /**
+         * @type {boolean}
+         */
+        loading: true,
+
+        /**
+         * Init
+         */
+        init () {
+          this.loaded()
+
+          /** @see https://dequeuniversity.com/rules/axe/4.9/frame-title */
+          this.setTitleToEditEntryFrame()
+        },
+
+        /**
+         * Loaded
+         */
+        loaded () {
+          setTimeout(() => this.loading = false, 100)
+        },
+
+        /**
+         * Set title to edit entry frame
+         */
+        setTitleToEditEntryFrame () {
+          document.getElementById("editEntry").title = "Edit Entry"
+        }
+      })))
 
     script.
       window.addEventListener('DOMContentLoaded', () => Alpine.start())
