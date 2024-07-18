@@ -51,7 +51,8 @@ module.exports = {
       toc: true,
       scrollspy: true,
       hljs: 'xcode',
-      hljsDark: 'vs2015'
+      hljsDark: 'vs2015',
+      mode: 'simple'
     },
 
     /**
