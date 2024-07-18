@@ -1,9 +1,9 @@
-section#comment(
+section#replies(
   x-data='{ shown: false }'
   x-intersect.once='shown = true'
   class='w-full px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto')
   .wrap(x-show='shown')
-    include Comment/Supporters
+    include Replies/Supporters
     s_rp
       +replyForm('rp')
       +replyList('rp', 'rp2', true)
