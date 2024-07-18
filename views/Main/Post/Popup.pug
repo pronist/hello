@@ -10,7 +10,7 @@ mixin popup(type)
       x-transition:leave-end='opacity-0'
       x-show='open && $store.indicator.scrolled > 50'
       id=type
-      class='fixed bottom-3 flex z-20 max-h-[calc(theme(spacing.24))] max-lg:hidden')&attributes(attributes)
+      class='fixed bottom-3 flex z-30 max-h-[calc(theme(spacing.24))] max-lg:hidden')&attributes(attributes)
       a.link(
         href=`[##_article_${type}_link_##]`
         class='absolute w-full h-full z-10')
@@ -38,6 +38,6 @@ mixin popup(type)
           .desc(class='text-xxs')
             time.date #{`[##_article_${type}_date_##]`}
 
-#popup
+aside#popup
   +popup('prev')(class='ml-4')
   +popup('next')(class='right-0 mr-4')
