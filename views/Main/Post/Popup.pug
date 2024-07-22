@@ -15,13 +15,13 @@ mixin popup(type)
         href=`[##_article_${type}_link_##]`
         class='absolute w-full h-full z-10')
       #{`s_article_${type}_thumbnail`}
-      .img
-        img.thumb(
-          src=`[##_article_${type}_thumbnail_link_##]`
-          alt=''
-          width='96'
-          height='96'
-          class='w-24 h-24')
+        .img
+          img.thumb(
+            src=`[##_article_${type}_thumbnail_link_##]`
+            alt=''
+            width='96'
+            height='96'
+            class='w-24 h-24')
       .content(class='relative w-64 p-4 border-box flex flex-col gap-y-2 bg-h-200 dark:text-h-200 dark:bg-h-700')
         button.close(
           @click='open = ! open'
