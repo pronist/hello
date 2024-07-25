@@ -6,7 +6,7 @@
   .img
     img.thumb(
       @click='sidebar = ! sidebar'
-      class='lazyload rounded-full w-9 h-9 cursor-pointer <s_if_var_sidebar>xl:invisible</s_if_var_sidebar>'
+      class='lazyload rounded-full w-9 h-9 cursor-pointer object-cover <s_if_var_sidebar>xl:invisible</s_if_var_sidebar>'
       data-src='[##_image_##]'
       data-sizes='auto'
       alt='[##_blogger_##]'

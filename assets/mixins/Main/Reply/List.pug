@@ -8,7 +8,7 @@ mixin comment(type, replyable=true)
           data-sizes='auto'
           width='48'
           height='48'
-          class='lazyload rounded-full')
+          class='lazyload rounded-full object-cover w-12 h-12')
         .info
           .name(class='text-sm font-bold text-h-600 dark:text-h-200 [&_img]:hidden') #{`[##_${type}_rep_name_##]`}
           time.date(class='text-h-400 text-xs') #{`[##_${type}_rep_date_##]`}
