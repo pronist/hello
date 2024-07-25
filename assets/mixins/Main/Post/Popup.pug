@@ -1,0 +1,40 @@
+mixin popup(type)
+  #{`s_article_${type}`}
+    .popup(
+      x-data='{ open: true }'
+      x-transition:enter='transition ease-linear duration-200'
+      x-transition:enter-start='opacity-0'
+      x-transition:enter-end='opacity-100'
+      x-transition:leave='transition ease-linear duration-200'
+      x-transition:leave-start='opacity-100'
+      x-transition:leave-end='opacity-0'
+      x-show='open && $store.indicator.scrolled > 50'
+      id=type
+      class='fixed bottom-3 flex z-30 max-h-[calc(theme(spacing.24))] max-lg:hidden')&attributes(attributes)
+      a.link(
+        href=`[##_article_${type}_link_##]`
+        class='absolute w-full h-full z-10')
+      #{`s_article_${type}_thumbnail`}
+        .img
+          img.thumb(
+            src=`[##_article_${type}_thumbnail_link_##]`
+            alt=''
+            width='96'
+            height='96'
+            class='w-24 h-24 object-cover')
+      .content(class='relative w-64 p-4 border-box flex flex-col gap-y-2 bg-h-200 dark:text-h-200 dark:bg-h-700')
+        button.close(
+          @click='open = ! open'
+          class='absolute text-base top-3 right-4 text-h-400 dark:hover:text-h-200 z-20')
+          span.txt(class='text-hidden') 닫기
+          i.ico(class='fa-solid fa-xmark')
+        .tit(class='text-xs text-h-400')
+          case type
+            when 'prev'
+              | 이전 글
+            when 'next'
+              | 다음 글
+        .info(class='text-h-500 dark:text-h-200')
+          .tit(class='text-sm font-semibold text-overflow-hidden max-w-[calc(theme(spacing.56))]') #{`[##_article_${type}_title_##]`}
+          .desc(class='text-xxs')
+            time.date #{`[##_article_${type}_date_##]`}
