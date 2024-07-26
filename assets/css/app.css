@@ -9,15 +9,8 @@
   }
 }
 
-@layer utilities {
-  .text-hidden {
-    @apply absolute w-px h-px -m-px overflow-hidden !important;
-  }
-
-  .text-overflow-hidden {
-    @apply overflow-hidden whitespace-nowrap text-ellipsis;
-  }
-
+@layer components {
+  /* https://fontawesome.com/ */
   .font-awesome {
     @apply font-['Font_Awesome_6_Free'] leading-none not-italic inline-block;
   }
@@ -80,5 +73,29 @@
 
   .fa-triangle-exclamation {
     @apply font-awesome font-bold content-['\f071'];
+  }
+}
+
+@layer utilities {
+  .text-hidden {
+    @apply absolute w-px h-px -m-px overflow-hidden !important;
+  }
+
+  .text-overflow-hidden {
+    @apply overflow-hidden whitespace-nowrap text-ellipsis;
+  }
+
+  /* https://github.com/aFarkas/lazysizes#css-api */
+  .lazyload,
+  .lazyloading {
+    @apply animate-pulse bg-h-300 dark:bg-h-700;
+  }
+
+  .lazyload:not([src]) {
+    @apply invisible;
+  }
+
+  .lazyloaded {
+    @apply animate-none bg-h-100;
   }
 }

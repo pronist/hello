@@ -49,3 +49,25 @@ style
         @apply flex flex-col gap-y-6 sm:gap-y-0;
       }
     }
+
+style
+  :postcss
+    #tt-body-index,
+    #tt-body-category,
+    #tt-body-tag,
+    #tt-body-search {
+      [data-list-style=slider] {
+        /* https://swiperjs.com/demos#navigation */
+        .swiper-button-next,
+        .swiper-button-prev {
+          --swiper-navigation-size: 2rem;
+          --swiper-navigation-color: rgba(255, 255, 255, .6);
+          @apply max-lg:hidden;
+
+          &::before,
+          &::after {
+            @apply text-sm font-bold;
+          }
+        }
+      }
+    }
