@@ -38,7 +38,7 @@ module.exports = {
         h: 'var(--h-h)'
       },
       fontSize: {
-        xxs: '0.625rem'
+        '2xs': '0.625rem'
       },
       keyframes: {
         loading: {
