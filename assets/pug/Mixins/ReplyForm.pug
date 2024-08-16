@@ -2,7 +2,7 @@ mixin guest(type)
   .name(class='grow')
     label.label(for='name') 이름
     input#name.input(
-      autocomplete='username'
+      autocomplete='off'
       type='text'
       placeholder='이름'
       name=`[##_${type}_input_name_##]`
@@ -10,7 +10,7 @@ mixin guest(type)
   .password(class='grow')
     label.label(for='password') 암호
     input#password.input(
-      autocomplete='current-password'
+      autocomplete='off'
       type='password'
       maxlength='8'
       placeholder='비밀번호'
