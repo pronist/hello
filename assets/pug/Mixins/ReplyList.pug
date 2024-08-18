@@ -23,9 +23,9 @@ mixin comment(type, replyable=true)
             x-html='`댓글보기(${children.length})`')
 
 mixin replyList(type, rType, reverse=false)
-  #{`s_${type}_container`}
-    #comments(class='mt-12')
-      ol.comments(class='flex gap-y-5' class=reverse ? 'flex-col-reverse' : 'flex-col')
+  #comments(class='mt-12')
+    #{`s_${type}_container`}
+      ul.comments(class='flex gap-y-5' class=reverse ? 'flex-col-reverse' : 'flex-col')
         #{`s_${type}_rep`}
           li.comment(
             x-data='{ open: ! skinOptions.foldableReply, children: [] }'
@@ -33,7 +33,7 @@ mixin replyList(type, rType, reverse=false)
             class='flex flex-col gap-y-5 border-b border-h-300 dark:border-h-600 pb-5')
             +comment(type)
             #{`s_${rType}_container`}
-              ol.replies(
+              ul.replies(
                 x-show='open'
                 x-init='children = $el.querySelectorAll(".reply")'
                 class='flex flex-col gap-y-5')
