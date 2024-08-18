@@ -1,10 +1,9 @@
-#scroll-indicator(
+#indicator(
   @scroll.window='$store.indicator.indicate'
-  class='fixed top-0 w-screen z-30')
-  .bg(class='w-screen')
-    .bg-bar(
-      :style='{ width: $store.indicator.scrolled + "%" }'
-      class='w-0 h-0.5 rounded bg-h-800 dark:bg-h-200')
+  class='fixed top-0 w-full z-30')
+  .bg-bar(
+    :style='{ width: $store.indicator.scrolled + "%" }'
+    class='w-0 h-0.5 rounded bg-h-800 dark:bg-h-200')
 
 script.
   document.addEventListener('alpine:init', () => Alpine.store('indicator', {
