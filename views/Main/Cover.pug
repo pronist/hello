@@ -1,40 +1,24 @@
-mixin cover()
-  section.cover(class='flex flex-col items-center')
-    header.header
-      h1.tit(class='h-h min-h-[theme(spacing.h)] flex items-center font-bold text-3xl text-h-800 dark:text-h-200 empty:hidden') [##_cover_title_##]
-    block
+mixin cover(name)
+  s_cover(name=name)
+    section.cover(class='flex flex-col items-center' data-cover-name=name)&attributes(attributes)
+      block
 
-mixin coverItem()
+mixin coverTitle()
+  header.header&attributes(attributes)
+    h1.tit(class='h-h min-h-[theme(spacing.h)] flex items-center font-bold text-3xl text-h-800 dark:text-h-200 empty:hidden')
+      | [##_cover_title_##]
+
+mixin coverPost(options={})
   s_cover_item
-    +index('cover_item')&attributes(attributes)
+    +index('cover_item', true, options)&attributes(attributes)
 
-mixin coverList(style)
-  +cover()
-    .posts(data-list-style=style)
-      +coverItem()
-
-mixin coverSlider(style)
-  +cover()
-    .posts(
-      data-list-style=style
-      class='swiper')
-      .wrap(class='swiper-wrapper')
-        +coverItem()(class='swiper-slide')
-      .next(class='swiper-button-next')
-      .prev(class='swiper-button-prev')
+mixin coverPosts(style)
+  .posts(data-list-style=style)&attributes(attributes)
+    block
 
 s_cover_group
   #cover(
     x-init='$store.header.show = false'
     class='flex flex-col gap-y-12 lg:gap-y-16')
     s_cover_rep
-      s_cover(name='gallery')
-        +coverList('gallery')
-      s_cover(name='list')
-        +coverList('list')
-      s_cover(name='grid')
-        +coverList('grid')
-      s_cover(name='zigzag')
-        +coverList('zigzag')
-      s_cover(name='slider')
-        +coverSlider('slider')
+      include Cover/Basic

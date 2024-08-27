@@ -26,11 +26,16 @@
       <label>갤러리</label>
     </item>
     <item>
-      <value>zigzag</value>
+      <value>Z</value>
       <label>지그재그</label>
     </item>
   </liststyle>
   <cover>
+    <item>
+      <name>empty-line</name>
+      <label>빈 줄</label>
+      <description>빈 줄입니다.</description>
+    </item>
     <item>
       <name>list</name>
       <label>리스트</label>
@@ -42,7 +47,7 @@
       <description>그리드 형태로 글을 보여줍니다.</description>
     </item>
     <item>
-      <name>zigzag</name>
+      <name>Z</name>
       <label>지그재그</label>
       <description>지그재그 형태로 글을 보여줍니다.</description>
     </item>

@@ -1,25 +1,43 @@
-mixin index(type, hasCategory=true)
+mixin index(type, hasCategory=true, options={})
+  -
+    const defaultOptions = {
+      link: true,
+      thumbnail: { fallback: true },
+      header: { title: true, description: true },
+      summary: true
+    }
+  - options = { ...defaultOptions, ...options }
+
   .post&attributes(attributes)
-    a.link(href=`[##_${type}_${type === 'list_rep' || type === 'notice_rep' ? 'link' : 'url'}_##]`)
+    if options.link
+      a.link(href=`[##_${type}_${type === 'list_rep' || type === 'notice_rep' ? 'link' : 'url'}_##]`)
     .content
-      #{`s_${type}_thumbnail`}
-        .img
-          img.thumb(
-            data-src=`[##_${type}_thumbnail${type === 'notice_rep' ? '_url' : '' }_##]`
-            data-sizes='auto'
-            alt=''
-            class='lazyload')
-      .fallback
+      if options.thumbnail
+        .picture
+          #{`s_${type}_thumbnail`}
+            .img
+              img.thumb(
+                data-src=`[##_${type}_thumbnail${type === 'notice_rep' ? '_url' : '' }_##]`
+                data-sizes='auto'
+                alt=''
+                class='lazyload')
+          if options.thumbnail.fallback
+            .fallback
       .info
-        .tit #{`[##_${type}_title_##]`}
-        case type
-          when 'notice_rep'
-          when 'list_rep'
-            +description(type, hasCategory)
-          when 'cover_item'
-            s_cover_item_article_info
-              +description(type, hasCategory)
-        .summary #{`[##_${type}_summary_##]`}
+        if options.header
+          .header
+            if options.header.title
+              .tit #{`[##_${type}_title_##]`}
+            if options.header.description
+              case type
+                when 'notice_rep'
+                when 'list_rep'
+                  +description(type, hasCategory)
+                when 'cover_item'
+                  s_cover_item_article_info
+                    +description(type, hasCategory)
+        if options.summary
+          .summary #{`[##_${type}_summary_##]`}
 
 mixin description(type, hasCategory)
   .desc
@@ -34,13 +52,16 @@ mixin description(type, hasCategory)
 
 style
   :postcss
-    #tt-body-index,
-    #tt-body-category,
-    #tt-body-tag,
-    #tt-body-search {
-      #global-header ~ .post,
-      [data-list-style] .post {
-        .content {
+    #global-header ~ .post,
+    [data-list-style] .post {
+      @apply relative;
+
+      .link {
+        @apply absolute w-full h-full;
+      }
+
+      .content {
+        .picture {
           .img {
             & + .fallback {
               @apply hidden;
@@ -50,8 +71,10 @@ style
           .fallback {
             @apply animate-pulse bg-h-200 dark:bg-h-700;
           }
+        }
 
-          .info {
+        .info {
+          .header {
             .tit {
               img {
                 @apply hidden;
@@ -62,24 +85,30 @@ style
       }
     }
 
+//- empty
 style
   :postcss
-    #tt-body-index,
-    #tt-body-category,
-    #tt-body-tag,
-    #tt-body-search {
-      #global-header ~ .post,
-      [data-list-style=list] .post {
-        @apply relative sm:border-t sm:border-solid sm:border-h-300 sm:dark:border-h-600 sm:first-of-type:border-t-0;
+    [data-list-style=empty] {
+      @apply w-full px-4 lg:px-0 lg:mx-auto lg:w-idx;
+    }
 
-        .link {
-          @apply absolute w-full h-full z-10;
-        }
+//- list
+style
+  :postcss
+    #global-header ~ .post,
+    [data-list-style=list] .post {
+      @apply w-full px-4 lg:px-0 lg:mx-auto lg:w-idx;
+      @apply relative sm:border-t sm:border-solid sm:border-h-300 sm:dark:border-h-600 sm:first-of-type:border-t-0;
 
-        .content {
-          @apply flex flex-col gap-y-4;
-          @apply sm:flex-row-reverse sm:items-center sm:justify-end sm:gap-x-8 sm:h-72;
+      .link {
+        @apply z-10;
+      }
 
+      .content {
+        @apply flex flex-col gap-y-4;
+        @apply sm:flex-row-reverse sm:items-center sm:justify-end sm:gap-x-8 sm:h-72;
+
+        .picture {
           .img {
             @apply w-full sm:w-64 sm:h-64 sm:shrink-0;
 
@@ -87,12 +116,10 @@ style
               @apply w-full sm:w-64 sm:h-64 max-w-none object-cover bg-h-100;
             }
           }
+        }
 
-          .fallback {
-            @apply hidden;
-          }
-
-          .info {
+        .info {
+          .header {
             @apply flex flex-col gap-y-1 sm:grow;
 
             .tit {
@@ -106,32 +133,32 @@ style
                 @apply text-h-400;
               }
             }
+          }
 
-            .summary {
-              @apply mt-2 max-h-20 overflow-hidden leading-7 text-sm text-h-400;
-            }
+          .summary {
+            @apply mt-2 max-h-20 overflow-hidden leading-7 text-sm text-h-400;
           }
         }
       }
     }
 
+//- grid
 style
   :postcss
-    #tt-body-index,
-    #tt-body-category,
-    #tt-body-tag,
-    #tt-body-search {
-      [data-list-style=grid] {
-        .post {
-          @apply relative;
+    [data-list-style=grid] {
+      @apply w-full px-4 lg:px-0 lg:mx-auto lg:w-idx;
+      @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3;
+      @apply gap-4 lg:gap-8;
 
-          .link {
-            @apply absolute w-full h-full z-10;
-          }
+      .post {
+        .link {
+          @apply z-10;
+        }
 
-          .content {
-            @apply flex flex-col gap-y-4;
+        .content {
+          @apply flex flex-col gap-y-6;
 
+          .picture {
             .img,
             .fallback {
               @apply pt-[66.66%] relative;
@@ -142,8 +169,10 @@ style
                 @apply absolute top-0 left-0 w-full h-full object-cover bg-h-100;
               }
             }
+          }
 
-            .info {
+          .info {
+            .header {
               @apply gap-y-1 flex flex-col;
 
               .tit {
@@ -157,37 +186,33 @@ style
                   @apply text-h-400;
                 }
               }
+            }
 
-              .summary {
-                @apply mt-2 max-h-14 overflow-hidden leading-7 text-sm text-h-400;
-              }
+            .summary {
+              @apply mt-2 max-h-14 overflow-hidden leading-7 text-sm text-h-400;
             }
           }
         }
       }
     }
 
+//- Z
 style
   :postcss
-    #tt-body-index,
-    #tt-body-category,
-    #tt-body-tag,
-    #tt-body-search {
-      [data-list-style=zigzag] {
-        .post {
-          @apply relative;
+    [data-list-style=Z] {
+      @apply w-full px-4 lg:px-0 lg:mx-auto lg:w-idx;
+      @apply flex flex-col gap-y-6 sm:gap-y-0;
 
-          .link {
-            @apply absolute w-full h-full z-20;
-          }
+      .post {
+        .link {
+          @apply z-20;
+        }
 
-          .content {
-            @apply relative flex flex-col gap-y-4 sm:flex-row;
+        .content {
+          @apply flex flex-col gap-y-4 sm:flex-row;
 
-            .img,
-            .fallback {
-              @apply sm:w-1/2;
-            }
+          .picture {
+            @apply sm:w-1/2;
 
             .img {
               .thumb {
@@ -196,12 +221,15 @@ style
             }
 
             .fallback {
-              @apply pt-[66.66%] sm:pt-[33.33%];
+              @apply pt-[66.66%];
             }
+          }
 
-            .info {
-              @apply flex flex-col gap-y-1 justify-center sm:w-1/2;
+          .info {
+            @apply sm:w-1/2;
+            @apply flex flex-col gap-y-1 justify-center;
 
+            .header {
               .tit {
                 @apply text-xl lg:text-2xl font-bold text-h-800 dark:text-h-200;
               }
@@ -213,60 +241,62 @@ style
                   @apply text-h-400;
                 }
               }
+            }
 
-              .summary {
-                @apply mt-2 max-h-20 overflow-hidden leading-7 text-sm text-h-400;
-              }
+            .summary {
+              @apply mt-2 max-h-20 overflow-hidden leading-7 text-sm text-h-400;
             }
           }
+        }
 
-          &:nth-child(2n+1) {
-            .content {
-              @apply sm:flex-row-reverse;
+        &:nth-child(2n) {
+          .content {
+            @apply sm:flex-row-reverse;
 
-              .info {
-                @apply sm:pr-10 lg:pr-20;
-              }
+            .info {
+              @apply sm:pr-10 lg:pr-20;
             }
           }
+        }
 
-          &:nth-child(2n) {
-            .content {
-              .info {
-                @apply sm:pl-10 lg:pl-20;
-              }
+        &:nth-child(2n+1) {
+          .content {
+            .info {
+              @apply sm:pl-10 lg:pl-20;
             }
           }
         }
       }
     }
 
+//- gallery
 style
   :postcss
-    #tt-body-index,
-    #tt-body-category,
-    #tt-body-tag,
-    #tt-body-search {
-      [data-list-style=gallery] {
-        .post {
-          @apply relative;
+    [data-list-style=gallery] {
+      @apply w-full px-4 lg:px-0 lg:mx-auto lg:w-idx;
+      @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3;
+      @apply gap-2;
 
-          .link {
-            @apply absolute w-full h-full z-30;
+      .post {
+        .link {
+          @apply z-30;
 
-            &:hover + .content {
-              @apply before:opacity-100 before:duration-300;
+          &:hover + .content {
+            @apply before:opacity-100 before:duration-300;
 
-              .info {
-                @apply opacity-100 duration-300;
-              }
+            .info {
+              @apply opacity-100 duration-300;
             }
           }
+        }
 
-          .content {
-            @apply before:opacity-0 before:absolute before:right-0 before:top-0 before:w-full before:h-full;
-            @apply before:z-10 before:bg-gradient-to-b before:from-transparent before:to-h-700/50;
-            @apply relative flex items-end z-20;
+        .content {
+          @apply before:opacity-0 before:absolute before:right-0 before:top-0 before:w-full before:h-full;
+          @apply before:z-10 before:bg-gradient-to-b before:from-transparent before:to-h-700/50;
+          @apply relative flex items-end z-20;
+
+          .picture {
+            @apply w-full h-full;
 
             .img,
             .fallback {
@@ -278,10 +308,15 @@ style
                 @apply absolute top-0 left-0 w-full h-full object-cover bg-h-100;
               }
             }
+          }
 
-            .info {
-              @apply opacity-0 absolute flex flex-col justify-end items-center w-full text-center z-20;
-              @apply pb-6 max-md:pb-8 gap-y-7 sm:gap-y-5 md:gap-y-9;
+          .info {
+            @apply opacity-0 absolute w-full z-20;
+            @apply pb-6 max-md:pb-8;
+
+            .header {
+              @apply flex flex-col justify-end items-center w-full text-center;
+              @apply gap-y-7 sm:gap-y-5 md:gap-y-9;
 
               .tit {
                 @apply px-6 text-h-200 text-xl sm:text-lg md:text-2xl font-semibold;
@@ -294,65 +329,76 @@ style
                   @apply text-h-200;
                 }
               }
-
-              .summary {
-                @apply hidden;
-              }
             }
           }
         }
       }
     }
 
+//- slider
 style
   :postcss
-    #tt-body-index,
-    #tt-body-category,
-    #tt-body-tag,
-    #tt-body-search {
-      [data-list-style=slider] {
-        .post {
-          @apply relative;
+    [data-list-style=slider] {
+      @apply w-full h-screen;
 
+      .swiper-wrapper {
+        .post {
           .link {
-            @apply absolute w-full h-full z-30;
+            @apply z-30;
           }
 
           .content {
             @apply before:absolute before:left-0 before:top-0 before:w-full before:h-screen before:bg-h-900/20 before:z-10;
             @apply w-full h-full flex justify-center items-center;
 
-            .img,
-            .fallback {
+            .picture {
               @apply w-full h-full;
-            }
 
-            .img {
-              .thumb {
-                @apply w-full h-full object-cover bg-h-100;
+              .img,
+              .fallback {
+                @apply w-full h-full;
+              }
+
+              .img {
+                .thumb {
+                  @apply w-full h-full object-cover bg-h-100;
+                }
               }
             }
 
             .info {
-              @apply absolute flex flex-col justify-center items-center gap-y-1 text-center z-20;
+              @apply absolute z-20;
 
-              .tit {
-                @apply px-4 text-h-200 font-bold text-2xl md:text-3xl;
-              }
+              .header {
+                @apply flex flex-col justify-center items-center gap-y-1 text-center;
 
-              .desc {
-                @apply flex gap-x-1 text-sm;
-
-                * {
-                  @apply text-h-200;
+                .tit {
+                  @apply px-4 text-h-200 font-bold text-2xl md:text-3xl;
                 }
-              }
 
-              .summary {
-                @apply hidden;
+                .desc {
+                  @apply flex gap-x-1 text-sm;
+
+                  * {
+                    @apply text-h-200;
+                  }
+                }
               }
             }
           }
+        }
+      }
+
+      /* https://swiperjs.com/demos#navigation */
+      .swiper-button-next,
+      .swiper-button-prev {
+        --swiper-navigation-size: 2rem;
+        --swiper-navigation-color: rgba(255, 255, 255, .6);
+        @apply max-lg:hidden;
+
+        &::before,
+        &::after {
+          @apply text-sm font-bold;
         }
       }
     }
