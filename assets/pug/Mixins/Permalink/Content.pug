@@ -28,13 +28,9 @@ script(once='alpine-article-component').
     init () {
       this.setAnchorToHeadings()
       this.collectHeading()
-
-      this.setLazyLoadToImages()
-      this.setRatioToImages()
-      this.setPositionToImages()
-
       this.highlightCodeBlocks()
       this.addBlankHashToMoreLesses()
+      this.setPositionToImages()
     },
 
     /**
@@ -79,107 +75,6 @@ script(once='alpine-article-component').
         text: $heading.textContent,
         active: false
       }
-    },
-
-    /**
-     * Set lazy load to images
-     */
-    setLazyLoadToImages () {
-      this.$article.querySelectorAll('figure[class^=image] img').forEach(this.setLazyLoadToImage)
-    },
-
-    /**
-     * Set lazy load to image
-     *
-     * @param {object} $image
-     */
-    setLazyLoadToImage ($image) {
-      $image.classList.add('lazyload')
-
-      $image.dataset.src = $image.getAttribute('src')
-      $image.dataset.srcset = $image.getAttribute('srcset')
-      $image.dataset.sizes = 'auto'
-
-      $image.removeAttribute('src')
-      $image.removeAttribute('srcset')
-    },
-
-    /**
-     * set Ratio to images in template
-     */
-    setRatioToImages () {
-      this.$article.querySelectorAll('figure.imageslideblock').forEach(this.setRatioToImageSlideBlock.bind(this))
-      this.$article.querySelectorAll('figure.imageblock').forEach(this.setRatioToImageBlock.bind(this))
-      this.$article.querySelectorAll('figure.imagegridblock').forEach(this.setRatioToImageGridBlock.bind(this))
-    },
-
-    /**
-     * Set Ratio to image block
-     *
-     * @param {HTMLElement} $imageBlock
-     */
-    setRatioToImageBlock ($imageBlock) {
-      const $imageWrap = $imageBlock.querySelector('span, a')
-      const $image = $imageWrap.querySelector('img')
-
-      const paddingBottom = this.ratio($imageBlock, $image)
-
-      $imageWrap.style.paddingBottom = `${paddingBottom}%`
-    },
-
-    /**
-     * Set Ratio to image grid block
-     *
-     * @param {HTMLElement} $imageBlock
-     */
-    setRatioToImageGridBlock ($imageBlock) {
-      const $imageWraps = $imageBlock.querySelectorAll('span, a')
-
-      $imageWraps.forEach($imageWrap => {
-        const $image = $imageWrap.querySelector('img')
-
-        const paddingBottom = this.ratio($imageWrap, $image)
-
-        $imageWrap.style.paddingBottom = `${paddingBottom}%`
-      })
-    },
-
-    /**
-     * Set Ratio to image slide block
-     *
-     * @param {HTMLElement} $imageBlock
-     */
-    setRatioToImageSlideBlock ($imageBlock) {
-      const $imageContainer = $imageBlock.querySelector('.image-container')
-      const $image = $imageContainer.querySelector('img')
-
-      const paddingBottom = this.ratio($image, $image)
-
-      $imageContainer.style.paddingBottom = `${paddingBottom}%`
-    },
-
-    /**
-     * Get ratio
-     *
-     * @param {HTMLElement} $originBlock
-     * @param {HTMLElement} $image
-     *
-     * @return {number}
-     */
-    ratio ($originBlock, $image) {
-      let width = $originBlock.dataset.originWidth
-      let height = $originBlock.dataset.originHeight
-
-      if ($image.hasAttribute('width') && $image.hasAttribute('height')) {
-        width = $image.getAttribute('width')
-        height = $image.getAttribute('height')
-      }
-
-      width = $originBlock.dataset.widthpercent
-        ? width * (100 / $originBlock.dataset.widthpercent)
-        : width
-
-      return height / width * 100
     },
 
     /**
