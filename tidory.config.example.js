@@ -44,15 +44,15 @@ module.exports = {
      * Variables
      */
     variableSettings: {
-      sidebar: true,
+      sidebar: false,
       'foldable-category': true,
       'foldable-reply': true,
       width: '720',
       toc: true,
       scrollspy: true,
       hljs: 'xcode',
-      hljsDark: 'vs2015',
-      mode: 'simple'
+      'hljs-dark': 'vs2015',
+      'header-style': 'simple'
     },
 
     /**
@@ -93,10 +93,10 @@ module.exports = {
         }
       },
       {
-        description: '지그재그',
+        description: 'Z',
         index: 0,
-        name: 'zigzag',
-        title: '지그재그',
+        name: 'Z',
+        title: 'Z',
         dataType: 'RECENT',
         data: {
           category: 'ALL',
