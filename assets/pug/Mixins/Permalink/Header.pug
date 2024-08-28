@@ -22,48 +22,42 @@ header#header(
       if hasCategory
         include Header/Admin
 
-style(once='header-simple')
+style(once='header-style-simple')
   :postcss
-    #tt-body-page {
-      #header[data-mode=simple] {
-        .img {
-          @apply hidden;
-        }
+    #header[data-mode=simple] {
+      .img {
+        @apply hidden;
+      }
 
-        .info {
-          @apply h-h;
+      .info {
+        @apply h-h;
+      }
+    }
+
+style(once='header-style-thumbnail')
+  :postcss
+    #header[data-mode=thumbnail] {
+      @apply relative;
+
+      .img {
+        @apply h-h before:h-h;
+
+        & + .info {
+          @apply h-h text-h-200 border-0;
         }
       }
     }
 
-style(once='header-thumbnail')
+style(once='header-style-screen')
   :postcss
-    #tt-body-page {
-      #header[data-mode=thumbnail] {
-        @apply relative;
+    #header[data-mode=screen] {
+      @apply relative;
 
-        .img {
-          @apply h-h before:h-h;
+      .img {
+        @apply h-screen before:h-screen;
 
-          & + .info {
-            @apply h-h text-h-200 border-0;
-          }
-        }
-      }
-    }
-
-style(once='header-screen')
-  :postcss
-    #tt-body-page {
-      #header[data-mode=screen] {
-        @apply relative;
-
-        .img {
-          @apply h-screen before:h-screen;
-
-          & + .info {
-            @apply h-screen text-h-200 border-0;
-          }
+        & + .info {
+          @apply h-screen text-h-200 border-0;
         }
       }
     }

@@ -12,20 +12,18 @@ if process.env.NODE_ENV === 'development'
 
 style(once='content-subscription-button')
   :postcss
-    #tt-body-page {
-      #article {
-        .container_postbtn {
-          .btn_subscription {
-            @apply before:fa-star before:font-bold before:text-sm;
+    #article {
+      .container_postbtn {
+        .btn_subscription {
+          @apply before:fa-star before:font-bold before:text-sm;
 
-            .txt_state {
-              @apply text-hidden;
-            }
+          .txt_state {
+            @apply text-hidden;
+          }
 
-            .txt_tool_id,
-            .ico_check_type1 {
-              @apply hidden;
-            }
+          .txt_tool_id,
+          .ico_check_type1 {
+            @apply hidden;
           }
         }
       }

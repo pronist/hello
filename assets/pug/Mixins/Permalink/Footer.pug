@@ -1,9 +1,5 @@
-footer#footer(
-  x-data='{ shown: false }'
-  x-intersect.once='shown = true'
-  class='mb-9 w-full px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto')
-  .wrap(x-show='shown')
-    if hasCategory
-      include Footer/RelatedArticle
-      include Footer/Tag
-    include Footer/Author
+footer#footer(class='mb-9 w-full px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto')
+  if hasCategory
+    include Footer/RelatedArticle
+    include Footer/Tag
+  include Footer/Author

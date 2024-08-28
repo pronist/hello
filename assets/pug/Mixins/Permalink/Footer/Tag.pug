@@ -27,19 +27,17 @@ script.
 
 style(once='tags')
   :postcss
-    #tt-body-page {
-      #tags {
-        a {
-          @apply text-sm rounded-md py-2 px-4 mt-2 bg-h-200 text-h-500;
-          @apply dark:text-h-200 dark:bg-h-700;
+    #tags {
+      a {
+        @apply text-sm rounded-md py-2 px-4 mt-2 bg-h-200 text-h-500;
+        @apply dark:text-h-200 dark:bg-h-700;
 
-          &:hover {
-            @apply bg-h-600 text-h-200;
-          }
+        &:hover {
+          @apply bg-h-600 text-h-200;
+        }
 
-          &:first-of-type::before {
-            @apply mr-2 fa-tag;
-          }
+        &:first-of-type::before {
+          @apply mr-2 fa-tag;
         }
       }
     }

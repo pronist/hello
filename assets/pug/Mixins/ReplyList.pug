@@ -43,27 +43,24 @@ mixin replyList(type, rType, reverse=false)
 
 style
   :postcss
-    #tt-body-page,
-    #tt-body-guestbook {
-      #comments {
-        .tt_more_preview_comments_wrap {
-          @apply my-4 text-sm bg-h-700 text-h-200 rounded-xl py-3 px-4;
+    #comments {
+      .tt_more_preview_comments_wrap {
+        @apply my-4 text-sm bg-h-700 text-h-200 rounded-xl py-3 px-4;
 
-          &:hover {
-            @apply bg-h-600;
-          }
-
-          &::after {
-            @apply font-awesome font-bold content-['\f0ab'] ml-1;
-          }
+        &:hover {
+          @apply bg-h-600;
         }
 
-        .tt-txt-mention {
-          @apply hidden;
+        &::after {
+          @apply font-awesome font-bold content-['\f0ab'] ml-1;
         }
+      }
 
-        .tistoryProfileLayerTrigger {
-          @apply hidden;
-        }
+      .tt-txt-mention {
+        @apply hidden;
+      }
+
+      .tistoryProfileLayerTrigger {
+        @apply hidden;
       }
     }

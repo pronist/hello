@@ -107,43 +107,40 @@ script.
 
 style
   :postcss
-    #tt-body-page,
-    #tt-body-guestbook {
-      #form {
-        .warning {
-          @apply block text-sm p-4 mb-2 w-full rounded-lg box-border relative bg-h-200 text-h-500 dark:text-h-200 dark:bg-h-700;
+    #form {
+      .warning {
+        @apply block text-sm p-4 mb-2 w-full rounded-lg box-border relative bg-h-200 text-h-500 dark:text-h-200 dark:bg-h-700;
 
-          .ico {
-            @apply before:fa-triangle-exclamation mr-2;
+        .ico {
+          @apply before:fa-triangle-exclamation mr-2;
+        }
+      }
+
+      .controls {
+        .name,
+        .password {
+          .input {
+            @apply rounded-md px-3 border-0 inline-block outline-none h-10 w-full text-xs;
+            @apply text-h-500 bg-h-200 dark:text-h-200 dark:bg-h-700;
+          }
+
+          .label {
+            @apply text-hidden;
           }
         }
 
-        .controls {
-          .name,
-          .password {
-            .input {
-              @apply rounded-md px-3 border-0 inline-block outline-none h-10 w-full text-xs;
-              @apply text-h-500 bg-h-200 dark:text-h-200 dark:bg-h-700;
-            }
+        .secret > .label,
+        .submit {
+          @apply cursor-pointer m-0 p-0 w-10 h-10 min-w-[theme(spacing.10)] rounded-lg flex justify-center items-center text-[0] outline-0 border-0;
+          @apply bg-h-200 hover:bg-h-300 dark:bg-h-700 dark:hover:bg-h-600;
 
-            .label {
-              @apply text-hidden;
-            }
+          .ico {
+            @apply text-sm leading-none text-h-500 dark:text-h-200;
           }
+        }
 
-          .secret > .label,
-          .submit {
-            @apply cursor-pointer m-0 p-0 w-10 h-10 min-w-[theme(spacing.10)] rounded-lg flex justify-center items-center text-[0] outline-0 border-0;
-            @apply bg-h-200 hover:bg-h-300 dark:bg-h-700 dark:hover:bg-h-600;
-
-            .ico {
-              @apply text-sm leading-none text-h-500 dark:text-h-200;
-            }
-          }
-
-          .txt {
-            @apply text-hidden;
-          }
+        .txt {
+          @apply text-hidden;
         }
       }
     }
