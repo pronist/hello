@@ -81,7 +81,7 @@
     </variablegroup>
     <variablegroup name="글">
       <variable>
-        <name>mode</name>
+        <name>header-style</name>
         <label>헤더 스타일</label>
         <description><![CDATA[ 헤더 스타일 ]]></description>
         <type>SELECT</type>

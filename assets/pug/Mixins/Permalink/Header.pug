@@ -1,6 +1,6 @@
 header#header(
   x-ref='header'
-  data-mode='[##_var_mode_##]'
+  data-header-style='[##_var_header-style_##]'
   class='px-4 mb-10 lg:px-0 lg:mb-16')
   #{`s_${type}_rep_thumbnail`}
     .img(class='absolute right-0 top-0 w-full before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:bg-h-900/20 before:z-10')
@@ -24,7 +24,7 @@ header#header(
 
 style(once='header-style-simple')
   :postcss
-    #header[data-mode=simple] {
+    #header[data-header-style=simple] {
       .img {
         @apply hidden;
       }
@@ -36,7 +36,7 @@ style(once='header-style-simple')
 
 style(once='header-style-thumbnail')
   :postcss
-    #header[data-mode=thumbnail] {
+    #header[data-header-style=thumbnail] {
       @apply relative;
 
       .img {
@@ -50,7 +50,7 @@ style(once='header-style-thumbnail')
 
 style(once='header-style-screen')
   :postcss
-    #header[data-mode=screen] {
+    #header[data-header-style=screen] {
       @apply relative;
 
       .img {
