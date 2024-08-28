@@ -1,10 +1,11 @@
-#content(class='relative w-full px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto')
-  .wrap(x-data='content')
-    s_if_var_toc
-      include Content/TOC
-    include Content/Article
-    s_if_var_scrollspy
-      include Content/Scrollspy
+#content(
+  x-data='content'
+  class='relative w-full px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto')
+  s_if_var_toc
+    include Content/TOC
+  include Content/Article
+  s_if_var_scrollspy
+    include Content/Scrollspy
 
 script(once='alpine-article-component').
   document.addEventListener('alpine:init', () => Alpine.data('content', () => ({
