@@ -2,5 +2,4 @@ s_guest
   section#guestbook(
     x-init='$store.header.title = "방명록"'
     class='w-full px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto')
-    +replyForm('guest')
-    +replyList('guest', 'guest_reply')
+    +group('guestbook')

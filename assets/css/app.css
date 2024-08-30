@@ -74,6 +74,18 @@
   .fa-triangle-exclamation {
     @apply font-awesome font-bold content-['\f071'];
   }
+
+  .fa-xmark {
+    @apply font-awesome font-bold content-['\f00d'];
+  }
+
+  .fa-ellipsis-vertical {
+    @apply font-awesome font-bold content-['\f142'];
+  }
+
+  .fa-thumbtack {
+    @apply font-awesome font-bold content-['\f08d'];
+  }
 }
 
 @layer utilities {

@@ -1,0 +1,301 @@
+mixin group(type)
+  #group
+    | #{`[##_${type}_group_##]`}
+
+style
+  :postcss
+    [data-tistory-react-app=Comment] {
+      .tt-comment-cont {
+        * {
+          @apply font-sans !important;
+        }
+
+        .tt-box-total {
+          @apply hidden;
+        }
+
+        .tt-txt-mention {
+          @apply before:hidden bg-transparent text-sm rounded mr-1 p-0 text-h-orange dark:text-h-blue;
+        }
+
+        .tt_ico_profile,
+        .tt_ico_fixed,
+        .tt-xe-input-helper,
+        .tt_ico_lock,
+        .tt-button-modify {
+          @apply m-0 overflow-visible w-max h-max bg-none text-h-400 !important;
+        }
+      }
+    }
+
+//- Form
+style
+  :postcss
+    [data-tistory-react-app=Comment] {
+      .tt-comment-cont {
+        form {
+          .tt-area-write {
+            .tt_wrap_write {
+              .tt-box-account {
+                @apply flex gap-x-2;
+
+                input {
+                  @apply outline-none text-sm border-0 p-5 rounded-lg box-border text-h-800 bg-h-200 dark:text-h-200 dark:bg-h-700;
+                }
+              }
+
+              .tt-box-textarea {
+                .tt-inner-g {
+                  @apply w-full overflow-hidden border-0 p-5 rounded-lg box-border bg-h-200 dark:bg-h-700;
+
+                  .tt_txt_user {
+                    @apply font-bold mb-3 text-h-800 dark:text-h-200 bg-h-200 dark:bg-h-700;
+                  }
+
+                  textarea,
+                  div {
+                    @apply leading-7 text-sm h-min border-0 outline-none resize-none text-h-800 dark:text-h-200 bg-h-200 dark:bg-h-700;
+                  }
+                }
+              }
+
+              .tt-box-write {
+                @apply flex justify-end gap-x-2;
+
+                > div {
+                  @apply flex gap-x-2;
+                }
+
+                .tt-xe-label,
+                .tt-btn-cancel,
+                .tt-btn_register,
+                .tt-btn_register:disabled {
+                  @apply bg-h-200 hover:bg-h-300 dark:bg-h-700 dark:hover:bg-h-600;
+                }
+
+                .tt-xe-label,
+                .tt-btn-cancel,
+                .tt-btn_register {
+                  @apply m-0 p-0 w-10 h-10 min-w-max rounded-lg flex justify-center items-center text-[0] outline-0 border-0;
+                }
+
+                .tt-xe-input-helper,
+                .tt-btn-cancel,
+                .tt-btn_register {
+                  @apply before:text-h-500 before:dark:text-h-200;
+                }
+
+                .tt-xe-label {
+                  input[type="checkbox"]:checked + .tt-xe-input-helper {
+                    @apply before:fa-lock;
+                  }
+
+                  .tt-xe-input-helper {
+                    @apply before:fa-lock-open before:text-sm;
+                  }
+                }
+
+                .tt-btn-cancel {
+                  @apply before:fa-xmark before:text-base;
+                }
+
+                .tt-btn_register {
+                  @apply before:fa-paper-plane before:text-sm;
+                }
+              }
+            }
+          }
+        }
+
+        .tt-item-reply {
+          form {
+            .tt-area-write {
+              .tt_wrap_write {
+                .tt-box-account {
+                  input {
+                    @apply bg-h-300 dark:bg-h-800;
+                  }
+                }
+
+                .tt-box-textarea {
+                  .tt-inner-g {
+                    @apply bg-h-300 dark:bg-h-800;
+
+                    .tt_txt_user {
+                      @apply bg-h-300 dark:bg-h-800;
+                    }
+
+                    textarea,
+                    div {
+                      @apply bg-h-300 dark:bg-h-800;
+                    }
+                  }
+                }
+
+                .tt-box-write {
+                  .tt-xe-label,
+                  .tt-btn-cancel,
+                  .tt-btn_register,
+                  .tt-btn_register:disabled {
+                    @apply bg-h-300 dark:bg-h-800;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+//- List
+style
+  :postcss
+    [data-tistory-react-app=Comment] {
+      .tt-comment-cont {
+        .tt-area-reply {
+          .tt-list-reply {
+            @apply mt-9 flex flex-col gap-y-8 border-0;
+
+            .tt_btn_prev_more {
+              @apply border-0 my-4 text-sm bg-h-700 text-h-200 rounded-xl py-3 px-4 duration-200;
+
+              &:hover {
+                @apply bg-h-600;
+              }
+
+              &::after {
+                @apply font-awesome font-bold content-['\f0ab'] ml-2;
+              }
+            }
+
+            .tt-item-reply {
+              @apply before:hidden rounded-md p-8 bg-h-200 dark:bg-h-700;
+
+              &.rp_general {
+                @apply rounded-none px-0 pt-8 pb-0 bg-transparent border-h-300 dark:border-h-600 last-of-type:pb-8 last-of-type:border-b;
+              }
+
+              .tt_cmt_info {
+                @apply flex gap-x-1.5;
+
+                .tt_ico_fixed {
+                  @apply relative top-px before:fa-thumbtack before:text-xs;
+                }
+
+                .tt_txt_g {
+                  @apply text-h-400;
+                }
+              }
+
+              .tt-wrap-cmt {
+                @apply relative;
+
+                .tt-box-content {
+                  .tt-box-meta {
+                    @apply flex gap-x-1.5;
+
+                    .tt-link-user {
+                      @apply text-sm font-bold text-h-600 dark:text-h-200;
+                    }
+
+                    .tt_cmt_profile {
+                      @apply hidden;
+                    }
+
+                    .tt_ico_lock {
+                      @apply text-xs;
+                    }
+
+                    .tt_ico_fixed {
+                      @apply hidden;
+                    }
+                  }
+
+                  .tt-wrap-desc {
+                    @apply pr-7;
+
+                    .tt_desc {
+                      @apply leading-7 text-sm text-h-500 dark:text-h-300;
+                    }
+                  }
+
+                  .tt-wrap-info {
+                    @apply pt-4 flex gap-x-1;
+
+                    .tt_date {
+                      @apply pt-0 text-h-400 text-xs;
+                    }
+
+                    .tt-wrap-link-comment {
+                      @apply pl-0;
+
+                      &::before {
+                        @apply hidden;
+                      }
+
+                      .tt-link-comment {
+                        .tt_txt_g {
+                          @apply pt-0 text-h-400 text-xs;
+                        }
+
+                        .tt_num_g {
+                          @apply text-h-400 text-xs;
+                        }
+                      }
+                    }
+
+                    .more {
+                      @apply text-h-400 text-xs;
+                    }
+                  }
+
+                  .tt-box-modify {
+                    @apply absolute top-0 right-0;
+
+                    .tt-button-modify {
+                      @apply before:text-h-800 before:dark:text-h-200 bg-transparent hover:bg-transparent before:fa-ellipsis-vertical before:text-xs;
+                    }
+
+                    .tt-list-modify {
+                      @apply top-5 rounded-md shadow-none bg-h-700 dark:bg-h-600;
+
+                      li {
+                        a {
+                          @apply bg-h-700 text-h-200 hover:bg-h-600 dark:bg-h-600 dark:text-h-400 hover:dark:text-h-200;
+                        }
+                      }
+                    }
+                  }
+
+                  .tt_box_pwd {
+                    @apply shadow-none bg-h-200 dark:bg-h-700;
+
+                    .tt_form_pwd {
+                      .tt_inp_g {
+                        @apply border-0 outline-none text-h-500 bg-h-300 dark:text-h-200 dark:bg-h-600;
+                      }
+
+                      .tt_btn_submit {
+                        @apply bg-h-700 disabled:bg-h-200 dark:bg-h-500 disabled:dark:bg-h-500;
+
+                        .tt_ico_check {
+                          @apply invert;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+
+              .tt-list-reply-comment {
+                @apply rounded-md mt-6 border-0 flex flex-col gap-y-8 p-8 bg-h-200 dark:bg-h-700;
+
+                .tt-item-reply {
+                  @apply border-0 p-0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
