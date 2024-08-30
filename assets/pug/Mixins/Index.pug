@@ -2,8 +2,11 @@ mixin index(type, hasCategory=true, options={})
   -
     const defaultOptions = {
       link: true,
-      thumbnail: { fallback: true },
-      header: { title: true, description: true },
+      thumbnail: true,
+      fallback: true,
+      header: true,
+      title: true,
+      description: true,
       summary: true
     }
   - options = { ...defaultOptions, ...options }
@@ -21,14 +24,14 @@ mixin index(type, hasCategory=true, options={})
                 data-sizes='auto'
                 alt=''
                 class='lazyload')
-          if options.thumbnail.fallback
+          if options.fallback
             .fallback
       .info
         if options.header
           .header
-            if options.header.title
+            if options.title
               .tit #{`[##_${type}_title_##]`}
-            if options.header.description
+            if options.description
               case type
                 when 'notice_rep'
                 when 'list_rep'
