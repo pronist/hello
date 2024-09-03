@@ -18,6 +18,26 @@
     @apply w-full px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto;
   }
 
+  .cover-cols-1 {
+    @apply grid grid-cols-1;
+  }
+
+  .cover-cols-2 {
+    @apply cover-cols-1 sm:grid-cols-2;
+  }
+
+  .cover-cols-3 {
+    @apply cover-cols-2 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .cover-button {
+    @apply flex;
+  }
+
+  .cover-fullscreen {
+    @apply w-full h-screen;
+  }
+
   /* https://fontawesome.com/ */
   .font-awesome {
     @apply font-['Font_Awesome_6_Free'] leading-none not-italic inline-block;
