@@ -10,6 +10,14 @@
 }
 
 @layer components {
+  .index-container {
+    @apply w-full px-4 lg:px-0 lg:mx-auto lg:w-idx;
+  }
+
+  .permalink-container {
+    @apply w-full px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto;
+  }
+
   /* https://fontawesome.com/ */
   .font-awesome {
     @apply font-['Font_Awesome_6_Free'] leading-none not-italic inline-block;
