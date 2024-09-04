@@ -15,51 +15,271 @@
   <liststyle>
     <item>
       <value>list</value>
-      <label>리스트</label>
+      <label>[베이직] 리스트 (1단)</label>
     </item>
     <item>
       <value>grid</value>
-      <label>그리드</label>
+      <label>[베이직] 그리드 (3단)</label>
     </item>
     <item>
       <value>gallery</value>
-      <label>갤러리</label>
+      <label>[베이직] 갤러리 (3단)</label>
     </item>
     <item>
       <value>Z</value>
-      <label>지그재그</label>
+      <label>[베이직] Z</label>
     </item>
   </liststyle>
   <cover>
     <item>
-      <name>empty-line</name>
-      <label>빈 줄</label>
-      <description>빈 줄입니다.</description>
-    </item>
-    <item>
       <name>list</name>
-      <label>리스트</label>
-      <description>리스트 형태로 글을 보여줍니다.</description>
+      <label>[베이직] 리스트 (1단)</label>
+      <description>리스트 (1단)</description>
     </item>
     <item>
       <name>grid</name>
-      <label>그리드</label>
-      <description>그리드 형태로 글을 보여줍니다.</description>
+      <label>[베이직] 그리드 (3단)</label>
+      <description>그리드 (3단)</description>
     </item>
     <item>
       <name>Z</name>
-      <label>지그재그</label>
-      <description>지그재그 형태로 글을 보여줍니다.</description>
+      <label>[베이직] Z</label>
+      <description>Z</description>
     </item>
     <item>
       <name>slider</name>
-      <label>슬라이더</label>
-      <description>슬라이더 형태로 글을 보여줍니다.</description>
+      <label>[베이직] 슬라이더</label>
+      <description>슬라이더</description>
     </item>
     <item>
       <name>gallery</name>
-      <label>갤러리</label>
-      <description>갤러리 형태로 글을 보여줍니다.</description>
+      <label>[베이직] 갤러리 (3단)</label>
+      <description>갤러리</description>
+    </item>
+    <item>
+      <name>profile</name>
+      <label>[포트폴리오] 프로필</label>
+      <description>[포트폴리오] 프로필</description>
+    </item>
+    <item>
+      <name>poster</name>
+      <label>[포트폴리오] 포스터</label>
+      <description>[포트폴리오] 포스터</description>
+    </item>
+    <item>
+      <name>square</name>
+      <label>[포트폴리오] 스퀘어</label>
+      <description>[포트폴리오] 스퀘어</description>
+    </item>
+    <item>
+      <name>picture-1-1-l</name>
+      <label>[포트폴리오] 사진 (1:1)/왼쪽</label>
+      <description>[포트폴리오] 사진 (1:1)/왼쪽</description>
+    </item>
+    <item>
+      <name>picture-1-1-c</name>
+      <label>[포트폴리오] 사진 (1:1)/중앙</label>
+      <description>[포트폴리오] 사진 (1:1)/중앙</description>
+    </item>
+    <item>
+      <name>picture-1-1-r</name>
+      <label>[포트폴리오] 사진 (1:1)/오른쪽</label>
+      <description>[포트폴리오] 사진 (1:1)/오른쪽</description>
+    </item>
+    <item>
+      <name>picture-2-3-l</name>
+      <label>[포트폴리오] 사진 (2:3)/왼쪽</label>
+      <description>[포트폴리오] 사진 (2:3)/왼쪽</description>
+    </item>
+    <item>
+      <name>picture-2-3-c</name>
+      <label>[포트폴리오] 사진 (2:3)/중앙</label>
+      <description>[포트폴리오] 사진 (2:3)/왼쪽</description>
+    </item>
+    <item>
+      <name>picture-2-3-r</name>
+      <label>[포트폴리오] 사진 (2:3)/오른쪽</label>
+      <description>[포트폴리오] 사진 (2:3)/왼쪽</description>
+    </item>
+    <item>
+      <name>list-2</name>
+      <label>[포트폴리오] 리스트 (2단)</label>
+      <description>[포트폴리오] 리스트 (2단)</description>
+    </item>
+    <item>
+      <name>grid-2</name>
+      <label>[포트폴리오] 그리드 (2단)</label>
+      <description>[포트폴리오] 그리드 (2단)</description>
+    </item>
+    <item>
+      <name>N</name>
+      <label>[포트폴리오] N</label>
+      <description>[포트폴리오] N</description>
+    </item>
+    <item>
+      <name>Z-</name>
+      <label>[포트폴리오] Z-</label>
+      <description>[포트폴리오] Z-</description>
+    </item>
+    <item>
+      <name>title-summary-1/2</name>
+      <label>[타이포그래피] 제목과 설명 (1/2)</label>
+      <description>[타이포그래피] 제목과 설명 (1/2)</description>
+    </item>
+    <item>
+      <name>title-summary-2</name>
+      <label>[타이포그래피] 제목과 설명 (2단)</label>
+      <description>[타이포그래피] 제목과 설명 (2단)</description>
+    </item>
+    <item>
+      <name>title-l-2xl</name>
+      <label>[타이포그래피] 제목 (2X-Large)/왼쪽</label>
+      <description>[타이포그래피] 제목 (2X-Large)/왼쪽</description>
+    </item>
+    <item>
+      <name>title-c-2xl</name>
+      <label>[타이포그래피] 제목 (2X-Large)/중앙</label>
+      <description>[타이포그래피] 제목 (2X-Large)/중앙</description>
+    </item>
+    <item>
+      <name>title-r-2xl</name>
+      <label>[타이포그래피] 제목 (2X-Large)/오른쪽</label>
+      <description>[타이포그래피] 제목 (2X-Large)/오른쪽</description>
+    </item>
+    <item>
+      <name>title-l-xl</name>
+      <label>[타이포그래피] 제목 (X-Large)/왼쪽</label>
+      <description>[타이포그래피] 제목 (X-Large)/왼쪽</description>
+    </item>
+    <item>
+      <name>title-c-xl</name>
+      <label>[타이포그래피] 제목 (X-Large)/중앙</label>
+      <description>[타이포그래피] 제목 (X-Large)/중앙</description>
+    </item>
+    <item>
+      <name>title-r-xl</name>
+      <label>[타이포그래피] 제목 (X-Large)/오른쪽</label>
+      <description>[타이포그래피] 제목 (X-Large)/오른쪽</description>
+    </item>
+    <item>
+      <name>title-l-lg</name>
+      <label>[타이포그래피] 제목 (Large)/왼쪽</label>
+      <description>[타이포그래피] 제목 (Large)/왼쪽</description>
+    </item>
+    <item>
+      <name>title-c-lg</name>
+      <label>[타이포그래피] 제목 (Large)/중앙</label>
+      <description>[타이포그래피] 제목 (Large)/중앙</description>
+    </item>
+    <item>
+      <name>title-r-lg</name>
+      <label>[타이포그래피] 제목 (Large)/오른쪽</label>
+      <description>[타이포그래피] 제목 (Large)/오른쪽</description>
+    </item>
+    <item>
+      <name>title-l</name>
+      <label>[타이포그래피] 제목/왼쪽</label>
+      <description>[타이포그래피] 제목/왼쪽</description>
+    </item>
+    <item>
+      <name>title-c</name>
+      <label>[타이포그래피] 제목/중앙</label>
+      <description>[타이포그래피] 제목/중앙</description>
+    </item>
+    <item>
+      <name>title-r</name>
+      <label>[타이포그래피] 제목/오른쪽</label>
+      <description>[타이포그래피] 제목/오른쪽</description>
+    </item>
+    <item>
+      <name>summary-title-1/2</name>
+      <label>[타이포그래피] 설명과 제목 (1/2)</label>
+      <description>[타이포그래피] 설명과 제목 (1/2)</description>
+    </item>
+    <item>
+      <name>summary-l</name>
+      <label>[타이포그래피] 설명/왼쪽</label>
+      <description>[타이포그래피] 설명/왼쪽</description>
+    </item>
+    <item>
+      <name>summary-c</name>
+      <label>[타이포그래피] 설명/중앙</label>
+      <description>[타이포그래피] 설명/중앙</description>
+    </item>
+    <item>
+      <name>summary-r</name>
+      <label>[타이포그래피] 설명/오른쪽</label>
+      <description>[타이포그래피] 설명/오른쪽</description>
+    </item>
+    <item>
+      <name>button-l</name>
+      <label>[타이포그래피] 버튼/왼쪽</label>
+      <description>[타이포그래피] 버튼/왼쪽</description>
+    </item>
+    <item>
+      <name>button-c</name>
+      <label>[타이포그래피] 버튼/중앙</label>
+      <description>[타이포그래피] 버튼/중앙</description>
+    </item>
+    <item>
+      <name>button-r</name>
+      <label>[타이포그래피] 버튼/오른쪽</label>
+      <description>[타이포그래피] 버튼/오른쪽</description>
+    </item>
+    <item>
+      <name>link-l</name>
+      <label>[타이포그래피] 링크/왼쪽</label>
+      <description>[타이포그래피] 링크/왼쪽</description>
+    </item>
+    <item>
+      <name>link-c</name>
+      <label>[타이포그래피] 링크/중앙</label>
+      <description>[타이포그래피] 링크/중앙</description>
+    </item>
+    <item>
+      <name>link-r</name>
+      <label>[타이포그래피] 링크/오른쪽</label>
+      <description>[타이포그래피] 링크/오른쪽</description>
+    </item>
+    <item>
+      <name>keyword-l</name>
+      <label>[타이포그래피] 키워드/왼쪽</label>
+      <description>[타이포그래피] 키워드/왼족</description>
+    </item>
+    <item>
+      <name>keyword-c</name>
+      <label>[타이포그래피] 키워드/중앙</label>
+      <description>[타이포그래피] 키워드/중앙</description>
+    </item>
+    <item>
+      <name>keyword-r</name>
+      <label>[타이포그래피] 키워드/오른쪽</label>
+      <description>[타이포그래피] 키워드/오른쪽</description>
+    </item>
+    <item>
+      <name>empty-line-1</name>
+      <label>[베이직] 빈 줄 (1)</label>
+      <description>빈 줄입니다.</description>
+    </item>
+    <item>
+      <name>empty-line-2</name>
+      <label>[베이직] 빈 줄 (2)</label>
+      <description>빈 줄입니다.</description>
+    </item>
+    <item>
+      <name>empty-line-3</name>
+      <label>[베이직] 빈 줄 (3)</label>
+      <description>빈 줄입니다.</description>
+    </item>
+    <item>
+      <name>empty-line-4</name>
+      <label>[베이직] 빈 줄 (4)</label>
+      <description>빈 줄입니다.</description>
+    </item>
+    <item>
+      <name>empty-line-5</name>
+      <label>[베이직] 빈 줄 (5)</label>
+      <description>빈 줄입니다.</description>
     </item>
   </cover>
   <variables>

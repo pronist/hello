@@ -1,0 +1,66 @@
+//----------- PROFILE -----------//
+
++cover('profile')
+  +coverTitle()
+  +coverPosts('profile')
+    +coverPost({ link: false })
+
+//----------- GALLERY -----------//
+
++cover('poster')
+  +coverTitle()
+  +coverPosts('poster')
+    +coverPost({ summary: false })
++cover('square')
+  +coverTitle()
+  +coverPosts('square')
+    +coverPost({ summary: false })
+
+//----------- PICTURE -----------//
+
++cover('picture-1-1-l')
+  +coverTitle()
+  +coverPosts('picture-1-1')
+    +coverPost()(class='mr-auto cover-content-left')
++cover('picture-1-1-c')
+  +coverTitle()
+  +coverPosts('picture-1-1')
+    +coverPost()(class='mx-auto cover-content-center')
++cover('picture-1-1-r')
+  +coverTitle()
+  +coverPosts('picture-1-1')
+    +coverPost()(class='ml-auto cover-content-right')
++cover('picture-2-3-l')
+  +coverTitle()
+  +coverPosts('picture-2-3')
+    +coverPost()(class='mr-auto cover-content-left')
++cover('picture-2-3-c')
+  +coverTitle()
+  +coverPosts('picture-2-3')
+    +coverPost()(class='mx-auto cover-content-center')
++cover('picture-2-3-r')
+  +coverTitle()
+  +coverPosts('picture-2-3')
+    +coverPost()(class='ml-auto cover-content-right')
+
+//----------- LIST -----------//
+
++cover('list-2')
+  +coverTitle()
+  +coverPosts('list-2')
+    +coverPost({
+      fallback: false,
+      description: false
+    })
++cover('grid-2')
+  +coverTitle()
+  +coverPosts('grid-2')
+    +coverPost()
++cover('N')
+  +coverTitle()
+  +coverPosts('N')
+    +coverPost()
++cover('Z-')
+  +coverTitle()
+  +coverPosts('Z-')
+    +coverPost()
