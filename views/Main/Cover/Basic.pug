@@ -118,6 +118,7 @@ style
       @apply gap-y-6 sm:gap-y-0;
     }
 
+//- cover-content-left
 style
   :postcss
     .cover-content-left {
@@ -126,10 +127,15 @@ style
 
         .info {
           @apply flex flex-col items-start;
+
+          .header {
+            @apply items-start;
+          }
         }
       }
     }
 
+//- cover-content-center
 style
   :postcss
     .cover-content-center {
@@ -138,10 +144,15 @@ style
 
         .info {
           @apply flex flex-col items-center;
+
+          .header {
+            @apply items-center;
+          }
         }
       }
     }
 
+//- cover-content-right
 style
   :postcss
     .cover-content-right {
@@ -150,6 +161,10 @@ style
 
         .info {
           @apply flex flex-col items-end;
+
+          .header {
+            @apply items-end;
+          }
         }
       }
     }
