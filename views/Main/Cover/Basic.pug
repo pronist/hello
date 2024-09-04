@@ -118,6 +118,42 @@ style
       @apply gap-y-6 sm:gap-y-0;
     }
 
+style
+  :postcss
+    .cover-content-left {
+      .content {
+        @apply items-start;
+
+        .info {
+          @apply flex flex-col items-start;
+        }
+      }
+    }
+
+style
+  :postcss
+    .cover-content-center {
+      .content {
+        @apply items-center;
+
+        .info {
+          @apply flex flex-col items-center;
+        }
+      }
+    }
+
+style
+  :postcss
+    .cover-content-right {
+      .content {
+        @apply items-end;
+
+        .info {
+          @apply flex flex-col items-end;
+        }
+      }
+    }
+
 //- list
 style
   :postcss
