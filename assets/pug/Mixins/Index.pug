@@ -10,7 +10,7 @@ mixin index(type, hasCategory=true, options={})
       description: true,
       summary: true
     }
-  - options = { ...defaultOptions, ...options }
+  -options = { ...defaultOptions, ...options }
 
   .post&attributes(attributes)
     if options.link
