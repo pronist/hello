@@ -2,6 +2,7 @@ mixin index(type, hasCategory=true, options={})
   -
     const defaultOptions = {
       link: true,
+      picture: true,
       thumbnail: true,
       fallback: true,
       header: true,
@@ -15,15 +16,16 @@ mixin index(type, hasCategory=true, options={})
     if options.link
       a.link(href=`[##_${type}_${type === 'list_rep' || type === 'notice_rep' ? 'link' : 'url'}_##]`)
     .content
-      if options.thumbnail
+      if options.picture
         .picture
-          #{`s_${type}_thumbnail`}
-            .img
-              img.thumb(
-                data-src=`[##_${type}_thumbnail${type === 'notice_rep' ? '_url' : '' }_##]`
-                data-sizes='auto'
-                alt=''
-                class='lazyload')
+          if options.thumbnail
+            #{`s_${type}_thumbnail`}
+              .img
+                img.thumb(
+                  data-src=`[##_${type}_thumbnail${type === 'notice_rep' ? '_url' : '' }_##]`
+                  data-sizes='auto'
+                  alt=''
+                  class='lazyload')
           if options.fallback
             .fallback
       .info
