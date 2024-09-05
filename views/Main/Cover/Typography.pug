@@ -1,29 +1,39 @@
-//----------- TYPOGRAPHY -----------//
+//----------- TITLE -----------//
 
-+cover('title-summary-1/2')
++cover('title-l-3xl')
   +coverTitle()
-  +coverPosts('title-summary-1/2')
+  +coverPosts('title-3xl')
     +coverPost({
       link: false,
       picture: false,
-      description: false
-    })
-+cover('title-summary-2')
+      description: false,
+      summary: false
+    })(class='text-left')
++cover('title-c-3xl')
   +coverTitle()
-  +coverPosts('title-summary-2')
+  +coverPosts('title-3xl')
     +coverPost({
       link: false,
       picture: false,
-      description: false
-    })
+      description: false,
+      summary: false
+    })(class='text-center')
++cover('title-r-3xl')
+  +coverTitle()
+  +coverPosts('title-3xl')
+    +coverPost({
+      link: false,
+      picture: false,
+      description: false,
+      summary: false
+    })(class='text-right')
 +cover('title-l-2xl')
   +coverTitle()
   +coverPosts('title-2xl')
     +coverPost({
       link: false,
       picture: false,
-      description: false,
-      summary: false
+      description: false
     })(class='text-left')
 +cover('title-c-2xl')
   +coverTitle()
@@ -31,8 +41,7 @@
     +coverPost({
       link: false,
       picture: false,
-      description: false,
-      summary: false
+      description: false
     })(class='text-center')
 +cover('title-r-2xl')
   +coverTitle()
@@ -40,8 +49,7 @@
     +coverPost({
       link: false,
       picture: false,
-      description: false,
-      summary: false
+      description: false
     })(class='text-right')
 +cover('title-l-xl')
   +coverTitle()
@@ -115,14 +123,25 @@
       picture: false,
       description: false
     })(class='text-right')
-+cover('summary-title-1/2')
++cover('title-summary-1/2')
   +coverTitle()
-  +coverPosts('summary-title-1/2')
+  +coverPosts('title-summary-1/2')
     +coverPost({
       link: false,
       picture: false,
       description: false
     })
++cover('title-summary-2')
+  +coverTitle()
+  +coverPosts('title-summary-2')
+    +coverPost({
+      link: false,
+      picture: false,
+      description: false
+    })
+
+//----------- SUMMARY -----------//
+
 +cover('summary-l')
   +coverTitle()
   +coverPosts('summary')
@@ -147,6 +166,14 @@
       picture: false,
       header: false
     })(class='text-right')
++cover('summary-title-1/2')
+  +coverTitle()
+  +coverPosts('summary-title-1/2')
+    +coverPost({
+      link: false,
+      picture: false,
+      description: false
+    })
 
 //----------- BUTTON -----------//
 
