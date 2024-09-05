@@ -57,6 +57,31 @@
       <description>갤러리</description>
     </item>
     <item>
+      <name>empty-line-1</name>
+      <label>[빈 줄] 빈 줄 (1)</label>
+      <description>[빈 줄] 빈 줄 (1)</description>
+    </item>
+    <item>
+      <name>empty-line-2</name>
+      <label>[빈 줄] 빈 줄 (2)</label>
+      <description>[빈 줄] 빈 줄 (2)</description>
+    </item>
+    <item>
+      <name>empty-line-3</name>
+      <label>[빈 줄] 빈 줄 (3)</label>
+      <description>[빈 줄] 빈 줄 (3)</description>
+    </item>
+    <item>
+      <name>empty-line-4</name>
+      <label>[빈 줄] 빈 줄 (4)</label>
+      <description>[빈 줄] 빈 줄 (4)</description>
+    </item>
+    <item>
+      <name>empty-line-5</name>
+      <label>[빈 줄] 빈 줄 (5)</label>
+      <description>[빈 줄] 빈 줄 (5)</description>
+    </item>
+    <item>
       <name>profile</name>
       <label>[포트폴리오] 프로필</label>
       <description>[포트폴리오] 프로필</description>
@@ -255,31 +280,6 @@
       <name>keyword-r</name>
       <label>[타이포그래피] 키워드/오른쪽</label>
       <description>[타이포그래피] 키워드/오른쪽</description>
-    </item>
-    <item>
-      <name>empty-line-1</name>
-      <label>[베이직] 빈 줄 (1)</label>
-      <description>빈 줄입니다.</description>
-    </item>
-    <item>
-      <name>empty-line-2</name>
-      <label>[베이직] 빈 줄 (2)</label>
-      <description>빈 줄입니다.</description>
-    </item>
-    <item>
-      <name>empty-line-3</name>
-      <label>[베이직] 빈 줄 (3)</label>
-      <description>빈 줄입니다.</description>
-    </item>
-    <item>
-      <name>empty-line-4</name>
-      <label>[베이직] 빈 줄 (4)</label>
-      <description>빈 줄입니다.</description>
-    </item>
-    <item>
-      <name>empty-line-5</name>
-      <label>[베이직] 빈 줄 (5)</label>
-      <description>빈 줄입니다.</description>
     </item>
   </cover>
   <variables>
