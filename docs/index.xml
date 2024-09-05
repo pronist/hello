@@ -157,6 +157,21 @@
       <description>[타이포그래피] 제목과 설명 (2단)</description>
     </item>
     <item>
+      <name>title-l-3xl</name>
+      <label>[타이포그래피] 제목 (3X-Large)/왼쪽</label>
+      <description>[타이포그래피] 제목 (3X-Large)/왼쪽</description>
+    </item>
+    <item>
+      <name>title-c-3xl</name>
+      <label>[타이포그래피] 제목 (3X-Large)/중앙</label>
+      <description>[타이포그래피] 제목 (3X-Large)/중앙</description>
+    </item>
+    <item>
+      <name>title-r-3xl</name>
+      <label>[타이포그래피] 제목 (2X-Large)/오른쪽</label>
+      <description>[타이포그래피] 제목 (3X-Large)/오른쪽</description>
+    </item>
+    <item>
       <name>title-l-2xl</name>
       <label>[타이포그래피] 제목 (2X-Large)/왼쪽</label>
       <description>[타이포그래피] 제목 (2X-Large)/왼쪽</description>
