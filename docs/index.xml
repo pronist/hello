@@ -119,12 +119,12 @@
     <item>
       <name>picture-2-3-c</name>
       <label>[포트폴리오] 사진 (2:3)/중앙</label>
-      <description>[포트폴리오] 사진 (2:3)/왼쪽</description>
+      <description>[포트폴리오] 사진 (2:3)/중앙</description>
     </item>
     <item>
       <name>picture-2-3-r</name>
       <label>[포트폴리오] 사진 (2:3)/오른쪽</label>
-      <description>[포트폴리오] 사진 (2:3)/왼쪽</description>
+      <description>[포트폴리오] 사진 (2:3)/오른쪽</description>
     </item>
     <item>
       <name>list-2</name>
