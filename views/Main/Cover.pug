@@ -1,21 +1,3 @@
-mixin cover(name)
-  s_cover(name=name)
-    section.cover(class='flex flex-col items-center' data-cover-name=name)&attributes(attributes)
-      block
-
-mixin coverTitle()
-  header.header&attributes(attributes)
-    h1.tit(class='h-h min-h-[theme(spacing.h)] flex items-center font-bold text-3xl text-h-800 dark:text-h-200 empty:hidden')
-      | [##_cover_title_##]
-
-mixin coverPost(options={})
-  s_cover_item
-    +index('cover_item', true, options)&attributes(attributes)
-
-mixin coverPosts(style)
-  .posts(data-list-style=style)&attributes(attributes)
-    block
-
 s_cover_group
   section#cover(
     x-init='$store.header.show = false'
