@@ -46,7 +46,6 @@ module.exports = {
     variableSettings: {
       sidebar: false,
       'foldable-category': true,
-      'foldable-reply': true,
       width: '720',
       toc: true,
       scrollspy: true,
@@ -60,10 +59,10 @@ module.exports = {
      */
     coverSettings: [
       {
-        description: '슬라이드쇼',
+        description: '슬라이더',
         index: 0,
-        name: 'slideshow',
-        title: '슬라이드쇼',
+        name: 'slider',
+        title: '슬라이더',
         dataType: 'RECENT',
         data: {
           category: 'ALL',
