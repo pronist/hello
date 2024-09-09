@@ -61,6 +61,13 @@ script(once='alpine-scrollspy-component').
     open: false,
 
     /**
+     * Scroll in offset
+     *
+     * @type {number}
+     */
+    offset: 81, // Scroll margin top + 1
+
+    /**
      * Scollspy
      */
     scrollspy () {
@@ -126,7 +133,7 @@ script(once='alpine-scrollspy-component').
      * @returns {boolean}
      */
     in ($heading) {
-      return $heading.getBoundingClientRect().top < 0
+      return $heading.getBoundingClientRect().top < this.offset
     },
 
     /**
