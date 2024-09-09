@@ -364,13 +364,6 @@
         <type>STRING</type>
         <default>vs2015</default>
       </variable>
-      <variable>
-        <name>foldable-reply</name>
-        <label>댓글 접기/펼치기</label>
-        <description><![CDATA[ 댓글 접기/펼치기 ]]></description>
-        <type>BOOL</type>
-        <default>true</default>
-      </variable>
     </variablegroup>
   </variables>
   <default>
