@@ -13,7 +13,7 @@ mixin popup(type)
       class='fixed bottom-3 flex z-30 h-[calc(theme(spacing.24))] max-lg:hidden')&attributes(attributes)
       a.link(
         href=`[##_article_${type}_link_##]`
-        class='absolute w-full h-full z-10')
+        class='absolute top-0 left-0 w-full h-full z-10')
       #{`s_article_${type}_thumbnail`}
         .img
           img.thumb(
