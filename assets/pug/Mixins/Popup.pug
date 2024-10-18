@@ -10,7 +10,7 @@ mixin popup(type)
       x-transition:leave-end='opacity-0'
       x-show='open && $store.indicator.scrolled > 50'
       id=type
-      class='fixed bottom-3 flex z-30 h-[calc(theme(spacing.24))] max-lg:hidden')&attributes(attributes)
+      class='fixed bottom-3 flex z-[100] h-[calc(theme(spacing.24))] max-lg:hidden')&attributes(attributes)
       a.link(
         href=`[##_article_${type}_link_##]`
         class='absolute top-0 left-0 w-full h-full z-10')

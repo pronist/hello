@@ -1,6 +1,6 @@
 aside#sidebar(
   :class='sidebar ? "left-0" : "-left-[calc(theme(spacing.s))]"'
-  class='h-full fixed top-0 w-s overflow-hidden z-50 transition-[left] duration-200 p-0 bg-h-200 dark:bg-h-700 <s_if_var_sidebar>xl:left-0</s_if_var_sidebar>')
+  class='h-full fixed top-0 w-s overflow-hidden z-[9000] transition-[left] duration-200 p-0 bg-h-200 dark:bg-h-700 <s_if_var_sidebar>xl:left-0</s_if_var_sidebar>')
   ul.wrap(class='flex flex-col gap-y-6 overflow-x-hidden overflow-y-scroll h-full w-[calc(theme(spacing.s)+theme(spacing.8))] absolute py-6 border-box')
     s_sidebar
       s_sidebar_element
@@ -47,7 +47,7 @@ aside#sidebar(
       x-transition:leave-start='opacity-100'
       x-transition:leave-end='opacity-0'
       @click='sidebar = false'
-      class='fixed top-0 left-0 w-screen h-screen bg-h-900/50 backdrop-blur z-40 duration-200')
+      class='fixed top-0 left-0 w-screen h-screen bg-h-900/50 backdrop-blur z-[8000] duration-200')
 
 style
   :postcss

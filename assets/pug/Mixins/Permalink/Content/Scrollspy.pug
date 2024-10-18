@@ -14,13 +14,13 @@ template(x-if='$data.headings.length > 0')
       button.open(
         x-show='! open'
         @click='toggle'
-        class='fixed top-20 right-0 w-8 h-8 z-30 rounded-md bg-h-200 text-h-500 dark:bg-h-700 dark:text-h-200 2xl:hidden')
+        class='fixed top-20 right-0 w-8 h-8 z-[200] rounded-md bg-h-200 text-h-500 dark:bg-h-700 dark:text-h-200 2xl:hidden')
         span.txt(class='text-hidden') 목차
         i.ico(class='fa-solid fa-list-check')
       //- max-height: 100vh - (offset-top) - (bottom-button-height) - (extra-margin)
       .wrap(
         :class='open ? "max-2xl:right-4" : "max-2xl:-right-60"'
-        class='max-h-[calc(100vh-theme(spacing.20)-theme(spacing.10)-theme(spacing.3)-2rem)] overflow-hidden w-56 text-sm box-border max-2xl:transition-[right] max-2xl:duration-200 max-2xl:rounded-xl max-2xl:fixed max-2xl:top-20 max-2xl:right-4 max-2xl:z-40 max-2xl:bg-h-200 max-2xl:dark:bg-h-700 2xl:block')
+        class='max-h-[calc(100vh-theme(spacing.20)-theme(spacing.10)-theme(spacing.3)-2rem)] overflow-hidden w-56 text-sm box-border max-2xl:transition-[right] max-2xl:duration-200 max-2xl:rounded-xl max-2xl:fixed max-2xl:top-20 max-2xl:right-4 max-2xl:z-[201] max-2xl:bg-h-200 max-2xl:dark:bg-h-700 2xl:block')
         .spy(class='overflow-x-hidden overflow-y-scroll max-h-[inherit] w-[calc(theme(spacing.56)+theme(spacing.5))]')
           button.close(
             @click='toggle'
