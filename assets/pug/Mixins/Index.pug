@@ -15,8 +15,7 @@ mixin index(type, hasCategory=true, options={})
   .post&attributes(attributes)
     if options.link
       a.link(
-        href=`[##_${type}_${type === 'list_rep' || type === 'notice_rep' ? 'link' : 'url'}_##]`
-        target='_blank')
+        href=`[##_${type}_${type === 'list_rep' || type === 'notice_rep' ? 'link' : 'url'}_##]`)
     .content
       if options.picture
         .picture
