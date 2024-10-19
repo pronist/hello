@@ -147,6 +147,11 @@
       <description>[포트폴리오] Z-</description>
     </item>
     <item>
+      <name>grid-5</name>
+      <label>[포트폴리오] 그리드 (5단)</label>
+      <description>[포트폴리오] (5단)</description>
+    </item>
+    <item>
       <name>title-summary-1/2</name>
       <label>[타이포그래피] 제목과 설명 (1/2)</label>
       <description>[타이포그래피] 제목과 설명 (1/2)</description>
