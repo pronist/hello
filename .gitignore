@@ -2,3 +2,7 @@
 node_modules
 dist
 tidory.config.js
+
+# Private Submodules
+packages/portfolio
+

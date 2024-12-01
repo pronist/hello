@@ -5,6 +5,10 @@
     "email": "pronist@naver.com",
     "url": "https://github.com/pronist"
   },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "start": "cross-env NODE_ENV=development tidory start",
     "preview": "cross-env NODE_ENV=development tidory preview",
@@ -12,28 +16,26 @@
     "production": "cross-env NODE_ENV=production tidory production",
     "deploy": "tidory deploy",
     "store": "tidory store",
-    "lint": "eslint --ext .js --ignore-path .gitignore . && pug-lint ."
+    "lint": "eslint && pug-lint .",
+    "build:portfolio": "postcss packages/portfolio/src/css -d packages/portfolio/dist"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.13",
+    "@eslint/js": "^9.15.0",
+    "autoprefixer": "^10.4.20",
     "cross-env": "^7.0.2",
-    "eslint": "^7.27.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-loader": "^4.0.0",
-    "eslint-plugin-import": "^2.23.3",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.0",
-    "eslint-plugin-standard": "^5.0.0",
-    "pug-lint": "^2.6.0"
+    "eslint": "^9.15.0",
+    "eslint-webpack-plugin": "^4.2.0",
+    "globals": "^15.12.0",
+    "pug-lint": "^2.7.0"
   },
   "dependencies": {
-    "@alpinejs/collapse": "^3.11.1",
-    "@alpinejs/intersect": "^3.11.1",
-    "alpinejs": "^3.10.5",
-    "highlight.js": "^11.7.0",
-    "lazysizes": "^5.3.0",
-    "swiper": "^11.1.4",
-    "tailwindcss": "3.2.4",
-    "tidory": "8.4.2"
+    "@alpinejs/collapse": "^3.14.5",
+    "@alpinejs/intersect": "^3.14.5",
+    "alpinejs": "^3.14.5",
+    "highlight.js": "^11.10.0",
+    "lazysizes": "^5.3.2",
+    "swiper": "^11.1.15",
+    "tailwindcss": "3.2.7",
+    "tidory": "8.4.3"
   }
 }
