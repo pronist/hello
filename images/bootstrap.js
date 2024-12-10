@@ -66,4 +66,6 @@ darkMode.preferred && darkMode.toggle()
  */
 // eslint-disable-next-line no-unused-vars
 /* global tjQuery: readonly, $: writable */
-window.jQuery = $ = tjQuery
+if (Object.hasOwn(window, 'tjQuery')) {
+  window.jQuery = $ = tjQuery
+}
