@@ -169,9 +169,10 @@ script(once='alpine-article-component').
      * Set anchor to heading
      *
      * @param {HTMLElement} $heading
+     * @param {number} index
      */
-    setAnchorToHeading ($heading) {
-      const link = this.link($heading)
+    setAnchorToHeading ($heading, index) {
+      const link = this.link($heading, index)
       const $anchor = this.$anchor($heading, `#${link}`)
 
       $heading.setAttribute('id', link)
@@ -182,11 +183,12 @@ script(once='alpine-article-component').
      * Get link for heading
      *
      * @param {HTMLElement} $heading
+     * @param {number} index
      *
      * @return {string}
      */
-    link ($heading) {
-      return this.$id(encodeURIComponent($heading.textContent))
+    link ($heading, index) {
+      return this.$id(encodeURIComponent($heading.textContent), index)
     },
 
     /**
