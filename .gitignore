@@ -4,5 +4,5 @@ dist
 tidory.config.js
 
 # Private Submodules
-packages/portfolio
+packages
 
