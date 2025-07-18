@@ -1,6 +1,6 @@
 # hELLO
 
-[hELLO](https://pronist.tistory.com/5) 는 [티도리 프레임워크](https://github.com/pronist/tidory/wiki)로 작성된 티스토리 스킨입니다. 따라서 별도의 개발 방식이 요구됩니다. 먼저, 프로젝트를 복사합니다.
+[hELLO](https://pronist.tistory.com/5)는 [티도리 프레임워크](https://github.com/pronist/tidory/wiki)로 작성된 티스토리 스킨입니다. 따라서 별도의 개발 방식이 요구됩니다. 먼저, 프로젝트를 복사합니다.
 
 ```bash
 git clone https://github.com/pronist/hello
@@ -30,4 +30,4 @@ npm run production && npm run deploy
 
 ## 저작권
 
-Copyright 2020-2024. [SangWoo Jeong](https://github.com/pronist). All rights reserved.
+Copyright 2020-2025. [SangWoo Jeong](https://github.com/pronist). All rights reserved.
