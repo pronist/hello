@@ -55,7 +55,7 @@ script.
      * can subscribe?
      */
     canSubscribe () {
-      return T.config.ROLE !== "owner" && /^(.*\.tistory\.com)$/.test(location.hostname)
+      return this.guest && /^(.*\.tistory\.com)$/.test(location.hostname)
     },
 
     /**
@@ -63,6 +63,15 @@ script.
      */
     setTistoryMenuToolbar () {
       const tistoryMenuToolbar = document.getElementById('menubar_wrapper')
+
+      const hidden = () => {
+        const containerLg = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--h-idx'), 10)
+        const hidden = this.guest && window.innerWidth < containerLg // max-lg
+
+        tistoryMenuToolbar.style.display = hidden ? 'none' : 'inline-block'
+      }
+
+      window.addEventListener('resize', hidden)
 
       tistoryMenuToolbar && this.$refs.toolbar.append(tistoryMenuToolbar)
     },
@@ -88,6 +97,15 @@ script.
         this.$refs.header,
         this.$refs.globalHeader
       ]
+    },
+
+    /**
+     * guest
+     *
+     * @returns {boolean}
+     */
+    get guest() {
+      return T.config.ROLE !== "owner"
     }
   })))
 
@@ -102,10 +120,6 @@ style
     #top {
       .menu_toolbar {
         @apply static flex gap-x-2.5;
-
-        #menubar_wrapper {
-          @apply max-lg:hidden;
-        }
 
         .subscribe,
         .btn_menu_type2 {
