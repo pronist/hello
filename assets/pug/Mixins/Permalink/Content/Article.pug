@@ -83,6 +83,12 @@ style(once='article')
           th {
             @apply bg-transparent border-0 border-b border-solid border-h-300 px-3 py-4 box-border text-sm leading-loose text-h-600;
             @apply dark:text-h-200 dark:border-h-600;
+
+            figure {
+              &.imageblock.alignCenter {
+                @apply w-full !important;
+              }
+            }
           }
         }
 
