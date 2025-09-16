@@ -23,9 +23,11 @@ aside#top(
     class='max-w-[calc(80vw-152px)] h-5')
     .txt(class='m-0 text-overflow-hidden text-sm font-bold text-h-800 dark:text-h-200') [##_page_title_##]
   #menu-toolbar(
-    x-ref='toolbar'
+    x-data='menuToolbar'
     class='menu_toolbar')
-    template(x-if='canSubscribe')
+    template(
+      x-data='subscribe'
+      x-if='canSubscribe')
       button.subscribe(
         :data-blog-id='T.config.BLOG.id'
         :data-url='TistoryBlog.tistoryUrl'
@@ -44,36 +46,7 @@ script.
      * Init
      */
     init () {
-      if (/^(.*\.tistory\.com)$/.test(location.hostname)) {
-        this.setTistoryMenuToolbar()
-      }
-
       this.toggle()
-    },
-
-    /**
-     * can subscribe?
-     */
-    canSubscribe () {
-      return this.guest && /^(.*\.tistory\.com)$/.test(location.hostname)
-    },
-
-    /**
-     * Set TISTORY menu toolbar
-     */
-    setTistoryMenuToolbar () {
-      const tistoryMenuToolbar = document.getElementById('menubar_wrapper')
-
-      const hidden = () => {
-        const containerLg = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--h-idx'), 10)
-        const hidden = this.guest && window.innerWidth < containerLg // max-lg
-
-        tistoryMenuToolbar.style.display = hidden ? 'none' : 'inline-block'
-      }
-
-      window.addEventListener('resize', hidden)
-
-      tistoryMenuToolbar && this.$refs.toolbar.append(tistoryMenuToolbar)
     },
 
     /**
@@ -97,15 +70,70 @@ script.
         this.$refs.header,
         this.$refs.globalHeader
       ]
+    }
+  })))
+
+script.
+  document.addEventListener('alpine:init', () => Alpine.data('menuToolbar', () => ({
+    /**
+     * Init
+     */
+    init () {
+      if (/^(.*\.tistory\.com)$/.test(location.hostname)) {
+        this.setTistoryMenubar()
+      }
     },
 
     /**
-     * guest
-     *
-     * @returns {boolean}
+     * Set TISTORY menu toolbar
      */
-    get guest() {
-      return T.config.ROLE !== "owner"
+    setTistoryMenubar () {
+      const tistoryMenubar = document.getElementById('menubar_wrapper')
+
+      if (tistoryMenubar) {
+        tistoryMenubar.setAttribute('x-data', 'tistoryMenubar')
+        tistoryMenubar.setAttribute('x-on:resize.window', 'toggle')
+        
+        this.$el.append(tistoryMenubar)
+      }
+    }
+  })))
+
+script.
+  document.addEventListener('alpine:init', () => Alpine.data('subscribe', () => ({
+    /**
+     * Can subscribe?
+     */
+    canSubscribe () {
+      return T.config.ROLE !== "owner" && /^(.*\.tistory\.com)$/.test(location.hostname)
+    }
+  })))
+
+script.
+  document.addEventListener('alpine:init', () => Alpine.data('tistoryMenubar', () => ({
+    /**
+     * Init
+     */
+    init () {
+      this.toggle()
+    },
+
+    /**
+     * Toggle TISTORY menu toolbar by hidden condition
+     */
+    toggle () {
+      this.$el.style.display = this.hidden ? 'none' : 'inline-block'
+    },
+
+    /**
+     * Is hidden?
+     *
+     * @var {boolean}
+     */
+    get hidden () {
+      const containerLg = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--h-idx'), 10)
+
+      return T.config.ROLE !== "owner" && window.innerWidth < containerLg // max-lg
     }
   })))
 
