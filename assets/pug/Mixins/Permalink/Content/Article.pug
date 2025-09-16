@@ -61,7 +61,7 @@ style(once='article')
             @apply inline-block text-h-orange dark:text-h-blue;
           }
 
-          code {
+          code:not(:where(pre *)) {
             @apply rounded-md relative -top-[1px] px-1.5 py-0.5 whitespace-normal text-sm font-sans text-h-orange bg-h-200;
             @apply dark:text-h-blue dark:bg-h-700;
           }
