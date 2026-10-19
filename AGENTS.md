@@ -42,10 +42,10 @@
 | `views/` | 화면별 UI 구현 |
 | `assets/pug/Mixins.pug` | 공용 믹스인 집합 |
 
-- Pug 파일에 마크업·스크립트·스타일이 함께 존재. 화면 수정 시 해당 파일의 세 영역을 함께 확인.
+- Pug 파일에 마크업·스크립트·스타일이 함께 존재 → 화면 수정 시 해당 파일의 세 영역을 함께 확인.
 - Tidory가 Pug의 스크립트와 스타일을 별도 리소스로 추출 → `fixed`, `once` 속성의 의미는 프레임워크 문서 참고.
 - `@`는 `assets`, `~views`는 `views`를 가리키는 별칭.
-- 티스토리 그룹 태그와 치환자는 서버에서 해석. 원본 Pug나 정적 HTML만으로 최종 화면을 판단하지 말 것.
+- 티스토리 그룹 태그와 치환자는 서버에서 해석 → 원본 Pug나 정적 HTML만으로 최종 화면을 판단하지 말 것.
 
 ### 공통 화면
 
@@ -88,7 +88,7 @@
 | 빈 줄 | [views/Main/Cover/EmptyLine.pug](views/Main/Cover/EmptyLine.pug) |
 
 - `Basic.pug`의 스타일은 일반 글 목록에도 적용.
-- 포트폴리오·타이포그래피 커버의 마크업은 hELLO에서 관리. 유료 확장 CSS는 별도 비공개 저장소인 [hello-portfolio](https://github.com/pronist/hello-portfolio)에서 직접 관리·배포.
+- 포트폴리오·타이포그래피 커버의 마크업은 hELLO에서 관리, CSS는 별도 비공개 저장소인 [hello-portfolio](https://github.com/pronist/hello-portfolio)에서 직접 관리·배포.
 
 ### 사이드바
 
@@ -118,7 +118,7 @@
 | [Popup.pug](assets/pug/Mixins/Popup.pug) | `popup` | 이전 글·다음 글 팝업 |
 
 - 믹스인은 재사용 가능한 마크업 함수. `+permalink('article', false)`는 `permalink` 호출이며, 인자에 따라 출력 구성 변경.
-- `coverPost`도 `index` 믹스인을 사용. 목록 변경 시 커버 확인.
+- `coverPost`도 `index` 믹스인을 사용 → 목록 변경 시 커버 확인.
 - 특정 화면만 바꾸는 요청은 공용 믹스인 전체에 적용되지 않도록 호출부와 조건 확인.
 
 ### 본문
@@ -147,8 +147,8 @@
 | 색상·폰트·브레이크포인트·크기 | [tailwind.config.js](tailwind.config.js) |
 | 화면별 스타일 | 해당 Pug의 `style`·`:postcss` 영역 |
 
-- `@apply`는 Tailwind 유틸리티를 CSS 규칙에 적용하는 표현.
 - 브레이크포인트는 프로젝트에서 재정의. Tailwind 기본 화면 크기로 가정하지 말 것.
+- `@apply`는 Tailwind 유틸리티를 CSS 규칙에 적용하는 표현.
 - 새 파일에서 Tailwind 클래스를 사용할 때는 `tailwind.config.js`의 `content` 탐색 범위 확인.
 
 ### 선택자
@@ -191,13 +191,14 @@
 
 - 화면별 상태와 이벤트는 기존 `Alpine.data`·`x-data` 구조에 맞춰 구현.
 - 전역 이벤트는 모든 화면에 영향. 특정 기능의 동작을 추가하기 전에 컴포넌트 범위 확인.
-- `bootstrap.js`는 `<head>`에서 동기 실행. 렌더링 전에 필요한 처리만 배치.
+- [bootstrap.js](images/bootstrap.js)는 `<head>`에서 동기 실행. 렌더링 전에 필요한 처리만 배치.
+- 외부 라이브러리 로딩은 [vendor.js](assets/js/vendor.js) → 해당 라이브러리를 사용하는 동작은 화면 컴포넌트까지 확인.
 
 ### Alpine 레퍼런스
 
-- `Alpine.data`로 컴포넌트 정의, `x-data`로 해당 DOM 영역에 연결.
 - `Alpine.store`는 여러 영역에서 참조하는 공유 상태. `$store.header`처럼 접근.
-- 자식 템플릿은 부모의 상태를 참조할 수 있음. 해당 파일에 정의가 없으면 상위 `x-data` 확인.
+- `Alpine.data`로 컴포넌트 정의, `x-data`로 해당 DOM 영역에 연결.
+- 자식 템플릿은 부모의 상태를 참조할 수 있음 → 해당 파일에 정의가 없으면 상위 `x-data` 확인.
 
 | 컴포넌트·상태 | 소스 | 역할 |
 | --- | --- | --- |
@@ -214,8 +215,7 @@
 | `$store.header` | [Header.pug](views/Main/Header.pug) | 공통 헤더 제목·표시 상태 |
 | `$store.indicator` | [Indicator.pug](views/Indicator.pug) | 스크롤 진행 상태 |
 
-- 목차와 스크롤스파이는 `content`의 `headings` 공유. 제목 수집 방식 변경 시 두 화면을 함께 확인.
-- 외부 라이브러리 로딩은 [vendor.js](assets/js/vendor.js), 해당 라이브러리를 사용하는 동작은 화면 컴포넌트까지 확인.
+- 목차와 스크롤스파이는 `content`의 `headings` 공유 → 제목 수집 방식 변경 시 두 화면을 함께 확인.
 
 ## 스킨 옵션
 
