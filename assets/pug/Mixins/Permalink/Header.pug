@@ -16,7 +16,7 @@ header#header(
       unless hasCategory
         case type
           when 'notice'
-            a.category(class='/notice') 공지사항
+            a.category(href='/notice') 공지사항
       else
         a.category(href='[##_article_rep_category_link_##]') [##_article_rep_category_##]
       if hasCategory
