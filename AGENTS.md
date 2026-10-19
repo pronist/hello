@@ -111,7 +111,7 @@
 | 빈 줄 | [views/Main/Cover/EmptyLine.pug](views/Main/Cover/EmptyLine.pug) |
 
 - `Basic.pug`의 스타일은 일반 글 목록에도 적용. 파일 위치만 보고 커버 전용으로 판단하지 말 것.
-- 포트폴리오 커버는 hELLO의 화면 구성 요소. 별개 프로젝트인 `packages/portfolio`와 구분.
+- 포트폴리오·타이포그래피 커버의 마크업은 hELLO에서 관리. 유료 확장 CSS는 별도 비공개 저장소인 [hello-portfolio](https://github.com/pronist/hello-portfolio)에서 직접 관리·배포.
 
 ## 사이드바 레퍼런스
 

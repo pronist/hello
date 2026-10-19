@@ -16,8 +16,7 @@
     "production": "cross-env NODE_ENV=production tidory production",
     "deploy": "tidory deploy",
     "store": "tidory store",
-    "lint": "eslint && pug-lint .",
-    "build:portfolio": "postcss packages/portfolio/src/css -d packages/portfolio/dist"
+    "lint": "eslint && pug-lint ."
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
