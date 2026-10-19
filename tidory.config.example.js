@@ -1,38 +1,18 @@
 const ESLintPlugin = require('eslint-webpack-plugin')
 
-/**
- * Tidory Configuration
- * @see https://tidory.github.io/docs/configuration/
- */
+/** @see https://tidory.github.io/docs/configuration/ */
 module.exports = {
   ts_session: '',
   url: '',
 
   preview: {
-    /**
-     * homeType
-     *
-     * NONE
-     * COVER
-     */
+    /** Home type: NONE or COVER. */
     homeType: 'NONE',
 
-    /**
-     * Preview Mode
-     *
-     * index
-     * entry
-     * category
-     * tag
-     * guestbook
-     */
+    /** Preview mode: index, entry, category, tag, or guestbook. */
     mode: 'index',
 
-    /**
-     * Skin Settings
-     *
-     * @see https://tistory.github.io/document-tistory-skin/common/index.xml.html
-     */
+    /** @see https://tistory.github.io/document-tistory-skin/common/index.xml.html */
     skinSettings: {
       liststyle: 'list',
       recentEntries: 5,
@@ -42,9 +22,6 @@ module.exports = {
       lengthOfRecentComment: 32
     },
 
-    /**
-     * Variables
-     */
     variableSettings: {
       sidebar: false,
       'foldable-category': true,
@@ -56,9 +33,6 @@ module.exports = {
       'header-style': 'simple'
     },
 
-    /**
-     * Cover Settings
-     */
     coverSettings: [
       {
         description: '슬라이더',
@@ -112,11 +86,7 @@ module.exports = {
     '~views': 'views'
   },
 
-  /**
-   * Webpack Configuration
-   *
-   * @param {object} webpackConfig
-   */
+  /** @param {object} webpackConfig */
   extends (webpackConfig) {
     webpackConfig.plugins = [
       new ESLintPlugin({ configType: 'flat' }),

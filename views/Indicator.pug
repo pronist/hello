@@ -7,14 +7,8 @@ aside#indicator(
 
 script.
   document.addEventListener('alpine:init', () => Alpine.store('indicator', {
-    /**
-     * Scrolled
-     */
     scrolled: 0,
 
-    /**
-     * Scroll indicate
-     */
     indicate () {
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight

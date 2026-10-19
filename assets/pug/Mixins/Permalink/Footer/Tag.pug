@@ -6,16 +6,10 @@ s_tag_label
 
 script.
   document.addEventListener('alpine:init', () => Alpine.data('tag', () => ({
-    /**
-     * Init
-     */
     init () {
       this.removeAllCommas()
     },
 
-    /**
-     * Remove all commas
-     */
     removeAllCommas () {
       for (const node of this.$el.childNodes) {
         if (node.nodeType === 3) {

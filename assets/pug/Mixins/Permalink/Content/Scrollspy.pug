@@ -39,52 +39,23 @@ template(x-if='$data.headings.length > 0')
 
 script(once='alpine-scrollspy-component').
   document.addEventListener('alpine:init', () => Alpine.data('scrollspy', () => ({
-    /**
-     * Show
-     *
-     * @type {boolean}
-     */
     show: false,
 
-    /**
-     * On active Class
-     *
-     * @type {string}
-     */
     activeClass: 'active',
 
-    /**
-     * Open
-     *
-     * @type {boolean}
-     */
     open: false,
 
-    /**
-     * Scroll in offset
-     *
-     * @type {number}
-     */
     offset: 81, // Scroll margin top + 1
 
-    /**
-     * Scollspy
-     */
     scrollspy () {
       this.track()
       this.on()
     },
 
-    /**
-     * Toggle
-     */
     toggle () {
       this.open = ! this.open
     },
 
-    /**
-     * Track
-     */
     track () {
       const $headings = this.$headings
 
@@ -102,34 +73,21 @@ script(once='alpine-scrollspy-component').
       }
     },
 
-    /**
-     * On
-     */
     on () {
       this.show = this.$article.getBoundingClientRect().top < 0
     },
 
-    /**
-     * Active
-     *
-     * @param {number} index
-     */
+    /** @param {number} index */
     hit (index) {
       this.$data.headings[index].active = true
     },
 
-    /**
-     * inactive All
-     */
     reset () {
       this.$data.headings.forEach(spy => spy.active = false)
     },
 
     /**
-     * Scroll in heading
-     *
      * @param {HTMLElement} $heading
-     *
      * @returns {boolean}
      */
     in ($heading) {
@@ -137,30 +95,19 @@ script(once='alpine-scrollspy-component').
     },
 
     /**
-     * Scroll out heading
-     *
      * @param {HTMLElement} $heading
-     *
      * @returns {boolean}
      */
     out ($heading) {
       return $heading.getBoundingClientRect().top > 0
     },
 
-    /**
-     * Article
-     *
-     * @returns {HTMLElement}
-     */
+    /** @returns {HTMLElement} */
     get $article () {
       return this.$refs.article
     },
 
-    /**
-     * Get headings in content
-     *
-     * @return {NodeListOf<HTMLElement>}
-     */
+    /** @return {NodeListOf<HTMLElement>} */
     get $headings () {
       return this.$article.querySelectorAll(this.$data.supportHeadings)
     }

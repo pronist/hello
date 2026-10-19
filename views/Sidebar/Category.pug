@@ -3,25 +3,15 @@ li#category.el(x-data='category')
 
 script.
   document.addEventListener('alpine:init', () => Alpine.data('category', () => ({
-    /**
-     * @var {Boolean} foldableCategory
-     */
     foldableCategory: skinOptions.foldableCategory,
 
-    /**
-     * Init
-     */
     init () {
       if (this.foldableCategory) {
         this.$subCategories.forEach(this.foldable.bind(this))
       }
     },
 
-    /**
-     * Foldable
-     *
-     * @param {HTMLElement} $subCategory
-     */
+    /** @param {HTMLElement} $subCategory */
     foldable ($subCategory) {
       $subCategory.parentNode.setAttribute('x-data', '{ open: false }')
       $subCategory.setAttribute('x-show', 'open')
@@ -35,20 +25,12 @@ script.
       $subCategory.parentNode.prepend($icon)
     },
 
-    /**
-     * Get subcategories
-     *
-     * @var {NodeListOf<HTMLElement>} $subCategories
-     */
+    /** @returns {NodeListOf<HTMLElement>} */
     get $subCategories () {
       return this.$el.querySelectorAll('.sub_category_list')
     },
 
-    /**
-     * Get a new icon
-     *
-     * @var {HTMLElement} $icon
-     */
+    /** @returns {HTMLElement} */
     get $icon () {
       const icon = document.createElement('i')
 

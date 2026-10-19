@@ -37,8 +37,6 @@ html#hELLO(
 
     script(fixed).
       /**
-       * Set skin options
-       *
        * @see https://tistory.github.io/document-tistory-skin/common/variable.html
        * @see docs/index.xml
        */
@@ -60,26 +58,14 @@ html#hELLO(
 
     script.
       document.addEventListener('alpine:init', () => Alpine.data('app', () => ({
-        /**
-         * @type {boolean}
-         */
         dark: darkMode.on,
 
-        /**
-         * @type {boolean}
-         */
         loading: true,
 
-        /**
-         * Init
-         */
         init () {
           this.loaded()
         },
 
-        /**
-         * Loaded
-         */
         loaded () {
           setTimeout(() => this.loading = false, 100)
         }

@@ -9,23 +9,10 @@
 
 script(once='alpine-article-component').
   document.addEventListener('alpine:init', () => Alpine.data('content', () => ({
-    /**
-     * Support Headings
-     *
-     * @property {array} headings
-     */
     supportHeadings: '.contents_style > h2, .contents_style > h3',
 
-    /**
-     * Headings
-     *
-     * @property {array} headings
-     */
     headings: [],
 
-    /**
-     * Init 'content' Component
-     */
     init () {
       this.setAnchorToHeadings()
       this.collectHeading()
@@ -34,25 +21,16 @@ script(once='alpine-article-component').
       this.setPositionToImages()
     },
 
-    /**
-     * Add blank hash To morelesses
-     */
     addBlankHashToMoreLesses () {
       this.$article.querySelectorAll('a.btn-toggle-moreless').forEach($moreless => {
         $moreless.setAttribute('href', '#')
       })
     },
 
-    /**
-     * Syntax highlighting code blocks in template
-     */
     highlightCodeBlocks () {
       this.$article.querySelectorAll('pre code').forEach(hljs.highlightElement)
     },
 
-    /**
-     * Collect heading in template
-     */
     collectHeading () {
       this.$headings.forEach($heading => {
         const heading = this.heading($heading)
@@ -62,10 +40,7 @@ script(once='alpine-article-component').
     },
 
     /**
-     * Get new Scrollspy item
-     *
      * @param {HTMLElement} $heading
-     *
      * @return {object}
      */
     heading ($heading) {
@@ -78,19 +53,12 @@ script(once='alpine-article-component').
       }
     },
 
-    /**
-     * Set position to images
-     */
     setPositionToImages () {
       this.$article.querySelectorAll('figure.imageblock').forEach(this.setImageBlockPosition.bind(this))
       this.$article.querySelectorAll('figure.imagegridblock').forEach(this.setImageGridBlockPosition.bind(this))
     },
 
-    /**
-     * Set image block position
-     *
-     * @param {HTMLElement} $imageBlock
-     */
+    /** @param {HTMLElement} $imageBlock */
     setImageBlockPosition ($imageBlock) {
       const width = this.imageBlockWidth($imageBlock)
 
@@ -105,11 +73,7 @@ script(once='alpine-article-component').
       this.setImageBlockWidth($imageBlock, width)
     },
 
-    /**
-     * Set image grid block position
-     *
-     * @param {HTMLElement} $imageBlock
-     */
+    /** @param {HTMLElement} $imageBlock */
     setImageGridBlockPosition ($imageBlock) {
       const width = this.imageGridBlockWidth()
 
@@ -117,11 +81,7 @@ script(once='alpine-article-component').
       this.setImageBlockWidth($imageBlock, width)
     },
 
-    /**
-     * Center image block
-     *
-     * @param {HTMLElement} $imageBlock
-     */
+    /** @param {HTMLElement} $imageBlock */
     imageBlockWidth ($imageBlock) {
       const $imageWrap = $imageBlock.querySelector('span, a')
       const $image = $imageWrap.querySelector('img')
@@ -130,16 +90,11 @@ script(once='alpine-article-component').
       return width > 1100 ? 1100 : width
     },
 
-    /**
-     * Center image grid block
-     */
     imageGridBlockWidth () {
       return 1100
     },
 
     /**
-     * set Image Width
-     *
      * @param {HTMLElement} $imageBlock
      * @param {String|Number} width
      */
@@ -148,26 +103,17 @@ script(once='alpine-article-component').
       $imageBlock.style.maxWidth = `${width}px`
     },
 
-    /**
-     * set Image block to center
-     *
-     * @param {HTMLElement} $imageBlock
-     */
+    /** @param {HTMLElement} $imageBlock */
     setImageBlockToCenter ($imageBlock) {
       $imageBlock.style.marginLeft = '50%'
       $imageBlock.style.transform = 'translateX(-50%)'
     },
 
-    /**
-     * Set anchor to headings in template
-     */
     setAnchorToHeadings () {
       this.$headings.forEach(this.setAnchorToHeading.bind(this))
     },
 
     /**
-     * Set anchor to heading
-     *
      * @param {HTMLElement} $heading
      * @param {number} index
      */
@@ -180,11 +126,8 @@ script(once='alpine-article-component').
     },
 
     /**
-     * Get link for heading
-     *
      * @param {HTMLElement} $heading
      * @param {number} index
-     *
      * @return {string}
      */
     link ($heading, index) {
@@ -192,11 +135,8 @@ script(once='alpine-article-component').
     },
 
     /**
-     * Get new anchor
-     *
      * @param {HTMLElement} $heading
      * @param {string} link
-     *
      * @return {HTMLElement}
      */
     $anchor ($heading, link) {
@@ -208,20 +148,12 @@ script(once='alpine-article-component').
       return $anchor
     },
 
-    /**
-     * Get article template content
-     *
-     * @return {HTMLElement}
-     */
+    /** @return {HTMLElement} */
     get $article () {
       return this.$refs.article
     },
 
-    /**
-     * Get headings in content
-     *
-     * @return {NodeListOf<HTMLElement>}
-     */
+    /** @return {NodeListOf<HTMLElement>} */
     get $headings () {
       return this.$article.querySelectorAll(this.supportHeadings)
     }

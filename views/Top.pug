@@ -37,21 +37,12 @@ aside#top(
 
 script.
   document.addEventListener('alpine:init', () => Alpine.data('top', () => ({
-    /**
-     * @property {boolean} open
-     */
     open: true,
 
-    /**
-     * Init
-     */
     init () {
       this.toggle()
     },
 
-    /**
-     * Toggle
-     */
     toggle () {
       this.$targets.forEach(el => {
         if (document.body.contains(el)) {
@@ -60,11 +51,7 @@ script.
       })
     },
 
-    /**
-     * targets
-     *
-     * @returns {Array<HTMLElement>}
-     */
+    /** @returns {Array<HTMLElement>} */
     get $targets () {
       return [
         this.$refs.header,
@@ -75,18 +62,12 @@ script.
 
 script.
   document.addEventListener('alpine:init', () => Alpine.data('menuToolbar', () => ({
-    /**
-     * Init
-     */
     init () {
       if (/^(.*\.tistory\.com)$/.test(location.hostname)) {
         this.setTistoryMenubar()
       }
     },
 
-    /**
-     * Set TISTORY menu toolbar
-     */
     setTistoryMenubar () {
       const tistoryMenubar = document.getElementById('menubar_wrapper')
 
@@ -101,9 +82,6 @@ script.
 
 script.
   document.addEventListener('alpine:init', () => Alpine.data('subscribe', () => ({
-    /**
-     * Can subscribe?
-     */
     canSubscribe () {
       return T.config.ROLE !== "owner" && /^(.*\.tistory\.com)$/.test(location.hostname)
     }
@@ -111,25 +89,14 @@ script.
 
 script.
   document.addEventListener('alpine:init', () => Alpine.data('tistoryMenubar', () => ({
-    /**
-     * Init
-     */
     init () {
       this.toggle()
     },
 
-    /**
-     * Toggle TISTORY menu toolbar by hidden condition
-     */
     toggle () {
       this.$el.style.display = this.hidden ? 'none' : 'inline-block'
     },
 
-    /**
-     * Is hidden?
-     *
-     * @var {boolean}
-     */
     get hidden () {
       const containerLg = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--h-idx'), 10)
 
