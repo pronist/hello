@@ -1,12 +1,14 @@
 # hELLO
 
-[hELLO](https://pronist.tistory.com/5)는 [티도리 프레임워크](https://github.com/pronist/tidory/wiki)로 작성된 [티스토리 스킨](https://tistory.github.io/document-tistory-skin/)입니다. 따라서 별도의 개발 방식이 요구됩니다. 먼저, 프로젝트를 복사합니다.
+[hELLO](https://pronist.tistory.com/5)는 [티도리 프레임워크](https://github.com/pronist/tidory/wiki)로 작성된 [티스토리 스킨](https://tistory.github.io/document-tistory-skin/)입니다. 일반적인 프론트엔드 개발과 다르기 때문에 이 프로젝트를 시작하기 전에 해당 문서들을 반드시 먼저 읽어야 합니다. 
+
+먼저, 프로젝트를 복사합니다.
 
 ```bash
 git clone https://github.com/pronist/hello
 ```
 
-프로젝트 폴더로 이동하여 `node_modules`를 설치해줄 필요가 있습니다. 티도리 프레임워크는 **Node.js, Webpack**을 기반으로 합니다. 따라서 **NPM(Node Package Manager)**이 요구됩니다.
+프로젝트 폴더로 이동하여 `node_modules`를 설치해줄 필요가 있습니다.
 
 ```bash
 cd hello && npm install
